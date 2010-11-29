@@ -1,0 +1,22 @@
+---
+layout: default
+home: true
+title: On Ruby, JavaScript, and other shiny objects.
+excerpt: On Ruby, JavaScript, and other shiny objects.
+---
+
+{% for post in site.posts limit:10 %}
+  <div class="post">
+    <h3><a href="{{ post.url }}/">{{ post.title }}</a></h3>
+    <p class="date">{{ post.date | date_to_string }}
+      {% if post.author %}
+        by <a href="http://twitter.com/{{ post.author.twitter }}" title="{{ post.author.full}}">@{{ post.author.twitter }}</a>
+      {% endif %}
+    </p>
+    <p>{{ post.excerpt }}</p>
+  </div>
+{% endfor %}
+
+<p id="footnote">
+  Looking for something a little older? Search the <a href="/archives">archives</a>.
+</p>

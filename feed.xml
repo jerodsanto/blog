@@ -1,0 +1,29 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Jerod Santo</title>
+  <link href="{{ site.url }}/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}/</id>
+  <author>
+    <name>Jerod Santo</name>
+  </author>
+
+  {% for post in site.posts %}
+  <entry>
+    <title type="html">{{ post.title | xml_escape }}</title>
+    <link href="http://{{ site.url }}{{ post.url }}"/>
+    <id>{{ site.url }}{{ post.url }}</id>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <content type="html">
+      {% if post.author %}
+        &lt;p&gt;This is a guest post written by &lt;a href=&quot;http://twitter.com/{{ post.author.twitter }}&quot; title=&quot;{{ post.author.full}}&quot;&gt;@{{ post.author.twitter }}&lt;/a&gt;. {{ post.author.description | xml_escape }}
+      {% endif %}{{ post.content | xml_escape }}
+    </content>
+  </entry>
+  {% endfor %}
+</feed>
