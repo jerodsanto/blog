@@ -4,7 +4,7 @@ require 'date'
 
 desc 'deploy it'
 task :deploy, [:ping] => ['jekyll:build'] do |t,args|
-  system "rsync -arvuz #{File.dirname(__FILE__)}/_site/ mydh:~/my_blog"
+  system "rsync -arvuz #{File.dirname(__FILE__)}/_site/ mydh:~/blog.jerodsanto.net"
 
   if args.ping
     require 'net/http'
