@@ -60,6 +60,13 @@
     $(function() {
       $('#content img, #content object').wrap('<div style="text-align: center">');
       $('.tweet').attr('href', 'http://twitter.com/share?url=' + escape(document.location) + '&via=sant0sk1&text=' + escape(document.title.split(' - ')[0]));
+      {% if page.home %}
+      var randos = [
+        'Whathaveyou', 'Rainbows', 'Ballyhoo', 'Tomfoolery', 'Shenanigans',
+        'High jinks', 'Whimsy', 'Rando Calrissian'
+      ];
+      $('#rando').text(randos[Math.floor(Math.random() * randos.length)]);
+      {% endif %}
     });
   </script>
   {% unless site.dev %}
