@@ -3,8 +3,19 @@ require 'rake'
 require 'date'
 
 desc 'deploy it'
-task :deploy do
+task :deploy, [:ping] => ['jekyll:build'] do |t,args|
   system "rsync -arvuz #{File.dirname(__FILE__)}/_site/ mydh:~/my_blog"
+
+  if args.ping
+    require 'net/http'
+    uri    = 'http://blog.jerodsanto.net'
+    params = "/ping/?title=&blogurl=#{URI.escape(uri)}&rssurl=&chk_weblogscom=on&chk_blogs=on&chk_technorati=on&chk_feedburner=on&chk_syndic8=on&chk_newsgator=on&chk_myyahoo=on&chk_pubsubcom=on&chk_blogdigger=on&chk_blogstreet=on&chk_moreover=on&chk_weblogalot=on&chk_icerocket=on&chk_newsisfree=on&chk_topicexchange=on"
+
+    puts 'notifying pingomatic'
+    Net::HTTP.get('pingomatic.com', params)
+    puts 'notifying google'
+    Net::HTTP.get('www.google.com' , '/ping?sitemap=' + URI.escape(uri+'/sitemap.xml'))
+  end
 end
 
 namespace :jekyll do
@@ -18,10 +29,13 @@ namespace :jekyll do
     system "jekyll --server --auto"
   end
 
-  desc 'compiles fresh _site from current source'
-  task :compile => :clean do
+  desc 'builds _site from current source'
+  task :build do
     system "jekyll"
   end
+
+  desc 'cleans and builds _site from current source'
+  task :compile => [:clean, :build]
 
   desc 'generates a new post from argument'
   task :new, [:name] do |t,args|
