@@ -334,10 +334,6 @@ span.article_buttons{
   text-align: right;
 }
 
-span.article_buttons a{
-  display:block;
-}
-
 a:hover span.balloon{
   display: inline;
 }

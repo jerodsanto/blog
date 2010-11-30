@@ -15,8 +15,6 @@
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
   <link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="/css/ipad.css" type="text/css" />
   <link rel="alternate" type="application/atom+xml" href="http://feeds.feedburner.com/nomeanblog" />
-  <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-  <link href="/images/icon.jpg" rel="apple-touch-icon" />
 </head>
 <body>
   <div id="wrapper">
@@ -61,6 +59,7 @@
   <script type="text/javascript">
   $(function() {
     $('#content img, #content object').wrap('<div style="text-align: center">');
+    $('.tweet').attr('href', 'http://twitter.com/share?url=' + escape(document.location) + '&via=sant0sk1&text=' + escape(document.title.split(' - ')[0]));
   });
   </script>
   {% unless site.dev %}
@@ -88,8 +87,6 @@
     }());
   </script>
 
-  <script stype="text/javascript">
-    $('.tweet').attr('href', 'http://twitter.com/share?url=' + escape(document.location) + '&via=sant0sk1&text=' + escape(document.title.split(' - ')[0]));
-  </script>
+  <div>{{ run_mode }}</div>
 </body>
 </html>
