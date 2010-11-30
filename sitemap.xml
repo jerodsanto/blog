@@ -10,7 +10,7 @@ layout: none
       <priority>1</priority>
    </url>
    <url>
-      <loc>{{ site.url }}/archives</loc>
+      <loc>{{ site.url }}/archives/</loc>
       <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
