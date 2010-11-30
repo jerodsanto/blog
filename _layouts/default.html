@@ -56,13 +56,12 @@
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-  <script src="/js/jquery.js" type="text/javascript"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script>
-  $(function() {
-    $('#content img, #content object').wrap('<div style="text-align: center">');
-    $('.tweet').attr('href', 'http://twitter.com/share?url=' + escape(document.location) + '&via=sant0sk1&text=' + escape(document.title.split(' - ')[0]));
-  });
+    $(function() {
+      $('#content img, #content object').wrap('<div style="text-align: center">');
+      $('.tweet').attr('href', 'http://twitter.com/share?url=' + escape(document.location) + '&via=sant0sk1&text=' + escape(document.title.split(' - ')[0]));
+    });
   </script>
   {% unless site.dev %}
   <script>
@@ -76,17 +75,5 @@
      })(document, 'script');
   </script>
   {% endunless %}
-
-  <script>
-    {% if site.dev %}
-       var disqus_developer = 1;
-    {% endif %}
-    var disqus_shortname = 'blogt0sk1';
-    (function () {
-      var s = document.createElement('script'); s.async = true;
-      s.src = 'http://disqus.com/forums/blogt0sk1/count.js';
-      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-  </script>
 </body>
 </html>
