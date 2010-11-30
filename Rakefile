@@ -5,7 +5,7 @@ require 'date'
 namespace :deploy do
   desc 'deploy changes'
   task :changes do
-    system "rsync -arvuz #{File.dirname(__FILE__)}/_site/ mydh:~/blog.jerodsanto.net"
+    system "rsync -arvuz _site/ mydh:~/blog.jerodsanto.net"
   end
 
   desc 'deploys changes and pings services'
