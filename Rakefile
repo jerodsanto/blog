@@ -2,6 +2,11 @@ require 'rubygems'
 require 'rake'
 require 'date'
 
+desc 'deploy it'
+task :deploy do
+  system "rsync -arvuz #{File.dirname(__FILE__)}/_site/ mydh:~/my_blog"
+end
+
 namespace :jekyll do
   desc 'Delete generated _site files'
   task :clean do
@@ -11,6 +16,11 @@ namespace :jekyll do
   desc 'Run the jekyll dev server'
   task :server do
     system "jekyll --server --auto"
+  end
+
+  desc 'compiles fresh _site from current source'
+  task :compile => :clean do
+    system "jekyll"
   end
 
   desc 'generates a new post from argument'

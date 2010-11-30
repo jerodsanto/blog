@@ -3,4 +3,4 @@ markdown: rdiscount
 permalink: /:year/:month/:title
 pygments: true
 exclude: [lib, Rakefile]
-dev: true
+dev: false
