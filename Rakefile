@@ -60,10 +60,12 @@ namespace :dev do
   desc 'Un-publish old posts to speed up development'
   task :on => ['jekyll:clean'] do
     system 'find . -name "*.md" -exec sed -i "" "s|published: true|published: false|g" {} \;'
+    system 'find . -name _config.yml -exec sed -i "" "s|dev: false|dev: true|g" {} \;'
   end
 
   desc 'Re-publish old posts for deployment'
   task :off => ['jekyll:clean'] do
     system 'find . -name "*.md" -exec sed -i "" "s|published: false|published: true|g" {} \;'
+    system 'find . -name _config.yml -exec sed -i "" "s|dev: true|dev: false|g" {} \;'
   end
 end
