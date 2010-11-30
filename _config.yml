@@ -4,4 +4,3 @@ permalink: /:year/:month/:title
 pygments: true
 exclude: [lib, Rakefile]
 dev: true
-

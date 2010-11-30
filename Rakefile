@@ -31,12 +31,10 @@ namespace :dev do
   desc 'Un-publish old posts to speed up development'
   task :on => ['jekyll:clean'] do
     system 'find . -name "*.md" -exec sed -i "" "s|published: true|published: false|g" {} \;'
-    # system 'find . -name "*.yml" -exec sed -i "" "s|published: true|published: false|g" {} \;'
   end
 
   desc 'Re-publish old posts for deployment'
   task :off => ['jekyll:clean'] do
     system 'find . -name "*.md" -exec sed -i "" "s|published: false|published: true|g" {} \;'
-    # system 'find . -name "*.yml" -exec sed -i "" "s|published: false|published: true|g" {} \;'
   end
 end
