@@ -20,6 +20,8 @@ namespace :deploy do
     Net::HTTP.get('pingomatic.com', params)
     puts 'pinging google'
     Net::HTTP.get('www.google.com' , '/ping?sitemap=' + URI.escape(uri+'/sitemap.xml'))
+    puts 'pinging feedburner'
+    Net::HTTP.get("http://feedburner.google.com/fb/a/pingSubmit?bloglink=#{URI.escape(uri)}")
   end
 end
 
