@@ -20,7 +20,7 @@ First off, YMMV. I'm a particular guy and your needs may not line up with mine. 
 
 * **Easy Peasy** — For me to actually _use_ any system I must be able to add and remove tasks with virtually no effort. "Effort" in this context includes any steps between the task's inception in my brain to the moment when it is fully entered into the system.
 
-* **Visibility** — Having a list of things you need to do is of no value if it doesn't stare you in the face on a regular basis. [Quitely judging you][frankmackey].
+* **Visibility** — Having a list of things you need to do is of no value if it doesn't stare you in the face on a regular basis. [Quietly judging you][frankmackey].
 
 * **Nothing Else** — I don't need due dates or nesting or task dependencies or tagging or anything else. I don't even need sorting. These are not features. They are millstones.
 
