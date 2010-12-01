@@ -61,6 +61,15 @@ div#content img, div#content object {
   -webkit-box-shadow:0 1px 0 #fff;
   border: 5px #222 solid;
 }
+div#content ul {
+  list-style: disc;
+}
+div#content ol {
+  list-style: upper-roman;
+}
+div#content ul, ol {
+  margin: 0 25px;
+}
 div#header {
   font-size:12px;
   margin:0 0 65px;
@@ -185,6 +194,14 @@ hr {
 hr.right {
   clear:right;
 }
+#content code {
+  background: #D4D4D4;
+  padding: 1px;
+}
+#content .highlight code {
+  background: transparent;
+  padding: 0;
+}
 #content code,pre {
   font-family:"Monaco", "Courier New", monospace;
   font-size: 13px;
@@ -227,6 +244,7 @@ em {
 blockquote {
   padding: 0px 0px 0px 10px;
   font-style:italic;
+  border-left: 2px solid #888888;
 }
 div#disqus_thread {
   margin: 20px 0px 0px 0px;
