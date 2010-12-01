@@ -13,11 +13,11 @@ layout: none
     <name>Jerod Santo</name>
   </author>
 
-  {% for post in site.posts %}
+  {% for post in site.posts limit:10 %}
   <entry>
     <title type="html">{{ post.title | xml_escape }}</title>
-    <link href="http://{{ site.url }}{{ post.url }}"/>
-    <id>{{ site.url }}{{ post.url }}</id>
+    <link href="{{ site.url }}{{ post.url }}/"/>
+    <id>{{ site.url }}{{ post.url }}/</id>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <content type="html">
       {% if post.author %}
