@@ -2,5 +2,5 @@ url: http://blog.jerodsanto.net
 markdown: rdiscount
 permalink: /:year/:month/:title
 pygments: true
-exclude: [lib, Rakefile]
+exclude: [lib, Rakefile, _drafts]
 dev: false
