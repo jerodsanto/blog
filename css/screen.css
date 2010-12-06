@@ -187,9 +187,11 @@ ul.columns {
 .small, p#footnote {
   font-size:13px;
 }
+hr.hidden {
+  visibility:hidden;
+}
 hr {
   clear:both;
-  visibility:hidden;
 }
 hr.right {
   clear:right;
@@ -260,23 +262,34 @@ span.article_buttons {
   float:right;
   text-align: right;
 }
-a:hover span.balloon {
-  display: inline;
+.service_links {
+  background: url("/images/services.png") no-repeat;
+  width: 60px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
 }
-span.balloon {
-  background-color: #222;
-  color: #fff;
-  font-size: 10px;
-  padding:3px 5px;
-  -moz-border-radius:5px;
-  -moz-box-shadow:0 -1px 0 #444;
-  -webkit-border-radius:5px;
-  -webkit-box-shadow:0 -1px 0 #444;
-  text-shadow:0 1px 0 #000;
-  font-weight: 500;
-  margin: 0 5px;
-  display:none;
-  line-height: 16px;
+.service_links span {
+  display: none;
+}
+.service_links li, .service_links a {
+  height: 16px;
+  display: block;
+}
+.service_links li {
+  float: left;
+  list-style: none;
+  display: inline;
+  width: 20px;
+}
+.service_rss a:hover {
+  background: url("/images/services.png") 0px -16px no-repeat;
+}
+.service_instapaper a:hover {
+  background: url("/images/services.png") -20px -16px no-repeat;
+}
+.service_twitter a:hover {
+  background: url("/images/services.png") -40px -16px no-repeat;
 }
 img#mo {
   margin: -10px 0px -45px -75px;

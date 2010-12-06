@@ -35,7 +35,7 @@
               <a href="mailto:jerod.santo@gmail.com" title="contact">[contact]</a>
             </li>
           </ul>
-          <hr class="right"/>
+          <hr class="right hidden"/>
         </div>
         <h2>{{ page.title }}</h2>
         {{ content }}
@@ -58,11 +58,14 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script>
     $(function() {
+      var title = escape(document.title.split(' - ')[0]);
+      var url   = escape(document.location);
       $('#content img, #content object').wrap('<div style="text-align: center">');
-      $('.tweet').attr('href', 'http://twitter.com/share?url=' + escape(document.location) + '&via=sant0sk1&text=' + escape(document.title.split(' - ')[0]));
+      $('.tweet').attr('href', 'http://twitter.com/share?url=' + url + '&via=sant0sk1&text=' + title);
+      $('.instapaper').attr('href', 'http://www.instapaper.com/hello2?url=' + url + '&title=' + title);
       {% if page.home %}
       var randos = [
-        'Whathaveyou', 'Rainbows', 'Ballyhoo', 'Tomfoolery', 'Shenanigans',
+        'Whathaveyou', 'Rainbows', 'Tomfoolery', 'Shenanigans',
         'High jinks', 'Whimsy', 'Rando Calrissian'
       ];
       $('#rando').text(randos[Math.floor(Math.random() * randos.length)]);
