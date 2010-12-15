@@ -98,7 +98,7 @@ Oh yeah, there is One More Thing&reg;. If you're a Grooveshark user, [friend][gs
 [hashchange]:http://benalman.com/projects/jquery-hashchange-plugin/
 [sammy]:http://code.quirkey.com/sammy/
 [storejs]:https://github.com/marcuswestin/store.js
-[jqpubsub]:http://higginsforpresident.net/js/static/jq.pubsub.js
+[jqpubsub]:https://github.com/phiggins42/bloody-jquery-plugins
 [localize]:https://github.com/coderifous/jquery-localize/
 [json]:http://www.json.org/
 [underscore]:http://documentcloud.github.com/underscore/
