@@ -11,7 +11,7 @@ This post is my thanks to the authors and contributors of the software used. We 
 
 ### [jQuery][jquery]
 
-Somebody recently quipped (who, I can't remember) that [jQuery][jquery] is becoming the standard library of the web. And why shouldn't it? It makes otherwise arduous DOM manipulation a breeze, its API is mature, and it has been proven on major production sites.
+[Yehuda Katz][wycats] recently quipped that [jQuery][jquery] is becoming the standard library of the web. And why shouldn't it? It makes otherwise arduous DOM manipulation a breeze, its API is mature, and it has been proven on major production sites.
 
 jQuery's other strength is its popularity. Some people dislike it for this reason, but I believe it is of real value. One of Grooveshark's goals for the rewrite was to improve designer/developer accessibility. Mission accomplished. There is no other JavaScript library on Earth that more people feel comfortable using.
 
@@ -64,16 +64,16 @@ Grooveshark currently supports switching between 17 languages. When the language
 
 Those are the big pieces of the application, but there are other players that are worth mentioning:
 
-* [PubSub][jqpubsub] — communicating between disparate sections of the app
-* [jquery.hotkeys][hotkeys] — keyboard shortcuts ftw
-* [jjmenu][jjmenu] — context menus
-* [JSON][json] — pretty much the best thing ever, duh
-* [Underscore][underscore] — not used directly, but we yoinked a few functions from it
-* [Yaml][yaml] — dependency management and configuration
-* [Rake][rake] — build and deploy routines
-* [Closure Compiler][closure] — JavaScript minification
-* [JSLint][jslint] — keep our codes pretty
-* [Smusher][smusher] — optimize images without installing ImageMagick
+* [PubSub][jqpubsub] &mdash; communicating between disparate sections of the app
+* [jquery.hotkeys][hotkeys] &mdash; keyboard shortcuts ftw
+* [jjmenu][jjmenu] &mdash; context menus
+* [JSON][json] &mdash; pretty much the best thing ever, duh
+* [Underscore][underscore] &mdash; not used directly, but we yoinked a few functions from it
+* [Yaml][yaml] &mdash; dependency management and configuration
+* [Rake][rake] &mdash; build and deploy routines
+* [Closure Compiler][closure] &mdash; JavaScript minification
+* [JSLint][jslint] &mdash; keep our codes pretty
+* [Smusher][smusher] &mdash; optimize images without installing ImageMagick
 
 ---
 
@@ -81,7 +81,7 @@ If you authored or contributed to any of the projects listed above: **THANKS!!**
 
 If you are interested in any of them or have questions about how we implemented other pieces of the application, please do ask.
 
-Oh yeah, there is One More Thing®. If you're a Grooveshark user, [friend][gsfollow] me up. [My community is weak][gscommunity]!
+Oh yeah, there is One More Thing&reg;. If you're a Grooveshark user, [friend][gsfollow] me up. [My community is weak][gscommunity]!
 
 [gs]:http://listen.grooveshark.com
 [newgs]:http://jerodsanto.net/drop/new-grooveshark-20101213-215629.jpg "The New Grooveshark"
@@ -89,7 +89,7 @@ Oh yeah, there is One More Thing®. If you're a Grooveshark user, [friend][gsfol
 [oldgs]:http://retro.grooveshark.com
 [jquery]:http://jquery.com
 [jqueryui]:http://jqueryui.com
-[mvc]:http://en.wikipedia.org/wiki/Model–View–Controller
+[mvc]:http://en.wikipedia.org/wiki/Model-View-Controller
 [cappuccino]:http://cappuccino.org
 [jmvc]:http://www.javascriptmvc.com/
 [class]:http://ejohn.org/blog/simple-javascript-inheritance/
@@ -111,3 +111,4 @@ Oh yeah, there is One More Thing®. If you're a Grooveshark user, [friend][gsfol
 [jjmenu]:http://jursza.net/dev/jjmenu/
 [gscommunity]:http://listen.grooveshark.com/#/user/sant0sk1/417270/community/fans
 [gsfollow]:http://listen.grooveshark.com/#/user/sant0sk1/417270/
+[wycats]:http://twitter.com/wycats
