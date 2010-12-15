@@ -65,7 +65,8 @@ layout: default
   {% if site.dev %}
   var disqus_developer = 1;
   {% else %}
-  var disqus_url = '{{ site.url }}{{ page.url }}/';
+  var disqus_url   = '{{ site.url }}{{ page.url }}/';
+  var disqus_title = '{{ page.title }}';
   {% endif %}
   (function() {
    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
