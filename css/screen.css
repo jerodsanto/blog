@@ -264,7 +264,7 @@ span.article_buttons {
 }
 .service_links {
   background: url("/images/services.png") no-repeat;
-  width: 60px;
+  width: 80px;
   height: 16px;
   margin: 0;
   padding: 0;
@@ -290,6 +290,9 @@ span.article_buttons {
 }
 .service_twitter a:hover {
   background: url("/images/services.png") -40px -16px no-repeat;
+}
+.service_hackernews a:hover {
+  background: url("/images/services.png") -60px -16px no-repeat;
 }
 img#mo {
   margin: -10px 0px -45px -75px;
