@@ -229,16 +229,21 @@ div#content pre {
   width: 640px;
   margin: 0px 0px 0px -40px;
 }
-div.notice {
+div.notice, div.update {
   -moz-border-radius:5px;
   -moz-box-shadow:0 -1px 0 #fffddd;
   -webkit-border-radius:5px;
   -webkit-box-shadow:0 -1px 0 #fffddd;
-  background-color:#fffbbb;
   padding: 20px;
   text-shadow:0 1px 0 #dddaaa;
-  width: 490px;
+  width: 640px;
   margin: 0px 0px 5px -40px;
+}
+div.notice {
+  background-color: #fffbbb;
+}
+div.update {
+  background-color: #fbe3e4;
 }
 em {
   font-style:italic;

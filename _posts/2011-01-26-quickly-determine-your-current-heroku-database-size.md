@@ -9,6 +9,9 @@ Heroku's free offering includes a 5MB shared database. After your database grows
 
 5MB ain't much, but it will get you started. But how do you know where your app currently stands? Heroku does not expose the current database size of your application via their web interface or command-line tool, but it's pretty easy to get at.
 
+<div class="update">UPDATE: It turns out this post was 100% wrong. Heroku <em>does</em> expose the current database size of your application via the command-line tool. Simply run <code>heroku info</code> and you'll see it in there next to "Data size" in all its glory. I can't believe I glossed that when I was looking previously. Thanks to <a href="http://www.williamayd.com/">William Ayd</a> for sorting me out!
+</div>
+
 1) Connect to your app's console:
 
 {% highlight console %}
