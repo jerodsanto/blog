@@ -229,7 +229,7 @@ div#content pre {
   width: 640px;
   margin: 0px 0px 0px -40px;
 }
-div.notice, div.update {
+div.notice, div.alert {
   -moz-border-radius:5px;
   -moz-box-shadow:0 -1px 0 #fffddd;
   -webkit-border-radius:5px;
@@ -239,10 +239,13 @@ div.notice, div.update {
   width: 640px;
   margin: 0px 0px 5px -40px;
 }
+div.notice p, div.alert p {
+  margin: 5px 0;
+}
 div.notice {
   background-color: #fffbbb;
 }
-div.update {
+div.alert {
   background-color: #fbe3e4;
 }
 em {
