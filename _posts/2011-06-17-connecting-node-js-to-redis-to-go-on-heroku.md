@@ -2,7 +2,7 @@
 layout: post
 published: true
 title: "Connecting Node.js to Redis To Go on Heroku"
-excerpt:
+excerpt: "Heroku's new Cedar stack is awesome for many reasons, one of which is first-class Node.js hosting. I'm giving it a test run with an app that uses Redis for data caching and I couldn't find any documentation on how to connect a Node app to the Redis To Go add-on. Here's how I did it"
 ---
 
 Heroku's new [Cedar stack][cedar] is awesome for many reasons, one of which is first-class [Node.js][node] hosting.
