@@ -309,6 +309,26 @@ img#mo:hover {
   margin: -12px 0px -43px -75px;
 }
 
+div.bookmarklet {
+	text-align: center;
+}
+div.bookmarklet a {
+	display: inline-block;
+	padding: 8px 15px;
+	background: #333;
+	color: #FFF;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	font-family: Georgia, Palatino, serif;
+	font-weight: normal;
+	text-decoration: none;
+	text-shadow: none;
+}
+div.bookmarklet a:hover {
+	background: #111;
+}
+
 /* get tipsy */
 .tipsy { padding: 5px; font-size: 10px; position: absolute; z-index: 100000; }
   .tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }
