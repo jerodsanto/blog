@@ -63,7 +63,7 @@
 
       var title = escape(document.title.split(' - ')[0]);
       var url   = escape(document.location);
-      $('#content img, #content object').wrap('<div style="text-align: center">');
+      $('#content img, #content object, iframe').wrap('<div style="text-align: center">');
       $('.tweet').attr('href', 'http://twitter.com/share?url=' + url + '&via=sant0sk1&text=' + title);
       $('.instapaper').attr('href', 'http://www.instapaper.com/hello2?url=' + url + '&title=' + title);
       $('.hackernews').attr('href', 'http://news.ycombinator.com/submitlink?u=' + url + '&t=' + title);
