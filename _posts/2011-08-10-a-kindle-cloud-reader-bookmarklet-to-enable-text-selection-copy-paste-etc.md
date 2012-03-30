@@ -21,8 +21,8 @@ So I hacked together a bookmarklet which gives your browser those features back.
 
 It's quite possible that the bookmarklet will break as Amazon makes changes to the app, so I've put the [source on GitHub][the-gist] for all to participate in its maintenance.
 
-{% aside notice %}
-Bookmarklet last updated on October 4, 2011. Please try it and provide feedback.
+{% aside alert %}
+Amazon has moved too fast for me to keep up. This bookmarklet is mostly likely broken and I won't be working on it further. Sorry! :(
 {% endaside %}
 
 Oh, and I only tested it on Chrome 14 (Mac) and Safari 5.1. I have confirmed that it is NOT working on dev Chrome (currently 16). YMMV.
