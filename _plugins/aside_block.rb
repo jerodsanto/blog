@@ -1,15 +1,15 @@
 module Jekyll
   class AsideBlock < Liquid::Block
-    def initialize(tag_name, type, tokens)
+    def initialize(tag_name, text, tokens)
       super
-      @type = type.empty? ? "notice" : type.strip
+      @type = text.empty? ? "notice" : text.strip
     end
 
     def render(context)
       converter = context.registers[:site].converters.find { |c| c.matches("md") }
-      "<div class='#{@type}'>#{converter.convert(super.join)}</div>"
+      "<div class='#{@type}'>#{converter.convert(super)}</div>"
     end
   end
 end
 
-Liquid::Template.register_tag('aside', Jekyll::AsideBlock)
+Liquid::Template.register_tag("aside", Jekyll::AsideBlock)
