@@ -47,7 +47,8 @@ namespace :jekyll do
   desc "generates a new post from argument"
   task :new, [:name] do |t,args|
     abort "you need to provide a post name" unless args.name
-    File.open("_posts/#{Date.today.to_s}-#{args.name.gsub(' ', '-').downcase}.md", "w") do |f|
+    file = "_posts/#{Date.today.to_s}-#{args.name.gsub(' ', '-').downcase}.md"
+    File.open(file, "w") do |f|
       f.puts "---"
       f.puts "layout: post"
       f.puts "published: false"
@@ -55,6 +56,7 @@ namespace :jekyll do
       f.puts "excerpt: \"\""
       f.puts "---"
     end
+    system "open #{file}"
   end
 end
 
