@@ -329,6 +329,11 @@ div.bookmarklet a:hover {
 	background: #111;
 }
 
+form.search {
+  margin: 40px 0 20px 0;
+  text-align: center;
+}
+
 /* get tipsy */
 .tipsy { padding: 5px; font-size: 10px; position: absolute; z-index: 100000; }
   .tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }

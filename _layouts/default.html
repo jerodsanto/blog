@@ -39,6 +39,31 @@
         </div>
         <h2>{{ page.title }}</h2>
         {{ content }}
+
+        <form class="search">
+          <input type="text" id="st-search-input" class="st-search-input" placeholder="Search this site"/>
+        </form>
+        <div id="st-results-container"></div>
+        <script type="text/javascript">
+          var Swiftype = window.Swiftype || {};
+          (function() {
+            Swiftype.key = 'TM8ezPQi8DZRuszeAPuU';
+            Swiftype.inputElement = '#st-search-input';
+            Swiftype.resultContainingElement = '#st-results-container';
+            Swiftype.attachElement = '#st-search-input';
+            Swiftype.renderStyle = "overlay";
+
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            script.src = "//swiftype.com/embed.js";
+            var entry = document.getElementsByTagName('script')[0];
+            entry.parentNode.insertBefore(script, entry);
+          }());
+        </script>
+        <p id="footnote" style="text-align: center;">
+          &copy;<a href="http://jerodsanto.net">Jerod Santo</a>. Compiled from <a href="https://github.com/sant0sk1/blog">source</a> by <a href="https://github.com/mojombo/jekyll">Jekyll</a>. Original design credited to <a href="http://jeffkreeftmeijer.com/">Jeff Kreeftmeijer</a>.
+        </p>
       </div>
 
       <!-- <div id="ads">
