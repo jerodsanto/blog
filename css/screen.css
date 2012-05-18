@@ -92,13 +92,17 @@ div.post h3,div.post p {
 div#ads {
   position:absolute;
   top: 100px;
-  right: -140px;
+  right: -155px;
+}
+div.carbonad {
+  background-color: transparent !important;
+  border: none !important;
 }
 div.ad {
   margin: 0px 0px 25px 0px;
 }
 div.box {
-  width: 120px;
+  width: 145px;
   background-color: #222;
   padding: 10px;
   -moz-border-radius-topright:5px;
@@ -109,14 +113,7 @@ div.box {
   -webkit-box-shadow:0 -1px 0 #444, 0 0 10px #222;
   z-index:0;
 }
-div.box, div.box a {
-  color:#fff;
-  font-size: 11px;
-  line-height: 130%;
-  text-shadow:0 1px 0 #000;
-}
 div.box a img {
-  padding-left: 10px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
