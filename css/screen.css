@@ -92,7 +92,7 @@ div.post h3,div.post p {
 div#ads {
   position:absolute;
   top: 100px;
-  right: -155px;
+  right: 0px;
 }
 div.carbonad {
   background-color: transparent !important;
