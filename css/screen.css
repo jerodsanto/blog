@@ -193,15 +193,13 @@ hr {
 hr.right {
   clear:right;
 }
-#content code {
-  background: #D4D4D4;
-  padding: 1px;
-}
 #content .highlight code {
   background: transparent;
   padding: 0;
 }
-#content code,pre {
+code, pre {
+  background: #D4D4D4;
+  padding: 1px;
   font-family:"Monaco", "Courier New", monospace;
   font-size: 13px;
   line-height: 150%;
