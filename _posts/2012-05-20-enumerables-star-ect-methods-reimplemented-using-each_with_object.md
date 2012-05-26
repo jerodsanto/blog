@@ -80,7 +80,7 @@ end
 
 ### Detect
 
-Here's where it gets tricky. [`detect`][detect] (a.k.a `find`) returns the first item for which the given block return true. If no items fit the bill, it returns `nil`. Easy, right? Just pass `nil` into `each_with_object` and set it to an item when applicable:
+Here's where it gets tricky. [`detect`][detect] (a.k.a `find`) returns the first item for which the given block returns true. If no items fit the bill, it returns `nil`. Easy, right? Just pass `nil` into `each_with_object` and set it to an item when applicable:
 
 {% highlight ruby %}
 def detect(&block)
@@ -88,7 +88,7 @@ def detect(&block)
 end
 {% endhighlight %}
 
-I expected that to work, but sadly it does not. It turns out that you can't mutate `nil` using `each_with_object`. That actually makes sense, because you can't normally assign to nil, but it sure isn't very useful. No matter what you do inside the block, it just returns `nil`.
+I expected that to work, but sadly it does not. It turns out that you can't mutate `nil` using `each_with_object`. That actually makes sense, because you can't normally assign to `nil`, but it sure isn't very useful. No matter what you do inside the block, it just returns `nil`.
 
 So for this particular method, I reverted to `inject`, which does allow you to pass `nil` into it and come out with something else:
 
