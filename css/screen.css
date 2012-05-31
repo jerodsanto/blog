@@ -38,10 +38,6 @@ div#inner {
 }
 div#container {
   width:600px;
-  -moz-border-radius:5px;
-  -moz-box-shadow:0 1px 0 #fff;
-  -webkit-border-radius:5px;
-  -webkit-box-shadow:0 -1px 0 #fff, 0 0 10px #222;
   background-color:#eee;
   border-radius:5px;
   box-shadow:0 1px 0 #fff;
@@ -55,10 +51,8 @@ div#container {
   z-index: 1;
 }
 div#content img, div#content object {
-  -moz-border-radius:5px;
-  -moz-box-shadow:0 1px 0 #fff;
-  -webkit-border-radius:5px;
-  -webkit-box-shadow:0 1px 0 #fff;
+  box-shadow:0 1px 0 #fff;
+  border-radius: 5px;
   border: 5px #222 solid;
 }
 div#content ul {
@@ -105,17 +99,11 @@ div.box {
   width: 145px;
   background-color: #222;
   padding: 10px;
-  -moz-border-radius-topright:5px;
-  -moz-border-radius-bottomright:5px;
-  -moz-box-shadow:0 -1px 0 #444;
-  -webkit-border-top-right-radius:5px;
-  -webkit-border-bottom-right-radius:5px;
-  -webkit-box-shadow:0 -1px 0 #444, 0 0 10px #222;
+  border-radius: 5px;
+  box-shadow:0 -1px 0 #444, 0 0 10px #222;
   z-index:0;
 }
 div.box a img {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
   border-radius: 8px;
 }
 div#box a:hover {
@@ -136,10 +124,6 @@ div#webbynode {
   text-indent: -9999px;
   background-color:#222;
   border-radius:5px;
-  -moz-border-radius:5px;
-  -webkit-border-radius:5px;
-  -webkit-box-shadow:0 1px 0 #fff;
-  -moz-box-shadow:0 1px 0 #fff;
   box-shadow:0 1px 0 #fff;
   text-shadow:0 1px 0 #000;
 }
@@ -212,10 +196,8 @@ pre {
   word-wrap: break-word;
 }
 div#content pre {
-  -moz-border-radius:5px;
-  -moz-box-shadow:0 -1px 0 #444;
-  -webkit-border-radius:5px;
-  -webkit-box-shadow:0 -1px 0 #444;
+  border-radius: 5px;
+  box-shadow:0 -1px 0 #444;
   background-color:#222;
   color:#fff;
   font-size: 15px;
@@ -225,10 +207,8 @@ div#content pre {
   margin: 0px 0px 0px -40px;
 }
 div.notice, div.alert {
-  -moz-border-radius:5px;
-  -moz-box-shadow:0 -1px 0 #fffddd;
-  -webkit-border-radius:5px;
-  -webkit-box-shadow:0 -1px 0 #fffddd;
+  border-radius: 5px;
+  box-shadow:0 -1px 0 #fffddd;
   padding: 20px;
   text-shadow:0 1px 0 #dddaaa;
   width: 640px;
@@ -312,8 +292,6 @@ div.bookmarklet a {
 	padding: 8px 15px;
 	background: #333;
 	color: #FFF;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
 	border-radius: 10px;
 	font-family: Georgia, Palatino, serif;
 	font-weight: normal;
@@ -332,7 +310,7 @@ form.search {
 /* get tipsy */
 .tipsy { padding: 5px; font-size: 10px; position: absolute; z-index: 100000; }
   .tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }
-  .tipsy-inner { border-radius: 3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+  .tipsy-inner { border-radius: 3px; }
   .tipsy-arrow { position: absolute; background: url('../images/tipsy.gif') no-repeat top left; width: 9px; height: 5px; }
   .tipsy-n .tipsy-arrow { top: 0; left: 50%; margin-left: -4px; }
     .tipsy-nw .tipsy-arrow { top: 0; left: 10px; }
@@ -342,3 +320,11 @@ form.search {
     .tipsy-se .tipsy-arrow { bottom: 0; right: 10px; background-position: bottom left; }
   .tipsy-e .tipsy-arrow { top: 50%; margin-top: -4px; right: 0; width: 5px; height: 9px; background-position: top right; }
   .tipsy-w .tipsy-arrow { top: 50%; margin-top: -4px; left: 0; width: 5px; height: 9px; }
+
+@media only screen and (max-device-width: 480px) {
+  div#ads {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+}
