@@ -35,13 +35,13 @@ end
 namespace :server do
   desc "Run the jekyll server for all posts"
   task :all do
-    Rake::Task["clean"].invoke
+    Rake::Task["clean_build"].invoke
     system "jekyll --server --auto"
   end
 
   desc "Run the jekyll server for most recent post"
   task :one do
-    Rake::Task["clean"].invoke
+    Rake::Task["clean_build"].invoke
     system "jekyll --server --auto --limit_posts 1"
   end
 end
