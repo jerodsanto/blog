@@ -191,7 +191,7 @@ Absolutely not. When it comes to Meteor I'm a total newb, remember!
 [meteor-collections]:http://docs.meteor.com/#meteor_collection
 [meteor-irc]:http://meteor.com/irc
 [mongo]:http://www.mongodb.org/
-[obh-import]:https://github.com/sant0sk1/obh/blob/master/import/import.rb
+[obh-import]:https://github.com/jerodsanto/obh/blob/master/import/import.rb
 [s-hits-the-f]:http://ecx.images-amazon.com/images/I/418FkFqBrPL.jpg
 [s-hits-the-f-link]:http://www.amazon.com/dp/B002AV8UH2/?tag=shoes4all-20
 [meteor-heroku-buildpack]:https://github.com/jordansissel/heroku-buildpack-meteor

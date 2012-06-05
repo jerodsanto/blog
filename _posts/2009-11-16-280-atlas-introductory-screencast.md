@@ -25,7 +25,7 @@ Related Posts:
 
 [1]: http://www.amazon.com/gp/product/0321535022?ie=UTF8&tag=standadeviat-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0321535022
 [2]: http://vimeo.com/7646585
-[3]: http://vimeo.com/sant0sk1
+[3]: http://vimeo.com/jerodsanto
 [4]: http://vimeo.com
 [5]: /2009/11/learning-cappuccino-a-linked-list
 [6]: /2009/10/cappuccinoflow

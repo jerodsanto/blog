@@ -5,7 +5,7 @@ title: "Extract & Edit a Safari Extension"
 excerpt: "Turns out it's pretty easy to edit a Safari extension that you've downloaded. Here's how."
 ---
 
-I <a href="http://twitter.com/sant0sk1/status/21673729874">asked this on Twitter</a> the other day, but alas nobody came back with an answer.
+I <a href="http://twitter.com/jerodsanto/status/21673729874">asked this on Twitter</a> the other day, but alas nobody came back with an answer.
 
 Turns out it's pretty easy to edit a Safari extension that you've downloaded. The downloaded file will have a <span class="keyword">.safariextz</span> file extension. To extract the contents of the file, use the <span class="keyword">xar</span> command. I'll demonstrate with the <a href="http://www.awarepixel.com/safari/bettersource/">BetterSource</a> extension.
 

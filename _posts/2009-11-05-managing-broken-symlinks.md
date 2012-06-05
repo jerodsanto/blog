@@ -28,4 +28,4 @@ jerod@mbp:~$ find_broken_symlinks
 
 Enjoy!
 
-[1]:http://github.com/sant0sk1/dotfiles/blob/master/bashrc
+[1]:http://github.com/jerodsanto/dotfiles/blob/master/bashrc

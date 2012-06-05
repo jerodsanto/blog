@@ -12,7 +12,7 @@ def awesomeness options = {}
   #sensible defaults
   opts = {
    :name   => "Jerod",
-   :handle => "sant0sk1",
+   :handle => "jerodsanto",
    :blog   => "Standard Deviations"
   }.merge options
 
@@ -24,7 +24,7 @@ When called sans arguments this function will print the following:
 
 {% highlight ruby %}
 awesomeness
-handle = sant0sk1
+handle = jerodsanto
 name = Jerod
 blog = Standard Deviations
 {% endhighlight %}
@@ -33,7 +33,7 @@ When called with arguments this function will merge them into the opts variable 
 
 {% highlight ruby %}
 awesomeness :name => "Santo"
-handle = sant0sk1
+handle = jerodsanto
 name = Santo
 blog = Standard Deviations
 {% endhighlight %}

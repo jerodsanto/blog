@@ -59,4 +59,4 @@ But whatever you do, don't [follow me on Twitter][follow]. That would be absolut
 
 
 [bagoma]:http://bagoma.sourceforge.net/
-[follow]:http://twitter.com/sant0sk1
+[follow]:http://twitter.com/jerodsanto

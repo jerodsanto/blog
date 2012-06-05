@@ -2,7 +2,7 @@
 layout: post
 published: true
 title: "Cappuccino On Rails"
-excerpt: "I'm happy to announce the release of <a href='http://github.com/sant0sk1/CappuccinoResource'>CappuccinoResource</a> (CR), a library dedicated to interfacing between a <a href='http://cappuccino.org'>Cappuccino</a> front-end and a <a href='http://rubyonrails.org'>Rails</a> back-end."
+excerpt: "I'm happy to announce the release of <a href='http://github.com/jerodsanto/CappuccinoResource'>CappuccinoResource</a> (CR), a library dedicated to interfacing between a <a href='http://cappuccino.org'>Cappuccino</a> front-end and a <a href='http://rubyonrails.org'>Rails</a> back-end."
 ---
 
 I'm happy to announce the release of [CappuccinoResource][1] (CR), a library dedicated to interfacing between a [Cappuccino][2] front-end and a [Rails][3] back-end.
@@ -31,11 +31,11 @@ CR is a young project, but it drives one of my client applications that is produ
 
 Fork, [report issues][8], et cetera.
 
-[1]:http://github.com/sant0sk1/CappuccinoResource
+[1]:http://github.com/jerodsanto/CappuccinoResource
 [2]:http://cappuccino.org
 [3]:http://rubyonrails.org
 [4]:http://api.rubyonrails.org/classes/ActiveResource/Base.html
 [5]:http://iphoneonrails.com/
 [6]:http://capp-resource-example.heroku.com
-[7]:http://github.com/sant0sk1/CappResourceExample
-[8]:http://github.com/sant0sk1/CappuccinoResource/issues
+[7]:http://github.com/jerodsanto/CappResourceExample
+[8]:http://github.com/jerodsanto/CappuccinoResource/issues

@@ -26,7 +26,7 @@ Can it get any easier than that? I submit that it, in fact, cannot get any easie
 
 {% highlight ruby %}
 # this is my 'config.yml'
-username: sant0sk1
+username: jerodsanto
 password: awesome
 {% endhighlight %}
 

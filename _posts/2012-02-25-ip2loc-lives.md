@@ -30,7 +30,7 @@ In order to resurrect the service, I had to switch away from the paid [MaxMind][
 
 All in all I think these deficincies are worth suffering to keep the service online. Rarely a week goes by that I don't run a lookup myself, so I am happy to be able to bring it back.
 
-[twitter]:http://twitter.com/sant0sk1
-[ip2loctweet]:http://twitter.com/sant0sk1/status/171266417906290689
+[twitter]:http://twitter.com/jerodsanto
+[ip2loctweet]:http://twitter.com/jerodsanto/status/171266417906290689
 [ip2loc]:http://ip2loc.jerodsanto.net
 [maxmind]:http://www.maxmind.com/

@@ -39,6 +39,6 @@ VoilÃ !
 [DOWNLOAD HERE][4]
 
 [1]: "http://twitter.com/dougneiner/status/3679180990"
-[2]: "http://twitter.com/sant0sk1"
+[2]: "http://twitter.com/jerodsanto"
 [3]: "http://www.google.com/profiles/douglasneiner"
 [4]: "http://blog.jerodsanto.net/wp-content/uploads/2009/09/expose-rings.zip"

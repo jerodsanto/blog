@@ -28,7 +28,7 @@ In developing this plugin, I leaned on a few other open-source projects for insp
 I thank the authors for opening their source.
 
 
-[1]: http://github.com/sant0sk1/wordpress-console
+[1]: http://github.com/jerodsanto/wordpress-console
 [2]: http://wordpress.org/extend/plugins/wordpress-console/
 [3]: http://pear.php.net/package/PHP_Shell/
 [4]: http://code.google.com/p/htsh/

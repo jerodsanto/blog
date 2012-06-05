@@ -31,4 +31,4 @@ As the IE6-BraveHeart would proclaim: FREEEEDOMMMM!
 
 [1]: http://github.com
 [2]: http://github.com/juliocesar/rack-noie/tree/master
-[3]: http://github.com/sant0sk1/rack-noie6/
+[3]: http://github.com/jerodsanto/rack-noie6/

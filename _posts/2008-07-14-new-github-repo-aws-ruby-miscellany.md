@@ -16,4 +16,4 @@ I’m sure the functionality will grow as needs arise. For now, check out the [r
 
 
 [1]: http://www.amazon.com/gp/browse.html?node=16427261
-[2]: http://github.com/sant0sk1/aws-ruby-miscellany/tree/master
+[2]: http://github.com/jerodsanto/aws-ruby-miscellany/tree/master

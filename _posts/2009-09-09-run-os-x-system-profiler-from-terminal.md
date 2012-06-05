@@ -15,7 +15,7 @@ That's cool and all, but what if you want to access that information programmati
 jerod@mbp:~$ /usr/sbin/system_profiler
 {% endhighlight %}
 
-What's great about this access method is that it allows you to slurp that data into any other program and have your way with it! For instance, I wanted to track my <a href="http://twitter.com/sant0sk1/status/3780056282" rel="external">new battery's</a> cycle count and charge capacity over time. Why? I dunno, because I'm a geek, okay, get off my back!... Anyways, with the **_system_profiler_** command I simply run this little Ruby script every day:
+What's great about this access method is that it allows you to slurp that data into any other program and have your way with it! For instance, I wanted to track my <a href="http://twitter.com/jerodsanto/status/3780056282" rel="external">new battery's</a> cycle count and charge capacity over time. Why? I dunno, because I'm a geek, okay, get off my back!... Anyways, with the **_system_profiler_** command I simply run this little Ruby script every day:
 
 {% highlight ruby %}
 require 'date'

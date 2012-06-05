@@ -17,4 +17,4 @@ So, please fork my [GitHub repo][4] and make improvements. We will all benefit f
 [1]: http://adhearsion.com/
 [2]: http://macromates.com/
 [3]: http://blog.jerodsanto.net/wp-content/uploads/2008/08/adhearsion-tmbundle.png
-[4]: http://github.com/sant0sk1/adhearsion-tmbundle/tree/master
+[4]: http://github.com/jerodsanto/adhearsion-tmbundle/tree/master

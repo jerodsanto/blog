@@ -22,4 +22,4 @@ All was not lost. I learned a ton along the way and decided to open-source the m
 [1]: "http://iphoneonrails.com/"
 [2]: "http://www.google.com/reader/shared/05234492019244193889"
 [3]: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=302951751&mt=8"
-[4]: "http://github.com/sant0sk1/app_store"
+[4]: "http://github.com/jerodsanto/app_store"

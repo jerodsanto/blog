@@ -26,10 +26,10 @@ ps:usage <name>                    # list historical memory & CPU usage for <nam
 You'll need version 0.4.2 of the Dreamy gem to use the new functionality. To upgrade your gem, simply run the following:
 
 {% highlight bash %}
-jerod@mbp:~$ sudo gem update sant0sk1-dreamy
+jerod@mbp:~$ sudo gem update jerodsanto-dreamy
 {% endhighlight %}
 
 That's all for now!
 
 
-[1]: http://github.com/sant0sk1/dreamy
+[1]: http://github.com/jerodsanto/dreamy

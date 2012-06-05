@@ -15,4 +15,4 @@ Source code is on my [GitHub account][2], as usual.
 
 
 [1]: http://wordpress.org/extend/plugins/clean-wp-dashboard/
-[2]: http://github.com/sant0sk1
+[2]: http://github.com/jerodsanto

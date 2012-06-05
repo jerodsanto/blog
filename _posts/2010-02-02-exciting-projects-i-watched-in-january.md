@@ -49,7 +49,7 @@ That wraps it up for January. I hope you find one or more of these open-source p
 
 
 [1]: http://github.com
-[2]: http://twitter.com/sant0sk1/status/6934234494
+[2]: http://twitter.com/jerodsanto/status/6934234494
 [3]: http://github.com/isaac/BirdWatch
 [4]: http://github.com/jfahrenkrug/CPVideoKit
 [5]: http://github.com/hammerdr/Cappuccino-Test-Extensions
@@ -67,4 +67,4 @@ That wraps it up for January. I hope you find one or more of these open-source p
 [17]: http://github.com/schacon/showoff
 [18]: http://github.com/technoweenie/twitter-node
 [19]: http://github.com/proutils/webme
-[20]: http://github.com/sant0sk1
+[20]: http://github.com/jerodsanto

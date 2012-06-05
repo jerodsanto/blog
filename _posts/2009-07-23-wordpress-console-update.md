@@ -2,10 +2,10 @@
 layout: post
 published: true
 title: "WordPress Console Update"
-excerpt: "It's been awhile since I posted about my <a href='http://github.com/sant0sk1/wordpress-console'>open-source</a> WordPress Console (WPC) plugin, and enough has happened since I released it that I thought it deserved a little mention."
+excerpt: "It's been awhile since I posted about my <a href='http://github.com/jerodsanto/wordpress-console'>open-source</a> WordPress Console (WPC) plugin, and enough has happened since I released it that I thought it deserved a little mention."
 ---
 
-It's been awhile since I posted about my <a href="http://github.com/sant0sk1/wordpress-console" rel="external">open-source</a> WordPress Console (WPC) plugin, and enough has happened since I released it that I thought it deserved a little mention.
+It's been awhile since I posted about my <a href="http://github.com/jerodsanto/wordpress-console" rel="external">open-source</a> WordPress Console (WPC) plugin, and enough has happened since I released it that I thought it deserved a little mention.
 
 ### What's New
 

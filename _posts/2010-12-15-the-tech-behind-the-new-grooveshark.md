@@ -109,6 +109,6 @@ Oh yeah, there is One More Thing&reg;. If you're a Grooveshark user, [friend][gs
 [smusher]:https://github.com/grosser/smusher
 [hotkeys]:https://github.com/tzuryby/jquery.hotkeys
 [jjmenu]:http://jursza.net/dev/jjmenu/
-[gscommunity]:http://listen.grooveshark.com/#/user/sant0sk1/417270/community/fans
-[gsfollow]:http://listen.grooveshark.com/#/user/sant0sk1/417270/
+[gscommunity]:http://listen.grooveshark.com/#/user/jerodsanto/417270/community/fans
+[gsfollow]:http://listen.grooveshark.com/#/user/jerodsanto/417270/
 [wycats]:http://twitter.com/wycats

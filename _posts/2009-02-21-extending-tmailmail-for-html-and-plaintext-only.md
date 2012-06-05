@@ -35,4 +35,4 @@ You can get the source on [GitHub][5]!
 [2]: http://code.google.com/p/tmail-html-body-extractor/
 [3]: http://fernandoguillen.info
 [4]: http://www.apache.org/licenses/LICENSE-2.0
-[5]: http://github.com/sant0sk1/tmail_body_extractors/tree/master
+[5]: http://github.com/jerodsanto/tmail_body_extractors/tree/master

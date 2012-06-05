@@ -30,4 +30,4 @@ password = [the admin's password]
 
 This plugin is dead simple. It hooks into WordPress' authentication chain using 2.8's new '**authenticate**' hook. The Skeleton Key's function sets its priority higher than the built-in authentication functions and checks the password against the admin account provided before the "+" in the database. If the check fails it returns an error and the next function in the chain is called (like normal). If it matches, the <a href="http://wordpress.org/extend/plugins/skeleton-key/" rel="external">Skeleton Key</a> hands back the user account tied to the login and you're good to go.
 
-The <a href="http://github.com/sant0sk1/wp-skeleton-key" rel="external">source is on GitHub</a>, like usual. Feel free to grok it & provide feedback if interested.
+The <a href="http://github.com/jerodsanto/wp-skeleton-key" rel="external">source is on GitHub</a>, like usual. Feel free to grok it & provide feedback if interested.
