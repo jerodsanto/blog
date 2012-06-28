@@ -50,7 +50,9 @@ div#container {
   position:relative;
   z-index: 1;
 }
-div#content img, div#content object {
+div#content img, div#content object, div#content iframe {
+  display: block;
+  margin: 0 auto;
   box-shadow:0 1px 0 #fff;
   border-radius: 5px;
   border: 5px #222 solid;
@@ -64,6 +66,13 @@ div#content ol {
 div#content ul, ol {
   margin: 0 25px;
 }
+div#content p.caption {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 13px;
+  font-style: italic;
+}
+
 div#header {
   font-size:12px;
   margin:0 0 65px;
