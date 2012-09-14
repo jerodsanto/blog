@@ -13,14 +13,15 @@ When Heroku claims that you can deploy your Ruby app instantly, they're pretty m
 
 If you haven't tried deploying a Rails app to Heroku, just go do it. Here are the steps from start to finish:
 
-    :::shell-unix-generic
-    rails myapp
-     cd myapp
-     git init
-     git add .
-     git commit -m "my new app"
-     heroku create myapp
-     git push heroku master
+{% highlight console %}
+rails myapp
+cd myapp
+git init
+git add .
+git commit -m "my new app"
+heroku create myapp
+git push heroku master
+{% endhighlight %}
 
 If that looks like too much work for you, have Remi walk you through it in [this nice screencast][2].
 
