@@ -57,6 +57,11 @@ div#content img, div#content object, div#content iframe {
   border-radius: 5px;
   border: 5px #222 solid;
 }
+div#content a {
+  text-decoration: underline;
+  font-weight: normal;
+}
+
 div#content ul {
   list-style: disc;
 }
@@ -224,6 +229,7 @@ div.notice, div.alert {
   margin: 0px 0px 5px -40px;
 }
 div.notice p, div.alert p {
+  text-align: center;
   margin: 5px 0;
 }
 div.notice {
