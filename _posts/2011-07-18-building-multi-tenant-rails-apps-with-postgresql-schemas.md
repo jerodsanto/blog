@@ -128,7 +128,7 @@ class Tenant < ActiveRecord::Base
   end
 
   def create_schema
-    PgTools.create_schema id unless PgTools.schemas.include? id
+    PgTools.create_schema id unless PgTools.schemas.include? id.to_s
   end
 
   def load_tables
