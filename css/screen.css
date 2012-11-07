@@ -246,6 +246,11 @@ div.notice {
 div.alert {
   background-color: #fbe3e4;
 }
+div.categories {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 12px;
+}
 em {
   font-style:italic;
 }

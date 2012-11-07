@@ -1,8 +1,17 @@
 ---
 layout: default
 title: The Archives
-excerpt: The complete archive of Jerod Santo's articles.
 ---
+
+<div class="categories">
+  {% for category in site.categories %}
+    {% assign name = category[0] %}
+    <a href="/{{ name }}" title="{{ name }}">{{ name | capitalize }}</a>
+    {% unless forloop.last %}
+    |
+    {% endunless %}
+  {% endfor %}
+</div>
 
 {% for post in site.posts %}
   <div class="post">
