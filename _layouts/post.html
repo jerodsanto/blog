@@ -70,6 +70,25 @@ layout: default
 
 <hr/>
 
+{% assign related = site.related_posts %}
+
+{% unless related == empty %}
+<p class="related">
+  {% assign category = page.categories.first %}
+  If you enjoyed this <a href="/{{ category }}" title="{{ category }}">{{ category | capitalize }}</a> post,
+  you'll probably enjoy reading
+  {% for post in related limit:3 %}
+    {% if forloop.last %}
+      and <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>.
+    {% else %}
+      <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>,
+    {% endif %}
+  {% endfor %}
+</p>
+
+<hr/>
+{% endunless %}
+
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   {% if site.dev %}

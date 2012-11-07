@@ -263,6 +263,13 @@ div.dsq-options, div.dsq-sharing-options, div.dsq-dc-logo, div#dsq-global-toolba
 p.article_date {
   float:left;
 }
+p.related {
+  text-align: justify;
+  font-size: 12px;
+  color: #666;
+  margin: 20px;
+}
+
 span.article_buttons {
   margin:20px 0;
   float:right;
