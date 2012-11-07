@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: "jQuery isInArray Boolean Sugar"
+title: "jQuery: isInArray Boolean Sugar"
 excerpt: "Sprinkle this sugary function on top of your jQuery for a little syntactic delight."
 ---
 

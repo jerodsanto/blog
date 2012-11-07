@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: "jQuery - Open External Links In New Window/Tab"
+title: "jQuery: Open External Links In New Window/Tab"
 excerpt: "Use jQuery to add the target attribute to links so it doesn't muck up the HTML."
 ---
 

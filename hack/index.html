@@ -1,0 +1,17 @@
+---
+layout: default
+title: Hacks, Tips, and Tricks
+subtitle: Everybody appreciates a good hack once in awhile.
+---
+
+{% for post in site.categories.hack %}
+  <div class="post">
+    <h3><a href="{{ post.url }}/">{{ post.title }}</a></h3>
+    <p class="date">{{ post.date | date_to_string }}
+      {% if post.author %}
+        by <a href="http://twitter.com/{{ post.author.twitter }}" title="{{ post.author.full}}">@{{ post.author.twitter }}</a>
+      {% endif %}
+    </p>
+    <p>{{ post.excerpt }}</p>
+  </div>
+{% endfor %}

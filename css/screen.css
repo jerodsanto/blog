@@ -161,6 +161,14 @@ h2 {
 h3 {
   font-size:28px;
 }
+h3.subtitle {
+  font-weight: normal;
+  font-size: 20px;
+  color: #555;
+  text-align: center;
+  margin-top: -5px;
+}
+
 h4 {
   font-size:21px;
 }

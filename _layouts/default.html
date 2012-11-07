@@ -37,6 +37,10 @@
           <hr class="right hidden"/>
         </div>
         <h2>{{ page.title }}</h2>
+        {% if page.subtitle %}
+        <h3 class="subtitle">{{ page.subtitle }}</h3>
+        {% endif%}
+
         {{ content }}
 
         <form class="search">
