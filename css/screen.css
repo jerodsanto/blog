@@ -8,11 +8,11 @@ body {
   background: #131F2C;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6 {
   font-family: "Yanone Kaffeesatz", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
 }
-p,h2,h3,h4,h5,h6,ul {
+p,h1,h2,h3,h4,h5,h6,ul {
   margin:20px 0;
 }
 a, strong{
@@ -102,6 +102,15 @@ div#ads {
   top: 100px;
   right: 0px;
 }
+div#ads h1 span {
+  display: none;
+  text-align: right;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+div#ads h1:hover span {
+  display: block;
+}
 div.carbonad {
   background-color: transparent !important;
   border: none !important;
@@ -129,6 +138,9 @@ div.box p {
 div#webbynode {
   padding: 0px 5px;
 }
+#header h1 {
+  margin: 0;
+}
 #header h1 a {
   display:inline;
   float:left;
@@ -141,18 +153,13 @@ div#webbynode {
   box-shadow:0 1px 0 #fff;
   text-shadow:0 1px 0 #000;
 }
+h1 {
+  font-size: 43px;
+  text-align: center;
+}
 h1 a {
   color:#fff;
   font-weight:400;
-}
-h1 span {
-  display: none;
-  text-align: right;
-  font-size: 10px;
-  letter-spacing: 1px;
-}
-h1:hover span {
-  display: block;
 }
 h2 {
   font-size:43px;
@@ -172,7 +179,7 @@ h3.subtitle {
 h4 {
   font-size:21px;
 }
-h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6 {
   font-weight:900;
   line-height:100%;
 }
