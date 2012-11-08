@@ -204,6 +204,8 @@ All of the movies in this list have a common bond. Can you figure out what it is
 
 ### The Answers
 
+**UPDATE:** The [answers post][ruby-rebus-answers] is now available
+
 I will reveal the answers to all 20 rebuses and the bonus challenge in a follow-up post.
 
 Be sure to grab the [RSS][rss], follow along on [Twitter][twitter-jerod], or bookmark this page so you don't miss the BIG reveal! ;)
@@ -215,3 +217,4 @@ Be sure to grab the [RSS][rss], follow along on [Twitter][twitter-jerod], or boo
 [harshbarger-rebuses]:http://www.ericharshbarger.org/epp/2006/fall/movie_rebuses_100.pdf
 [rss]:http://feeds.feedburner.com/nomeanblog
 [twitter-jerod]:https://twitter.com/jerodsanto
+[ruby-rebus-answers]:/2012/11/ruby-rebus-answers/
