@@ -9,7 +9,7 @@ Many development teams use 37Signals' [Campfire][campfire] for group chat. I've 
 
 Our team has been trying [Talker][talker] instead. The two tools are similar in many ways, but there are a few things about Talker that stand out to make it, in my opinion, better than Campfire for software development teams. I'll enumerate three of them for you.
 
-### 1) Code snippets are EtherPad sessions
+## 1) Code snippets are EtherPad sessions
 
 Yes, you read that correctly, and it is awesome. When Talker detects a paste it will format it so all can see like so:
 
@@ -17,7 +17,7 @@ Yes, you read that correctly, and it is awesome. When Talker detects a paste it 
 
 Notice the link in the upper left which says **"View / Edit paste"**? Clicking it will open a new tab/window and join you into an EtherPad session with the snippet's contents pre-populated. Anybody in the chat room can collaboratively live edit the snippet. Brilliant!
 
-### 2) JavaScript Plugin API
+## 2) JavaScript Plugin API
 
 As devs we often have thoughts like:
 
@@ -33,7 +33,7 @@ In fact, if you [search GitHub][github-search] for "talker plugins" you'll find 
 
 [Here's][js-substitute] a handy plugin that provides live substitutions of the previous message.
 
-### 3) Bring Your Own Server
+## 3) Bring Your Own Server
 
 Talker has a REST API, but that's pretty much required these days. What makes Talker even better is that the _entire_ codebase is open sourced (GPL). [Here][talker-code].
 

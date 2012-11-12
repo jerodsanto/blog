@@ -15,7 +15,7 @@ And that's exactly what we did. Well, kind of...
 
 Here's how it went down, from a total Meteor Newb's perspective.
 
-### Getting Started
+## Getting Started
 
 Congrats to the Meteor team for making getting started a breeze. You literally just run:
 
@@ -35,7 +35,7 @@ I was excited to see `meteor update` which brings your Meteor install up to the 
 
 I think it's safe to say that Zach and I were both up and running with Meteor in about 15 minutes.
 
-### Packages
+## Packages
 
 One big piece of Meteor is the package system. The good news is that for us the package system just worked. The bad news is that there aren't very many packages in the directory yet. This wouldn't be a probem if Meteor just directly integrated [npm][npm], therefore inheriting its large package index, but I'm sure they had their reasons.
 
@@ -49,13 +49,13 @@ We used the *less* and *underscore* packages, but I couldn't talk Zach into usin
 
 ([More info on packages][meteor-packages])
 
-### Getting Help
+## Getting Help
 
 The [Meteor docs][meteor-docs] are surprisingly good. They definitely didn't answer all of our questions and they definitely need _more_ examples, but what is there is easy to read and organized really well. I can't even complain about the lack of search, because everything is on a single page. Chrome's inline search was sufficient to find anything we needed.
 
 But what happens when the docs aren't cutting it and you have like 30 hours to get this dog hunting? [IRC][meteor-irc], that's what. I had two critical questions answered in #meteor AND they were answered swiftly AND it was a Saturday morning. That's pretty rad.
 
-### Autopublish is the Devil
+## Autopublish is the Devil
 
 It's a good thing that getting help was so painless, because boy did we need it! Everything was going peechy until I got the [import script][obh-import] (Yes, Ruby) working and imported slightly over 30,000 records into our `Bounties` collection.
 
@@ -77,7 +77,7 @@ meteor remove autopublish
 
 After disabling autopublish I could once again load our app without crashing my browser, but now then there were no items available in the client's representation of the Bounties collection.
 
-### I don't think that word means what you think it means
+## I don't think that word means what you think it means
 
 Once autopublish is out of the picture, you have to manually publish and subscribe in order to get data down to your clients. The way this works in Meteor is, to me, non-intuitive.
 
@@ -130,7 +130,7 @@ We ran out of time to figure out a good way to periodically fetch random bountie
 
 [![T2][t2-pic]][t2]
 
-### JavaScript, JavaScript Everywhere
+## JavaScript, JavaScript Everywhere
 
 One of the claimed advantages of using entirely JavaScript-based app stacks like Meteor is that you don't have to context switch between a server-side language and a client-side language. I don't think this is a much of a win for a couple of reasons:
 
@@ -147,17 +147,17 @@ Newb tip: the docs says Client, Server, or Anywhere next to each method so it's 
 
 I have a feeling that this is something I'd get used to pretty quickly, but it was frustrating nonetheless.
 
-### Meteor and Mongo, sitting in a tree
+## Meteor and Mongo, sitting in a tree
 
 MongoDB is tons of fun and I can't wait to use it again. One frustrating thing about using MongoDB from within Meteor is that only a subset of Mongo's JavaScript API is available from inside a Meteor collection. That said, I'm no MongoDB pro so I'm not sure how significant of a subset it is.
 
 ([More on Meteor Collections][meteor-collections])
 
-### Deploying
+## Deploying
 
 Meteor provides free hosting on one of their subdomains (which is really awesome, btw), but we wanted to use our own domain so we deployed to Heroku instead. This was made relatively painless thanks to [this build pack][meteor-heroku-buildpack]. I had to make a few adjustments to deploy from a subdirectory instead of the root directory (so as to ignore our import script), but other than that it just worked. I've been using Heroku for years and it still impresses me more every time I use it.
 
-### Conclusions, FAQ-style
+## Conclusions, FAQ-style
 
 *Did our Meteor app win the contest?*
 

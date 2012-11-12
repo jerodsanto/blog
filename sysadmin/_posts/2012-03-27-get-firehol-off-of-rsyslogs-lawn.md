@@ -11,7 +11,7 @@ excerpt: "FireHOL is the best tool I've used for configuring Linux firewalls. Bu
 This tutorial is for Debian 6 running rsyslog. As always, YMMV.
 {% endaside %}
 
-### Install FireHOL
+## Install FireHOL
 
 This is the easy part.
 
@@ -19,7 +19,7 @@ This is the easy part.
 aptitude install firehol
 {% endhighlight %}
 
-### Make sure it can start
+## Make sure it can start
 
 Debian's FireHOL package has it disabled by default. Edit `/etc/default/firehol` and set:
 
@@ -27,7 +27,7 @@ Debian's FireHOL package has it disabled by default. Edit `/etc/default/firehol`
 START_FIREHOL=YES
 {% endhighlight %}
 
-### Set a custom log prefix
+## Set a custom log prefix
 
 Edit `/etc/firehol/firehol.conf` and add the following:
 
@@ -37,7 +37,7 @@ FIREHOL_LOG_PREFIX="firehol: "
 
 This ensures that all FireHOL-generated log messages contain this string. While you're here, you might want to configure the firewall itself :)
 
-### Create a special rule in rsyslog
+## Create a special rule in rsyslog
 
 Add a file at `/etc/rsyslog.d/30-firehol.conf` and make it have the following content:
 
@@ -48,7 +48,7 @@ Add a file at `/etc/rsyslog.d/30-firehol.conf` and make it have the following co
 
 This will make all log messages that contain the "'firehol: " string log to their own file. It then skips the rest of the rules so they don't also go to `kern.log` and `syslog`. The "30" in the filename is just there to ensure that this file is evaluated before the others. I'm not sure if it's actually necessary or not.
 
-### Restart stuff
+## Restart stuff
 
 That should be all you need to do. Now restart FireHOL and Rsyslog like so:
 
@@ -61,7 +61,7 @@ That should be all you need to do. Now restart FireHOL and Rsyslog like so:
 
 Then check `/var/log/firehol.log` to make sure FireHOL is logging there.
 
-### Bonus
+## Bonus
 
 You may also be getting sick of seeing this warning every time you restart FireHOL:
 

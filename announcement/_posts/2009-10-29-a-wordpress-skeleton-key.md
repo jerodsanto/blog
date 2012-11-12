@@ -7,13 +7,13 @@ excerpt: "I often use WordPress as a CMS and have a couple of sites with many us
 
 File this one under** "scratching my own itch"**
 
-### A Problem
+## A Problem
 
 I often use WordPress as a CMS and have a couple of sites with many users contributing. I rarely go a week without an email or phone call from a user who needs help posting. When it comes to remote support there is no substitute for seeing what they're seeing.
 
 However, if you want to login to the site with their user account you have to either ask for their password (_tacky & insecure_) or reset their password temporarily (_amateurish & annoying_).
 
-### A Solution
+## A Solution
 
 ~
 <img class="alignright size-thumbnail wp-image-711" title="large_SkeletonKeyP" src="http://blog.jerodsanto.net/wp-content/uploads/2009/10/large_SkeletonKeyP-150x150.jpg" height="150" alt="large_SkeletonKeyP" width="150" />
@@ -26,7 +26,7 @@ username = admin+joeblow
 password = [the admin's password]
 **/***UPDATE*****
 
-### An Explanation
+## An Explanation
 
 This plugin is dead simple. It hooks into WordPress' authentication chain using 2.8's new '**authenticate**' hook. The Skeleton Key's function sets its priority higher than the built-in authentication functions and checks the password against the admin account provided before the "+" in the database. If the check fails it returns an error and the next function in the chain is called (like normal). If it matches, the <a href="http://wordpress.org/extend/plugins/skeleton-key/" rel="external">Skeleton Key</a> hands back the user account tied to the login and you're good to go.
 

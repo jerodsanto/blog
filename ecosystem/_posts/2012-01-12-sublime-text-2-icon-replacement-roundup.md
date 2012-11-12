@@ -11,31 +11,31 @@ Sublime Text 2 may be the best text editor on the planet, but its icon (as of bu
 
 Replacements abound, and I've rounded them all up for convenient comparison and selection.
 
-### [By Adam Kiss on Forrst][AK]
+## [By Adam Kiss on Forrst][AK]
 
 [![Adam Kiss Sublime Text 2 Icon][AKST2]][AK]
 
-### [By Daniel Matarazzo on Dribbble][DM]
+## [By Daniel Matarazzo on Dribbble][DM]
 
 [![Daniel Matarazzo Sublime Text 2 Icon][DMST2]][DM]
 
-### [By Kreg Wallace][KW]
+## [By Kreg Wallace][KW]
 
 [![Kreg Wallace Sublime Text 2 Icon][KWST2]][KW]
 
-### [By Nate Beaty][NB]
+## [By Nate Beaty][NB]
 
 [![Nate Beaty Sublime Text 2 Icon][NBST2]][NB]
 
-### [By Nate Beaty][NB]
+## [By Nate Beaty][NB]
 
 [![Nate Beaty 2 Sublime Text 2 Icon][NBST22]][NB]
 
-### [By Jon-Paul Lunney on Dribbble][JPL]
+## [By Jon-Paul Lunney on Dribbble][JPL]
 
 [![Jon-Paul Lunney Sublime Text 2 Icon][JPLST2]][JPL]
 
-### [By Dan Perrera on Dribbble][DP]
+## [By Dan Perrera on Dribbble][DP]
 
 [![Dan Perrera Sublime Text 2 Icon][DPST2]][DP]
 

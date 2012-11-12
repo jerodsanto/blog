@@ -19,13 +19,13 @@ There are undoubtedly dozens of solutions for this little problem, but I chose R
 So, with those things in mind, here is what I've come up with:
 
 
-### 1) A Special Twitter Account
+## 1) A Special Twitter Account
 
 Create a new account for your notifications. You'll most likely want to protect its tweets unless you don't mind _just about anybody_ seeing all the notifications you're sending to yourself. Once the account is set up, follow it from your main Twitter account and enable SMS notifications for its tweets.
 
 <img class="aligncenter size-full wp-image-767" title="twitter-sms" src="http://blog.jerodsanto.net/wp-content/uploads/2009/11/twitter-sms.png" height="136" alt="twitter-sms" width="532" />
 
-### 2) A dead simple Ruby script
+## 2) A dead simple Ruby script
 
 I've written about John Nunemaker's Twitter gem a [couple][1] of [times][2], and it once again makes its way into the toolbelt. Install if you don't have it:
 
@@ -53,7 +53,7 @@ jerod@mbp:~$ chmod +x src/ruby/twitter/twitter_notify.rb
 jerod@mbp:~$ ln -s ~/src/ruby/twitter/twitter_notify.rb /usr/local/bin/twitter_notify
 {% endhighlight %}
 
-### 3) A Call to Notify
+## 3) A Call to Notify
 
 Anytime you want to be notified that a command has completed, just follow it with the `twitter_notify` command. There are a couple of ways to do this, and they are slightly different:
 
@@ -69,7 +69,7 @@ jerod@mbp:~$ cp /tmp/bigfile.tgz /somewhere/else; twitter_notify "command comple
 
 Using `&&` will only call the second command if the first command completed successfully. Using `;` will call the second command regardless of how the first command completed. Adjust usage depending on your circumstance.
 
-### 4) A Deserved Break
+## 4) A Deserved Break
 
 Now that you've set up your tools to handle the grunt work, walk away from the computer! Go outside, watch a movie, hang with your fam, who cares! When that task is complete you'll get an SMS and you can deal with it then.
 

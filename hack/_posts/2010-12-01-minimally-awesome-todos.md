@@ -14,7 +14,7 @@ The good news is that I found a system that Just Works&reg; for me. It's minimal
 
 Okay, enough with the hyperbole. Here is how I'm todoing it.
 
-### My Needs
+## My Needs
 
 First off, YMMV. I'm a particular guy and your needs may not line up with mine. Here's what I need from a todo system:
 
@@ -26,15 +26,15 @@ First off, YMMV. I'm a particular guy and your needs may not line up with mine. 
 
 It's simple, really. I just need a list of things that need doing staring me in the face. And I need to manipulate that list with ease. Nothing more.
 
-### My System
+## My System
 
 The system I'm using consists of three pieces, two of which can be implemented on any stock UNIX-based operating system. The third piece employs a freeware application for Mac OS X called [GeekTool][geektool].
 
-#### 1) A Plaintext File
+## 1) A Plaintext File
 
 There is no better way to store a list of things than a good ole' text file. They're portable and readable by almost anything. I put mine in `~/Documents/todo`, but I'm considering moving it to my [Dropbox][dropbox] folder instead.
 
-#### 2) Bash Functions
+## 2) Bash Functions
 
 I started off using Vim and TextMate to manage the text file, but even this was too much effort. I pretty much live in Terminal.app, and with the help of the awesome [Visor][visor] program I have access to it from anywhere on my system via a hot-key. So I wrote two very simple Bash functions instead. Be sure to set an environment variable for where the text file is located:
 
@@ -79,7 +79,7 @@ jerod@mbp:~$ todo
 
 It matches aggressively so I can get away with passing it as small a string as possible. This is a little dangerous because it will match multiple lines so I could end up removing more tasks than intended. For example, if I would have passed it the term `some` it would have removed both of my tasks. In practice I've never run into that problem. I rarely allow myself to have 10+ tasks in my list at any point, so the chance of string collisions is low.
 
-#### 3) A Desktop Embed
+## 3) A Desktop Embed
 
 So far this system is nothing revolutionary. I wouldn't even call it special. Where my todo system really shines is in its ability to remind me of tasks I've created without being outright obnoxious.
 
@@ -101,7 +101,7 @@ This is really powerful, but please don't get carried away with it! To embed you
 
 !['geeklet settings'][geeklet]
 
-### Todone
+## Todone
 
 I've been using this system for awhile now (longer than any other I've tried) and I still love it. The key is to keep your todo list small (isn't that the point, after all?) so you don't need to manage the crap out of it.
 

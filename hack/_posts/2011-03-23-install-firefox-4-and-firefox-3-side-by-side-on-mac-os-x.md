@@ -7,7 +7,7 @@ excerpt: "Want to upgrade to the newly released Firefox 4 while maintaining your
 
 Want to upgrade to the newly released Firefox 4 while maintaining your Firefox 3 install for browser testing purposes? So did I. Here's how to get 'er done:
 
-### 1) Rename Firefox 3's app bundle
+## 1) Rename Firefox 3's app bundle
 
 You don't want the Firefox 4 install to clobber the Firefox 3 install which it will if you don't rename it first. Use Finder to rename it or execute this from the terminal:
 
@@ -15,7 +15,7 @@ You don't want the Firefox 4 install to clobber the Firefox 3 install which it w
 mv /Applications/Firefox.app /Applications/Firefox3.app
 {% endhighlight %}
 
-### 2) Create version-specific profiles
+## 2) Create version-specific profiles
 
 Skip this step if you don't care about your current Firefox 3 profile.
 
@@ -27,7 +27,7 @@ You need to rename your current profile (probably **default**) and create a new 
 
 Rename the the default profile to "firefox3" (or similar) and create a new profile called "firefox4" (or similar). If you're cool with selecting the profile to use every time you launch one of the browsers, just uncheck "Don't ask at startup" and jump down to step 5. If you're **not** cool with that, make sure it is checked and read on.
 
-### 3) Force Firefox 3 to use its own profile when launched
+## 3) Force Firefox 3 to use its own profile when launched
 
 This is more work than I anticipated, but [this blog post][forceprofile] explains it pretty well. Create a script called "firefox.sh" (or similar) in `/Applications/Firefox3.app/Contents/MacOS` and paste the following into it:
 
@@ -47,7 +47,7 @@ Finally, rebuild your launch services database so it picks up the changes by exe
 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user
 {% endhighlight %}
 
-### 4) Install Firefox 4 like normal
+## 4) Install Firefox 4 like normal
 
 Yup, just [Get Firefox 4][getfirefox] and install it. You should now be able to run them side by side with their unique profiles!
 

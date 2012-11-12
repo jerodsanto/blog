@@ -7,7 +7,7 @@ excerpt: "Why I think Heroku is awesome and will change the game of Ruby app dep
 
 For the uninitiated, [Heroku][1] is a "cloud" (hate that term) hosting service for Ruby applications. Their claim, which I believe they have substantiated, is to be an "**instant ruby platform**" and their success changes the game. Here is why.
 
-### 1) Microwavesque Deployment
+## 1) Microwavesque Deployment
 
 When Heroku claims that you can deploy your Ruby app instantly, they're pretty much not exaggerating. Seriously, you should try it. It's so fast I had to ignore my spell-checker and describe it as microwavesque. Remember when microwaves first hit the scene and people couldn't believe how fast they could "deploy" a meal? Yah me either, but the microwave changed the game big time.
 
@@ -25,7 +25,7 @@ git push heroku master
 
 If that looks like too much work for you, have Remi walk you through it in [this nice screencast][2].
 
-### 2) Drag To Scale
+## 2) Drag To Scale
 
 Scaling is a problem we all want to have, but few of us do. The rest of us spend way too much time thinking about it. With Heroku's architecture, you don't have to think about scaling. You just do it. If you're fortunate enough to have your app featured on TechCrunch, Slashdot, Digg, HN, Reddit, etc, etc, you simply log in to the Heroku admin panel and "crank your dynos" (love that term) to handle the load. How do you do that? By dragging a little bar vertically. How's that for a learning curve?
 
@@ -33,7 +33,7 @@ Scaling is a problem we all want to have, but few of us do. The rest of us spend
 
 Note: This isn't the only way to ensure your app scales. You should still optimize your code for performance, but Heroku takes care of all the server configuration (compression, caching, memory allocation, etc) and you just ask for more power when you need it.
 
-### 3) Rack Support
+## 3) Rack Support
 
 Heroku isn't just a Rails platform, it's a Ruby platform. They support any [Rack-enabled][4] Ruby app. Check out how many Ruby web frameworks have Rack adapters:
 
@@ -78,7 +78,7 @@ The rackup file (config.ru) tells Heroku to use Sinatra to run my application. R
 
 **UPDATE:** Blake Mizerany provided a few shorter examples [here][6].
 
-### So
+## So
 
 What Heroku offers Ruby web developers is instant deployment, fast & easy scaling, and vast tool selection. Now we can concentrate on building our applications and forget the tedious deployment and server administration tasks that used to strangle our productivity. We can deploy fast, scale quickly, and adjust to circumstance as needs arise. The game is changing, and Heroku (and others like them) are changing it.
 

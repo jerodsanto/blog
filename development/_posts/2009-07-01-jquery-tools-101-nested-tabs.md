@@ -11,7 +11,7 @@ I decided to ditch [jQuery UI][2] on a recent project when I couldn't get tabs &
 
 To use the minimal tabs interface you can simply [follow the instructions on their site][3], but if you want to nest tabs inside one another you'll need to change things slightly. I'll demonstrate below:
 
-### the Mark Up
+## the Mark Up
 
 {% highlight html %}
 <ul class="tabs main">
@@ -39,7 +39,7 @@ To use the minimal tabs interface you can simply [follow the instructions on the
 
 The key in this sequence is that the seemingly arbitrary href attribute on the tab anchors has different content for the main tabs (#1) than the nested tabs (#2). This is required or your nested tabs will keep returning to the main tabs when you click on a tab link.
 
-### the JavaScript
+## the JavaScript
 
 To configure the nested tabs, you can define the JavaScript as simply as this:
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 the `tabs()` function is called on a jQuery selector that matches the unordered list and it takes as its first argument a selector for where to find the tab's content panes. It's second argument is a single option that tells `tabs()` which elements to use as links for the tabs. The default is `a`, but to differentiate the main tabs from the nested tabs, it needs to be passed explicitly with the correct class for the anchor.
 
-### the Style
+## the Style
 
 Of course, to make these look cool you'll need some nice CSS applied to the elements at play. I'll leave that to you, but you can get a decent start from the [demo page][4] for the library.
 

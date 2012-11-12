@@ -25,13 +25,13 @@ Combatting app bloat can be difficult when you don't have a system, and I have a
 
 Good news! I've discovered a great way to keep our iOS devices trim and loaded with only the BEST apps. Better news! It includes a [FlickChart][flickchart] style VS!
 
-### Step 1 &mdash; Set a limit
+## Step 1 &mdash; Set a limit
 
 The easiest way to do this is to only let yourself have *N* screens of apps and *J* folders. You'll want to find your own sweet spot, but my personal limit is two screens and two folders. One folder is for all of the Apple <strike>shovelware</strike> apps and the other folder is for rarely used, essential utilities.
 
 This may sound pretty limiting (and in practice it is &mdash; there are a lot of good iOS apps), but two screens and two folders allows for 58 total apps on my device. That's plenty.
 
-### Step 2 &mdash; Have your fill
+## Step 2 &mdash; Have your fill
 
 ![Does the App Store make you feel like this?][candy-store]
 
@@ -39,7 +39,7 @@ This step is so easy that you've probably already done it. You just install apps
 
 If your device is already loaded up with apps, you'll get a big dose of Step 3 right away.
 
-### Step 3 &mdash; Versus
+## Step 3 &mdash; Versus
 
 Whenever you download an app that pushes you over your self-imposed limit you have a decision to make. Does this new app make the cut or are all of your current apps better? Which, if any, of your apps do you not use much anymore? Can any of them be replaced by this?
 
@@ -49,7 +49,7 @@ This feels cumbersome at first, but it's actually kind of fun and makes you thin
 
 ![It seemed like a good idea at the time][kid-eating-cake]
 
-### The result
+## The result
 
 I've been doing this for a few months and I'm surprised how much more I enjoy my iPhone these days.
 It's topped up with best-of-breed apps and since I'm already at my app limit I don't go seeking out new apps anymore.

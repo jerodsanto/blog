@@ -15,17 +15,17 @@ This was the big one. The <a href="http://www.phusion.nl/">Phusion</a> guys' "He
 2.  <a href="http://git-scm.com">Git</a>
 Ok, so maybe Subversion allows a similar workflow, but for some reason Git is one of those tools that is so much fun to use that it makes me think of <a href="/2009/05/git-informed-when-your-site-is-hacked/">different ways</a> I can use it.
 
-### My Flow
+## My Flow
 
 How I deploy these days (when I'm not deploying to [Heroku][2]) is dead simple. I host my private Git repos using [Gitosis][3], but the same would work with [GitHub][4] or any Git server.
 
-### Initial Setup
+## Initial Setup
 
 1. Clone the repository on production server.
 2. Create database.yml and any other production-specific configs
 3. Configure an Apache virtual host pointing to "public" folder of the repository
 
-### Deploys
+## Deploys
 
 **locally:**
 
@@ -51,7 +51,7 @@ end
 
 This task can be extended to automatically install required gems, update Git submodules, migrate the database, and so on.
 
-### Other Benefits
+## Other Benefits
 
 Besides the simplicity and ease of deployment in this process, I have also enjoyed the ability to make edits in production and pull them back in to my development environment. And because my production environment has a complete history of code changes, it is trivial to revert commits that cause major problems.
 

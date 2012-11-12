@@ -9,7 +9,7 @@ Picking up a new framework can be a daunting task, especially if you're simultan
 
 Along the way I've compiled a list of valuable resources. I believe many others will be taking this same journey in the coming days (especially once [Atlas][2] drops), so I'm sharing my findings for the benefit of all.
 
-### Laying Foundation
+## Laying Foundation
 
 [JavaScript: The Good Parts][3] - _the_ book to read on JavaScript
 
@@ -23,7 +23,7 @@ Along the way I've compiled a list of valuable resources. I believe many others 
 
 [Objective-C for Rubyists][8] - great ($9) screencast if you're coming from a Ruby background like me
 
-### Tutorials & Walk-Thrus
+## Tutorials & Walk-Thrus
 
 [Scrapbook Tutorial][9] - first "real" tutorial on cappuccino.org
 
@@ -31,7 +31,7 @@ Along the way I've compiled a list of valuable resources. I believe many others 
 
 [CappuccinoCasts][11] - Thomas does a great job with these. Watch 'em all
 
-### Reference Material
+## Reference Material
 
 [Cappuccino Online Documentation][12] - Unfortunately these are often outdated
 
@@ -41,7 +41,7 @@ Along the way I've compiled a list of valuable resources. I believe many others 
 
 [Cocoa Browser Air][15] - A great tool for browsing Apple's documentation on a Mac
 
-### Staying Informed
+## Staying Informed
 
 [Official Cappuccino Blog][16] - duh
 
@@ -53,7 +53,7 @@ Along the way I've compiled a list of valuable resources. I believe many others 
 
 [GitHub repository][20] - if you're hardcore you can watch every commit to the project
 
-### Getting Help
+## Getting Help
 
 [Google Group][21] - good archives to search here as well
 

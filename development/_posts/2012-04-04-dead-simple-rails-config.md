@@ -13,7 +13,7 @@ That would've been prudent in the bad ole' days, but Rails 3 makes adding custom
 This method provides custom configuration without checking it in to version control. It's even easier if your configuration settings do not need to be private.
 {% endaside %}
 
-### Easy Access
+## Easy Access
 
 There are two ways to access our application's configuration object in Rails 3.
 
@@ -41,7 +41,7 @@ MyApp.config
 
 Right now that object is a bucket full of Rails configurations. How do we get our own settings in there?
 
-### Just add Yaml
+## Just add Yaml
 
 Add a `config.yml` file to our app's `config` directory. Put some settings in there.
 
@@ -57,7 +57,7 @@ cp config/config.yml config/config.yml.example
 echo "config/config.yml" >> .gitignore
 {% endhighlight %}
 
-### Load it
+## Load it
 
 We can add custom settings to Rails' configuration manually like so:
 
@@ -78,7 +78,7 @@ YAML.load_file("#{Rails.root}/config/config.yml").each { |k,v| config.send "#{k}
 
 It's as simple as that.
 
-### Go Crazy
+## Go Crazy
 
 This probably solves only the most basic of needs, but at just one LOC it is quite easy to extend ;). A few things that might be worth adding:
 

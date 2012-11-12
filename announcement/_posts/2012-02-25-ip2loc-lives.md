@@ -13,11 +13,11 @@ In my frustration, I replaced the lookup form with a "*this is why we can't have
 
 (I just looked and my ip2loc announcement blog post was in July of 2008. That's a long time ago!)
 
-### But
+## But
 
 So many folks reached out to say thanks, offer assistance, and tell me how often they use the tool that I decided to bring it back to life.
 
-### Compromises
+## Compromises
 
 In order to resurrect the service, I had to switch away from the paid [MaxMind][maxmind] web service that was powering it. This is worse in a few ways:
 

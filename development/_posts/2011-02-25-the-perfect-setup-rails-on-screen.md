@@ -11,7 +11,7 @@ This post isn't trying to sell you on `screen`. There are umpteen sites out ther
 
 ![rails screen][railsscreen]
 
-### The Premise
+## The Premise
 
 Each Rails project I work on has the same basic needs. I want each of those needs facilitated by a `screen` window, and I don't want to manually bootstrap the environment each time I return to a project. The things I want in each Rails app (currently) are:
 
@@ -24,15 +24,15 @@ Each Rails project I work on has the same basic needs. I want each of those need
 
 Ideally, I would be able to `cd` to my application's root directory, execute a single command, and be up and running. But...
 
-### The Problem
+## The Problem
 
 There is no straight forward way (that I know of) to configure screen for multiple unrelated sessions. In other words, you can configure it to _always_ do certain things when it is invoked, but you can't configure it to _sometimes_ do certain things when it is invoked. WANT.
 
-### My Solution
+## My Solution
 
 Good news! Passing the `-c` flag to `screen` specifies a configuration file to use. I leverage this feature to (sometimes) load in a custom, Rails-specific configuration. That plus a wrapper function does the job perfectly. Here's how:
 
-#### 1) Create a custom screenrc just for rails
+## 1) Create a custom screenrc just for rails
 
 In it I put everything required to get the session all set up. Mine looks like this:
 
@@ -65,7 +65,7 @@ I _could_ bypass the whole "stuff" thing by passing the command directly on the 
 
 Finally, I should explain the `\015` at the end of each "stuff" line. That is telling `screen` to enter a line feed (LF) character which will actually execute the command.
 
-#### 2) A screen wrapper function
+## 2) A screen wrapper function
 
 Now that I have a custom config file, I make it super-simple to invoke `screen` with it by adding this function to my `.bashrc` file:
 
@@ -84,7 +84,7 @@ This should be pretty self-explanatory. It calls `screen` with the custom config
 
 One noteworthy tidbit is that it also sets the `-S` flag to the name of the directory holding the Rails application. That way if the session ever gets detached I can reattach it with the project name instead of some obscure session id.
 
-### One Stone, Many Birds
+## One Stone, Many Birds
 
 I like this system a lot. What is really nice about it is that I can easily extend it to many different scenarios by creating new custom config files and adding matchers to the wrapper function.
 

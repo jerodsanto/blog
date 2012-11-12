@@ -7,11 +7,11 @@ excerpt: "I just finished reading Gregory Brown's **Ruby Best Practices** (RBP).
 
 I just finished reading Gregory Brown's "**Ruby Best Practices**" (RBP). I could probably write a book about this book, but I hate long book reviews so I'll try to keep this short.
 
-### In Summary
+## In Summary
 
 If you are an intermediate-to-expert Ruby programmer you should absolutely read this book. Beginners may want to start elsewhere and work their way up. [Where To Get It][1]
 
-### In Detail
+## In Detail
 
 The beauty and power of Ruby is its dynamism which leads to freedom. The problem with freedom is it means [TMTOWTDI][2]. The problem with [TMTOWTDI][2] is best summarized by me, in a quote of myself:
 

@@ -7,7 +7,7 @@ excerpt: "One major problem with Photo Stream is that it uploads <em>everything<
 
 iOS 5's [Photo Stream][photostream] feature &mdash; in which your photos are synced across devices via iCloud &mdash; is pretty cool, but like most new software it has its limitations.
 
-### A Problem
+## A Problem
 
 One major problem with Photo Stream is that it uploads *everything* that hits your device's Camera Roll. That'd be great if all we ever took were amazing photographs. But alas, many of the images captured by our phones just aren't worth the effort, like this one taken by my three year old daughter (which was then Photo Streamed to all my machines):
 
@@ -15,7 +15,7 @@ One major problem with Photo Stream is that it uploads *everything* that hits yo
 
 Not. Ideal.
 
-### A Workaround
+## A Workaround
 
 For awhile now, I've been using a simple workaround for this inadequacy. It's not revolutionary or anything, but everybody I tell about it seems to have one of those "Aha!" moments, so I figured it'd be worth sharing here.
 
@@ -29,7 +29,7 @@ Unfortunately, this solution doesn't work in every scenario. For instance, you c
 
 If you know of a workaround for those scenarios, please post it in the comments.
 
-### A Bonus
+## A Bonus
 
 I don't know about you, but I have a recurring problem with the Camera app where it's always in *video mode* when I want to take a picture and in *picture mode* when I want to take a video. Gah!
 

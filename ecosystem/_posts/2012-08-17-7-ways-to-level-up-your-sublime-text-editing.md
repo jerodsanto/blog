@@ -5,7 +5,7 @@ title: "7 Ways to Level Up Your Sublime Text Editing"
 excerpt: ""
 ---
 
-### 1) Packages. Control them.
+## 1) Packages. Control them.
 
 Installing [PackageControl][package-control] is the first step on many Sublime Text 2 (ST2) blog posts around the web. Rightly so. It opens up a new world of functionality and makes managing that world a piece o' cake.
 
@@ -13,7 +13,7 @@ Once you have it installed, you're a quick ⇧⌘P and a "pack" from everything 
 
 !["Upgrade/Overwrite All Packages" is super cool][package-control-pic]
 
-### 2) Packages. Sync them.
+## 2) Packages. Sync them.
 
 Even with PackageControl, installing and updating packages on each of your machines is more work than it needs to be.
 
@@ -40,7 +40,7 @@ ln -s ~/Dropbox/appsync/Sublime\ Text\ 2/Packages \
 
 The really great thing about this is that ST2 stores your preferences in a package called `User` so all of your preferences come along for the syncing ride.
 
-### 3) Speaking of preferences...
+## 3) Speaking of preferences...
 
 One of the first things about ST2 that made me go "ZOMG THIS IS AWESOME" is how it natively supported a handful of small features that are a PITA to get working in TextMate (my previous editor of choice) and Vim (my forever-editor-of-second-choice).
 
@@ -62,7 +62,7 @@ The `ensure_newline_at_eof_on_save` and `trim_trailing_white_space_on_save` sett
 
 The `translate_tabs_to_spaces`, `tab_size`, and `ruler` settings will help keep your code readable. ([more on that here][white-spaces-post])
 
-### 4) Git with it
+## 4) Git with it
 
 The [git package][git-package] is super handy to have around. It puts all the requisite git commands at your finger tips via the Command Palette.
 
@@ -74,7 +74,7 @@ Here is the result of executing `Git: Log Current File` on a project's `pricing.
 
 Selecting one of the log items from the list opens the commit details in a new tab. That's awesome.
 
-### 5) N Views to a Kill
+## 5) N Views to a Kill
 
 One of my early gripes about ST2 was that it didn't provide split views. Then I realized that I was completely wrong and it does provide split views! Don't you love when that happens?
 
@@ -87,7 +87,7 @@ Once you have multiple views up you can drag & drop tabs between them. You can e
 
 ![][split-view-pic]
 
-### 6) Enhance the Sidebar
+## 6) Enhance the Sidebar
 
 The [SidebarEnhancements package][sidebar-enhancements-package] fills such a huge void in ST2's feature list that it should really be merged into core.
 
@@ -99,7 +99,7 @@ I like to preview my Markdown files in [Marked][marked-app], which this package 
 
 If any influential ST2 people are reading this, please seriously consider getting SidebarEnhancements into ST2 proper.
 
-### 7) All the small keys
+## 7) All the small keys
 
 The best way to level up your text editing is by removing round trips to the mouse.
 
@@ -115,7 +115,7 @@ Here are a handful of them that I believe give you the most bang for your buck:
 * ⌘K ⌘J &mdash; Unfold all code in the document
 * ⌘K ⌘B &mdash; Toggle the sidebar. This is essential when working on a small screen and using split columns
 
-### Fin
+## Fin
 
 Those are the big ones. There's also writing your own custom snippets, but that's a big enough conversation to warrant its own post. Subscribe to the [feed][rss-feed] or follow along on [Twitter][twitter-feed] to be notified of that and other future posts!
 

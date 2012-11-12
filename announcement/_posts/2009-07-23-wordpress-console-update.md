@@ -7,7 +7,7 @@ excerpt: "It's been awhile since I posted about my <a href='http://github.com/je
 
 It's been awhile since I posted about my <a href="http://github.com/jerodsanto/wordpress-console" rel="external">open-source</a> WordPress Console (WPC) plugin, and enough has happened since I released it that I thought it deserved a little mention.
 
-### What's New
+## What's New
 
 <ol>
 <li>Basic Security</li>
@@ -27,11 +27,11 @@ This is the biggest functional improvement to WPC by far. It was a feature that 
 WPC now handles command history with more grace. Using the up-arrow puts the cursor at the end of input, you can't walk off the end of the history buffer, and a few other improvements to the code quality.
 </ol>
 
-### Some Press
+## Some Press
 
 Thanks to <a href="http://pixelgraphics.us/" rel="external">Doug Neiner</a> for giving WPC a solid review on the <a href="http://fuelyourcoding.com/plugin-review-wordpress-console" rel="external">Fuel Your Coding blog</a>, and for contributing to the project.
 
-### What's Next
+## What's Next
 
 I'm not really sure.
 

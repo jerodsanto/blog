@@ -9,7 +9,7 @@ I recently enjoyed the opportunity to help [Grooveshark][gs] reinvent their web 
 
 This post is my thanks to the authors and contributors of the software used. We probably _could have_ done it without you, but I'm sure glad we didn't have to!
 
-### [jQuery][jquery]
+## [jQuery][jquery]
 
 [Yehuda Katz][wycats] recently quipped that [jQuery][jquery] is becoming the standard library of the web. And why shouldn't it? It makes otherwise arduous DOM manipulation a breeze, its API is mature, and it has been proven on major production sites.
 
@@ -17,7 +17,7 @@ jQuery's other strength is its popularity. Some people dislike it for this reaso
 
 In fact, Grooveshark had already chosen jQuery as a component before I joined the party. I didn't complain :)
 
-### [jQuery UI][jqueryui]
+## [jQuery UI][jqueryui]
 
 You may not notice [jQuery UI][jqueryui] in the mix at first glance, but it's in there.
 
@@ -27,7 +27,7 @@ The only widgets used were Autocomplete, Slider, and Datepicker, but we employed
 
 One of jQuery UI's greatest advantages (besides its use of jQuery, of course) is that you can pick and choose just what you need. Page load speed was another driving force of the rewrite, so this was paramount for us.
 
-### [JavaScript MVC][jmvc]
+## [JavaScript MVC][jmvc]
 
 Grooveshark's Flash application was built with a [Model-View-Controller][mvc] (MVC) architecture and they were keen on retaining that paradaigm with the JavaScript application. We looked at a few options for this and ultimately settled on [JavaScript MVC][jmvc] (JMVC).
 
@@ -35,7 +35,7 @@ JMVC has a boatload of features (code generation, dependency resolution, documen
 
 JMVC's default templating engine is [EJS][ejs], which will look familiar to Ruby/Rails developers. Its similarity to vanilla HTML made it attractive right out of the gate (again, for developer accessibility) and powerful features like partials and view helpers means it can handle just about anything.
 
-### [SlickGrid][slickgrid]
+## [SlickGrid][slickgrid]
 
 A huge component of Grooveshark is the grid. Almost every content page has it, and it is busting at the seams with features (sorting, arbitrary row rendering, drag and drop, keyboard navigation, etc.).
 
@@ -45,22 +45,22 @@ Features aside, the main thing the grid needs is to perform well with thousands 
 
 The library was a joy to work with. You should definitely check it out if you have advanced grid needs.
 
-### [jQuery Hashchange][hashchange]
+## [jQuery Hashchange][hashchange]
 
 Grooveshark is a single page application with many "pages" inside it. These pages have pretty URLs nested behind a hash (#) tag. We needed to preserve all of the publicly available URLs while providing back button and history support. Originally, we looked to [Sammy JS][sammy] for this functionality.
 
 Sammy worked great for awhile, but we had some issues with back button support on older browsers. Also, Sammy provides a ton of functionality and we were only using a smidgeon of it. Instead, we switched to Ben Alman's [Hashchange plugin][hashchange] and never looked back. It works great and has a small footprint.
 
 
-### [Store.js][storejs]
+## [Store.js][storejs]
 
 Performance is a big deal to the Grooveshark team. We use local storage to persist user settings and libraries so they won't have to wait on the server to load up the application when they return. [Store.js][storejs] is a local storage wrapper that consolidates all the browser quirks into a single API. Awesome stuff.
 
-### [jQuery-localize][localize]
+## [jQuery-localize][localize]
 
 Grooveshark currently supports switching between 17 languages. When the language is switched all localized elements on the page (and future elements) need to be swapped out. Our localization technique started with the [jquery-localize][localize] plugin. We ended up extending it quite a bit to support some advanced string localizations, but the plugin definitely gave us a jumping off point.
 
-### Other Stuff
+## Other Stuff
 
 Those are the big pieces of the application, but there are other players that are worth mentioning:
 

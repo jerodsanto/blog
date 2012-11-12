@@ -13,7 +13,7 @@ For the uninitiated, I've embedded the first ever RADRebus episode right there &
 
 I was watching TRS the other day and thought it'd be fun makes some rebuses with Ruby. So I did!
 
-### An Example Rebus
+## An Example Rebus
 
 If you don't want to watch the RADRebus video and you don't know what a rebus is, an example may help out.  Here is a movie rebus taken from [Eric Harshbarger's][eric-harshbarger] list of [100 Movie Rebus Puzzles][harshbarger-rebuses].
 
@@ -25,13 +25,13 @@ And the answer is [Big Touble in Little China][btlc].
 
 See how that works? Good.
 
-### The Challenge
+## The Challenge
 
 I have created 20 Ruby-based rebuses representing movie titles. Some are pretty easy, but others I hope will pose a challenge.
 
 See if you can figure out all 20 and post your answers in the comments!
 
-### Rebus #1
+## Rebus #1
 
 {% highlight ruby %}
 require "active_record"
@@ -41,13 +41,13 @@ Person.where(sex: "M", age: 78).map(&:country).compact
 # => []
 {% endhighlight %}
 
-### Rebus #2
+## Rebus #2
 
 {% highlight ruby %}
 %w(stand sit walk run him her me you) & %w(put place stand lean them we me us)
 {% endhighlight %}
 
-### Rebus #3
+## Rebus #3
 
 {% highlight ruby %}
 while true do
@@ -56,7 +56,7 @@ while true do
 end
 {% endhighlight %}
 
-### Rebus #4
+## Rebus #4
 
 {% highlight ruby %}
 inside = []
@@ -64,7 +64,7 @@ ones = %w(one one one one)
 inside << ones.last
 {% endhighlight %}
 
-### Rebus #5
+## Rebus #5
 
 {% highlight ruby %}
 begin
@@ -73,7 +73,7 @@ rescue
 end
 {% endhighlight %}
 
-### Rebus #6
+## Rebus #6
 
 {% highlight ruby %}
 def movie(episode)
@@ -84,13 +84,13 @@ def movie(episode)
 end
 {% endhighlight %}
 
-### Rebus #7
+## Rebus #7
 
 {% highlight ruby %}
 Batman.new
 {% endhighlight %}
 
-### Rebus #8
+## Rebus #8
 
 {% highlight ruby %}
 require "singleton"
@@ -100,7 +100,7 @@ class Child < Parent; include Singleton; end
 ObjectSpace.each_object(::Class).find { |klass| klass < Parent  }.instance
 {% endhighlight %}
 
-### Rebus #9
+## Rebus #9
 
 {% highlight ruby %}
 class Murder
@@ -115,32 +115,32 @@ end
 Murder.inspect
 {% endhighlight %}
 
-### Rebus #10
+## Rebus #10
 
 {% highlight ruby %}
 [["Switch", "Dozer", "Mouse"],
  ["Tank", "Cypher", "Apoc"]]
 {% endhighlight %}
 
-### Rebus #11
+## Rebus #11
 
 {% highlight ruby %}
 "otnemem".reverse
 {% endhighlight %}
 
-### Rebus #12
+## Rebus #12
 
 {% highlight ruby %}
 "husband & wife".split(" & ")
 {% endhighlight %}
 
-### Rebus #13
+## Rebus #13
 
 {% highlight ruby %}
 "fish".upcase
 {% endhighlight %}
 
-### Rebus #14
+## Rebus #14
 
 {% highlight ruby %}
 {
@@ -152,7 +152,7 @@ Murder.inspect
 }.clear
 {% endhighlight %}
 
-### Rebus #15
+## Rebus #15
 
 {% highlight ruby %}
 require "timecop"
@@ -162,7 +162,7 @@ Timecop.freeze Date.parse("2012-12-21") do
 end
 {% endhighlight %}
 
-### Rebus #16
+## Rebus #16
 
 {% highlight ruby %}
 class Hash
@@ -170,7 +170,7 @@ class Hash
 end
 {% endhighlight %}
 
-### Rebus #17
+## Rebus #17
 
 {% highlight ruby %}
 require "rspec"
@@ -178,31 +178,31 @@ require "rspec"
 Fowl.should_receive(:kill).with(2) { nil }
 {% endhighlight %}
 
-### Rebus #18
+## Rebus #18
 
 {% highlight ruby %}
 Process.kill 9, 1988
 {% endhighlight %}
 
-### Rebus #19
+## Rebus #19
 
 {% highlight ruby %}
 "11:59".gsub(":", ".").to_f.ceil
 {% endhighlight %}
 
-### Rebus #20
+## Rebus #20
 
 {% highlight ruby %}
 10.times.map { "pennies" }[5]
 {% endhighlight %}
 
-### Bonus Challenge!
+## Bonus Challenge!
 
 All of the movies in this list have a common bond. Can you figure out what it is?
 
 (tip: if you can figure out the bonus question early on may will help you get the more difficult rebuses.)
 
-### The Answers
+## The Answers
 
 **UPDATE:** The [answers post][ruby-rebus-answers] is now available
 

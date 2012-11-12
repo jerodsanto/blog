@@ -11,7 +11,7 @@ Letterpess is already a success by almost any measure. It reached #16 in the App
 
 But I think Letterpress has an opportunity to *really* shine.
 
-### The Problem
+## The Problem
 
 Like all of Loren's software, Letterpress is filled with little touches and flourishes that make it a joy to play. There is one moment in the game, however, that is decidedly *not* joyous. Zach Waugh explains it in a tweet:
 
@@ -32,7 +32,7 @@ It looks like some people have even started <a href="http://addthesewordstolette
 
 Pain points like this one often present opportunities. Can you see where I'm going with this?
 
-### The Solution
+## The Solution
 
 Letterpress should offer topical dictionary extensions as in-app purchases.
 
@@ -45,7 +45,7 @@ Here's one way that it could work:
 Let's say that Bob has purchased the "Medical" dictionary. When he starts a new game he selects it (only one per game) and his opponent, Alice, is told that Bob wants to play Letterpress with her using "Medical" terms. Alice doesn't have to buy the "Medical" dictionary to play Bob, but she does need to if she wants to use it in games that she initiates.
 
 
-### The Effect
+## The Effect
 
 1. Users win because they get to play the game with words they know and love.
 

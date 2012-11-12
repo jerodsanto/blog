@@ -7,11 +7,11 @@ excerpt: "Ever wanted (or needed) to see your iPhone's network traffic? All you 
 
 Ever wanted (or needed) to see your iPhone's network traffic? All you need is a wireless LAN and the cross-platform proxy application, [Paros.][1] There are other proxy server's that can be used, but Paros was built for web application security assessments, so it provides an intimate hook into the HTTP request/response flow. Let's get started!
 
-### 1) Download and Install Paros
+## 1) Download and Install Paros
 
 Grab the download from the [Paros site][2]. Your install process will differ depending on your O/S, but they've provided some install instructions [here][3]. Everybody will need the Java Runtime Environment 1.4 or above.
 
-### 2) Configure Paros
+## 2) Configure Paros
 
 Once installed, launch Paros and find the configuration options (on OS X they are under Tools -> Options). Paros is configured by default to listen on localhost only, but we are going to route our iPhone's traffic through Paros, so we need to set it to listen on the IP address of the interface connected to the same LAN as the iPhone.
 
@@ -21,7 +21,7 @@ My LAN's network is 1.1.1.0/16, so I'll configure the Local Proxy address accord
 
 That should be the only setting that we need to fuss with. Paros is all set and listening on port 8080, let's configure the iPhone to route its traffic through our proxy!
 
-### 3) Configure iPhone
+## 3) Configure iPhone
 
 On the iPhone, open the "**Settings**" app and navigate to the Wi-Fi page. Once there, edit the settings for the wireless network you are currently connected to (this needs to be the same network where your proxy is running). To do this, click the little blue arrow on the right side of the screen.
 
@@ -33,7 +33,7 @@ Now, scroll all the way to the bottom of the settings page and change the **"HTT
 
 All set! Now all web traffic to and from the iPhone is routed through Paros. Let's go see what we can see.
 
-### 4) Using Paros
+## 4) Using Paros
 
 The main section of Paros is the "**Request/Response/Trap**." As the iPhone talks through Paros to Internet sites, it will display the iPhone's request and the server's response. The "**trap**" functionality allows you to stop either the request or the response and view/modify it before sending it along to the recipient. Trapping is very cool, and why Paros is used for security auditing, but for our purposes we just want to see what is going on, so I won't explain it any further.
 

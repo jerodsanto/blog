@@ -9,7 +9,7 @@ Over the years, I've found a few tools so invaluable for managing *nix servers t
 
 They are, in no particular order:
 
-### htop
+## htop
 
 `htop` is what `top` looks like after she puts on her dancing shoes on a Friday night. Basically `htop` turns this:
 
@@ -36,7 +36,7 @@ $ pacman -S htop
 brew install htop-osx
 {% endhighlight %}
 
-### ack
+## ack
 
 `ack` is a text search tool akin to `grep`, but with some pretty distinct advantages:
 
@@ -61,7 +61,7 @@ $ pacman -S ack
 $ brew install ack
 {% endhighlight %}
 
-### tree
+## tree
 
 `tree` is a great way to wrap your head around a directory structure instead of `cd`ing and `ls`ing all over the place.
 
@@ -82,7 +82,7 @@ $ pacman -S tree
 $ brew install tree
 {% endhighlight %}
 
-### quid pro quo
+## quid pro quo
 
 What about you?
 

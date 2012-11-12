@@ -9,7 +9,7 @@ Many Rails apps need to accommodate multiple tenants. There are a few different 
 
 One of the multi-tenant strategies he presented takes advantage of a feature specific to [PostgreSQL][pg] called "Schemas". His talk was technical, but didn't go in-depth into implementation details. There are a few blog posts, [Stack Overflow][sothread] threads, and other semi-related flotsam around the tubes on how to actually accomplish a multi-tenant app using this strategy, but I still had to figure out many things on my own so I figured I'd document the setup.
 
-### Why PostgreSQL Schemas
+## Why PostgreSQL Schemas
 
 Guy laid out three basic strategies for multi-tenant Rails apps.
 
@@ -25,7 +25,7 @@ I won't lay out all the factors in choosing a multi-tenant strategy, but I'll te
 
 There are, of course, nuances to every application so, seriously, [go watch his talk][guynaor] and make the decision on your own. If you decide you'd like to go the PostgreSQL Schema route, come back and finish reading this post.
 
-### How PostgreSQL Schemas Work
+## How PostgreSQL Schemas Work
 
 "Schema" is such a terrible name for this feature. When most people hear the term "schema" they think of a data definition of some sort. This is not what [PostgreSQL schemas][schemadocs] are. I'm sure the PostgreSQL devs had their reasons, but I really wish they would have named it more appropriately. "Namespaces" would have been apropos.
 
@@ -59,7 +59,7 @@ What does all this mean? It means you can have the same table many times in one 
 
 In other words, you get data separation across tenants by modifying very little of your application logic!
 
-### Setting the Search Path
+## Setting the Search Path
 
 So how do you do all that in Rails?
 
@@ -112,7 +112,7 @@ In the case of a tenant with id of "4", at the end of your `handle_subdomain` me
 
 For the remainder of the request all of your queries will be sent through the "4" schema first as long as you have tables in it to be used. So how do you get all the tables in each tenant's schema?
 
-### Adding New Tenants
+## Adding New Tenants
 
 The current database table definitions need to be loaded into the private schema of each new tenant of the system. You can perform this task in a callback after the tenant record has been created. Something like this:
 
@@ -162,7 +162,7 @@ end
 
 At this point you've accomplished the bulk of the logic that goes into a multi-tenant Rails app with PostgreSQL schemas, but there are a few other things that you'll want to be aware of.
 
-### Migrating Tenants
+## Migrating Tenants
 
 Since every tenant has their own set of tables, it is no longer good enough to just run `rake db:migrate` to make database changes. Instead, each tenant must have its schema's tables migrated.
 
@@ -205,7 +205,7 @@ after "deploy:migrate", "db:migrate_tenants"
 
 That should do it!
 
-### Shared Tables
+## Shared Tables
 
 So far this post has just compiled and distilled information available from various sources, but one thing that nobody else seems to be talking about is that not _all_ of your application's tables will be private to each tenant.
 
@@ -267,7 +267,7 @@ end
 
 This migration will run as normal during `rake db:migrate` and get safely skipped during `rake tenants:db:migrate`.
 
-### Good luck!
+## Good luck!
 
 I hope this post serves as a guide for your own adventure into multi-tenant Rails apps on PostgreSQL. I've been using it for some time now and while there is a lot to wrap your head around and set up at the outset, it pays off in spades when you can ignore the entire problem for much of your application logic and have the peace of mind that a coding mistake won't accidentally expose your customers' sensitive data.
 

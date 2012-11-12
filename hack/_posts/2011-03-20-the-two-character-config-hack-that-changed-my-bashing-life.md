@@ -23,7 +23,7 @@ In my experience, the `cd` command is _almost always_ followed by the `ls` comma
 
 I already have a custom `cd` function which provides `cd ...` type directory traversals ([more on that here][cdupupup]), so I recently added two characters to it.
 
-### Before
+## Before
 
 {% highlight bash %}
 function cd () {
@@ -41,7 +41,7 @@ function cd () {
 }
 {% endhighlight %}
 
-### After
+## After
 
 {% highlight bash %}
 function cd () {

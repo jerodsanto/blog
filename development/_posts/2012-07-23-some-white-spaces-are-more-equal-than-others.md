@@ -15,13 +15,13 @@ I've heard rumor of some crazies who use eight spaces for indentation, but I'm f
 
 I submit that the correct answer is almost always two spaces, with one exception where four spaces wins out. Here's why.
 
-### Common ground
+## Common ground
 
 The underlying principle is that code is written once and read many times, therefore the goal of the writer is to optimize for legibility.
 
 If you don't share this goal with the rest of us, you can stop reading and go back to your day job. Also, I hope your day job does not involve writing code!
 
-### The de facto is two spaces
+## The de facto is two spaces
 
 We all learned in Legibility 101 that there is a point at which squeezing more characters on the same line makes the text harder to read. If you played hookie that day, just find a fluid width website and stretch your browser horizontally as far as you can. Now try to read the text. Harder, huh?
 
@@ -37,7 +37,7 @@ But we need to be able to express ourselves inside those 80 characters and inden
 
 No standard would be de facto if there weren't exceptions, and I believe we have one exception to carefully consider.
 
-### The exception is four spaces
+## The exception is four spaces
 
 When it comes to white space, there are two kinds of programming languages: ones in which white space is insignificant and ones in which white space is significant.
 
@@ -51,7 +51,7 @@ These languages rely on white space in their very syntaxes and don't have other 
 
 White space significant languages get four spaces per unit of indentation.
 
-### Painting the ole' bike shed?
+## Painting the ole' bike shed?
 
 Yeah, maybe so. But it's one of those decisions that all developers have to deal with so it's nice to have a system that makes sense. Your proverbial mileage may vary.
 

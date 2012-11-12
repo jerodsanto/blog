@@ -13,7 +13,7 @@ I developed a pretty simple pattern to namespace and selectively execute certain
 I talk about JavaScript, but my code samples are all in CoffeeScript. That's because they're really the same thing. Aren't they?
 {% endaside %}
 
-### 1) Create an application object
+## 1) Create an application object
 
 Let's write a Rails app for accurately predicting weather patterns. We'll call it *Elijah*. The first step is to create a top-level JavaScript object named after our application.
 
@@ -33,7 +33,7 @@ All controller-level objects will be namescaped inside this object, so it must b
 //= require_tree .
 {% endhighlight %}
 
-### 2) Add a JavaScript controller for each Rails controller
+## 2) Add a JavaScript controller for each Rails controller
 
 Each Rails controller will have a matching JavaScript controller to manage code executed on the Rails controller's actions.
 
@@ -56,7 +56,7 @@ Each action can optionally have its own method which will be executed on it and 
 
 This example will log "temps init!" followed by "temps index!" when a user visits the temperatures index.
 
-### 3) Embed the current controller and action in the HTML
+## 3) Embed the current controller and action in the HTML
 
 Somehow we have to let our *Elijah* JavaScript object know which controller/action pair are active for a given page request. I do this by adding `data-` attributes to the `body` element of the layout, like so:
 
@@ -66,7 +66,7 @@ Somehow we have to let our *Elijah* JavaScript object know which controller/acti
 
 It's important to use `controller_path` instead of `controller_name` if you ever want to namespace your Rails controllers.
 
-### 4) Auto-execute the matching controller/action JavaScript
+## 4) Auto-execute the matching controller/action JavaScript
 
 The last thing to do is make sure that the active Rails controller/action have their matching JavaScript controller/method executed when the page loads.
 
@@ -103,7 +103,7 @@ Nothing too crazy going on here. It just extracts the embedded controller/action
 
 Ruby controller namespaces need to be replaced by underscores in JavaScript. For example, an `Admin::UsersController` will require a JavaScript object called `Elijah.admin_users`.
 
-### 5) There is no step 5
+## 5) There is no step 5
 
 That's all there is to it. So far, this has worked pretty well to keep my JavaScript organized.
 

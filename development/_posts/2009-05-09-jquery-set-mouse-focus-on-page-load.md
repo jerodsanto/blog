@@ -5,7 +5,7 @@ title: "jQuery: Set Mouse Focus On Page Load"
 excerpt: "How to set the mouse's focus to an element on the page when the DOM is ready, using jQuery"
 ---
 
-### First Input:
+## First Input:
 
 {% highlight js %}
 $(document).ready(function() {
@@ -13,7 +13,7 @@ $(document).ready(function() {
 });
 {% endhighlight %}
 
-### First Empty Input:
+## First Empty Input:
 
 {% highlight js %}
 $(document).ready(function() {

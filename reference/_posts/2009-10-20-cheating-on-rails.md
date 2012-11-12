@@ -40,7 +40,7 @@ To learn more about cheat:
 jerod@mbp:~$ cheat cheat
 {% endhighlight %}
 
-### Cheat on Rails
+## Cheat on Rails
 
 There a bunch of Rails-related cheats, which are great help in a pinch. Here are a few that I highly recommend:
 

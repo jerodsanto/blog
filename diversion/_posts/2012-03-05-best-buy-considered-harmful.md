@@ -13,7 +13,7 @@ Best Buy's website showed the same model for $9.99 in stock at my local store. I
 
 Oh man it sucked for so many reasons…
 
-### The Hunt
+## The Hunt
 
 I could write a whole seperate rant on the search inadequacies of brick-and-morter retail stores, but let's just focus on the particular item I was at Best Buy to acquire.
 
@@ -34,7 +34,7 @@ My $10 Sony's were nowhere to be found. The cheapest alternative on this rack wa
 
 It turns out the *right* place to look for $10 stay-on-your-ear Sony headphones is in the *iPods/MP3 Player* section with all of the noise cancelling and professional-grade headphones. Naturally.
 
-### The IRL (dis)Advantage
+## The IRL (dis)Advantage
 
 Once I found the pair that I came for, it was time to evaluate the product to see if they were a good fit for the job. At this point I'd expect Best Buy to cream the online stores where you're left to look at a few low resolution images and read other people's opinions.
 
@@ -49,7 +49,7 @@ They forced me to be that guy who pries open the packaging of a potential purcha
 ![That guy][that-guy]
 
 
-### The Crap Canal
+## The Crap Canal
 
 I don't know when it happened, but at some point Best Buy decided it'd be cool to force all of their paying customers through a crap canal on the way out the door (they may have cribbed this idea from Ikea, which is infamous for it).
 
@@ -61,7 +61,7 @@ You know, the *good* stuff. The stuff we all came to an **electronics** store fo
 
 What's worse is that once you reach the end of the canal &mdash; where the crappiest crap resides &mdash; you have to stand there and wait for the next available cashier. They won't let you queue like normal behind each cashier. You have to queue right there next to the Barbie Pez Dispensers and the Zune case/charger combo packs.
 
-### The Tipping Point
+## The Tipping Point
 
 Where my Best Buy experience went from Just Bad&reg; to The Worst Ever&reg; was at checkout. After politely declining a Best Buy Rewards account, I was prompted with a question so ridiculous that the cashier felt compelled to preface it with "I have to ask you this":
 

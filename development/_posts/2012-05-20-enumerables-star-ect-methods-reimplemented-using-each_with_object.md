@@ -11,7 +11,7 @@ On the same show, [James Edward Gray][jeg2] aptly pointed out that Ruby 1.9 has 
 
 I thought it'd be a fun exercise to give Josh's interview question a go, but using `each_with_object` instead of `inject`.
 
-### Tests First
+## Tests First
 
 We'll be monkey patching the Enumerable module, but first let's get some tests in place so we know if our overrides actually work. Here's a quick test suite, which could definitely be more thorough, but oh well this is just for fun anyhow:
 
@@ -48,7 +48,7 @@ At this point we're just testing Ruby's imlpementation so it's no surprise that 
 
 My full source code is [here][source], in case you want to follow along at home.
 
-### Collect
+## Collect
 
 [`collect`][collect] invokes the given block on each item and returns a new array with the results. If you've never heard of `collect`, you may know it as `map`. Implementing it using `each_with_object` is pretty trivial. You just pass in an array and push processed items on to it.
 
@@ -58,7 +58,7 @@ def collect(&block)
 end
 {% endhighlight %}
 
-### Select
+## Select
 
 [`select`][select] returns a new array holding just the items for which the given block returned `true`. This one is also pretty easy.
 
@@ -68,7 +68,7 @@ def select(&block)
 end
 {% endhighlight %}
 
-### Reject
+## Reject
 
 [`reject`][reject] is just like `select`, only the opposite: it returns a new array holding only the items for which the given block returned `false`.
 
@@ -78,7 +78,7 @@ def reject(&block)
 end
 {% endhighlight %}
 
-### Detect
+## Detect
 
 Here's where it gets tricky. [`detect`][detect] (a.k.a `find`) returns the first item for which the given block returns true. If no items fit the bill, it returns `nil`. Easy, right? Just pass `nil` into `each_with_object` and set it to an item when applicable:
 
@@ -100,7 +100,7 @@ end
 
 So that works, but it feels a bit like a fail. If you can think of a way to implement `detect` using `each_with_object`, please do let me know.
 
-### Takeaways
+## Takeaways
 
 Putting yourself through these little challenges &mdash; no matter how silly they seem &mdash; is a great way to level up your skills. This was fun and I learned a little something along the way.
 

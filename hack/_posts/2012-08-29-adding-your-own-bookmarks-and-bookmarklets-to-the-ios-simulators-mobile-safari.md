@@ -17,7 +17,7 @@ The post-bad-news good news is that it's not too much work, either, and I will s
 This applies to XCode 4.4.1 on OS X 10.8.1. YMMV. Please post issues in the comments.
 {% endaside %}
 
-### 1) Find the plist
+## 1) Find the plist
 
 The Property List that holds the bookmarks is buried deep inside Xcode's bundle. Fire up a terminal and execute this command to navigate to its directory:
 
@@ -37,7 +37,7 @@ You'll see a handful of files, one of which is named `StaticBookmarks.plist`.
 
 That's our guy.
 
-### 2) Get permission
+## 2) Get permission
 
 Xcode is owned by your system's `root` user, so you can't edit the file just yet. Ideally, you could just do a `sudo open StaticBookmarks.plist`, but that doesn't work anymore. I think the new file versioning stuff in Lion/Mountain Lion breaks it.
 
@@ -49,7 +49,7 @@ sudo chown -R `whoami` ../MobileSafari.app
 
 This isn't ideal, but it works well enough. There is a decent chance that future Xcode upgrades will set the ownership back to `root`, but more likely it will directly overwrite `StaticBookmarks.plist` in which case you're back at square one anyhow.
 
-### 3) Edit in Xcode
+## 3) Edit in Xcode
 
 Now that you own the file and its owning directory, Xcode will let you edit it. Open it in Xcode like so:
 
@@ -67,7 +67,7 @@ When you're all done adding your own bookmark(let), it should look something lik
 
 ![Push Pop is a little bookmarklet I'm working on][xcode-plist-edited]
 
-### 4) Have at it
+## 4) Have at it
 
 Fire up the iOS Simulator and you should see your new bookmark there in the list with the others!
 

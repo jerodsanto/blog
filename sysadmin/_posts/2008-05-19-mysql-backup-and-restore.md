@@ -5,7 +5,7 @@ title: "MySQL backup and restore"
 excerpt: "A reference for how to backup and restore MySQL databases, including optional compression."
 ---
 
-### Create the backup
+## Create the backup
 
 {% highlight bash %}
 mysqldump --add-drop-table -h [host] -u [user] \
@@ -26,7 +26,7 @@ Add compression -
  ...[databasename] | bzip2 -c > backupfile.sql.bz2
 {% endhighlight %}
 
-### Restore from backup
+## Restore from backup
 
 Create database if it doesn't already exist (from inside mysql client)
 

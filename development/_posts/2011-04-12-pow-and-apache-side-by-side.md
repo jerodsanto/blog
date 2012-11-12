@@ -15,7 +15,7 @@ I'm sure you know that IPv6 is not actually from the future, but its wide-spread
 
 By configuring Apache to use IPv6 and Pow to use IPv4 they can both live in harmony and bind to port 80 to their heart's content. Pow is on IPv4 already, so we just have to get Apache on IPv6. Here's how:
 
-### 1) Make it Listen
+## 1) Make it Listen
 
 Set (or change) the `Listen` directive in your Apache configuration (probably `/etc/apache2/httpd.conf`) to use IPv6 address syntax:
 
@@ -25,7 +25,7 @@ Listen [::]:80
 
 The `::` means to bind on all available IPv6 addresses (akin to IPv4's 0.0.0.0). We have to wrap it in square brackets to distinguish the address portion from the colon preceding the port assignment. If you have your `NameVirtualHost` and `VirtualHost` directives set to use `*:80` then you shouldn't need any other changes. Restart Apache and it should be all good.
 
-### 2) Add Hosts
+## 2) Add Hosts
 
 You have to add the hosts you want Apache to serve to `/etc/hosts` with IPv6 addresses so the browser gets routed properly. `::1` is the default loopback address, so add them like so:
 
@@ -45,11 +45,11 @@ PING6(56=40+8+8 bytes) ::1 --> ::1
 16 bytes from ::1, icmp_seq=0 hlim=64 time=0.076 ms
 {% endhighlight %}
 
-### 3) Browse It Up
+## 3) Browse It Up
 
 At this point you **should** be able to access both Apache virtual hosts and Pow virtual hosts in your browser. Boom shakalaka
 
-### Notes and Drawbacks
+## Notes and Drawbacks
 
 A few things to note about this solution:
 

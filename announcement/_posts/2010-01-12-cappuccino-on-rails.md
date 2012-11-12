@@ -19,7 +19,7 @@ var post = [Post find:@"42"];
 
 Check out the README on the project's page [on GitHub][1] for more details and usage examples.
 
-### Live Demo
+## Live Demo
 
 I also created a demo application which is a simplified clone of OS X's Address Book. The demo is [live on Heroku][6]. Check it out. The source for the demo is also [on GitHub][7].
 
