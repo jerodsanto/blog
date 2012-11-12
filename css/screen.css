@@ -161,14 +161,10 @@ h1 a {
   color:#fff;
   font-weight:400;
 }
-h2 {
-  font-size:43px;
-  text-align: center;
-}
-h3 {
+h2, h3 {
   font-size:28px;
 }
-h3.subtitle {
+h2.subtitle, h3.subtitle {
   font-weight: normal;
   font-size: 20px;
   color: #555;
