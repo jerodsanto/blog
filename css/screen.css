@@ -28,6 +28,7 @@ a img {
 a:hover, a:hover {
   color:#444;
 }
+
 div#wrapper {
   overflow:hidden;
 }
@@ -271,13 +272,23 @@ div.dsq-options, div.dsq-sharing-options, div.dsq-dc-logo, div#dsq-global-toolba
 p.article_date {
   float:left;
 }
+div.footnotes {
+  font-size: 13px;
+}
+div.footnotes p {
+  display: inline;
+}
+a.footnote, a.reversefootnote {
+  font-size: 12px;
+  vertical-align: super;
+  text-decoration: none !important;
+}
 p.related {
-  text-align: justify;
   font-size: 12px;
   color: #666;
   margin: 20px;
+  text-align: justify;
 }
-
 span.article_buttons {
   margin:20px 0;
   float:right;
