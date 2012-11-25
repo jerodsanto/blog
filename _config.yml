@@ -1,6 +1,6 @@
 url: http://blog.jerodsanto.net
-#markdown: kramdown
-markdown: redcarpet
+#markdown: redcarpet
+markdown: multimarkdown
 permalink: /:year/:month/:title
 pygments: true
 exclude: [lib, Rakefile, _drafts]
