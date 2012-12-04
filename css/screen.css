@@ -72,7 +72,7 @@ div#content ol {
 div#content ul, ol {
   margin: 0 25px;
 }
-div#content p.caption {
+div#content p.caption, figcaption {
   text-align: center;
   margin-top: 5px;
   font-size: 13px;
@@ -280,8 +280,10 @@ div.footnotes p {
 }
 a.footnote, a.reversefootnote {
   font-size: 12px;
-  vertical-align: super;
   text-decoration: none !important;
+}
+a.footnote {
+  vertical-align: super;
 }
 p.related {
   font-size: 12px;
