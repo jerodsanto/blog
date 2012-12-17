@@ -11,7 +11,7 @@ I've gotten a lot of mileage out of [RSpec][rspec] plus [Capybara][capybara] for
 
 Executing JavaScript with Capybara used to be a pain, but I recently switched from [capybara-webkit][capybara-webkit] to [Poltergeist][poltergeist] as my JS test driver.
 
-Poltergeist uses [PhantomJS][phantomjs], which in my experience is faster than QT's WebKit and an easier dependency to install.[^1]
+Poltergeist uses [PhantomJS][phantomjs], which in my experience is faster than capybara-webkit and easier to install.[^1]
 
 ![Sadly, Sam Raimi will be subjecting Poltergeist to the ole' Hollywood remake][poltergeist-pic]
 
@@ -63,7 +63,7 @@ Capybara's default driver, RackTest, doesn't have it so you'll know right away i
 
 That one has bit me more than once!
 
-[^1]: QT requires X11 which Apple removed from OS X in Mountain Lion
+[^1]: PhantomJS bundles Qt so you don't have to install it yourself
 
 [^2]: when using rspec-rails you can just drop it in `spec/support`
 
