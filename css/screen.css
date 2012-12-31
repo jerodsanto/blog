@@ -272,7 +272,7 @@ div.dsq-options, div.dsq-sharing-options, div.dsq-dc-logo, div#dsq-global-toolba
 p.article_date {
   float:left;
 }
-div.footnotes {
+div.footnotes, div.meta {
   font-size: 13px;
 }
 div.footnotes p {
