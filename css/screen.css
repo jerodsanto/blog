@@ -28,7 +28,10 @@ a img {
 a:hover, a:hover {
   color:#444;
 }
-
+figure {
+  margin: 0;
+  padding: 0;
+}
 div#wrapper {
   overflow:hidden;
 }
