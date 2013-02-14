@@ -11,7 +11,7 @@ Installing [PackageControl][package-control] is the first step on many Sublime T
 
 Once you have it installed, you're a quick ⇧⌘P and a "pack" from everything you need.
 
-!["Upgrade/Overwrite All Packages" is super cool][package-control-pic]
+[![&quot;Upgrade/Overwrite All Packages&quot; is super cool][package-control-pic]][package-control]
 
 ## 2) Packages. Sync them.
 
@@ -54,7 +54,7 @@ Here they are, in JSON format of course:
   "trim_trailing_white_space_on_save": true,
   "translate_tabs_to_spaces": true,
   "tab_size": 2,
-  "ruler": [80]
+  "rulers": [80]
 }
 {% endhighlight %}
 
@@ -70,7 +70,7 @@ I don't personally use it to make commits, but where it really shines is in prov
 
 Here is the result of executing `Git: Log Current File` on a project's `pricing.erb` file:
 
-![Git: Blame works similarily][git-log-current-file-pic]
+[![Git: Blame works similarily][git-log-current-file-pic]][git-package]
 
 Selecting one of the log items from the list opens the commit details in a new tab. That's awesome.
 
