@@ -91,6 +91,10 @@ The logic isn't difficult to follow. You set the search path to the matched tena
 module PgTools
   extend self
 
+  def search_path
+    ActiveRecord::Base.connection.schema_search_path
+  end
+
   def default_search_path
     @default_search_path ||= %{"$user", public}
   end
