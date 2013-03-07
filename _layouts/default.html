@@ -94,6 +94,18 @@
         if (s == undefined) s = 1.70158;
         return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
       };
+      $.easing.easeOutBounce = function (x, t, b, c, d) {
+        if ((t/=d) < (1/2.75)) {
+          return c*(7.5625*t*t) + b;
+        } else if (t < (2/2.75)) {
+          return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+        } else if (t < (2.5/2.75)) {
+          return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+        } else {
+          return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+        }
+      };
+
       $(function() {
         $(".service_links a").tipsy();
 
@@ -107,9 +119,17 @@
         $(".tweet").attr("href", "http://twitter.com/share?url=" + url + "&via=jerodsanto&text=" + title);
         $(".instapaper").attr("href", "http://www.instapaper.com/hello2?url=" + url + "&title=" + title);
         $(".hackernews").attr("href", "http://news.ycombinator.com/submitlink?u=" + url + "&t=" + title);
+
         setTimeout(function() {
           $("#ads").animate({right: "-155px"}, 600, "easeOutBack");
         }, 1000);
+
+        $(".reveal-button").on("click", "a", function(event) {
+          event.preventDefault();
+          var $content = $(this).parent().next(".reveal-content");
+          var html = $content.data("content");
+          $content.html(html).removeData("content").slideDown("slow", "easeOutBounce");
+        });
 
         {% if page.home %}
         var randos = [

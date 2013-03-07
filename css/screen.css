@@ -54,7 +54,7 @@ div#container {
   position:relative;
   z-index: 1;
 }
-div#content img, div#content object, div#content iframe {
+div#content img, div#content object, div#content iframe, div#content .chart {
   display: block;
   margin: 0 auto;
   box-shadow:0 1px 0 #fff;
@@ -73,7 +73,7 @@ div#content ol {
   list-style: upper-roman;
 }
 div#content ul, ol {
-  margin: 0 25px;
+  margin: 0 25px 20px 25px;
 }
 div#content p.caption, figcaption {
   text-align: center;
@@ -338,10 +338,10 @@ img#mo:hover {
   margin: -12px 0px -43px -75px;
 }
 
-div.bookmarklet {
+div.bookmarklet, div.reveal-button {
 	text-align: center;
 }
-div.bookmarklet a {
+div.bookmarklet a, div.reveal-button a {
 	display: inline-block;
 	padding: 8px 15px;
 	background: #333;
@@ -352,8 +352,16 @@ div.bookmarklet a {
 	text-decoration: none;
 	text-shadow: none;
 }
-div.bookmarklet a:hover {
+div.bookmarklet a:hover, div.reveal-button a:hover {
 	background: #111;
+}
+
+div.reveal-content {
+  display: none;
+}
+
+div.chart {
+  width: 450px;
 }
 
 form.search {
