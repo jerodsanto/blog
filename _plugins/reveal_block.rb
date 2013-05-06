@@ -1,5 +1,3 @@
-require "pry"
-
 module Jekyll
   class RevealBlock < Liquid::Block
     def initialize(tag_name, text, tokens)

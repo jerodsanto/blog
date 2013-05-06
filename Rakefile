@@ -2,6 +2,8 @@ require "rubygems"
 require "rake"
 require "date"
 
+JEKYLL = "bundle exec jekyll"
+
 class String
   # This is a Title => this-is-a-title
   def to_post_slug
@@ -32,15 +34,15 @@ namespace :deploy do
   end
 end
 
-namespace :server do
+namespace :serve do
   desc "Run the jekyll server for all posts"
   task :all do
-    system "jekyll --server --auto"
+    system "#{JEKYLL} serve --watch"
   end
 
   desc "Run the jekyll server for most recent post"
   task :one do
-    system "jekyll --server --auto --limit_posts 1"
+    system "#{JEKYLL} serve --watch --limit_posts 1"
   end
 end
 
@@ -51,7 +53,7 @@ end
 
 desc "builds _site from current source"
 task :build do
-  system "jekyll"
+  system "#{JEKYLL} build"
 end
 
 desc "cleans and builds _site from current source"
@@ -70,29 +72,4 @@ task :draft, [:name] do |t,args|
     f.puts "---"
   end
   system "open #{file}"
-end
-
-desc "Moves drafted post into _posts for editing"
-task :edit, [:name] do |t,args|
-  abort "you need to provide a post name" unless args.name
-  post = "#{args.name.to_post_slug}.md"
-  draft = File.expand_path "_drafts/#{post}"
-  abort "no draft matches that name" unless File.exist?(draft)
-  puts "Linking #{post} for editing."
-  FileUtils.mv draft, "_posts/#{Date.today.to_s}-#{post}"
-  Rake::Task["server:one"].invoke
-end
-
-namespace :dev do
-  desc "Un-publish old posts to speed up development"
-  task on: ["clean"] do
-    system 'find . -name "*.md" -exec sed -i "" "s|published: true|published: false|g" {} \;'
-    system 'find . -name _config.yml -exec sed -i "" "s|dev: false|dev: true|g" {} \;'
-  end
-
-  desc "Re-publish old posts for deployment"
-  task off: ["clean"] do
-    system 'find . -name "*.md" -exec sed -i "" "s|published: false|published: true|g" {} \;'
-    system 'find . -name _config.yml -exec sed -i "" "s|dev: true|dev: false|g" {} \;'
-  end
 end
