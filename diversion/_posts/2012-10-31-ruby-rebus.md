@@ -215,6 +215,6 @@ Be sure to grab the [RSS][rss], follow along on [Twitter][twitter-jerod], or boo
 [rebus]:http://en.wikipedia.org/wiki/Rebus
 [eric-harshbarger]:http://www.ericharshbarger.org/
 [harshbarger-rebuses]:http://www.ericharshbarger.org/epp/2006/fall/movie_rebuses_100.pdf
-[rss]:http://feeds.feedburner.com/nomeanblog
+[rss]:/feed.xml
 [twitter-jerod]:https://twitter.com/jerodsanto
 [ruby-rebus-answers]:/2012/11/ruby-rebus-answers/

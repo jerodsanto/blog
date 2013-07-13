@@ -128,5 +128,5 @@ Those are the big ones. There's also writing your own custom snippets, but that'
 [sidebar-enhancements-package]:https://github.com/titoBouzout/SideBarEnhancements
 [marked-app]:http://markedapp.com/
 [open-with-marked-pic]:http://jerodsanto.net/drop/sublime-text-open-with-marked-20120813-101112.png
-[rss-feed]:http://feeds.feedburner.com/nomeanblog
+[rss-feed]:/feed.xml
 [twitter-feed]:http://twitter.com/jerodsanto

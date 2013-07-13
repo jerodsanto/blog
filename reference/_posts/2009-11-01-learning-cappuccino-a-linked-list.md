@@ -89,4 +89,4 @@ Also, let me know in the comments of Cappuccino resources you've found valuable 
 [21]: http://groups.google.com/group/objectivej
 [22]: irc://irc.freenode.net/cappuccino
 [23]: https://wave.google.com/wave/?pli=1#restored:wave:googlewave.com!w%252Bu8FiBvxgC
-[24]: http://feeds.feedburner.com/nomeanblog
+[24]: /feed.xml
