@@ -254,9 +254,10 @@ div.alert {
   background-color: #fbe3e4;
 }
 div.categories {
-  width: 100%;
+  width: 70%;
   margin: 0 auto;
-  font-size: 12px;
+  font-size: 13px;
+  text-align: center;
 }
 em {
   font-style:italic;
