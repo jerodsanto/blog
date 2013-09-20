@@ -32,6 +32,11 @@ figure {
   margin: 0;
   padding: 0;
 }
+sup {
+  line-height: 0;
+  font-size: 11px;
+  margin: 0 2px;
+}
 div#wrapper {
   overflow:hidden;
 }
@@ -47,7 +52,7 @@ div#container {
   box-shadow:0 1px 0 #fff;
   color:#222;
   font-size:15px;
-  line-height:150%;
+  line-height:160%;
   opacity:0.9px;
   padding:20px;
   text-shadow:0 1px 0 #fff;
