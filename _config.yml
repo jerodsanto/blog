@@ -1,5 +1,5 @@
 url: http://blog.jerodsanto.net
-markdown: redcarpet
+markdown: kramdown
 redcarpet:
   extensions: [footnotes]
 permalink: /:year/:month/:title
