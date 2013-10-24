@@ -7,7 +7,7 @@ excerpt: "File this under <strong>just-blog-it-already-so-you-can-stop-googling-
 
 File this under **just-blog-it-already-so-you-can-stop-googling-it**
 
-Imagine having [Nagios|Resque Web|Monit|Cacti|MySQL|etc] all set up on one of your servers. You want to access it from your local machine, but you don't want to make it listen on a public interface and set up a firewall and all that junk.
+Imagine having Nagios/Resque Web/Monit/Cacti/MySQL/etc all set up on one of your servers. You want to access it from your local machine, but you don't want to make it listen on a public interface and set up a firewall and all that junk.
 
 Instead, you can use SSH to tunnel your local client to the remote server's service. The command looks like this:
 
