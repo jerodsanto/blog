@@ -87,6 +87,7 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/js/bigfoot.min.js"></script>
   <script src="/js/jquery.tipsy.js"></script>
   <script>
     (function($, undefined) {
@@ -108,6 +109,7 @@
 
       $(function() {
         $(".service_links a").tipsy();
+        $.bigfoot();
 
         var title = escape(document.title.split(" - ")[0]);
         var url   = escape(document.location);
@@ -116,6 +118,7 @@
           var $self = $(this);
           $self.parent().after("<p class='caption'>" + $self.attr("alt") + "</p>");
         });
+
         $(".tweet").attr("href", "http://twitter.com/share?url=" + url + "&via=jerodsanto&text=" + title);
         $(".instapaper").attr("href", "http://www.instapaper.com/hello2?url=" + url + "&title=" + title);
         $(".hackernews").attr("href", "http://news.ycombinator.com/submitlink?u=" + url + "&t=" + title);
