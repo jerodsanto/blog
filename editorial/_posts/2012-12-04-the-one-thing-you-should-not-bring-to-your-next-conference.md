@@ -41,7 +41,7 @@ Let's face it, conference wifi still sucks.[^3] Even if you get online you will 
 
 You are unlikely to get any real work done and it will probably be so bad that you just leave your laptop in its bag and haul it around all day (see above).
 
-What's worse, power outlets are at a premium since so many people bring their laptops, so you become "that g[uy|al]" who squats the seats closest to an outlet. Unnecessary tension!
+What's worse, power outlets are at a premium since so many people bring their laptops, so you become "that guy/gal" who squats the seats closest to an outlet. Unnecessary tension!
 
 ### Workarounds
 
