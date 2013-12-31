@@ -114,7 +114,7 @@
         var title = escape(document.title.split(" - ")[0]);
         var url   = escape(document.location);
 
-        $("#content a > img").each(function() {
+        $("#content img").each(function() {
           var $self = $(this);
           $self.parent().after("<p class='caption'>" + $self.attr("alt") + "</p>");
         });
