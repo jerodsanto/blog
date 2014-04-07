@@ -107,6 +107,8 @@ end
 
 {% reveal %}
 [![Pay it Forward](http://jerodsanto.net/drop/pif.jpg)](http://www.imdb.com/title/tt0223897/)
+
+This code requires Rails to actually execute, but hopefully it will never actually execute.
 {% endreveal %}
 
 ## Rebus #9
@@ -122,7 +124,7 @@ end
 {% reveal %}
 [![Primal Fear](http://jerodsanto.net/drop/primal-fear.jpg)](http://www.imdb.com/title/tt0117381/)
 
-There's nothing more primal than `Object` in Ruby. Is there?
+`Object` is Ruby's primordial ooze.
 {% endreveal %}
 
 ## Rebus #10
