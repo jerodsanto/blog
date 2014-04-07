@@ -7,7 +7,7 @@ excerpt: "15 Ruby-based movie title Rebus puzzles. Can you guess them all?!"
 
 It's been ~18 months since my [first Ruby Rebus challenge][ruby-rebus] and, frankly, that's just too long to ask y'alls nerds to wait. Wait no more! I've dreamt up 15 brand spankin' new rebuses[^1] for your guessing pleasure.
 
-Last round I only picked movies from IMDB's [Top 250][imdb-top-250] list. This time the tie theat binds these movies is that I've seen them *and* I like them.
+Last round I only picked movies from IMDB's [Top 250][imdb-top-250] list. This time the tie that binds these movies is that I've seen them *and* I like them.
 
 The other big change this time around is **instant gratification**. Instead of a follow-up post with the answers, just click the button under each rebus once you've figured it out (or given up)! Enough intro,
 
@@ -161,6 +161,8 @@ The challenge here was having something represent Arizona without being obvious.
 
 {% reveal %}
 [![Gone in Sixty Seconds](http://jerodsanto.net/drop/gone-in-60.jpg)](http://www.imdb.com/title/tt0187078/)
+
+[Okay let's ride](https://www.youtube.com/watch?v=Ll5xHq84A8E)
 {% endreveal %}
 
 ## Rebus #13
@@ -175,7 +177,7 @@ end
 {% reveal %}
 [![Saving Silverman](http://jerodsanto.net/drop/silverman.jpg)](http://www.imdb.com/title/tt0239948/)
 
-[DURR!](https://www.youtube.com/watch?v=UNEfICd4dMY)
+Judith escaped. [DURR!](https://www.youtube.com/watch?v=UNEfICd4dMY)
 {% endreveal %}
 
 ## Rebus #14
