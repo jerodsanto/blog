@@ -12,7 +12,7 @@ module Jekyll
       content = converter.convert(super)
       anchor = "#{site.config['url']}#{page['url']}#reveal"
 
-      html  = "<div id='#reveal' class='reveal-button'>"
+      html  = "<div class='reveal-button'>"
       html += "<a href='#{anchor}'>#{@button_content}</a>"
       html += "</div>"
 
