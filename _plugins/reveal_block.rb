@@ -1,15 +1,16 @@
 module Jekyll
   class RevealBlock < Liquid::Block
-    def initialize(tag_name, text, tokens)
+    def initialize tag_name, text, tokens
       super
       @button_content = text.empty? ? "Reveal Answer" : text
     end
 
-    def render(context)
+    def render context
       site = context.registers[:site]
       page = context.environments.first["page"]
-      converter = site.converters.find { |c| c.matches("md") }
-      content = converter.convert(super)
+      converter = site.getConverterImpl ::Jekyll::Converters::Markdown
+      content = converter.convert super
+
       anchor = "#{site.config['url']}#{page['url']}#reveal"
 
       html  = "<div class='reveal-button'>"
@@ -22,4 +23,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag("reveal", Jekyll::RevealBlock)
+Liquid::Template.register_tag "reveal", Jekyll::RevealBlock

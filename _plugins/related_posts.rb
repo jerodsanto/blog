@@ -2,14 +2,14 @@ require "jekyll/post"
 
 module RelatedPosts
   # Used to remove #related_posts so that it can be overridden
-  def self.included(klass)
-    klass.class_eval do
+  def self.included base
+    base.class_eval do
       remove_method :related_posts
     end
   end
 
   # previous posts in same category
-  def related_posts(posts)
+  def related_posts posts
     related = []
     return related unless posts.size > 1
 
@@ -25,6 +25,6 @@ end
 
 module Jekyll
   class Post
-    include RelatedPosts
+    include ::RelatedPosts
   end
 end

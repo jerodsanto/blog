@@ -1,7 +1,4 @@
 url: http://blog.jerodsanto.net
-markdown: kramdown
-redcarpet:
-  extensions: [footnotes]
 permalink: /:year/:month/:title
-pygments: true
+highlighter: pygments
 exclude: [Rakefile]
