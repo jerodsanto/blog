@@ -1,0 +1,23 @@
+.pagination {
+  position: relative;
+  border-top: 5px solid $red;
+  margin-top: 30px;
+  padding: 20px 0 0;
+  text-align: center;
+  a {
+    color: $red;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .previous, .next {
+    position: absolute;
+    right: auto;
+    left: 0;
+    top: 20px;
+  }
+  .next {
+    right: 0;
+    left: auto;
+  }
+}

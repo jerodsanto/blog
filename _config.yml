@@ -2,3 +2,4 @@ url: http://blog.jerodsanto.net
 permalink: /:year/:month/:title
 highlighter: pygments
 exclude: [Rakefile]
+paginate: 10

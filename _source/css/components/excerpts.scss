@@ -1,0 +1,27 @@
+.excerpt {
+  margin: 30px 0 0;
+  p { margin: 0; }
+}
+
+.excerpt-header {
+  font-size: 1.4em;
+  text-transform: uppercase;
+  margin: 0;
+  &, a {
+    color: $orange;
+  }
+}
+
+.excerpt-date {
+  color: $blue;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 4px 0;
+}
+
+.excerpt-text {
+  @extend .font-serif;
+  color: $grey;
+  font-size: 1.2em;
+}

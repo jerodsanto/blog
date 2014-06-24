@@ -1,0 +1,49 @@
+// #Mixins
+//////////////////////////////
+.wrap {
+  max-width: 740px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.fill {
+  // Fills it's parent element
+  @include clearfix;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.fill-width {
+  // Fills parent element's width but height is dynamic
+  @extend .fill;
+  height: auto;
+}
+
+.centered-absolute {
+  // Center an element inside it's parent
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  margin-top: -0.5em;
+}
+
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visually-hidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visually-hidden.focusable:active, .visually-hidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+.align-right {
+  text-align: right;
+}
