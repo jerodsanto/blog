@@ -7,24 +7,42 @@
   text-align: center;
   h1, a {
     margin: 0;
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 500;
     display: inline;
   }
   h1 {
-    margin: 0 60px;
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    margin: 0 0 0 -100px;
   }
-  a {
-    color: $grey1;
+  a { color: $grey1; }
+  a.main-header-archive {
+    margin-right: 140px;
+  }
+  a.main-header-contact {
+    margin-left: 140px;
+  }
+  @media #{$mobile-query} {
+    h1 {
+      display: block;
+      position: relative;
+    }
+    a.main-header-archive, a.main-header-contact {
+      margin: 0 !important;
+      display: block;
+      opacity: 0.6;
+    }
   }
 }
 
 .big-dot {
   @extend .font-serif;
-  font-size: 2.2em;
+  font-size: 2.1em;
   line-height: 10px;
   font-style: normal;
   margin: 0 10px;
   position: relative;
-  top: 4px;
+  top: 3px;
 }

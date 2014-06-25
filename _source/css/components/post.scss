@@ -1,5 +1,95 @@
-.content {
-  p {
+.post {
+  @extend .wrap;
+  padding: 10px 0 40px;
+  background: $white;
+  border-radius: $radius;
+  & > * {
+    padding: 0 $gutter-desktop;
+    @media #{$mobile-query} {
+      padding: 0 $gutter-mobile;
+    }
+  }
+}
 
+.post-content {
+  padding: 0 !important;
+  & > * {
+    padding: 0 $gutter-desktop;
+    @media #{$mobile-query} {
+      padding: 0 $gutter-mobile;
+    }
+  }
+  p {
+    @extend .font-serif;
+    color: $grey;
+    line-height: 1.5em;
+    a {
+      text-decoration: underline;
+    }
+    code {
+      background: #EBEBEB;
+      padding: 5px;
+    }
+  }
+  .highlight {
+    background: $navy;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    pre { margin: 0; }
+  }
+}
+
+.post-header {
+  @extend .section-header;
+  padding: 20px 0;
+  text-align: left;
+  margin: 0 $gutter-desktop;
+  @media #{$mobile-query} {
+    margin: 0 $gutter-mobile;
+  }
+}
+
+.post-date {
+  @extend .excerpt-date;
+  margin-top: 10px;
+}
+
+.post-related {
+  font-size: 0.8em;
+  line-height: 1.75em;
+  border-bottom: 5px solid $red;
+  padding: 0 0 30px;
+  font-style: italic;
+  margin: 30px $gutter-desktop;
+  @media #{$mobile-query} {
+    margin: $gutter-mobile;
+  }
+  &, a { color: $red; }
+  a {
+    font-weight: bold;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+ul.post-share-buttons {
+  @include clearfix;
+  list-style-type: none;
+  padding: 0;
+  li {
+    width: 25%;
+    float: left;
+    &.post-share-1 a { background: #66737D; }
+    &.post-share-2 a { background: #505C67; }
+    &.post-share-3 a { background: #3F4A53; }
+    &.post-share-4 a { background: #313A42; }
+  }
+  a {
+    display: block;
+    text-align: center;
+    color: #9AB4B7;
+    padding: 15px 0;
+    &:hover {
+      opacity: 0.95;
+    }
   }
 }

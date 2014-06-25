@@ -13,6 +13,15 @@
 
 // #Typography
 
+code,
+kbd,
+pre,
+samp {
+  @extend .font-mono;
+  line-height: 1.2em;
+}
+
+
 h1, h2, h3, h4 {
   @extend .font-sans;
   font-weight: normal;

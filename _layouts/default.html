@@ -30,50 +30,43 @@
   </head>
   <body class="{{ page.section }}">
     <div class="main-header">
-      <a href="/archives/" title="View Blog Archives">Archive</a>
       <h1>
         <a href="/" title="Home">
           <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
         </a>
       </h1>
-      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod">Contact</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archive</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <!-- <form class="search">
+        <input type="text" id="st-search-input" class="st-search-input" placeholder="Search this site"/>
+      </form>
+      <div id="st-results-container"></div>
+      <script type="text/javascript">
+        var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'TM8ezPQi8DZRuszeAPuU';
+          Swiftype.inputElement = '#st-search-input';
+          Swiftype.resultContainingElement = '#st-results-container';
+          Swiftype.attachElement = '#st-search-input';
+          Swiftype.renderStyle = "overlay";
+
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          entry.parentNode.insertBefore(script, entry);
+        }());
+      </script> -->
     </div>
-    <section class="main-wrapper excerpt-list">
-      <header class="section-header">
-        <h1>{{ page.title }}</h1>
-        {% if page.subtitle %}
-          <h2>{{ page.subtitle }}</h2>
-        {% endif%}
-      </header>
-      {{ content }}
-    </section>
 
-    <form class="search">
-      <input type="text" id="st-search-input" class="st-search-input" placeholder="Search this site"/>
-    </form>
-    <div id="st-results-container"></div>
+    {{ content }}
 
-    <script type="text/javascript">
-      var Swiftype = window.Swiftype || {};
-      (function() {
-        Swiftype.key = 'TM8ezPQi8DZRuszeAPuU';
-        Swiftype.inputElement = '#st-search-input';
-        Swiftype.resultContainingElement = '#st-results-container';
-        Swiftype.attachElement = '#st-search-input';
-        Swiftype.renderStyle = "overlay";
-
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.async = true;
-        script.src = "//swiftype.com/embed.js";
-        var entry = document.getElementsByTagName('script')[0];
-        entry.parentNode.insertBefore(script, entry);
-      }());
-    </script>
-
-    <p id="footnote" style="text-align: center;">
-      &copy;<a href="http://jerodsanto.net">Jerod Santo</a>. Compiled from <a href="https://github.com/jerodsanto/blog">source</a> by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
-    </p>
+    <footer class="main-footer">
+      <p>
+        &copy;<em><a href="http://jerodsanto.net">Jerod Santo</a>. Compiled from <a href="https://github.com/jerodsanto/blog">source</a> by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.</em>
+      </p>
+    </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/jquery.min.js"%3E%3C/script%3E'))</script>
     <script src="/js/bigfoot.min.js"></script>

@@ -4,6 +4,9 @@
   max-width: 740px;
   padding: 0 40px;
   margin: 0 auto;
+  @media #{$tablet-query} {
+    margin: 0 20px;
+  }
 }
 
 .fill {

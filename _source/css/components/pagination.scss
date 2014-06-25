@@ -10,6 +10,9 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
+  span.page_number  {
+    color: $grey;
+  }
   .previous, .next {
     position: absolute;
     right: auto;

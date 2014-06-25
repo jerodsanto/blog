@@ -1,7 +1,8 @@
+.highlight { color: $white; }
 .highlight .c { color: #BC9458; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { color: #CC7833; } /* Keyword */
-.highlight .o { font-weight: bold } /* Operator */
+.highlight .o { color: $white; font-weight: bold } /* Operator */
 .highlight .cm { color: #BC9458; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC9458; font-weight: italic } /* Comment.Preproc */
 .highlight .c1 { color: #BC9458; font-style: italic } /* Comment.Single */

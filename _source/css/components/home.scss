@@ -1,0 +1,27 @@
+.main-wrapper {
+  @extend .wrap;
+  padding: 10px $gutter-desktop $gutter-desktop;
+  background: $white;
+  border-radius: $radius;
+  padding: 10px $gutter-desktop $gutter-desktop;
+  @media #{$mobile-query} {
+    padding: 10px $gutter-mobile $gutter-desktop;
+  }
+}
+
+.section-header {
+  text-align: center;
+  border-bottom: 1px solid $orange;
+  padding: 20px 0;
+  h1, h2, h3, h4, h5 {
+    text-transform: uppercase;
+    margin: 0;
+    &, a {
+      color: $red;
+    }
+  }
+  h1 {
+    font-size: 2em;
+    line-height: 1em;
+  }
+}
