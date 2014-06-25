@@ -28,7 +28,7 @@
     }
     code {
       background: #EBEBEB;
-      padding: 5px;
+      padding: 3px;
     }
   }
   img {
@@ -87,13 +87,15 @@ ul.post-share-buttons {
   li {
     width: 25%;
     float: left;
-    &.post-share-1 a { background: #66737D; }
-    &.post-share-2 a { background: #505C67; }
-    &.post-share-3 a { background: #3F4A53; }
-    &.post-share-4 a { background: #313A42; }
+    &.post-share-1 a { background-color: #66737D; }
+    &.post-share-2 a { background-color: #505C67; }
+    &.post-share-3 a { background-color: #3F4A53; }
+    &.post-share-4 a { background-color: #313A42; }
   }
   a {
+    @extend .hide-text;
     display: block;
+    background-position: center;
     text-align: center;
     color: #9AB4B7;
     padding: 15px 0;
