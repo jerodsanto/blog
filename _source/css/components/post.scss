@@ -19,7 +19,13 @@
       padding: 0 $gutter-mobile;
     }
   }
-  p {
+  h1, h2, h3, h4, h5 {
+    color: $navy;
+  }
+  ul, ol {
+    margin-left: 40px;
+  }
+  p, li {
     @extend .font-serif;
     color: $grey;
     line-height: 1.5em;
@@ -34,6 +40,15 @@
   img {
     max-width: 100%;
     height: auto;
+  }
+  hr {
+    height: 6px;
+    background: $blue;
+    border: none;
+    margin: $gutter-desktop $gutter-desktop 0;
+    @media #{$mobile-query} {
+      margin: $gutter-mobile $gutter-mobile 0;
+    }
   }
   .highlight-wrap {
     overflow: scroll;
@@ -66,7 +81,7 @@
 .post-related {
   font-size: 0.8em;
   line-height: 1.75em;
-  border-bottom: 5px solid $red;
+  border-bottom: 6px solid $red;
   padding: 0 0 30px;
   font-style: italic;
   margin: 30px $gutter-desktop;

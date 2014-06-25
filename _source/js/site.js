@@ -37,10 +37,18 @@
       $('.highlight').wrap('<div class="highlight-wrap"></div>');
       randos = ["Whathaveyou", "Tomfoolery", "Jetsam", "Rants", "Highjinks", "Flotsam", "Rando Calrissian"];
       $("#rando").text(randos[Math.floor(Math.random() * randos.length)]);
-      return $("#content img").each(function() {
+      $("#content img").each(function() {
         var $self;
         $self = $(this);
         $self.parent().after("<p class='caption'>" + $self.attr("alt") + "</p>");
+      });
+      return $(".reveal-button").on("click", "a", function(event) {
+        var $content, html;
+        event.preventDefault();
+        $content = $(this).parent().next(".reveal-content");
+        html = $content.data("content");
+        $content.html(html).removeData("content").slideDown("slow", "easeOutBounce");
+        $(this).remove();
       });
     }
   };

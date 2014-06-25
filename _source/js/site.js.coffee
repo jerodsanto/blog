@@ -51,4 +51,13 @@ blog =
       $self.parent().after "<p class='caption'>" + $self.attr("alt") + "</p>"
       return
 
+    $(".reveal-button").on "click", "a", (event) ->
+      event.preventDefault()
+      $content = $(this).parent().next(".reveal-content")
+      html = $content.data("content")
+      $content.html(html).removeData("content").slideDown "slow", "easeOutBounce"
+      $(this).remove()
+      return
+
+
 class blog.Controller
