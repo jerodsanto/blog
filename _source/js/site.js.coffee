@@ -1,20 +1,7 @@
 $(document).on "ready", ->
-  MicahMax.init()
+  blog.init()
 
-MicahMax =
-  randomPosition: (item, parent) ->
-    # TODO
-
-  equalHeight: (group) ->
-    tallest = 0
-    group
-      .height("auto")
-      .each ->
-        thisHeight = $(this).height()
-        if thisHeight > tallest
-          tallest = thisHeight
-      .height(tallest)
-
+blog =
   sharePopup: (href) ->
     w = 600
     h = 300
@@ -22,23 +9,44 @@ MicahMax =
     top = (screen.height / 2) - (h / 2)
     shareWindow = window.open(
       href
-      'MicahMax'
+      'jerod'
       'location=1,status=1,scrollbars=1,width=' + w + ',height=' + h + ',top=' + top + ',left=' + left
     )
     return false
 
-  onLoad: ->
-    MicahMax.onResize()
+  randomBGPosition: ->
+    $body = $('body')
+    $body.addClass 'show-bg'
+    randomX = Math.floor(Math.random() * 1000)
+    randomY = Math.floor(Math.random() * 1000)
+    $body.css 'background-position', randomX + 'px ' + randomY + 'px'
 
-  onResize: ->
+  onLoad: ->
+    $.bigfoot()
+    blog.randomBGPosition()
 
   init: ->
-    MicahMax.onLoad()
-    $('.projects > a').mouseover( ->
-      $this = $(this)
-      projectColor = $this.data 'color'
-      $(this).css 'color', projectColor
-    ).mouseout ->
-      $(this).css 'color', '#fff'
+    blog.onLoad()
 
-class MicahMax.Controller
+    $('.service_hackernews a, .service_instapaper a').click ->
+      blog.sharePopup $(this).attr 'href'
+      false
+
+    # TODO: Blog home only
+    randos = [
+      "Whathaveyou"
+      "Tomfoolery"
+      "Jetsam"
+      "Rants"
+      "Highjinks"
+      "Flotsam"
+      "Rando Calrissian"
+    ]
+    $("#rando").text randos[Math.floor(Math.random() * randos.length)]
+
+    $("#content img").each ->
+      $self = $(this)
+      $self.parent().after "<p class='caption'>" + $self.attr("alt") + "</p>"
+      return
+
+class blog.Controller

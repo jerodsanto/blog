@@ -24,7 +24,7 @@ layout: default
 
   <ul class="post-share-buttons">
     <li class="service_twitter post-share-1">
-      <a class="tweet" href="#" title="Tweet">
+      <a class="tweet" href="https://twitter.com/intent/tweet?url=http://blog.jerodsanto.net{{ page.url }}&via=jerodsanto&text={{ page.title }}" title="Tweet">
         <span>Tweet</span>
       </a>
     </li>
@@ -34,12 +34,12 @@ layout: default
       </a>
     </li>
     <li class="service_hackernews post-share-3">
-      <a class="hackernews" href="#" title="Post to Hacker News">
+      <a class="hackernews" href="http://news.ycombinator.com/submitlink?u=http://blog.jerodsanto.net{{ page.url }}&t={{ page.title }}" title="Post to Hacker News">
         <span>Hacker News</span>
       </a>
     </li>
     <li class="service_instapaper post-share-4">
-      <a class="instapaper" href="#" title="Read later">
+      <a class="instapaper" href="http://www.instapaper.com/hello2?url=http://blog.jerodsanto.net{{ page.url }}&title={{ page.title }}" title="Read later">
         <span>Instapaper</span>
       </a>
     </li>
@@ -73,6 +73,8 @@ layout: default
      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
+
+  <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 
   {% if page.hackernews %}
   <p id="footnote">

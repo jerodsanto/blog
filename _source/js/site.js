@@ -1,50 +1,50 @@
 (function() {
-  var MicahMax;
+  var blog;
 
   $(document).on("ready", function() {
-    return MicahMax.init();
+    return blog.init();
   });
 
-  MicahMax = {
-    randomPosition: function(item, parent) {},
-    equalHeight: function(group) {
-      var tallest;
-      tallest = 0;
-      return group.height("auto").each(function() {
-        var thisHeight;
-        thisHeight = $(this).height();
-        if (thisHeight > tallest) {
-          return tallest = thisHeight;
-        }
-      }).height(tallest);
-    },
+  blog = {
     sharePopup: function(href) {
       var h, left, shareWindow, top, w;
       w = 600;
       h = 300;
       left = (screen.width / 2) - (w / 2);
       top = (screen.height / 2) - (h / 2);
-      shareWindow = window.open(href, 'MicahMax', 'location=1,status=1,scrollbars=1,width=' + w + ',height=' + h + ',top=' + top + ',left=' + left);
+      shareWindow = window.open(href, 'jerod', 'location=1,status=1,scrollbars=1,width=' + w + ',height=' + h + ',top=' + top + ',left=' + left);
       return false;
     },
-    onLoad: function() {
-      return MicahMax.onResize();
+    randomBGPosition: function() {
+      var $body, randomX, randomY;
+      $body = $('body');
+      $body.addClass('show-bg');
+      randomX = Math.floor(Math.random() * 1000);
+      randomY = Math.floor(Math.random() * 1000);
+      return $body.css('background-position', randomX + 'px ' + randomY + 'px');
     },
-    onResize: function() {},
+    onLoad: function() {
+      $.bigfoot();
+      return blog.randomBGPosition();
+    },
     init: function() {
-      MicahMax.onLoad();
-      return $('.projects > a').mouseover(function() {
-        var $this, projectColor;
-        $this = $(this);
-        projectColor = $this.data('color');
-        return $(this).css('color', projectColor);
-      }).mouseout(function() {
-        return $(this).css('color', '#fff');
+      var randos;
+      blog.onLoad();
+      $('.service_hackernews a, .service_instapaper a').click(function() {
+        blog.sharePopup($(this).attr('href'));
+        return false;
+      });
+      randos = ["Whathaveyou", "Tomfoolery", "Jetsam", "Rants", "Highjinks", "Flotsam", "Rando Calrissian"];
+      $("#rando").text(randos[Math.floor(Math.random() * randos.length)]);
+      return $("#content img").each(function() {
+        var $self;
+        $self = $(this);
+        $self.parent().after("<p class='caption'>" + $self.attr("alt") + "</p>");
       });
     }
   };
 
-  MicahMax.Controller = (function() {
+  blog.Controller = (function() {
     function Controller() {}
 
     return Controller;

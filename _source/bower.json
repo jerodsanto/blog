@@ -18,12 +18,9 @@
   ],
   "dependencies": {
     "animatescroll": "~1.0.6",
-    "jquery": "~2.1.0",
+    "jquery": "~1.11.1",
     "respond": "~1.4.2",
-    "jquery-waypoints": "~2.0.4",
-    "bourbon": "~4.0.2"
-  },
-  "resolutions": {
-    "bourbon": "~4.0.2"
+    "bourbon": "~4.0.2",
+    "bigfoot": "~2.0.1"
   }
 }

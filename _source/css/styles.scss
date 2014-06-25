@@ -1,0 +1,15 @@
+@import "../bower_components/bourbon/dist/bourbon";
+@import "base/_all";
+@import "components/_all";
+
+// #Structure
+////////////////////
+
+body {
+  @extend .font-sans;
+  min-width: 320px;
+  font-size: 18px;
+  background: $navy;
+  background-position: center 70px;
+  &.show-bg { background-image: url(/images/bg.gif); }
+}

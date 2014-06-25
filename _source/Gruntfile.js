@@ -101,11 +101,10 @@ module.exports = function(grunt) {
         src: [
           'bower_components/jquery/dist/jquery.js',
           'bower_components/respond/dist/respond.src.js',
-          'bower_components/jquery-waypoints/waypoints.js',
-          'bower_components/animatescroll/animatescroll.js',
+          'bower_components/bigfoot/dist/bigfoot.js',
           'js/site.js'
         ],
-        dest: '../compiled.js'
+        dest: '../js/compiled.js'
       }
     },
     watch: {
@@ -136,7 +135,8 @@ module.exports = function(grunt) {
     uglify: {
       build: {
         files: {
-          '../compiled.min.js' : '../compiled.js'
+          '../js/compiled.min.js' : '../js/compiled.js',
+          '../_site/js/compiled.min.js' : '../js/compiled.js'
         }
       }
     },
