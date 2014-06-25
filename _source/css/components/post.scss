@@ -31,7 +31,16 @@
       padding: 5px;
     }
   }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .highlight-wrap {
+    overflow: scroll;
+    background: $navy;
+  }
   .highlight {
+    width: 700px;
     background: $navy;
     padding-top: 20px;
     padding-bottom: 20px;

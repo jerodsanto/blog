@@ -32,6 +32,8 @@ blog =
       blog.sharePopup $(this).attr 'href'
       false
 
+    $('.highlight').wrap '<div class="highlight-wrap"></div>'
+
     # TODO: Blog home only
     randos = [
       "Whathaveyou"

@@ -34,6 +34,7 @@
         blog.sharePopup($(this).attr('href'));
         return false;
       });
+      $('.highlight').wrap('<div class="highlight-wrap"></div>');
       randos = ["Whathaveyou", "Tomfoolery", "Jetsam", "Rants", "Highjinks", "Flotsam", "Rando Calrissian"];
       $("#rando").text(randos[Math.floor(Math.random() * randos.length)]);
       return $("#content img").each(function() {
