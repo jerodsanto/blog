@@ -4,7 +4,7 @@ $huge: 1280px;
 $desktop: 781px;
 $tablet: $desktop - 1;
 $mobile: 480px;
-$tiny: 320px;
+$tiny: 360px;
 $huge-query: "only screen and (min-width: #{$huge})";
 $desktop-query: "only screen and (min-width: #{$desktop})";
 $tablet-query: "only screen and (max-width: #{$tablet})";

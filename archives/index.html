@@ -11,7 +11,11 @@ title: The Archive
   <ul class="category-list">
     {% for category in site.categories %}
       {% assign name = category[0] %}
-      <li><a href="/{{ name }}" title="{{ name }}">{{ name | capitalize }}</a></li>
+      <li>
+        <a href="/{{ name }}" title="{{ name }}">
+          {{ name | capitalize }}
+        </a>
+      </li>
     {% endfor %}
   </ul>
 

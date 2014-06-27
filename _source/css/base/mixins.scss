@@ -7,33 +7,9 @@
   @media #{$tablet-query} {
     margin: 0 20px;
   }
-}
-
-.fill {
-  // Fills it's parent element
-  @include clearfix;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
-.fill-width {
-  // Fills parent element's width but height is dynamic
-  @extend .fill;
-  height: auto;
-}
-
-.centered-absolute {
-  // Center an element inside it's parent
-  display: block;
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  margin-top: -0.5em;
+  @media #{$tiny-query} {
+    margin: 0;
+  }
 }
 
 .hide-text {
@@ -47,6 +23,6 @@
 /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
 .visually-hidden.focusable:active, .visually-hidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
 
-.align-right {
-  text-align: right;
-}
+.align-left { text-align: right; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }

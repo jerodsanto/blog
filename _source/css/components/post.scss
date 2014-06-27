@@ -51,12 +51,16 @@
     }
   }
   .highlight-wrap {
-    overflow: scroll;
+    overflow-x: auto;
     background: $navy;
   }
+  .highlight-scroll-wrap {
+    width: 9999px;
+  }
   .highlight {
-    width: 700px;
     background: $navy;
+    width: auto;
+    display: inline-block;
     padding-top: 20px;
     padding-bottom: 20px;
     pre { margin: 0; }

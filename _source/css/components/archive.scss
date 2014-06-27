@@ -1,0 +1,18 @@
+.category-list {
+  @include clearfix;
+  list-style-type: none;
+  margin: 20px 40px;
+  padding: 0;
+  text-align: center;
+  font-size: 1.25em;
+  letter-spacing: 0.1em;
+  li {
+    width: 50%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    a {
+      color: $blue;
+    }
+  }
+}

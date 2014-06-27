@@ -17,7 +17,10 @@
     left: 50%;
     margin: 0 0 0 -100px;
   }
-  a { color: $grey1; }
+  a {
+    color: $grey1;
+    &:hover { color: $white; }
+  }
   a.main-header-archive {
     margin-right: 140px;
   }

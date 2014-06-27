@@ -34,7 +34,14 @@
         blog.sharePopup($(this).attr('href'));
         return false;
       });
-      $('.highlight').wrap('<div class="highlight-wrap"></div>');
+      $('.highlight').each(function() {
+        var $this, snippetWidth;
+        $this = $(this);
+        $this.wrap('<div class="highlight-wrap" />');
+        $this.wrap('<div class="highlight-scroll-wrap" />');
+        snippetWidth = $this.width();
+        return $this.parent('.highlight-scroll-wrap').css('width', snippetWidth);
+      });
       randos = ["Whathaveyou", "Tomfoolery", "Jetsam", "Rants", "Highjinks", "Flotsam", "Rando Calrissian"];
       $("#rando").text(randos[Math.floor(Math.random() * randos.length)]);
       $("#content img").each(function() {

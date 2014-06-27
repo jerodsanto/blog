@@ -32,7 +32,12 @@ blog =
       blog.sharePopup $(this).attr 'href'
       false
 
-    $('.highlight').wrap '<div class="highlight-wrap"></div>'
+    $('.highlight').each ->
+      $this = $(this)
+      $this.wrap '<div class="highlight-wrap" />'
+      $this.wrap '<div class="highlight-scroll-wrap" />'
+      snippetWidth = $this.width()
+      $this.parent('.highlight-scroll-wrap').css 'width', snippetWidth
 
     # TODO: Blog home only
     randos = [

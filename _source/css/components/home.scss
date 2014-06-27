@@ -1,6 +1,5 @@
 .main-wrapper {
   @extend .wrap;
-  padding: 10px $gutter-desktop $gutter-desktop;
   background: $white;
   border-radius: $radius;
   padding: 10px $gutter-desktop $gutter-desktop;
@@ -17,12 +16,8 @@
     text-transform: uppercase;
     margin: 0;
     line-height: 1em;
-    &, a {
-      color: $red;
-    }
+    &, a { color: $red; }
   }
   h1 { font-size: 2em; }
-  h2 {
-    margin-top: 10px;
-  }
+  h2 { margin-top: 10px; }
 }
