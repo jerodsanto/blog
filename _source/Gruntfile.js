@@ -102,6 +102,7 @@ module.exports = function(grunt) {
           'bower_components/jquery/dist/jquery.js',
           'bower_components/respond/dist/respond.src.js',
           'bower_components/bigfoot/dist/bigfoot.js',
+          'bower_components/swiftype-autocomplete-jquery/jquery.swiftype.autocomplete.js',
           'js/site.js'
         ],
         dest: '../js/compiled.js'

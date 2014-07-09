@@ -39,6 +39,21 @@ blog =
       snippetWidth = $this.width()
       $this.parent('.highlight-scroll-wrap').css 'width', snippetWidth
 
+    # Swiftype Autocomplete
+    $("#st-search-input").swiftype
+      engineKey: "TM8ezPQi8DZRuszeAPuU"
+      resultLimit: 10
+
+    # Search Focus/Blur
+    $(".main-header-search input").focus(->
+      $(this).parent().addClass 'is-active'
+      return
+    ).blur ->
+      #do what you need
+      $(this).parent().removeClass 'is-active'
+      return
+
+
     # TODO: Blog home only
     randos = [
       "Whathaveyou"

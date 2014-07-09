@@ -1,9 +1,8 @@
 .main-header {
+  position: relative;
   background: $darknavy;
   margin-bottom: 40px;
   padding: 30px 20px;
-  text-transform: uppercase;
-  font-style: italic;
   text-align: center;
   h1, a {
     margin: 0;
@@ -18,15 +17,13 @@
     margin: 0 0 0 -100px;
   }
   a {
+    text-transform: uppercase;
+    font-style: italic;
     color: $grey1;
     &:hover { color: $white; }
   }
-  a.main-header-archive {
-    margin-right: 140px;
-  }
-  a.main-header-contact {
-    margin-left: 140px;
-  }
+  a.main-header-archive { margin-right: 140px; }
+  a.main-header-contact { margin-left: 140px; }
   @media #{$mobile-query} {
     h1 {
       display: block;

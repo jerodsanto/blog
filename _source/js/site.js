@@ -42,6 +42,15 @@
         snippetWidth = $this.width();
         return $this.parent('.highlight-scroll-wrap').css('width', snippetWidth);
       });
+      $("#st-search-input").swiftype({
+        engineKey: "TM8ezPQi8DZRuszeAPuU",
+        resultLimit: 10
+      });
+      $(".main-header-search input").focus(function() {
+        $(this).parent().addClass('is-active');
+      }).blur(function() {
+        $(this).parent().removeClass('is-active');
+      });
       randos = ["Whathaveyou", "Tomfoolery", "Jetsam", "Rants", "Highjinks", "Flotsam", "Rando Calrissian"];
       $("#rando").text(randos[Math.floor(Math.random() * randos.length)]);
       $("#content img").each(function() {
