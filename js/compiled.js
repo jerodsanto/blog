@@ -11665,7 +11665,589 @@ return jQuery;
         return bigfoot;
     };
 
-})(jQuery);;(function ($) {
+})(jQuery);;
+/* Copyright (C) 2013 Justin Windle, http://soulwire.co.uk */
+
+var Sketch = (function() {
+
+    "use strict";
+
+    /*
+    ----------------------------------------------------------------------
+
+        Config
+
+    ----------------------------------------------------------------------
+    */
+
+    var MATH_PROPS = 'E LN10 LN2 LOG2E LOG10E PI SQRT1_2 SQRT2 abs acos asin atan ceil cos exp floor log round sin sqrt tan atan2 pow max min'.split( ' ' );
+    var HAS_SKETCH = '__hasSketch';
+    var M = Math;
+
+    var CANVAS = 'canvas';
+    var WEBGL = 'webgl';
+    var DOM = 'dom';
+
+    var doc = document;
+    var win = window;
+
+    var instances = [];
+
+    var defaults = {
+
+        fullscreen: true,
+        autostart: true,
+        autoclear: true,
+        autopause: true,
+        container: doc.body,
+        interval: 1,
+        globals: true,
+        retina: false,
+        type: CANVAS
+    };
+
+    var keyMap = {
+
+         8: 'BACKSPACE',
+         9: 'TAB',
+        13: 'ENTER',
+        16: 'SHIFT',
+        27: 'ESCAPE',
+        32: 'SPACE',
+        37: 'LEFT',
+        38: 'UP',
+        39: 'RIGHT',
+        40: 'DOWN'
+    };
+
+    /*
+    ----------------------------------------------------------------------
+
+        Utilities
+
+    ----------------------------------------------------------------------
+    */
+
+    function isArray( object ) {
+
+        return Object.prototype.toString.call( object ) == '[object Array]';
+    }
+
+    function isFunction( object ) {
+
+        return typeof object == 'function';
+    }
+
+    function isNumber( object ) {
+
+        return typeof object == 'number';
+    }
+
+    function isString( object ) {
+
+        return typeof object == 'string';
+    }
+
+    function keyName( code ) {
+
+        return keyMap[ code ] || String.fromCharCode( code );
+    }
+
+    function extend( target, source, overwrite ) {
+
+        for ( var key in source )
+
+            if ( overwrite || !( key in target ) )
+
+                target[ key ] = source[ key ];
+
+        return target;
+    }
+
+    function proxy( method, context ) {
+
+        return function() {
+
+            method.apply( context, arguments );
+        };
+    }
+
+    function clone( target ) {
+
+        var object = {};
+
+        for ( var key in target ) {
+
+            if ( isFunction( target[ key ] ) )
+
+                object[ key ] = proxy( target[ key ], target );
+
+            else
+
+                object[ key ] = target[ key ];
+        }
+
+        return object;
+    }
+
+    /*
+    ----------------------------------------------------------------------
+
+        Constructor
+
+    ----------------------------------------------------------------------
+    */
+
+    function constructor( context ) {
+
+        var request, handler, target, parent, bounds, index, suffix, clock, node, copy, type, key, val, min, max, w, h;
+
+        var counter = 0;
+        var touches = [];
+        var resized = false;
+        var setup = false;
+        var ratio = win.devicePixelRatio;
+        var isDiv = context.type == DOM;
+        var is2D = context.type == CANVAS;
+
+        var mouse = {
+            x:  0.0, y:  0.0,
+            ox: 0.0, oy: 0.0,
+            dx: 0.0, dy: 0.0
+        };
+
+        var eventMap = [
+
+            context.element,
+
+                pointer, 'mousedown', 'touchstart',
+                pointer, 'mousemove', 'touchmove',
+                pointer, 'mouseup', 'touchend',
+                pointer, 'click',
+
+            doc,
+
+                keypress, 'keydown', 'keyup',
+
+            win,
+
+                active, 'focus', 'blur',
+                resize, 'resize'
+        ];
+
+        var keys = {}; for ( key in keyMap ) keys[ keyMap[ key ] ] = false;
+
+        function trigger( method ) {
+
+            if ( isFunction( method ) )
+
+                method.apply( context, [].splice.call( arguments, 1 ) );
+        }
+
+        function bind( on ) {
+
+            for ( index = 0; index < eventMap.length; index++ ) {
+
+                node = eventMap[ index ];
+
+                if ( isString( node ) )
+
+                    target[ ( on ? 'add' : 'remove' ) + 'EventListener' ].call( target, node, handler, false );
+
+                else if ( isFunction( node ) )
+
+                    handler = node;
+
+                else target = node;
+            }
+        }
+
+        function update() {
+
+            cAF( request );
+            request = rAF( update );
+
+            if ( !setup ) {
+
+                trigger( context.setup );
+                setup = isFunction( context.setup );
+            }
+
+            if ( !resized ) {
+                trigger( context.resize );
+                resized = isFunction( context.resize );
+            }
+
+            if ( context.running && !counter ) {
+
+                context.dt = ( clock = +new Date() ) - context.now;
+                context.millis += context.dt;
+                context.now = clock;
+
+                trigger( context.update );
+
+                if ( context.autoclear && is2D )
+
+                    context.clear();
+
+                trigger( context.draw );
+            }
+
+            counter = ++counter % context.interval;
+        }
+
+        function resize() {
+
+            target = isDiv ? context.style : context.canvas;
+            suffix = isDiv ? 'px' : '';
+
+            w = context.width;
+            h = context.height;
+
+            if ( context.fullscreen ) {
+
+                h = context.height = win.innerHeight;
+                w = context.width = win.innerWidth;
+            }
+
+            if ( context.retina && is2D && ratio ) {
+
+                target.style.height = h + 'px';
+                target.style.width = w + 'px';
+
+                w *= ratio;
+                h *= ratio;
+
+                context.scale( ratio, ratio );
+            }
+
+            if ( target.height !== h )
+
+                target.height = h + suffix;
+            
+            if ( target.width !== w )
+
+                target.width = w + suffix;
+
+            if ( setup ) trigger( context.resize );
+        }
+
+        function align( touch, target ) {
+
+            bounds = target.getBoundingClientRect();
+
+            touch.x = touch.pageX - bounds.left - win.scrollX;
+            touch.y = touch.pageY - bounds.top - win.scrollY;
+
+            return touch;
+        }
+
+        function augment( touch, target ) {
+
+            align( touch, context.element );
+
+            target = target || {};
+
+            target.ox = target.x || touch.x;
+            target.oy = target.y || touch.y;
+
+            target.x = touch.x;
+            target.y = touch.y;
+
+            target.dx = target.x - target.ox;
+            target.dy = target.y - target.oy;
+
+            return target;
+        }
+
+        function process( event ) {
+
+            event.preventDefault();
+
+            copy = clone( event );
+            copy.originalEvent = event;
+
+            if ( copy.touches ) {
+
+                touches.length = copy.touches.length;
+
+                for ( index = 0; index < copy.touches.length; index++ )
+
+                    touches[ index ] = augment( copy.touches[ index ], touches[ index ] );
+
+            } else {
+
+                touches.length = 0;
+                touches[0] = augment( copy, mouse );
+            }
+
+            extend( mouse, touches[0], true );
+
+            return copy;
+        }
+
+        function pointer( event ) {
+
+            event = process( event );
+
+            min = ( max = eventMap.indexOf( type = event.type ) ) - 1;
+
+            context.dragging =
+
+                /down|start/.test( type ) ? true :
+
+                /up|end/.test( type ) ? false :
+
+                context.dragging;
+
+            while( min )
+
+                isString( eventMap[ min ] ) ?
+
+                    trigger( context[ eventMap[ min-- ] ], event ) :
+
+                isString( eventMap[ max ] ) ?
+
+                    trigger( context[ eventMap[ max++ ] ], event ) :
+
+                min = 0;
+        }
+
+        function keypress( event ) {
+
+            key = event.keyCode;
+            val = event.type == 'keyup';
+            keys[ key ] = keys[ keyName( key ) ] = !val;
+
+            trigger( context[ event.type ], event );
+        }
+
+        function active( event ) {
+
+            if ( context.autopause )
+
+                ( event.type == 'blur' ? stop : start )();
+
+            trigger( context[ event.type ], event );
+        }
+
+        // Public API
+
+        function start() {
+
+            context.now = +new Date();
+            context.running = true;
+        }
+
+        function stop() {
+
+            context.running = false;
+        }
+
+        function toggle() {
+
+            ( context.running ? stop : start )();
+        }
+
+        function clear() {
+
+            if ( is2D )
+
+                context.clearRect( 0, 0, context.width, context.height );
+        }
+
+        function destroy() {
+
+            parent = context.element.parentNode;
+            index = instances.indexOf( context );
+
+            if ( parent ) parent.removeChild( context.element );
+            if ( ~index ) instances.splice( index, 1 );
+
+            bind( false );
+            stop();
+        }
+
+        extend( context, {
+
+            touches: touches,
+            mouse: mouse,
+            keys: keys,
+
+            dragging: false,
+            running: false,
+            millis: 0,
+            now: NaN,
+            dt: NaN,
+
+            destroy: destroy,
+            toggle: toggle,
+            clear: clear,
+            start: start,
+            stop: stop
+        });
+
+        instances.push( context );
+
+        return ( context.autostart && start(), bind( true ), resize(), update(), context );
+    }
+
+    /*
+    ----------------------------------------------------------------------
+
+        Global API
+
+    ----------------------------------------------------------------------
+    */
+
+    var element, context, Sketch = {
+
+        CANVAS: CANVAS,
+        WEB_GL: WEBGL,
+        WEBGL: WEBGL,
+        DOM: DOM,
+
+        instances: instances,
+
+        install: function( context ) {
+
+            if ( !context[ HAS_SKETCH ] ) {
+
+                for ( var i = 0; i < MATH_PROPS.length; i++ )
+
+                    context[ MATH_PROPS[i] ] = M[ MATH_PROPS[i] ];
+
+                extend( context, {
+
+                    TWO_PI: M.PI * 2,
+                    HALF_PI: M.PI / 2,
+                    QUATER_PI: M.PI / 4,
+
+                    random: function( min, max ) {
+
+                        if ( isArray( min ) )
+
+                            return min[ ~~( M.random() * min.length ) ];
+
+                        if ( !isNumber( max ) )
+
+                            max = min || 1, min = 0;
+
+                        return min + M.random() * ( max - min );
+                    },
+
+                    lerp: function( min, max, amount ) {
+
+                        return min + amount * ( max - min );
+                    },
+
+                    map: function( num, minA, maxA, minB, maxB ) {
+
+                        return ( num - minA ) / ( maxA - minA ) * ( maxB - minB ) + minB;
+                    }
+                });
+
+                context[ HAS_SKETCH ] = true;
+            }
+        },
+
+        create: function( options ) {
+
+            options = extend( options || {}, defaults );
+
+            if ( options.globals ) Sketch.install( self );
+
+            element = options.element = options.element || doc.createElement( options.type === DOM ? 'div' : 'canvas' );
+
+            context = options.context = options.context || (function() {
+
+                switch( options.type ) {
+
+                    case CANVAS:
+
+                        return element.getContext( '2d', options );
+
+                    case WEBGL:
+
+                        return element.getContext( 'webgl', options ) || element.getContext( 'experimental-webgl', options );
+
+                    case DOM:
+
+                        return element.canvas = element;
+                }
+
+            })();
+
+            ( options.container || doc.body ).appendChild( element );
+
+            return Sketch.augment( context, options );
+        },
+
+        augment: function( context, options ) {
+
+            options = extend( options || {}, defaults );
+
+            options.element = context.canvas || context;
+            options.element.className += ' sketch';
+
+            extend( context, options, true );
+
+            return constructor( context );
+        }
+    };
+
+    /*
+    ----------------------------------------------------------------------
+
+        Shims
+
+    ----------------------------------------------------------------------
+    */
+
+    var vendors = [ 'ms', 'moz', 'webkit', 'o' ];
+    var scope = self;
+    var then = 0;
+
+    var a = 'AnimationFrame';
+    var b = 'request' + a;
+    var c = 'cancel' + a;
+
+    var rAF = scope[ b ];
+    var cAF = scope[ c ];
+
+    for ( var i = 0; i < vendors.length && !rAF; i++ ) {
+
+        rAF = scope[ vendors[ i ] + 'Request' + a ];
+        cAF = scope[ vendors[ i ] + 'Cancel' + a ];
+    }
+
+    scope[ b ] = rAF = rAF || function( callback ) {
+
+        var now = +new Date();
+        var dt = M.max( 0, 16 - ( now - then ) );
+        var id = setTimeout( function() {
+            callback( now + dt );
+        }, dt );
+
+        then = now + dt;
+        return id;
+    };
+
+    scope[ c ] = cAF = cAF || function( id ) {
+        clearTimeout( id );
+    };
+
+    /*
+    ----------------------------------------------------------------------
+
+        Output
+
+    ----------------------------------------------------------------------
+    */
+
+    return Sketch;
+
+})();;(function ($) {
   var queryParser = function (a) {
       var i, p, b = {};
       if (a === "") {
@@ -12225,7 +12807,7 @@ return jQuery;
 
 })(jQuery);
 ;(function() {
-  var blog;
+  var Edge, Polygon, Vector, blog;
 
   $(document).on("ready", function() {
     return blog.init();
@@ -12301,5 +12883,363 @@ return jQuery;
     return Controller;
 
   })();
+
+  /*
+  
+    Demonstrates collision detection between convex and non-convex polygons
+    and how to detect whether a point vector is contained within a polygon
+  
+    Possible techniques:
+  
+      x Bounding box or radii
+        Inacurate for complex polygons
+  
+      x SAT (Separating Axis Theorem)
+        Only handles convex polygons, so non-convex polygons must be subdivided
+  
+      x Collision canvas. Draw polygon A then polygon B using `source-in`
+        Slow since it uses getImageData and pixels must be scanned. Algorithm
+        can be improved by drawing to a smaller canvas but downsampling effects
+        accuracy and using canvas transformations (scale) throws false positives
+  
+      - Bounding box + line segment intersection
+        Test bounding box overlap (fast) then proceed to per edge intersection
+        detection if necessary. Exit after first intersection is found since
+        we're not simulating collision responce. This technique fails to detect
+        nested polygons, but since we're testing moving polygons it's ok(ish)
+  */
+
+
+  Vector = (function() {
+    function Vector(x, y) {
+      this.x = x;
+      this.y = y;
+      this.set(x, y);
+    }
+
+    Vector.prototype.set = function(x, y) {
+      this.x = x != null ? x : 0.0;
+      this.y = y != null ? y : 0.0;
+      return this;
+    };
+
+    Vector.prototype.add = function(vector) {
+      this.x += vector.x;
+      this.y += vector.y;
+      return this;
+    };
+
+    Vector.prototype.scale = function(scalar) {
+      this.x *= scalar;
+      this.y *= scalar;
+      return this;
+    };
+
+    Vector.prototype.div = function(scalar) {
+      this.x /= scalar;
+      this.y /= scalar;
+      return this;
+    };
+
+    Vector.prototype.dot = function(vector) {
+      return this.x * vector.x + this.y * vector.y;
+    };
+
+    Vector.prototype.min = function(vector) {
+      this.x = min(this.x, vector.x);
+      return this.y = min(this.y, vector.y);
+    };
+
+    Vector.prototype.max = function(vector) {
+      this.x = max(this.x, vector.x);
+      return this.y = max(this.y, vector.y);
+    };
+
+    Vector.prototype.lt = function(vector) {
+      return this.x < vector.x || this.y < vector.y;
+    };
+
+    Vector.prototype.gt = function(vector) {
+      return this.x > vector.x || this.y > vector.y;
+    };
+
+    Vector.prototype.normalize = function() {
+      var mag;
+      mag = sqrt(this.x * this.x + this.y * this.y);
+      if (mag !== 0) {
+        this.x /= mag;
+        return this.y /= mag;
+      }
+    };
+
+    Vector.prototype.clone = function() {
+      return new Vector(this.x, this.y);
+    };
+
+    return Vector;
+
+  })();
+
+  Edge = (function() {
+    function Edge(pointA, pointB) {
+      this.pointA = pointA;
+      this.pointB = pointB;
+    }
+
+    Edge.prototype.intersects = function(other, ray) {
+      var d, dx1, dx2, dx3, dy1, dy2, dy3, r, s;
+      if (ray == null) {
+        ray = false;
+      }
+      dy1 = this.pointB.y - this.pointA.y;
+      dx1 = this.pointB.x - this.pointA.x;
+      dx2 = this.pointA.x - other.pointA.x;
+      dy2 = this.pointA.y - other.pointA.y;
+      dx3 = other.pointB.x - other.pointA.x;
+      dy3 = other.pointB.y - other.pointA.y;
+      if (dy1 / dx1 !== dy3 / dx3) {
+        d = dx1 * dy3 - dy1 * dx3;
+        if (d !== 0) {
+          r = (dy2 * dx3 - dx2 * dy3) / d;
+          s = (dy2 * dx1 - dx2 * dy1) / d;
+          if (r >= 0 && (ray || r <= 1)) {
+            if (s >= 0 && s <= 1) {
+              return new Vector(this.pointA.x + r * dx1, this.pointA.y + r * dy1);
+            }
+          }
+        }
+      }
+      return false;
+    };
+
+    return Edge;
+
+  })();
+
+  Polygon = (function() {
+    function Polygon(vertices, edges) {
+      this.vertices = vertices != null ? vertices : [];
+      this.edges = edges != null ? edges : [];
+      this.colliding = false;
+      this.center = new Vector;
+      this.bounds = {
+        min: new Vector,
+        max: new Vector
+      };
+      this.edges = [];
+      if (this.vertices.length > 0) {
+        this.computeCenter();
+        this.computeBounds();
+        this.computeEdges();
+      }
+    }
+
+    Polygon.prototype.translate = function(vector) {
+      var vertex, _i, _len, _ref, _results;
+      this.center.add(vector);
+      this.bounds.min.add(vector);
+      this.bounds.max.add(vector);
+      _ref = this.vertices;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        vertex = _ref[_i];
+        _results.push(vertex.add(vector));
+      }
+      return _results;
+    };
+
+    Polygon.prototype.computeCenter = function() {
+      var vertex, _i, _len, _ref;
+      this.center.set(0, 0);
+      _ref = this.vertices;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        vertex = _ref[_i];
+        this.center.add(vertex);
+      }
+      return this.center.div(this.vertices.length);
+    };
+
+    Polygon.prototype.computeBounds = function() {
+      var vertex, _i, _len, _ref, _results;
+      this.bounds.min.set(Number.MAX_VALUE, Number.MAX_VALUE);
+      this.bounds.max.set(-Number.MAX_VALUE, -Number.MAX_VALUE);
+      _ref = this.vertices;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        vertex = _ref[_i];
+        this.bounds.min.min(vertex);
+        _results.push(this.bounds.max.max(vertex));
+      }
+      return _results;
+    };
+
+    Polygon.prototype.computeEdges = function() {
+      var index, vertex, _i, _len, _ref, _results;
+      this.edges.length = 0;
+      _ref = this.vertices;
+      _results = [];
+      for (index = _i = 0, _len = _ref.length; _i < _len; index = ++_i) {
+        vertex = _ref[index];
+        _results.push(this.edges.push(new Edge(vertex, this.vertices[(index + 1) % this.vertices.length])));
+      }
+      return _results;
+    };
+
+    Polygon.prototype.contains = function(vector) {
+      var edge, intersections, minX, minY, outside, ray, _i, _len, _ref,
+        _this = this;
+      if (vector.x > this.bounds.max.x || vector.x < this.bounds.min.x) {
+        return false;
+      }
+      if (vector.y > this.bounds.max.y || vector.y < this.bounds.min.y) {
+        return false;
+      }
+      minX = function(o) {
+        return o.x;
+      };
+      minY = function(o) {
+        return o.y;
+      };
+      outside = new Vector(Math.min.apply(Math, this.vertices.map(minX)) - 1, Math.min.apply(Math, this.vertices.map(minY)) - 1);
+      ray = new Edge(vector, outside);
+      intersections = 0;
+      _ref = this.edges;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        edge = _ref[_i];
+        if (ray.intersects(edge, true)) {
+          ++intersections;
+        }
+      }
+      return !!(intersections % 2);
+    };
+
+    Polygon.prototype.collides = function(polygon) {
+      var edge, other, overlap, _i, _j, _len, _len1, _ref, _ref1;
+      overlap = true;
+      if (polygon.bounds.min.gt(this.bounds.max)) {
+        overlap = false;
+      }
+      if (polygon.bounds.max.lt(this.bounds.min)) {
+        overlap = false;
+      }
+      overlap = false;
+      _ref = this.edges;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        edge = _ref[_i];
+        _ref1 = polygon.edges;
+        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+          other = _ref1[_j];
+          if (edge.intersects(other)) {
+            return true;
+          }
+        }
+      }
+      return false;
+    };
+
+    Polygon.prototype.wrap = function(bounds) {
+      var ox, oy;
+      ox = (this.bounds.max.x - this.bounds.min.x) + (bounds.max.x - bounds.min.x);
+      oy = (this.bounds.max.y - this.bounds.min.y) + (bounds.max.y - bounds.min.y);
+      if (this.bounds.max.x < bounds.min.x) {
+        this.translate(new Vector(ox, 0));
+      } else if (this.bounds.min.x > bounds.max.x) {
+        this.translate(new Vector(-ox, 0));
+      }
+      if (this.bounds.max.y < bounds.min.y) {
+        return this.translate(new Vector(0, oy));
+      } else if (this.bounds.min.y > bounds.max.y) {
+        return this.translate(new Vector(0, -oy));
+      }
+    };
+
+    Polygon.prototype.draw = function(ctx) {
+      var color, vertex, _i, _len, _ref;
+      color = this.colliding ? '#FF0051' : this.color;
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      _ref = this.vertices;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        vertex = _ref[_i];
+        ctx.lineTo(vertex.x, vertex.y);
+      }
+      ctx.closePath();
+      ctx.globalAlpha = 0;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      ctx.lineWidth = 2;
+      return ctx.stroke();
+    };
+
+    return Polygon;
+
+  })();
+
+  Sketch.create({
+    COLORS: ['#d93d4b', '#d16936', '#cca712', '#80b668', '#9fbaa2', '#2da4b6', '#1ead9a'],
+    bounds: {
+      min: new Vector,
+      max: new Vector
+    },
+    makePolygon: function() {
+      var mv, polygon, radius, side, sides, step, theta, vertices, _i, _ref;
+      sides = random(4, 7);
+      step = TWO_PI / sides;
+      mv = 100;
+      vertices = [];
+      for (side = _i = 0, _ref = sides - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; side = 0 <= _ref ? ++_i : --_i) {
+        theta = (step * side) + random(step);
+        radius = random(30, 90);
+        vertices.push(new Vector(radius * cos(theta), radius * sin(theta)));
+      }
+      polygon = new Polygon(vertices);
+      polygon.translate(new Vector(random(this.width), random(this.height)));
+      polygon.velocity = new Vector(random(-mv, mv), random(-mv, mv));
+      polygon.color = random(this.COLORS);
+      return polygon;
+    },
+    setup: function() {
+      var i;
+      return this.polygons = (function() {
+        var _i, _results;
+        _results = [];
+        for (i = _i = 0; _i <= 12; i = ++_i) {
+          _results.push(this.makePolygon());
+        }
+        return _results;
+      }).call(this);
+    },
+    draw: function() {
+      var dts, index, n, other, polygon, _i, _j, _k, _len, _len1, _ref, _ref1, _ref2, _ref3, _results;
+      dts = max(0, this.dt / 6000);
+      this.globalCompositeOperation = 'lighter';
+      _ref = this.polygons;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        polygon = _ref[_i];
+        polygon.colliding = false;
+      }
+      _ref1 = this.polygons;
+      _results = [];
+      for (index = _j = 0, _len1 = _ref1.length; _j < _len1; index = ++_j) {
+        polygon = _ref1[index];
+        polygon.translate(polygon.velocity.clone().scale(dts));
+        if (!polygon.colliding) {
+          for (n = _k = _ref2 = index + 1, _ref3 = this.polygons.length - 1; _k <= _ref3; n = _k += 1) {
+            other = this.polygons[n];
+            if (polygon.collides(other)) {
+              polygon.colliding = true;
+              other.colliding = true;
+            }
+          }
+        }
+        _results.push(polygon.draw(this));
+      }
+      return _results;
+    },
+    resize: function() {
+      return this.bounds.max.set(this.width, this.height);
+    }
+  });
 
 }).call(this);

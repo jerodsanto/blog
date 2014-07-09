@@ -22,6 +22,7 @@
     "respond": "~1.4.2",
     "bourbon": "~4.0.2",
     "bigfoot": "~2.0.1",
-    "swiftype-autocomplete-jquery": "git@github.com:swiftype/swiftype-autocomplete-jquery.git"
+    "swiftype-autocomplete-jquery": "git@github.com:swiftype/swiftype-autocomplete-jquery.git",
+    "sketch.js": "*"
   }
 }
