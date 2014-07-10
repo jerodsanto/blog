@@ -82,257 +82,180 @@ blog =
 
 class blog.Controller
 
-
-###
-
-  Demonstrates collision detection between convex and non-convex polygons
-  and how to detect whether a point vector is contained within a polygon
-
-  Possible techniques:
-
-    x Bounding box or radii
-      Inacurate for complex polygons
-
-    x SAT (Separating Axis Theorem)
-      Only handles convex polygons, so non-convex polygons must be subdivided
-
-    x Collision canvas. Draw polygon A then polygon B using `source-in`
-      Slow since it uses getImageData and pixels must be scanned. Algorithm
-      can be improved by drawing to a smaller canvas but downsampling effects
-      accuracy and using canvas transformations (scale) throws false positives
-
-    - Bounding box + line segment intersection
-      Test bounding box overlap (fast) then proceed to per edge intersection
-      detection if necessary. Exit after first intersection is found since
-      we're not simulating collision responce. This technique fails to detect
-      nested polygons, but since we're testing moving polygons it's ok(ish)
-
-###
-
-class Vector
-
-  constructor: ( @x, @y ) -> @set x, y
-
-  set: ( @x = 0.0, @y = 0.0 ) -> @
-
-  add: ( vector ) ->
-    @x += vector.x
-    @y += vector.y
-    @
-
-  scale: ( scalar ) ->
-    @x *= scalar
-    @y *= scalar
-    @
-
-  div: ( scalar ) ->
-    @x /= scalar
-    @y /= scalar
-    @
-
-  dot: ( vector ) ->
-    @x * vector.x + @y * vector.y
-
-  min: ( vector ) ->
-    @x = min @x, vector.x
-    @y = min @y, vector.y
-
-  max: ( vector ) ->
-    @x = max @x, vector.x
-    @y = max @y, vector.y
-
-  lt: ( vector ) ->
-    @x < vector.x or @y < vector.y
-
-  gt: ( vector ) ->
-    @x > vector.x or @y > vector.y
-
-  normalize: ->
-    mag = sqrt @x*@x + @y*@y
-
-    if mag isnt 0
-      @x /= mag
-      @y /= mag
-
-  clone: ->
-    new Vector @x, @y
-
-class Edge
-
-  constructor: ( @pointA, @pointB ) ->
-
-  intersects: ( other, ray = no ) ->
-
-    dy1 = @pointB.y - @pointA.y
-    dx1 = @pointB.x - @pointA.x
-    dx2 = @pointA.x - other.pointA.x
-    dy2 = @pointA.y - other.pointA.y
-    dx3 = other.pointB.x - other.pointA.x
-    dy3 = other.pointB.y - other.pointA.y
-
-    if dy1 / dx1 isnt dy3 / dx3
-      d = dx1 * dy3 - dy1 * dx3
-      if d isnt 0
-        r = (dy2 * dx3 - dx2 * dy3) / d
-        s = (dy2 * dx1 - dx2 * dy1) / d
-        if r >= 0 and ( ray or r <= 1 )
-          if s >= 0 and s <= 1
-            return new Vector @pointA.x + r * dx1, @pointA.y + r * dy1
-    no
-
-
-class Polygon
-
-  constructor: ( @vertices = [], @edges = [] ) ->
-    @colliding = no
-    @center = new Vector
-    @bounds = min: new Vector, max: new Vector
-    @edges = []
-
-    if @vertices.length > 0
-      @computeCenter()
-      @computeBounds()
-      @computeEdges()
-
-  translate: ( vector ) ->
-    @center.add vector
-    @bounds.min.add vector
-    @bounds.max.add vector
-    vertex.add vector for vertex in @vertices
-
-  computeCenter: ->
-    @center.set 0, 0
-    @center.add vertex for vertex in @vertices
-    @center.div @vertices.length
-
-  computeBounds: ->
-    @bounds.min.set Number.MAX_VALUE, Number.MAX_VALUE
-    @bounds.max.set -Number.MAX_VALUE, -Number.MAX_VALUE
-
-    for vertex in @vertices
-      @bounds.min.min vertex
-      @bounds.max.max vertex
-
-  computeEdges: ->
-    @edges.length = 0
-
-    for vertex, index in @vertices
-      @edges.push new Edge vertex, @vertices[ (index + 1) % @vertices.length ]
-
-  contains: ( vector ) ->
-    return no if vector.x > this.bounds.max.x or vector.x < this.bounds.min.x
-    return no if vector.y > this.bounds.max.y or vector.y < this.bounds.min.y
-
-    minX = (o) => o.x
-    minY = (o) => o.y
-
-    outside = new Vector(
-      Math.min.apply( Math, this.vertices.map( minX ) ) - 1,
-      Math.min.apply( Math, this.vertices.map( minY ) ) - 1)
-
-    ray = new Edge vector, outside
-    intersections = 0
-
-    ( ++intersections if ray.intersects edge, yes ) for edge in @edges
-
-    !!( intersections % 2 )
-
-  collides: ( polygon ) ->
-    overlap = yes
-
-    # First perform a simple boundary check
-    overlap = no if polygon.bounds.min.gt @bounds.max
-    overlap = no if polygon.bounds.max.lt @bounds.min
-
-    # Perform per edge intersection tests if bounds overlap
-    overlap = no
-
-    for edge in @edges
-      for other in polygon.edges
-        return yes if edge.intersects other
-    no
-
-  wrap: ( bounds ) ->
-    ox = (@bounds.max.x - @bounds.min.x) + (bounds.max.x - bounds.min.x)
-    oy = (@bounds.max.y - @bounds.min.y) + (bounds.max.y - bounds.min.y)
-
-    if @bounds.max.x < bounds.min.x then @translate new Vector ox, 0
-    else if @bounds.min.x > bounds.max.x then @translate new Vector -ox, 0
-
-    if @bounds.max.y < bounds.min.y then @translate new Vector 0, oy
-    else if @bounds.min.y > bounds.max.y then @translate new Vector 0, -oy
-
-  draw: ( ctx ) ->
-    color = if @colliding then '#FF0051' else @color
-
-    ctx.strokeStyle = color
-    ctx.fillStyle = color
-
-    # polygon
-    ctx.beginPath()
-    ctx.lineTo vertex.x, vertex.y for vertex in @vertices
-    ctx.closePath()
-
-    ctx.globalAlpha = 0
-    ctx.fill()
-
-    ctx.globalAlpha = 1
-    ctx.lineWidth = 2
-    ctx.stroke()
-
-# Example
-
-Sketch.create
-
-  COLORS: [ '#d93d4b', '#d16936', '#cca712', '#80b668', '#9fbaa2', '#2da4b6', '#1ead9a' ]
-
-  bounds:
-    min: new Vector
-    max: new Vector
-
-  makePolygon: ->
-    sides = random 4, 7
-    step = TWO_PI / sides
-    mv = 100
-
-    vertices = []
-
-    for side in [0..sides-1]
-
-      theta = (step * side) + random step
-      radius = random 30, 90
-
-      vertices.push new Vector (radius * cos theta), (radius * sin theta)
-
-    polygon = new Polygon vertices
-    polygon.translate new Vector (random @width), (random @height)
-    polygon.velocity = new Vector (random -mv, mv), (random -mv, mv)
-    polygon.color = random @COLORS
-
-    polygon
-
-  setup: ->
-    @polygons = ( do @makePolygon for i in [0..12] )
-
-  draw: ->
-    dts = max 0, this.dt / 6000 # Basically the speed
-    @globalCompositeOperation = 'lighter'
-    polygon.colliding = no for polygon in @polygons
-
-    for polygon, index in @polygons
-      polygon.translate polygon.velocity.clone().scale dts
-      #polygon.computeBounds()
-      #polygon.wrap @bounds
-
-      # test collisions
-      if not polygon.colliding
-        for n in [index+1..@polygons.length-1] by 1
-          other = @polygons[ n ]
-          if polygon.collides other
-            polygon.colliding = yes
-            other.colliding = yes
-
-      polygon.draw @
-
-  resize: ->
-    @bounds.max.set @width, @height
+#
+# Mixed Shapes
+#
+Physics
+  timestep: 4
+, (world) ->
+
+  # bounds of the window
+  # create a renderer
+  # add the renderer
+  # render on each step
+  # constrain objects to these bounds
+  # resize events
+
+  # update the boundaries
+  random = (min, max) ->
+    (Math.random() * (max - min) + min) | 0
+  dropInBody = ->
+    body = undefined
+    switch random(0, 3)
+
+      # add a circle
+      when 0
+        body = Physics.body("circle",
+          x: viewWidth / 2
+          y: 50
+          vx: random(-5, 5) / 100
+          radius: 60
+          restitution: 0.9
+          styles:
+            fillStyle: "transparent"
+            strokeStyle: "#d93d4b"
+            lineWidth: 2,
+            #angleIndicator: "#d93d4b"
+        )
+        body.options =
+          href: 'http://outwithsprout.com'
+        body.view = new Image()
+        body.view.src = '/images/ows.png'
+
+      # add a square
+      when 1
+        body = Physics.body("rectangle",
+          width: 50
+          height: 50
+          x: viewWidth / 2
+          y: 50
+          vx: random(-5, 5) / 100
+          restitution: 0.9
+          styles:
+            fillStyle: "transparent"
+            strokeStyle: '#80b668',
+            lineWidth: 2,
+            #angleIndicator: "#80b668"
+        )
+
+      # add a polygon
+      when 2
+        body = Physics.body("convex-polygon",
+          vertices: pent
+          x: viewWidth / 2
+          y: 50
+          vx: random(-5, 5) / 100
+          angle: random(0, 2 * Math.PI)
+          restitution: 0.9
+          styles:
+            fillStyle: "transparent"
+            strokeStyle: "#1ead9a"
+            lineWidth: 2,
+            #angleIndicator: "#1ead9a"
+        )
+    world.add body
+    return
+  viewWidth = window.innerWidth
+  viewHeight = window.innerHeight
+  viewportBounds = Physics.aabb(0, 0, viewWidth, viewHeight)
+  center = Physics.vector(viewWidth, viewHeight).mult(0.5)
+  edgeBounce = undefined
+  renderer = undefined
+  renderer = Physics.renderer("canvas",
+    el: "viewport"
+    width: viewWidth
+    height: viewHeight
+  )
+  world.add renderer
+  world.on "step", ->
+    world.render()
+    return
+
+  edgeBounce = Physics.behavior("edge-collision-detection",
+    aabb: viewportBounds
+    restitution: 0.2
+    cof: 0.8
+  )
+  window.addEventListener "resize", (->
+    viewWidth = window.innerWidth
+    viewHeight = window.innerHeight
+    renderer.el.width = viewWidth
+    renderer.el.height = viewHeight
+    viewportBounds = Physics.aabb(0, 0, viewWidth, viewHeight)
+    edgeBounce.setAABB viewportBounds
+    return
+  ), true
+  pent = [
+    {
+      x: 50
+      y: 0
+    }
+    {
+      x: 25
+      y: -25
+    }
+    {
+      x: -25
+      y: -25
+    }
+    {
+      x: -50
+      y: 0
+    }
+    {
+      x: 0
+      y: 50
+    }
+  ]
+  int = setInterval(->
+    clearInterval int  if world._bodies.length > 10
+    dropInBody()
+    return
+  , 700)
+
+  # add some fun interaction
+  # attract bodies to a point
+  attractor = Physics.behavior("attractor",
+    pos: center
+    strength: .02
+    order: 1
+  )
+  world.on
+    "interact:grab": (data) ->
+      grabbed = data.body # the body that was grabbed
+      href = grabbed.options.href
+      console.log href
+      document.location.href = href
+      return
+
+    "interact:poke": (pos) ->
+      attractor.position pos
+      #world.add attractor
+      return
+
+    "interact:release": ->
+      #world.remove attractor
+      return
+
+
+  # add things to the world
+  world.add [
+    Physics.behavior("interactive",
+      el: renderer.el
+    )
+    Physics.behavior("constant-acceleration")
+    Physics.behavior("body-impulse-response")
+    Physics.behavior("body-collision-detection")
+    Physics.behavior("sweep-prune")
+    edgeBounce
+    attractor
+  ]
+
+  # subscribe to ticker to advance the simulation
+  Physics.util.ticker.on (time) ->
+    world.step time
+    return
+
+  # start the ticker
+  Physics.util.ticker.start()
+  return
