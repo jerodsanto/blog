@@ -12,3 +12,7 @@ body {
   background-position: center 70px;
   &.show-bg { background-image: url(/images/bg.gif); }
 }
+
+canvas#viewport { // the homepage switchboard
+  @include position(absolute, 0px 0px 0px 0px);
+}

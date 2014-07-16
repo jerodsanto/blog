@@ -22370,20 +22370,20 @@ return Physics;
   })();
 
   Physics({
-    timestep: 4
+    timestep: 1
   }, function(world) {
-    var attractor, center, dropInBody, edgeBounce, int, pent, random, renderer, viewHeight, viewWidth, viewportBounds;
+    var attractor, center, dropInBody, edgeBounce, github, heptagon, int, pent, random, renderer, viewHeight, viewWidth, viewportBounds;
     random = function(min, max) {
       return (Math.random() * (max - min) + min) | 0;
     };
     dropInBody = function() {
       var body;
       body = void 0;
-      switch (random(0, 3)) {
+      switch (random(0, 7)) {
         case 0:
           body = Physics.body("circle", {
             x: viewWidth / 2,
-            y: 50,
+            y: viewHeight / 2,
             vx: random(-5, 5) / 100,
             radius: 60,
             restitution: 0.9,
@@ -22401,10 +22401,10 @@ return Physics;
           break;
         case 1:
           body = Physics.body("rectangle", {
-            width: 50,
-            height: 50,
+            width: 120,
+            height: 100,
             x: viewWidth / 2,
-            y: 50,
+            y: viewHeight / 2,
             vx: random(-5, 5) / 100,
             restitution: 0.9,
             styles: {
@@ -22418,13 +22418,73 @@ return Physics;
           body = Physics.body("convex-polygon", {
             vertices: pent,
             x: viewWidth / 2,
-            y: 50,
+            y: viewHeight / 2,
             vx: random(-5, 5) / 100,
             angle: random(0, 2 * Math.PI),
             restitution: 0.9,
             styles: {
               fillStyle: "transparent",
               strokeStyle: "#1ead9a",
+              lineWidth: 2
+            }
+          });
+          break;
+        case 3:
+          body = Physics.body("convex-polygon", {
+            vertices: heptagon,
+            x: viewWidth / 2,
+            y: viewHeight / 2,
+            vx: random(-5, 5) / 100,
+            angle: random(0, 2 * Math.PI),
+            restitution: 0.9,
+            styles: {
+              fillStyle: "transparent",
+              strokeStyle: "#1ead9a",
+              lineWidth: 2
+            }
+          });
+          break;
+        case 4:
+          body = Physics.body("convex-polygon", {
+            vertices: blog,
+            x: viewWidth / 2,
+            y: viewHeight / 2,
+            vx: random(-5, 5) / 100,
+            angle: random(0, 2 * Math.PI),
+            restitution: 0.9,
+            styles: {
+              fillStyle: "transparent",
+              strokeStyle: "#cba72c",
+              lineWidth: 2
+            }
+          });
+          break;
+        case 5:
+          body = Physics.body("convex-polygon", {
+            vertices: github,
+            x: viewWidth / 2,
+            y: viewHeight / 2,
+            vx: random(-5, 5) / 100,
+            angle: random(0, 2 * Math.PI),
+            restitution: 0.9,
+            styles: {
+              fillStyle: "transparent",
+              strokeStyle: "#7196BF",
+              lineWidth: 2
+            }
+          });
+          break;
+        case 6:
+          body = Physics.body("rectangle", {
+            width: 136,
+            height: 56,
+            x: viewWidth / 2,
+            y: viewHeight / 2,
+            vx: random(-5, 5) / 100,
+            restitution: 0.9,
+            styles: {
+              fillStyle: "transparent",
+              strokeStyle: '#9fbaa2',
               lineWidth: 2
             }
           });
@@ -22477,15 +22537,69 @@ return Physics;
         y: 50
       }
     ];
+    heptagon = [
+      {
+        x: 37.8,
+        y: 0.7
+      }, {
+        x: 90.7,
+        y: 6.1
+      }, {
+        x: 119.4,
+        y: 50.8
+      }, {
+        x: 102.4,
+        y: 101.2
+      }, {
+        x: 52.4,
+        y: 119.3
+      }, {
+        x: 7.1,
+        y: 91.5
+      }, {
+        x: 0.6,
+        y: 38.7
+      }
+    ];
+    blog = [
+      {
+        x: 73,
+        y: 92
+      }, {
+        x: 1.9,
+        y: 46.5
+      }, {
+        x: 73,
+        y: 1.1
+      }, {
+        x: 144.2,
+        y: 46.5
+      }
+    ];
+    github = [
+      {
+        x: 277.3,
+        y: 89.7
+      }, {
+        x: 211.7,
+        y: 28.7
+      }, {
+        x: 277.3,
+        y: -33.4
+      }, {
+        x: 342.9,
+        y: 28.7
+      }
+    ];
     int = setInterval(function() {
-      if (world._bodies.length > 10) {
+      if (world._bodies.length > 7) {
         clearInterval(int);
       }
       dropInBody();
-    }, 700);
+    }, 0);
     attractor = Physics.behavior("attractor", {
       pos: center,
-      strength: .02,
+      strength: .5,
       order: 1
     });
     world.on({
