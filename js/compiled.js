@@ -22370,7 +22370,7 @@ return Physics;
   })();
 
   Physics({
-    timestep: 1
+    timestep: 0.5
   }, function(world) {
     var attractor, center, dropInBody, edgeBounce, github, heptagon, int, pent, random, renderer, viewHeight, viewWidth, viewportBounds;
     random = function(min, max) {

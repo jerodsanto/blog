@@ -86,7 +86,7 @@ class blog.Controller
 # Mixed Shapes
 #
 Physics
-  timestep: 1
+  timestep: 0.5
 , (world) ->
 
   # bounds of the window
