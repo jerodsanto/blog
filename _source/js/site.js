@@ -83,10 +83,10 @@
     random = function(min, max) {
       return (Math.random() * (max - min) + min) | 0;
     };
-    dropInBody = function() {
+    dropInBody = function(number) {
       var body;
       body = void 0;
-      switch (random(0, 7)) {
+      switch (number) {
         case 0:
           body = Physics.body("circle", {
             x: viewWidth / 2,
@@ -302,8 +302,8 @@
       if (world._bodies.length > 7) {
         clearInterval(int);
       }
-      dropInBody();
-    }, 0);
+      dropInBody(world._bodies.length);
+    }, 10);
     attractor = Physics.behavior("attractor", {
       pos: center,
       strength: .5,

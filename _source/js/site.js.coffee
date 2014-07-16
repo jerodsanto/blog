@@ -99,10 +99,9 @@ Physics
   # update the boundaries
   random = (min, max) ->
     (Math.random() * (max - min) + min) | 0
-  dropInBody = ->
+  dropInBody = (number) ->
     body = undefined
-    switch random(0, 7)
-
+    switch number
       # add a circle
       when 0
         body = Physics.body("circle",
@@ -278,9 +277,9 @@ Physics
 
   int = setInterval(->
     clearInterval int  if world._bodies.length > 7
-    dropInBody()
+    dropInBody(world._bodies.length)
     return
-  , 0)
+  , 10)
 
   # add some fun interaction
   # attract bodies to a point
