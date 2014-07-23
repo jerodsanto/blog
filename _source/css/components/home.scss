@@ -21,3 +21,96 @@
   h1 { font-size: 2em; }
   h2 { margin-top: 10px; }
 }
+
+#switchboard { // the homepage switchboard - canvas element
+  @include position(absolute, 84px 0px 0px 0px);
+}
+
+.switchboard-alt {
+  position: relative;
+  height: 600px;
+  width: 600px;
+  margin: 0 auto;
+  display: none;
+  body.canvas & {
+    display: block;
+  }
+  @media #{$mobile-switchboard-query} {
+    width: 100%;
+    height: 900px;
+  }
+  ul {
+    @include clearfix;
+    list-style-type: none;
+  }
+  li {
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 140px;
+    @include transition(all 1s ease-in-out);
+    a {
+      text-indent: -9999px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      @include transition(transform 0.1s ease-in-out);
+      &:hover {
+        @include transform(scale(1.1));
+      }
+    }
+    &.switch-biblically {
+      top: 240px; left: 60px;
+      width: 141px; height: 94px;
+    }
+    &.switch-blog {
+      top: 140px; left: 180px;
+      width: 146px; height: 93px;
+    }
+    &.switch-changelog {
+      top: 180px; left: 350px;
+      width: 137px; height: 56px;
+    }
+    &.switch-github {
+      top: 360px; left: 360px;
+      width: 134px; height: 126px;
+    }
+    &.switch-interface {
+      top: 50px; left: 440px;
+      width: 120px; height: 100px;
+    }
+    &.switch-ows {
+      top: 0; left: 220px;
+      width: 121px; height: 121px;
+    }
+    &.switch-objectlateral {
+      top: 270px; left: 250px;
+      width: 120px; height: 120px;
+    }
+    &.switch-rdio {
+      top: 400px; left: 140px;
+      width: 94px; height: 109px;
+    }
+    &.switch-twitter {
+      top: 140px; left: 0;
+      width: 143px; height: 64px;
+    }
+    @media #{$mobile-switchboard-query} {
+      & {
+        left: 50% !important;
+        height: 160px !important;
+        @include transform(translateX(-50%));
+        &:nth-child(1) { top: 0; }
+        &:nth-child(2) { top: 140px; }
+        &:nth-child(3) { top: 280px; }
+        &:nth-child(4) { top: 420px; }
+        &:nth-child(5) { top: 560px; }
+        &:nth-child(6) { top: 700px; }
+        &:nth-child(7) { top: 840px; }
+        &:nth-child(8) { top: 980px; }
+        &:nth-child(9) { top: 1120px; }
+      }
+    }
+  }
+}

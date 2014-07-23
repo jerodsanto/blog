@@ -22,8 +22,18 @@
     color: $grey1;
     &:hover { color: $white; }
   }
-  a.main-header-archive { margin-right: 140px; }
-  a.main-header-contact { margin-left: 140px; }
+  a.main-header-archive {
+    margin-right: 140px;
+    @media only screen and (max-width: 819px) {
+      margin-right: 100px;
+    }
+  }
+  a.main-header-contact {
+    margin-left: 140px;
+    @media only screen and (max-width: 819px) {
+      margin-left: 100px;
+    }
+  }
   @media #{$mobile-query} {
     h1 {
       display: block;

@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     modernizr: {
       dist: {
         "devFile" : "remote",
-        "outputFile" : "../modernizr-custom.js",
+        "outputFile" : "../js/modernizr-custom.js",
         "extra" : {
           "shiv" : true,
           "printshiv" : false,
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
           "domprefixes" : false
         },
         "uglify" : true,
-        "tests" : [],
+        "tests" : ['canvas'],
         "parseFiles" : true,
         // When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
         // You can override this by defining a "files" array below.
@@ -89,7 +89,8 @@ module.exports = function(grunt) {
     coffee: {
       compile: {
         files: {
-          'js/site.js': 'js/site.js.coffee'
+          'js/site.js': 'js/site.js.coffee',
+          'js/home.js': 'js/home.js.coffee'
         }
       }
     },
@@ -97,7 +98,7 @@ module.exports = function(grunt) {
       options: {
         separator: ';'
       },
-      dist: {
+      blog: {
         src: [
           'bower_components/jquery/dist/jquery.js',
           'bower_components/respond/dist/respond.src.js',
@@ -128,6 +129,7 @@ module.exports = function(grunt) {
     copy: {
       misc: {
         files: [
+          {expand: true, src: ['images/*.svg'], dest: '../'},
           {expand: true, src: ['fonts/**/*'], dest: '../'},
           {expand: true, src: ['icons/**/*'], dest: '../'},
           {expand: true, cwd: 'favicons/', src: ['*'], dest: '../'}
@@ -138,7 +140,7 @@ module.exports = function(grunt) {
       build: {
         files: {
           '../js/compiled.min.js' : '../js/compiled.js',
-          '../_site/js/compiled.min.js' : '../js/compiled.js'
+          '../js/home.min.js' : 'js/home.js'
         }
       }
     },

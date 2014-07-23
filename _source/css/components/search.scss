@@ -5,8 +5,11 @@
   top: 0;
   bottom: 0;
   background: $darknavy;
+  @media #{$tablet-query} {
+    display: none;
+  }
   &.is-active {
-    width: 100%;
+    width: 400px;
   }
   input {
     -webkit-text-size-adjust: none;
@@ -44,23 +47,39 @@
 }
 
 .autocomplete {
-  background: $white;
-  margin: 0 auto;
-  max-width: 880px;
-  left: 50%;
+  background: darken($white, 8%);
+  width: 400px !important;
+  position: absolute;
+  right: 0;
+  left: auto !important;
+  padding: 20px 0;
+  @include transform(translateY(-1px));
+  @media #{$tablet-query} {
+    display: none !important;
+  }
   ul {
     list-style-type: none;
     margin: 0 auto;
     padding: 0;
     li {
-      margin: 0;
+      margin: 0 40px;
       padding: 0;
+      border-bottom: 1px solid darken($white, 15%);
+      &:last-child {
+        border-bottom: none;
+      }
     }
     p {
       @extend .font-display;
       color: $orange;
       font-size: 1.2em;
-      padding: 10px 60px;
+      padding: 20px 0;
+      margin: 0;
+      cursor: pointer;
+      text-transform: uppercase;
+      &:hover {
+        color: $red;
+      }
     }
   }
 }

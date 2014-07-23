@@ -23,7 +23,7 @@
     <script type="text/javascript" src="//use.typekit.net/ozg5mvx.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-    <script src="/modernizr-custom.js"></script>
+    <script src="/js/modernizr-custom.js"></script>
 
     {{ page.head }}
     <link rel="alternate" type="application/atom+xml" href="/feed.xml" />
@@ -31,7 +31,7 @@
   <body class="{{ page.section }}">
     <div class="main-header">
       <h1>
-        <a href="/" title="Home">
+        <a href="/home.html" title="Home">
           <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
         </a>
       </h1>
@@ -45,7 +45,7 @@
 
     {{ content }}
 
-    <!-- <div class="swiftype-widget"><div class="autocomplete" style="position: absolute; z-index: 9999; top: 85px; left: 0px; width: 1360px; display: block;"><ul><li class="active"><p class="title">Ruby Rebus - Jerod Santo</p></li><li class=""><p class="title">Ruby Rebus Answers - Jerod Santo</p></li><li class=""><p class="title">Ruby Rebus! Part Deux - Jerod Santo</p></li><li><p class="title">A Domainr CLI in Less Than 15 Lines of Ruby - Jerod Santo</p></li><li><p class="title">A Common Gotcha When Using Ruby Regexps For Input Validation - Jerod Santo</p></li><li class=""><p class="title">Ruby Quick Tip: Easily Count Occurrences of Array Elements - Jerod Santo</p></li><li><p class="title">Mini Book Review: Ruby Best Practices - Jerod Santo</p></li><li class=""><p class="title">Self-Scheduling Ruby Scripts - Jerod Santo</p></li><li class=""><p class="title">Expand Your Twitter Network In Less Than 15 Lines of Ruby - Jerod Santo</p></li><li class=""><p class="title">See Which Twitterers Don't Follow You Back In Less Than 15 Lines of Ruby - Jerod Santo</p></li></ul></div></div> -->
+    {% include footer.html %}
 
     <script src="/js/compiled.js"></script>
     <script>

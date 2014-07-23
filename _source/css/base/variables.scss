@@ -9,6 +9,7 @@ $huge-query: "only screen and (min-width: #{$huge})";
 $desktop-query: "only screen and (min-width: #{$desktop})";
 $tablet-query: "only screen and (max-width: #{$tablet})";
 $mobile-query: "only screen and (max-width: #{$mobile})";
+$mobile-switchboard-query: "only screen and (max-width: 599px)";
 $tiny-query: "only screen and (max-width: #{$tiny})";
 
 // Misc.
