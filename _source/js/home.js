@@ -153,11 +153,6 @@
               lineWidth: 2
             }
           });
-          body.options = {
-            href: 'http://objectlateral.com'
-          };
-          body.view = new Image();
-          body.view.src = '/images/shape-objectlateral.svg';
       }
       world.add(body);
     };

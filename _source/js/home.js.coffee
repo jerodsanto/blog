@@ -160,10 +160,10 @@ Physics
             lineWidth: 2
             #angleIndicator: "#1ead9a"
         )
-        body.options =
-          href: 'http://objectlateral.com'
-        body.view = new Image()
-        body.view.src = '/images/shape-objectlateral.svg'
+        # body.options =
+        #   href: 'http://objectlateral.com'
+        # body.view = new Image()
+        # body.view.src = '/images/shape-objectlateral.svg'
 
     world.add body
     return
