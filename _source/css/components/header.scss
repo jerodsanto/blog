@@ -37,13 +37,20 @@
       margin-left: 100px;
     }
   }
-  @media #{$mobile-query} {
+  a.main-header-search {
+    position: absolute;
+    right: 40px;
+    top: 31px;
+  }
+  @media only screen and (max-width:  599px)  {
     h1 {
       display: block;
       position: relative;
     }
-    a.main-header-archive, a.main-header-contact {
-      margin: 0 !important;
+    a.main-header-archive, a.main-header-contact, a.main-header-search {
+      position: relative;
+      right: auto; top: auto;
+      margin: 5px 0 !important;
       display: block;
       opacity: 0.6;
     }

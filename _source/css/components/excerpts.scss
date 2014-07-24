@@ -1,12 +1,16 @@
-.excerpt {
+.excerpt, .st-result {
   margin: 30px 0 0;
   p { margin: 0; }
-  a:hover h1 {
+  a:hover h1, .title a:hover {
     color: $red;
   }
 }
 
-.excerpt-header {
+.st-result .title {
+  font-size: 1em;
+}
+
+.excerpt-header, .st-result .title a {
   font-size: 1.2em;
   line-height: 1em;
   text-transform: uppercase;

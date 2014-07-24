@@ -1,9 +1,11 @@
-.pagination {
+.pagination, .st-page {
+  @include clearfix;
   position: relative;
   border-top: 5px solid $red;
   margin-top: 30px;
   padding: 20px 0 0;
   text-align: center;
+  height: 50px;
   a {
     color: $red;
     font-style: italic;
@@ -13,13 +15,13 @@
   span.page_number  {
     color: $grey;
   }
-  .previous, .next {
+  .previous, .next, .st-prev, .st-next {
     position: absolute;
     right: auto;
     left: 0;
     top: 20px;
   }
-  .next {
+  .next, .st-next {
     right: 0;
     left: auto;
   }

@@ -6,11 +6,18 @@
   text-align: center;
   font-size: 1.25em;
   letter-spacing: 0.1em;
+  @media #{$tablet-query} {
+    margin: 20px 0;
+  }
   li {
     width: 50%;
     float: left;
     margin: 0;
     padding: 0;
+    @media #{$mobile-query} {
+      width: 100%;
+      float: none;
+    }
     a {
       color: $blue;
     }
