@@ -1,6 +1,6 @@
 (function() {
   Physics({
-    timestep: 0.7
+    timestep: 0.25
   }, function(world) {
     var attractor, blog, center, dropInBody, edgeBounce, github, heptagon, int, random, rdio, renderer, twitter, viewHeight, viewWidth, viewportBounds;
     random = function(min, max) {
@@ -29,7 +29,7 @@
           body.view = new Image();
           body.view.src = '/images/shape-ows.svg';
           break;
-        case 1:
+        case 5:
           body = Physics.body("rectangle", {
             width: 120,
             height: 100,
@@ -87,7 +87,7 @@
           body.view = new Image();
           body.view.src = '/images/shape-github.svg';
           break;
-        case 5:
+        case 6:
           body = Physics.body("rectangle", {
             width: 136,
             height: 56,
@@ -107,7 +107,7 @@
           body.view = new Image();
           body.view.src = '/images/shape-changelog.svg';
           break;
-        case 6:
+        case 1:
           body = Physics.body("convex-polygon", {
             vertices: rdio,
             x: viewWidth / 2,
@@ -279,7 +279,7 @@
     }, 10);
     attractor = Physics.behavior("attractor", {
       pos: center,
-      strength: .5,
+      strength: 1,
       order: 1
     });
     world.on({

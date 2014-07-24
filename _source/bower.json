@@ -24,6 +24,8 @@
     "bigfoot": "~2.0.1",
     "swiftype-autocomplete-jquery": "git@github.com:swiftype/swiftype-autocomplete-jquery.git",
     "sketch.js": "*",
-    "physicsjs": "~0.6.0"
+    "physicsjs": "~0.6.0",
+    "swiftype-search-jquery": "git@github.com:swiftype/swiftype-search-jquery.git",
+    "jquery-hashchange": "*"
   }
 }

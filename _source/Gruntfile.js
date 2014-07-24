@@ -101,10 +101,12 @@ module.exports = function(grunt) {
       blog: {
         src: [
           'bower_components/jquery/dist/jquery.js',
+          'js/hashchange_patch.js',
           'bower_components/respond/dist/respond.src.js',
           'bower_components/bigfoot/dist/bigfoot.js',
           'bower_components/physicsjs/dist/physicsjs-full-0.6.0.js',
-          'bower_components/swiftype-autocomplete-jquery/jquery.swiftype.autocomplete.js',
+          'bower_components/jquery-hashchange/jquery.ba-hashchange.js',
+          'bower_components/swiftype-search-jquery/jquery.swiftype.search.js',
           'js/site.js'
         ],
         dest: '../js/compiled.js'

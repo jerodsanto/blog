@@ -1,6 +1,6 @@
 # Homepage Switchboard
 Physics
-  timestep: 0.7
+  timestep: 0.25
 , (world) ->
 
   # bounds of the window
@@ -36,7 +36,7 @@ Physics
         body.view.src = '/images/shape-ows.svg'
 
       # add a square for interface school
-      when 1
+      when 5
         body = Physics.body("rectangle",
           width: 120
           height: 100
@@ -92,7 +92,7 @@ Physics
         body.view.src = '/images/shape-github.svg'
 
       # changelog shape
-      when 5
+      when 6
         body = Physics.body("rectangle",
           width: 136
           height: 56
@@ -111,7 +111,7 @@ Physics
         body.view.src = '/images/shape-changelog.svg'
 
       # rdio shape
-      when 6
+      when 1
         body = Physics.body("convex-polygon",
           vertices: rdio
           x: viewWidth / 2
@@ -243,7 +243,7 @@ Physics
   # attract bodies to a point
   attractor = Physics.behavior("attractor",
     pos: center
-    strength: .5
+    strength: 1
     order: 1
   )
   world.on
