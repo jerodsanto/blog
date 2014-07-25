@@ -1,3 +1,18 @@
+$(document).on "ready", ->
+  # Random Blip - Click hinter
+  random = (min, max) ->
+    (Math.random() * (max - min) + min) | 0
+
+  setInterval (->
+    top = random(0, 100) + '%'
+    left = random(0, 100) + '%'
+    $('.blip')
+    .css('top', top)
+    .css('left', left)
+    .addClass('color-' + random(0, 9))
+    return
+  ), 10000
+
 # Homepage Switchboard
 Physics
   timestep: 0.25

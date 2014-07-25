@@ -1,4 +1,17 @@
 (function() {
+  $(document).on("ready", function() {
+    var random;
+    random = function(min, max) {
+      return (Math.random() * (max - min) + min) | 0;
+    };
+    return setInterval((function() {
+      var left, top;
+      top = random(0, 100) + '%';
+      left = random(0, 100) + '%';
+      $('.blip').css('top', top).css('left', left).addClass('color-' + random(0, 9));
+    }), 10000);
+  });
+
   Physics({
     timestep: 0.25
   }, function(world) {
