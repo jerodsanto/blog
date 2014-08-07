@@ -22,69 +22,14 @@
   h2 { margin-top: 10px; }
 }
 
-#switchboard { // the homepage switchboard - canvas element
-  @include position(absolute, 84px 0px 0px 0px);
-  z-index: 2;
-}
-
-@include keyframes(blip) {
-  0% {
-    opacity: 0;
-    @include transform(scale(0.3));
-  }
-  89% {
-    opacity: 1;
-    @include transform(scale(0.3));
-  }
-  90% {
-    opacity: 1;
-    @include transform(scale(0.3));
-  }
-  100% {
-    opacity: 0;
-    @include transform(scale(1));
-  }
-}
-
-.switchboard {
-  @include position(absolute, 84px 0px 0px 0px);
-  z-index: 1;
-}
-.blip {
-  @include animation(blip 10s ease-in-out);
-  @include animation-iteration-count(infinite);
-  width: 6px;
-  height: 6px;
-  opacity: 0;
-  border: 2px solid $green;
-  border-radius: 50%;
-  position: absolute;
-  left: 10%;
-  bottom: 80%;
-  &.color-1 { border-color: $red; }
-  &.color-2 { border-color: $orange; }
-  &.color-3 { border-color: $yellow; }
-  &.color-4 { border-color: $green; }
-  &.color-5 { border-color: $mint; }
-  &.color-6 { border-color: $blue; }
-  &.color-7 { border-color: $teal; }
-  &.color-8 { border-color: $violet; }
-  &.color-9 { border-color: $purple; }
-  &.color-0 { border-color: $pink; }
-}
-
 .switchboard-alt {
   position: relative;
-  height: 600px;
+  height: 540px;
   width: 600px;
   margin: 0 auto;
-  display: none;
-  body.canvas & {
-    display: block;
-  }
   @media #{$mobile-switchboard-query} {
     width: 100%;
-    height: 900px;
+    height: 1360px;
   }
   ul {
     @include clearfix;
