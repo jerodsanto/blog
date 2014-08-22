@@ -3,3 +3,6 @@ permalink: /:year/:month/:title
 highlighter: pygments
 exclude: [Rakefile]
 paginate: 10
+sass:
+    sass_dir: _source/css/
+    style: :compressed

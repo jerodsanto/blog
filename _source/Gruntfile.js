@@ -74,18 +74,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    sass: {
-      build: {
-        options: {
-          style: 'compressed',
-          banner: '/* This file was generated from the SCSS files within the source directory. Do not edit directly - use the build process. :) */'
-        },
-        files: {
-          '../styles.css': ['css/styles.scss'],
-          '../_site/styles.css': ['css/styles.scss']
-        }
-      }
-    },
     coffee: {
       compile: {
         files: {
@@ -113,13 +101,6 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      css: {
-        options: {
-          interrupt: true
-        },
-        files: ['css/**/*.scss'],
-        tasks: ['sass']
-      },
       js: {
         options: {
           interrupt: true
@@ -160,7 +141,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-favicons');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-coffee');
@@ -173,5 +153,5 @@ module.exports = function(grunt) {
   grunt.registerTask('js', ['coffee', 'concat', 'uglify']);
   grunt.registerTask('icons', ['svgmin','grunticon','copy:misc']);
   grunt.registerTask('all', ['favicons', 'modernizr', 'icons', 'js', 'sass', 'imagemin']);
-  grunt.registerTask('default', ['copy', 'sass', 'js']);
+  grunt.registerTask('default', ['copy', 'js']);
 };
