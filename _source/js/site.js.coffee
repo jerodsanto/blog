@@ -72,6 +72,3 @@ blog =
 
     # Focus on Search form when landing on Search page
     $('.search-form input').focus()
-
-
-class blog.Controller
