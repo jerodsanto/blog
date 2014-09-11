@@ -1,0 +1,60 @@
+// #Fonts
+.font-sans, .font-display {
+  font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+}
+
+.font-serif {
+  font-family: "calluna", georgia, serif;
+}
+
+.font-mono {
+  font-family: "ubuntu-mono", "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+}
+
+// #Typography
+
+code,
+kbd,
+pre,
+samp {
+  @extend .font-mono;
+  line-height: 1.2em;
+}
+
+
+h1, h2, h3, h4 {
+  @extend .font-sans;
+  font-weight: normal;
+}
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.2em; }
+h4 {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.headline {
+  font-size: 2em;
+  line-height: 1em;
+  color: $grey;
+  margin: 0 0 20px;
+}
+
+.heading {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  color: $red;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+}
+
+strong, b { font-weight: 600; }
+
+p.huge, p.large {
+  font-size: 2em;
+}
+p.large { font-size: 1.6em; }

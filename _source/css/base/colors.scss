@@ -1,0 +1,33 @@
+/* #Colors
+===================== */
+// Primary Colors
+$navy: #222a30;
+$darknavy: #1d2429;
+
+$white: #fff;
+$black: #222a30; // Navy
+$grey: #686f74;
+
+$red: #d93d4b; // Post Titles
+$orange: #d16936; // Out with Sprout
+$yellow: #cca712; // Blog
+$green: #80b668; // Interface School
+$mint: #9fbaa2; // Changelog
+$blue: #2da4b6; // Twitter
+$teal: #1ead9a; // Object Lateral
+$violet: #bb8bb8; // Rdio
+$purple: #7196bf; // Github
+$pink: #b9637b; // Biblically Speaking
+
+$primary: $red;
+$secondary: $blue;
+
+// Other Colors
+$grey1: #b2c0cb; $tan: $grey1;
+$grey2: darken($grey1, 2%);
+$grey3: darken($grey1, 4%);
+$grey4: darken($grey1, 6%);
+$grey5: darken($grey1, 8%);
+$grey6: #8C877B;
+$grey7: darken($grey6, 2%);
+$grey8: darken($grey6, 4%);

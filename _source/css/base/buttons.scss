@@ -1,0 +1,23 @@
+// #Buttons
+.btn {
+  background-color: $red;
+  color: $white;
+  padding: 24px 33px 22px;
+  line-height: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 7px;
+  @include transition(background-color 0.3s ease-in-out);
+  &:hover { background-color: $red; }
+}
+
+.bookmarklet, .reveal-button {
+  margin-top: 20px;
+  text-align: center;
+
+  a {
+    padding: 5px;
+    color: $white;
+    background: $blue;
+  }
+}

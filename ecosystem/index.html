@@ -1,17 +1,9 @@
 ---
-layout: default
+layout: category
 title: Ecosystem Posts
 subtitle: On getting down with O.P.<strike>P.</strike>S.
 ---
 
 {% for post in site.categories.ecosystem %}
-  <div class="post">
-    <h3><a href="{{ post.url }}/">{{ post.title }}</a></h3>
-    <p class="date">{{ post.date | date_to_string }}
-      {% if post.author %}
-        by <a href="http://twitter.com/{{ post.author.twitter }}" title="{{ post.author.full}}">@{{ post.author.twitter }}</a>
-      {% endif %}
-    </p>
-    <p>{{ post.excerpt }}</p>
-  </div>
+  {% include excerpt.html %}
 {% endfor %}

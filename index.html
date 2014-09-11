@@ -1,18 +1,35 @@
 ---
 layout: default
 home: true
-title: Ruby.&nbsp;&nbsp;JavaScript.&nbsp;&nbsp;<span id="rando">Whathaveyou</span>.
-excerpt: Jerod Santo on Ruby, JavaScript, Mac OS X, iOS, and software development.
+title: On Dev. Life. <span id="rando">Whathaveyou</span>.
 ---
 
-{% for post in site.posts limit:10 %}
-  <div class="post">
-    <h3><a href="{{ post.url }}/">{{ post.title }}</a></h3>
-    <p class="date">{{ post.date | date_to_string }}
-      {% if post.author %}
-        by <a href="http://twitter.com/{{ post.author.twitter }}" title="{{ post.author.full}}">@{{ post.author.twitter }}</a>
+<section class="main-wrapper excerpt-list">
+  <header class="section-header">
+    <h1>
+      {% if paginator.page == 1 %}
+        {{ page.title }}
+      {% else %}
+        <a href="/" title="Back to Page 1">Page {{ paginator.page }}</a>
       {% endif %}
-    </p>
-    <p>{{ post.excerpt }}</p>
+    </h1>
+    {% if page.subtitle %}
+      <h2>{{ page.subtitle }}</h2>
+    {% endif%}
+  </header>
+
+  {% for post in paginator.posts %}
+    {% include excerpt.html %}
+  {% endfor %}
+
+  <div class="pagination">
+    {% if paginator.previous_page %}
+        <a class="previous" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Newer</a>
+    {% endif %}
+    <span class="page_number ">{{ paginator.page }} of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a class="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older &raquo;</a>
+    {% endif %}
   </div>
-{% endfor %}
+
+</section>

@@ -1,159 +1,61 @@
-<!doctype html>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="author" content="Jerod Santo" />
-  <meta name="viewport" content="width=700, maximum-scale=1.0" />
-  <meta name="description" content="{{ page.excerpt }}" />
-  <title>
-    {% unless page.home %}{{ page.title }} - {% endunless %} Jerod Santo
-  </title>
-  <link rel="stylesheet" href="/css/reset.css" type="text/css" />
-  {{ page.head }}
-  <link rel="stylesheet" href="/css/screen.css" type="text/css" />
-  <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
-  <link rel="alternate" type="application/atom+xml" href="/feed.xml" />
-</head>
-<body>
-  <div id="wrapper">
-    <div id="inner">
-      <div id="container">
-        <div id="header">
-          <h1><a href="/" title="Home">Jerod Santo</a></h1>
-          <ul>
-            <li>
-              <a href="/archives/" title="archives">[archives]</a>
-            </li>
-            <li>
-              <a href="https://github.com/jerodsanto" title="github">[on github]</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/jerodsanto" title="twitter">[on twitter]</a>
-            </li>
-            <li>
-              <a href="mailto:jerod.santo@gmail.com" title="contact">[contact]</a>
-            </li>
-          </ul>
-          <hr class="right hidden"/>
-        </div>
-        <h1>{{ page.title }}</h1>
-        {% if page.subtitle %}
-        <h3 class="subtitle">{{ page.subtitle }}</h3>
-        {% endif%}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Jerod Santo" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="{{ page.excerpt }}" />
+    {% unless page.home %}
+    <meta property="st:title" content="{{ page.title }}" />
+    {% endunless %}
+    <title>
+      {% unless page.home %}{{ page.title }} | {% endunless %} Jerod Santo
+    </title>
 
-        {{ content }}
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css" />
+    <script>
+      /* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
 
-        <form class="search">
-          <input type="text" id="st-search-input" class="st-search-input" placeholder="Search this site"/>
-        </form>
-        <div id="st-results-container"></div>
-        <script type="text/javascript">
-          var Swiftype = window.Swiftype || {};
-          (function() {
-            Swiftype.key = 'TM8ezPQi8DZRuszeAPuU';
-            Swiftype.inputElement = '#st-search-input';
-            Swiftype.resultContainingElement = '#st-results-container';
-            Swiftype.attachElement = '#st-search-input';
-            Swiftype.renderStyle = "overlay";
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="//use.typekit.net/ozg5mvx.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.async = true;
-            script.src = "//swiftype.com/embed.js";
-            var entry = document.getElementsByTagName('script')[0];
-            entry.parentNode.insertBefore(script, entry);
-          }());
-        </script>
-        <p id="footnote" style="text-align: center;">
-          &copy;<a href="http://jerodsanto.net">Jerod Santo</a>. Compiled from <a href="https://github.com/jerodsanto/blog">source</a> by <a href="https://github.com/mojombo/jekyll">Jekyll</a>. Original design credited to <a href="http://jeffkreeftmeijer.com/">Jeff Kreeftmeijer</a>.
-        </p>
-      </div>
+    <script src="/js/modernizr-custom.js"></script>
 
-      {% unless page.disable_ads %}
-      {% endunless %}
+    {{ page.head }}
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml" />
+  </head>
+  <body class="{{ page.section }}">
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search.html" title="Search the site" class="main-header-search">Search</a>
     </div>
-  </div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/js/bigfoot.min.js"></script>
-  <script src="/js/jquery.tipsy.js"></script>
-  <script>
-    (function($, undefined) {
-      $.easing.easeOutBack = function (x, t, b, c, d, s) {
-        if (s == undefined) s = 1.70158;
-        return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
-      };
-      $.easing.easeOutBounce = function (x, t, b, c, d) {
-        if ((t/=d) < (1/2.75)) {
-          return c*(7.5625*t*t) + b;
-        } else if (t < (2/2.75)) {
-          return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
-        } else if (t < (2.5/2.75)) {
-          return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
-        } else {
-          return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
-        }
-      };
+    {{ content }}
 
-      $(function() {
-        $(".service_links a").tipsy();
-        $.bigfoot();
+    {% include footer.html %}
 
-        var title = escape(document.title.split(" - ")[0]);
-        var url   = escape(document.location);
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        $("#content img").each(function() {
-          var $self = $(this);
-          $self.parent().after("<p class='caption'>" + $self.attr("alt") + "</p>");
-        });
-
-        $(".tweet").attr("href", "http://twitter.com/share?url=" + url + "&via=jerodsanto&text=" + title);
-        $(".instapaper").attr("href", "http://www.instapaper.com/hello2?url=" + url + "&title=" + title);
-        $(".hackernews").attr("href", "http://news.ycombinator.com/submitlink?u=" + url + "&t=" + title);
-
-        setTimeout(function() {
-          $("#ads").animate({right: "-155px"}, 600, "easeOutBack");
-        }, 1000);
-
-        $(".reveal-button").on("click", "a", function(event) {
-          event.preventDefault();
-          var $content = $(this).parent().next(".reveal-content");
-          var html = $content.data("content");
-          $content.html(html).removeData("content").slideDown("slow", "easeOutBounce");
-        });
-
-        {% if page.home %}
-        var randos = [
-          "Whathaveyou", "Tomfoolery", "Jetsam", "Rants",
-          "Highjinks", "Flotsam", "Rando Calrissian"
-        ];
-        $("#rando").text(randos[Math.floor(Math.random() * randos.length)]);
-        {% endif %}
-      });
-    })(jQuery)
+      ga('create', 'UA-3287978-18', 'jerodsanto.net');
+      ga('send', 'pageview');
   </script>
-  <script>
-    var _gauges = _gauges || [];
-    (function() {
-     var t   = document.createElement('script');
-     t.type  = 'text/javascript';
-     t.async = true;
-     t.id    = 'gauges-tracker';
-     t.setAttribute('data-site-id', '50460739f5a1f555f0000005');
-     t.src = '//secure.gaug.es/track.js';
-     var s = document.getElementsByTagName('script')[0];
-     s.parentNode.insertBefore(t, s);
-     })();
-  </script>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-3287978-18', 'jerodsanto.net');
-    ga('send', 'pageview');
-</script>
-</body>
+  </body>
 </html>

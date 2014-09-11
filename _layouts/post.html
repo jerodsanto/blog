@@ -1,107 +1,84 @@
 ---
 layout: default
 ---
+<article class="post">
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}
+      <h2>{{ page.subtitle }}</h2>
+    {% endif%}
+    <p class="post-date">
+      {{page.date | date_to_string}}
+    </p>
+  </header>
 
-{% if page.author %}
-  <p>
-    This is a guest post written by <a href="http://twitter.com/{{ page.author.twitter }}" title="{{ page.author.full}}">@{{ page.author.twitter }}</a>. {{ page.author.description }}
+  {% if page.author %}
+    <p>
+      This is a guest post written by <a href="http://twitter.com/{{ page.author.twitter }}" title="{{ page.author.full}}">@{{ page.author.twitter }}</a>. {{ page.author.description }}
+    </p>
+  {% endif %}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http://blog.jerodsanto.net{{ page.url }}&via=jerodsanto&text={{ page.title }}" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/feed.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http://blog.jerodsanto.net{{ page.url }}&t={{ page.title }}" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http://blog.jerodsanto.net{{ page.url }}&title={{ page.title }}" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  {% assign related = site.related_posts %}
+
+  {% unless related == empty %}
+  <p class="post-related">
+    {% assign category = page.categories.first %}
+    If you enjoyed this <a href="/{{ category }}" title="{{ category }}">{{ category | capitalize }}</a> post,
+    you'll probably enjoy reading
+    {% for post in related limit:3 %}
+      {% if forloop.last %}
+        and <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>.
+      {% else %}
+        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>,
+      {% endif %}
+    {% endfor %}
   </p>
-{% endif %}
 
-<p class="article_date date">
-  {{page.date | date_to_string}}
-</p>
+  {% endunless %}
 
-<span class="article_buttons">
-  <ul class="service_links">
-    <li class="service_rss">
-      <a href="/feed.xml" title="Subscribe to the feed!">
-        <span>Subscribe to the feed!</span>
-      </a>
-    </li>
-    <li class="service_instapaper">
-      <a class="instapaper" href="#" title="Read this later!">
-        <span>Read this later!</span>
-      </a>
-    </li>
-    <li class="service_twitter">
-      <a class="tweet" href="#" title="Tweet this!">
-        <span>Tweet this!</span>
-      </a>
-    </li>
-    <li class="service_hackernews">
-      <a class="hackernews" href="#" title="Post this to Hacker News!">
-        <span>Submit this to Hacker News!</span>
-      </a>
-    </li>
-  </ul>
-</span>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_url   = "{{ site.url }}{{ page.url }}/";
+    var disqus_title = "{{ page.title }}";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
 
-<hr class="hidden"/>
+  <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 
-<div id="content">
-  {{ content }}
-</div>
-
-<span class="article_buttons">
-  <ul class="service_links">
-    <li class="service_rss">
-      <a href="/feed.xml" title="Subscribe to the feed!">
-        <span>Subscribe to the feed!</span>
-      </a>
-    </li>
-    <li class="service_instapaper">
-      <a class="instapaper" href="#" title="Read this later!">
-        <span>Read this later!</span>
-      </a>
-    </li>
-    <li class="service_twitter">
-      <a class="tweet" href="#" title="Tweet this!">
-        <span>Tweet this!</span>
-      </a>
-    </li>
-    <li class="service_hackernews">
-      <a class="hackernews" href="#" title="Post this to Hacker News!">
-        <span>Submit this to Hacker News!</span>
-      </a>
-    </li>
-  </ul>
-</span>
-
-<hr/>
-
-{% assign related = site.related_posts %}
-
-{% unless related == empty %}
-<p class="related">
-  {% assign category = page.categories.first %}
-  If you enjoyed this <a href="/{{ category }}" title="{{ category }}">{{ category | capitalize }}</a> post,
-  you'll probably enjoy reading
-  {% for post in related limit:3 %}
-    {% if forloop.last %}
-      and <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>.
-    {% else %}
-      <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>,
-    {% endif %}
-  {% endfor %}
-</p>
-
-<hr/>
-{% endunless %}
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-  var disqus_url   = "{{ site.url }}{{ page.url }}/";
-  var disqus_title = "{{ page.title }}";
-  (function() {
-   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-   dsq.src = 'http://blogt0sk1.disqus.com/embed.js';
-   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-
-{% if page.hackernews %}
-<p id="footnote">
- ... or join the discussion on <a href="http://news.ycombinator.com/item?id={{ page.hackernews }}">Hacker News</a>.
-</p>
-{% endif %}
+  {% if page.hackernews %}
+  <p id="footnote">
+   ... or join the discussion on <a href="http://news.ycombinator.com/item?id={{ page.hackernews }}">Hacker News</a>.
+  </p>
+  {% endif %}
+</article>

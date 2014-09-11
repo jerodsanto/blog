@@ -1,0 +1,31 @@
+{
+  "name": "jerodsanto.net",
+  "version": "1.0.0",
+  "homepage": "https://jerodsanto.net",
+  "authors": [
+    "Cody Peterson <cody@codyjamespeterson.com>"
+  ],
+  "description": "Jerod Santo's Website",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "source/js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animatescroll": "~1.0.6",
+    "jquery": "~1.11.1",
+    "respond": "~1.4.2",
+    "bourbon": "~4.0.2",
+    "bigfoot": "~2.0.1",
+    "swiftype-autocomplete-jquery": "git@github.com:swiftype/swiftype-autocomplete-jquery.git",
+    "sketch.js": "*",
+    "physicsjs": "~0.6.0",
+    "swiftype-search-jquery": "git@github.com:swiftype/swiftype-search-jquery.git",
+    "jquery-hashchange": "*"
+  }
+}

@@ -2,3 +2,6 @@
 _site
 *.swp
 _drafts
+.sass-cache/
+bower_components/
+node_modules/

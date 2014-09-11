@@ -1,0 +1,11 @@
+.main-footer {
+  @extend .wrap;
+  margin-bottom: 80px;
+  padding: 0;
+  font-size: 0.8em;
+  @media #{$tiny-query} {
+    padding: 0 $gutter-mobile;
+  }
+  p, a { color: $grey; }
+  a { font-weight: bold; }
+}
