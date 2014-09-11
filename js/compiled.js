@@ -10893,9 +10893,9 @@ return jQuery;
                     content = settings.contentMarkup
                                 .replace(/\{\{FOOTNOTENUM\}\}/g, $this.attr("data-footnote-number"))
                                 .replace(/\{\{FOOTNOTEID\}\}/g, $this.attr("data-footnote-identifier"))
-                                .replace(/\{\{FOOTNOTECONTENT\}\}/g, $this.attr("data-footnote-content"));
-                    console.log(content);
-                    content = content.replace(/\&gtsym\;/gi, "&gt;").replace(/\&ltsym\;/gi, "&lt;");
+                                .replace(/\{\{FOOTNOTECONTENT\}\}/g, $this.attr("data-footnote-content"))
+                                .replace(/\&gtsym\;/gi, "&gt;")
+                                .replace(/\&ltsym\;/gi, "&lt;");
 
                     // Handles replacements of BUTTON attribute requests
                     content = replaceWithReferenceAttributes(content, "BUTTON", $this);
@@ -10903,7 +10903,7 @@ return jQuery;
 
                     // Create content and activate user-defined callback on it
                     $content = $(content);
-                    try { settings.activateCallback($content); } catch(err) {}
+                    try { settings.activateCallback($content, $this); } catch(err) {}
 
                     $content.insertAfter($buttons);
 
@@ -11674,7 +11674,8 @@ return jQuery;
         return bigfoot;
     };
 
-})(jQuery);;/**
+})(jQuery);
+;/**
  * PhysicsJS v0.6.0 - 2014-04-22
  * A modular, extendable, and easy-to-use physics engine for javascript
  * http://wellcaffeinated.net/PhysicsJS
@@ -22490,12 +22491,5 @@ return Physics;
       return $('.search-form input').focus();
     }
   };
-
-  blog.Controller = (function() {
-    function Controller() {}
-
-    return Controller;
-
-  })();
 
 }).call(this);

@@ -66,11 +66,4 @@
     }
   };
 
-  blog.Controller = (function() {
-    function Controller() {}
-
-    return Controller;
-
-  })();
-
 }).call(this);
