@@ -22425,13 +22425,13 @@ return Physics;
   };
 })(jQuery);
 ;(function() {
-  var blog;
+  var JMS;
 
   $(document).on("ready", function() {
-    return blog.init();
+    return JMS.init();
   });
 
-  blog = {
+  JMS = {
     sharePopup: function(href) {
       var h, left, shareWindow, top, w;
       w = 600;
@@ -22451,22 +22451,22 @@ return Physics;
     },
     onLoad: function() {
       $.bigfoot();
-      return blog.randomBGPosition();
+      return JMS.randomBGPosition();
     },
     init: function() {
       var randos;
-      blog.onLoad();
+      JMS.onLoad();
       $('.service_hackernews a, .service_instapaper a').click(function() {
-        blog.sharePopup($(this).attr('href'));
+        JMS.sharePopup($(this).attr('href'));
         return false;
       });
-      $('.highlight').each(function() {
+      $(".highlight").each(function() {
         var $this, snippetWidth;
         $this = $(this);
-        $this.wrap('<div class="highlight-wrap" />');
-        $this.wrap('<div class="highlight-scroll-wrap" />');
-        snippetWidth = $this.width();
-        return $this.parent('.highlight-scroll-wrap').css('width', snippetWidth);
+        $this.wrap("<div class='highlight-wrap' />");
+        $this.wrap("<div class='highlight-scroll-wrap' />");
+        snippetWidth = $this.outerWidth();
+        return $this.parent(".highlight-scroll-wrap").css("width", snippetWidth);
       });
       $("#st-search-input").swiftypeSearch({
         resultContainingElement: '#search-results',
@@ -22488,6 +22488,7 @@ return Physics;
         $content.html(html).removeData("content").slideDown("slow", "easeOutBounce");
         $(this).remove();
       });
+      $("iframe").css("width", "100%");
       return $('.search-form input').focus();
     }
   };

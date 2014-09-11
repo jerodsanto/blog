@@ -65,13 +65,17 @@
     padding: 20px 20px 20px 0;
     pre { margin: 0; }
   }
-}
-
-.alert, .notice {
-  background: #CBD2D8;
-  font-style: italic;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  .alert, .notice {
+    background: #CBD2D8;
+    font-style: italic;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  iframe, video, object {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+  }
 }
 
 .post-header {

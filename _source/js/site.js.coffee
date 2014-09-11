@@ -1,7 +1,7 @@
 $(document).on "ready", ->
-  blog.init()
+  JMS.init()
 
-blog =
+JMS =
   sharePopup: (href) ->
     w = 600
     h = 300
@@ -23,21 +23,21 @@ blog =
 
   onLoad: ->
     $.bigfoot()
-    blog.randomBGPosition()
+    JMS.randomBGPosition()
 
   init: ->
-    blog.onLoad()
+    JMS.onLoad()
 
     $('.service_hackernews a, .service_instapaper a').click ->
-      blog.sharePopup $(this).attr 'href'
+      JMS.sharePopup $(this).attr 'href'
       false
 
-    $('.highlight').each ->
+    $(".highlight").each ->
       $this = $(this)
-      $this.wrap '<div class="highlight-wrap" />'
-      $this.wrap '<div class="highlight-scroll-wrap" />'
-      snippetWidth = $this.width()
-      $this.parent('.highlight-scroll-wrap').css 'width', snippetWidth
+      $this.wrap "<div class='highlight-wrap' />"
+      $this.wrap "<div class='highlight-scroll-wrap' />"
+      snippetWidth = $this.outerWidth()
+      $this.parent(".highlight-scroll-wrap").css "width", snippetWidth
 
     # Swiftype Autocomplete
     $("#st-search-input").swiftypeSearch
@@ -69,6 +69,8 @@ blog =
       $content.html(html).removeData("content").slideDown "slow", "easeOutBounce"
       $(this).remove()
       return
+
+    $("iframe").css("width", "100%")
 
     # Focus on Search form when landing on Search page
     $('.search-form input').focus()
