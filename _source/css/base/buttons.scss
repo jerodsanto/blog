@@ -10,3 +10,14 @@
   @include transition(background-color 0.3s ease-in-out);
   &:hover { background-color: $red; }
 }
+
+.bookmarklet, .reveal-button {
+  margin-top: 20px;
+  text-align: center;
+
+  a {
+    padding: 5px;
+    color: $white;
+    background: $blue;
+  }
+}

@@ -67,6 +67,13 @@
   }
 }
 
+.alert, .notice {
+  background: #CBD2D8;
+  font-style: italic;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .post-header {
   @extend .section-header;
   padding: 20px 0;
