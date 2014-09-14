@@ -6,6 +6,7 @@
   text-align: center;
   @media #{$tiny-query} {
     margin-bottom: 0;
+    padding: 10px;
   }
   h1, a {
     margin: 0;
