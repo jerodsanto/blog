@@ -14,7 +14,7 @@ end
 namespace :deploy do
   desc "deploy changes"
   task :changes do
-    system "rsync -arvuz _site/ mydh:~/blog.jerodsanto.net"
+    system "rsync -arvuz _site/ mydh:~/jerodsanto.net"
   end
 
   desc "deploys changes and pings services"
