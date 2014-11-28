@@ -29,7 +29,7 @@ If that looks like too much work for you, have Remi walk you through it in [this
 
 Scaling is a problem we all want to have, but few of us do. The rest of us spend way too much time thinking about it. With Heroku's architecture, you don't have to think about scaling. You just do it. If you're fortunate enough to have your app featured on TechCrunch, Slashdot, Digg, HN, Reddit, etc, etc, you simply log in to the Heroku admin panel and "crank your dynos" (love that term) to handle the load. How do you do that? By dragging a little bar vertically. How's that for a learning curve?
 
-[<img class="aligncenter size-medium wp-image-381" title="dyno" src="http://blog.jerodsanto.net/wp-content/uploads/2009/05/dyno-189x300.png" height="300" alt="dyno" width="189" />][3]
+[<img class="aligncenter size-medium wp-image-381" title="dyno" src="/wp-content/uploads/2009/05/dyno-189x300.png" height="300" alt="dyno" width="189" />][3]
 
 Note: This isn't the only way to ensure your app scales. You should still optimize your code for performance, but Heroku takes care of all the server configuration (compression, caching, memory allocation, etc) and you just ask for more power when you need it.
 
@@ -88,7 +88,7 @@ I am only affiliated with Heroku as a customer, and receive no recompense from t
 
 [1]: http://heroku.com
 [2]: http://remi.org/2009/04/23/deploying-rails-and-rack-applications-to-heroku.html
-[3]: http://blog.jerodsanto.net/wp-content/uploads/2009/05/dyno.png
+[3]: /wp-content/uploads/2009/05/dyno.png
 [4]: http://rack.rubyforge.org/
 [5]: http://my-ip.heroku.com
 [6]: http://gist.github.com/118217

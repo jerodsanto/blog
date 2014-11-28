@@ -28,7 +28,7 @@ JMS =
   init: ->
     JMS.onLoad()
 
-    $('.service_hackernews a, .service_instapaper a').click ->
+    $(".service_hackernews a, .service_instapaper a").click ->
       JMS.sharePopup $(this).attr 'href'
       false
 
@@ -45,22 +45,13 @@ JMS =
       engineKey: "TM8ezPQi8DZRuszeAPuU"
       perPage: 10
 
-    # TODO: Blog home only
-    randos = [
-      "Whathaveyou"
-      "Tomfoolery"
-      "Jetsam"
-      "Rants"
-      "Highjinks"
-      "Flotsam"
-      "Rando Calrissian"
-    ]
-    $("#rando").text randos[Math.floor(Math.random() * randos.length)]
-
     $("#content img").each ->
       $self = $(this)
       $self.parent().after "<p class='caption'>" + $self.attr("alt") + "</p>"
       return
+
+    $("a.main-header-more").on "click", (event) ->
+      $(this).siblings().css("display", "block").end().hide()
 
     $(".reveal-button").on "click", "a", (event) ->
       event.preventDefault()

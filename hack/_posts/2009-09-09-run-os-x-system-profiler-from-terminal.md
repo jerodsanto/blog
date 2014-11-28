@@ -7,7 +7,7 @@ excerpt: "OS X's built-in `System Profiler` provides a great graphical display o
 
 OS X's built-in `System Profiler` provides a great graphical display of pretty much anything you'll want to know about your Mac.
 
-<img class="aligncenter size-full wp-image-664" title="profiler" src="http://blog.jerodsanto.net/wp-content/uploads/2009/09/profiler.png" height="216" alt="profiler" width="640" />
+<img class="aligncenter size-full wp-image-664" title="profiler" src="/wp-content/uploads/2009/09/profiler.png" height="216" alt="profiler" width="640" />
 
 That's cool and all, but what if you want to access that information programmatically? Turns out you can also run the **_System Profiler_** from the terminal by executing this command:
 

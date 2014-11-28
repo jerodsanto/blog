@@ -43,7 +43,7 @@ The `friend_ids` and `follower_ids` methods each return an array of ids and we s
 
 Just replace `username` and `password` with your own information and you're off to the races. Run the script from your command line and you should see output similar to this:
 
-<img class="aligncenter size-full wp-image-296" title="no_follows" src="http://blog.jerodsanto.net/wp-content/uploads/2009/05/no_follows.png" height="212" alt="no_follows" width="475" />
+<img class="aligncenter size-full wp-image-296" title="no_follows" src="/wp-content/uploads/2009/05/no_follows.png" height="212" alt="no_follows" width="475" />
 
 **NOTE:** Twitter only allows (currently) 100 API requests per hour. Each user account lookup requires an API request, so if your "guilty" array is quite large, you'll probably get an error before the script terminates (Maybe its time to un-follow a few peeps!).
 

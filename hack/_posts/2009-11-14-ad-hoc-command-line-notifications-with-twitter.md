@@ -23,7 +23,7 @@ So, with those things in mind, here is what I've come up with:
 
 Create a new account for your notifications. You'll most likely want to protect its tweets unless you don't mind _just about anybody_ seeing all the notifications you're sending to yourself. Once the account is set up, follow it from your main Twitter account and enable SMS notifications for its tweets.
 
-<img class="aligncenter size-full wp-image-767" title="twitter-sms" src="http://blog.jerodsanto.net/wp-content/uploads/2009/11/twitter-sms.png" height="136" alt="twitter-sms" width="532" />
+<img class="aligncenter size-full wp-image-767" title="twitter-sms" src="/wp-content/uploads/2009/11/twitter-sms.png" height="136" alt="twitter-sms" width="532" />
 
 ## 2) A dead simple Ruby script
 

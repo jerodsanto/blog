@@ -36,6 +36,6 @@ That's all there is to it. Better, no?
 
 
 [dotjshack]:/2011/07/my-dotjs-hack-to-default-google-searches-to-past-year/
-[helpful-comment]:http://blog.jerodsanto.net/2011/07/my-dotjs-hack-to-default-google-searches-to-past-year/#comment-266238490
+[helpful-comment]:/2011/07/my-dotjs-hack-to-default-google-searches-to-past-year/#comment-266238490
 [other-search-engines]:http://jerodsanto.net/drop/other-search-engines-20110802-084545.jpg
 [google-recent-search]:http://jerodsanto.net/drop/google-recent-search-20110802-083728.jpg

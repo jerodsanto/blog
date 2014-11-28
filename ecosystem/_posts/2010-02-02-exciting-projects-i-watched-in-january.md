@@ -7,7 +7,7 @@ excerpt: "One of my favorite <a href='http://github.com'>GitHub</a> features is 
 
 One of my favorite [GitHub][1] features is the ability to find and track the progress of projects that interest me. I've decided to post the new projects I find each month on this blog since there is a high likelihood that you and I have common interests ([Hey, I'm curating something on the internet!][2]).
 
-<img class="aligncenter size-full wp-image-876" title="watch-3" src="http://blog.jerodsanto.net/wp-content/uploads/2010/02/watch-3.png" height="45" alt="" width="320" />
+<img class="aligncenter size-full wp-image-876" title="watch-3" src="/wp-content/uploads/2010/02/watch-3.png" height="45" alt="" width="320" />
 
 So I wrote a little script using the GitHub API to track which new projects I watch during each month. I watched 17 new projects in January. They are linked below along with their authors' descriptions and some commentary of my own:
 

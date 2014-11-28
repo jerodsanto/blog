@@ -4,7 +4,7 @@
   margin-bottom: 40px;
   padding: 30px 20px;
   text-align: center;
-  @media #{$tiny-query} {
+  @media #{$mobile-query} {
     margin-bottom: 0;
     padding: 10px;
   }
@@ -26,6 +26,9 @@
     color: $grey1;
     &:hover { color: $white; }
   }
+  a.main-header-more {
+    display: none;
+  }
   a.main-header-archive {
     margin-right: 140px;
     @media only screen and (max-width: 819px) {
@@ -43,16 +46,19 @@
     right: 40px;
     top: 31px;
   }
-  @media only screen and (max-width:  599px)  {
+  @media only screen and (max-width: 599px)  {
     h1 {
       display: block;
       position: relative;
+    }
+    a.main-header-more {
+      display: block;
     }
     a.main-header-archive, a.main-header-contact, a.main-header-search {
       position: relative;
       right: auto; top: auto;
       margin: 5px 0 !important;
-      display: block;
+      display: none;
       opacity: 0.6;
     }
   }

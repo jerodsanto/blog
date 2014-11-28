@@ -16,7 +16,7 @@ However, if you want to login to the site with their user account you have to ei
 ## A Solution
 
 ~
-<img class="alignright size-thumbnail wp-image-711" title="large_SkeletonKeyP" src="http://blog.jerodsanto.net/wp-content/uploads/2009/10/large_SkeletonKeyP-150x150.jpg" height="150" alt="large_SkeletonKeyP" width="150" />
+<img class="alignright size-thumbnail wp-image-711" title="large_SkeletonKeyP" src="/wp-content/uploads/2009/10/large_SkeletonKeyP-150x150.jpg" height="150" alt="large_SkeletonKeyP" width="150" />
 Say goodbye to the days of _tacky, amateurish, insecure & annoying_. The <a href="http://wordpress.org/extend/plugins/skeleton-key/" rel="external">Skeleton Key</a> plugin allows WordPress administrators (level 10 users) to login to the site as any user by authenticating with the user's login and their own (administrator) password. Once logged in, you _are_ that user. Handy, huh?
 
 *****UPDATE*****

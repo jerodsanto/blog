@@ -23,7 +23,7 @@ namespace :deploy do
   desc "pings services to let them know of new content"
   task :ping do
     require "net/http"
-    uri    = "http://blog.jerodsanto.net"
+    uri    = "http://jerodsanto.net"
     params = "/ping/?title=&blogurl=#{URI.escape(uri)}&rssurl=&chk_weblogscom=on&chk_blogs=on&chk_technorati=on&chk_syndic8=on&chk_newsgator=on&chk_myyahoo=on&chk_pubsubcom=on&chk_blogdigger=on&chk_blogstreet=on&chk_moreover=on&chk_weblogalot=on&chk_icerocket=on&chk_newsisfree=on&chk_topicexchange=on"
     puts "pinging pingomatic"
     Net::HTTP.get("pingomatic.com", params)

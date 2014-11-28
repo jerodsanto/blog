@@ -22,7 +22,7 @@ First, set a `frameLoadDelegate` for your `WebView`. I'll just use the applicati
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [webView setFrameLoadDelegate:self];
-    [webView setMainFrameURL:@"http://blog.jerodsanto.net"];
+    [webView setMainFrameURL:@"http://jerodsanto.net"];
 }
 {% endhighlight %}
 
@@ -87,7 +87,7 @@ That's all there is to it! Here is the example `MyAppDelegate.m` in its entirety
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [webView setFrameLoadDelegate:self];
-    [webView setMainFrameURL:@"http://blog.jerodsanto.net"];
+    [webView setMainFrameURL:@"http://jerodsanto.net"];
 }
 
 - (void)consoleLog:(NSString *)aMessage {

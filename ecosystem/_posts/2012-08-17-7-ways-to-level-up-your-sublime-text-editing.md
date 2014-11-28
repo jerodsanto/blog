@@ -121,7 +121,7 @@ Those are the big ones. There's also writing your own custom snippets, but that'
 
 [package-control]:http://wbond.net/sublime_packages/package_control
 [package-control-pic]:http://jerodsanto.net/drop/st2-package-control-20120817-104740.png
-[white-spaces-post]:http://blog.jerodsanto.net/2012/07/some-white-spaces-are-more-equal-than-others/
+[white-spaces-post]:/2012/07/some-white-spaces-are-more-equal-than-others/
 [git-package]:https://github.com/kemayo/sublime-text-2-git
 [git-log-current-file-pic]:http://jerodsanto.net/drop/st2-git-log-current-file-20120817-110847.png
 [split-view-pic]:http://jerodsanto.net/drop/st2-split-view-same-file-20120817-120223.png

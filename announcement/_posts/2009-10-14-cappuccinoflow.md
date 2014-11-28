@@ -7,7 +7,7 @@ excerpt: "It has been a little quiet around these parts lately. I blame Cappucci
 
 ## In Brief
 
-[<img title="CappuccinoFlow" src="http://blog.jerodsanto.net/wp-content/uploads/2009/10/cf.png" height="125" alt="CappuccinoFlow" width="125" />][1]
+[<img title="CappuccinoFlow" src="/wp-content/uploads/2009/10/cf.png" height="125" alt="CappuccinoFlow" width="125" />][1]
 I just launched <a href="http://cappuccinoflow.com" rel="external">CappuccinoFlow</a>: a community driven link blog for the <a href="http://www.cappuccino.org" rel="external">Cappuccino</a> framework. If you're at all interested in this amazing new technology out of <a href="http://280north.com/" rel="external">280north</a>, make sure to subscribe to the [RSS feed][2], follow along on <a href="http://twitter.com/cappuccinoflow" rel="external">Twitter</a>, and <a href="http://cappuccinoflow.com/items/new" rel="external">post</a> cool Cappuccino-related links to the flow!
 
 ## In Detail

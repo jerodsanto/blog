@@ -72,4 +72,4 @@ Enjoy!
 
 [dry]:http://en.wikipedia.org/wiki/Don't_repeat_yourself
 [bash]:http://en.wikipedia.org/wiki/Bash_shell
-[cdupupup]:http://blog.jerodsanto.net/2009/09/cd-up-up-up/
+[cdupupup]:/2009/09/cd-up-up-up/

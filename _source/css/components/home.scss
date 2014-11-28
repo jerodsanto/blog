@@ -18,8 +18,9 @@
     line-height: 1em;
     &, a { color: $red; }
   }
-  h1 { font-size: 2em; }
+  h1 { font-size: 1.7em; }
   h2 { margin-top: 10px; }
+  .big-dot { top: 6px; }
 }
 
 .switchboard-alt {

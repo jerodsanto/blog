@@ -22454,9 +22454,8 @@ return Physics;
       return JMS.randomBGPosition();
     },
     init: function() {
-      var randos;
       JMS.onLoad();
-      $('.service_hackernews a, .service_instapaper a').click(function() {
+      $(".service_hackernews a, .service_instapaper a").click(function() {
         JMS.sharePopup($(this).attr('href'));
         return false;
       });
@@ -22473,12 +22472,13 @@ return Physics;
         engineKey: "TM8ezPQi8DZRuszeAPuU",
         perPage: 10
       });
-      randos = ["Whathaveyou", "Tomfoolery", "Jetsam", "Rants", "Highjinks", "Flotsam", "Rando Calrissian"];
-      $("#rando").text(randos[Math.floor(Math.random() * randos.length)]);
       $("#content img").each(function() {
         var $self;
         $self = $(this);
         $self.parent().after("<p class='caption'>" + $self.attr("alt") + "</p>");
+      });
+      $("a.main-header-more").on("click", function(event) {
+        return $(this).siblings().css("display", "block").end().hide();
       });
       $(".reveal-button").on("click", "a", function(event) {
         var $content, html;

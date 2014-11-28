@@ -17,7 +17,7 @@ Once installed, launch Paros and find the configuration options (on OS X they ar
 
 My LAN's network is 1.1.1.0/16, so I'll configure the Local Proxy address accordingly:
 
-<img src="http://blog.jerodsanto.net/wp-content/uploads/2009/06/paros_config.png" height="246" alt="paros_config" width="540" />
+<img src="/wp-content/uploads/2009/06/paros_config.png" height="246" alt="paros_config" width="540" />
 
 That should be the only setting that we need to fuss with. Paros is all set and listening on port 8080, let's configure the iPhone to route its traffic through our proxy!
 
@@ -25,11 +25,11 @@ That should be the only setting that we need to fuss with. Paros is all set and 
 
 On the iPhone, open the "**Settings**" app and navigate to the Wi-Fi page. Once there, edit the settings for the wireless network you are currently connected to (this needs to be the same network where your proxy is running). To do this, click the little blue arrow on the right side of the screen.
 
-<img src="http://blog.jerodsanto.net/wp-content/uploads/2009/06/config_wifi.png" height="480" alt="config_wifi" width="322" />
+<img src="/wp-content/uploads/2009/06/config_wifi.png" height="480" alt="config_wifi" width="322" />
 
 Now, scroll all the way to the bottom of the settings page and change the **"HTTP Proxy"** setting to manual. Enter the IP address and port number of your Paros Proxy.
 
-<img src="http://blog.jerodsanto.net/wp-content/uploads/2009/06/config_proxy.png" height="480" alt="config_proxy" width="320" />
+<img src="/wp-content/uploads/2009/06/config_proxy.png" height="480" alt="config_proxy" width="320" />
 
 All set! Now all web traffic to and from the iPhone is routed through Paros. Let's go see what we can see.
 
@@ -41,15 +41,15 @@ For now, let's see what happens when we fire up my iPhone's "**App Store**" app:
 
 In the bottom section of the screen is the history viewer. There we can see that my iPhone made 4 requests to different servers ( 3 GETs and 1 POST):
 
-<img src="http://blog.jerodsanto.net/wp-content/uploads/2009/06/history.png" height="67" alt="history" width="540" />
+<img src="/wp-content/uploads/2009/06/history.png" height="67" alt="history" width="540" />
 
 Highlighting the first GET in the history list shows its details. The iPhone's HTTP request header looked like this:
 
-<img src="http://blog.jerodsanto.net/wp-content/uploads/2009/06/request.png" height="337" alt="request" width="540" />
+<img src="/wp-content/uploads/2009/06/request.png" height="337" alt="request" width="540" />
 
 One noteworthy tidbit is that the iPhone is sending a custom header (X-Apple-Connection-Type) which tells the server that it is connected to WiFi. Next, let's take a look at the server's response:
 
-<img src="http://blog.jerodsanto.net/wp-content/uploads/2009/06/response.png" height="408" alt="response" width="540" />
+<img src="/wp-content/uploads/2009/06/response.png" height="408" alt="response" width="540" />
 
 Notice that in the response we see both the headers that the server returned AND the response data itself, in this case an xml plist file.
 

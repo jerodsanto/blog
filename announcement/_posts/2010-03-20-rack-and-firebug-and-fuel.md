@@ -5,7 +5,7 @@ title: "Rack, and Firebug, and Fuel. Oh Hai!"
 excerpt: "I'm very happy to announce that I've joined the <a href='http://www.fuelbrandnetwork.com/'>Fuel Network</a> as co-editor of <a href='http://fuelyourcoding.com'>FYC</a>!"
 ---
 
-<a href="http://fuelyourcoding.com"><img src="http://blog.jerodsanto.net/wp-content/uploads/2010/03/fuel_coding_logo.gif" alt="" title="fuel_coding_logo" width="200" height="126" class="alignright size-medium wp-image-897" /></a>
+<a href="http://fuelyourcoding.com"><img src="/wp-content/uploads/2010/03/fuel_coding_logo.gif" alt="" title="fuel_coding_logo" width="200" height="126" class="alignright size-medium wp-image-897" /></a>
 
 So there is this really cool Rack middleware written by <a href="http://sjjdev.com/">Simon Jefford</a> which allows you to send arbitrary messages from your Rails controllers & views directly to Firebug's (or Web Inspector's) console. It is great for quick debugging. If that possibility excites you, head over to my recently published article <a href="http://fuelyourcoding.com/set-rails-logging-on-fire/">on Fuel Your Coding</a> to read all about it.
 
