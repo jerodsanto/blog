@@ -45,9 +45,9 @@ JMS =
       engineKey: "TM8ezPQi8DZRuszeAPuU"
       perPage: 10
 
-    $("#content img").each ->
+    $(".post img").each ->
       $self = $(this)
-      $self.parent().after "<p class='caption'>" + $self.attr("alt") + "</p>"
+      $self.closest("p").after "<p class='caption'>" + $self.attr("alt") + "</p>"
       return
 
     $("a.main-header-more").on "click", (event) ->

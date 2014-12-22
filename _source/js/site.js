@@ -46,10 +46,10 @@
         engineKey: "TM8ezPQi8DZRuszeAPuU",
         perPage: 10
       });
-      $("#content img").each(function() {
+      $(".post img").each(function() {
         var $self;
         $self = $(this);
-        $self.parent().after("<p class='caption'>" + $self.attr("alt") + "</p>");
+        $self.closest("p").after("<p class='caption'>" + $self.attr("alt") + "</p>");
       });
       $("a.main-header-more").on("click", function(event) {
         return $(this).siblings().css("display", "block").end().hide();
