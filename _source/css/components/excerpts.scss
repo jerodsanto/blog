@@ -13,7 +13,6 @@
 .excerpt-header, .st-result .title a {
   font-size: 1.2em;
   line-height: 1em;
-  text-transform: uppercase;
   margin: 0;
   color: $orange;
   @include transition(color 0.3s ease-in-out);

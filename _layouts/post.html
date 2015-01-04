@@ -60,11 +60,10 @@ layout: default
       {% endif %}
     {% endfor %}
   </p>
-
   {% endunless %}
 
   <div id="disqus_thread"></div>
-  <script type="text/javascript">
+  <script>
     var disqus_url   = "{{ site.url }}{{ page.url }}/";
     var disqus_title = "{{ page.title }}";
     (function() {
@@ -74,11 +73,5 @@ layout: default
     })();
   </script>
 
-  <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-
-  {% if page.hackernews %}
-  <p id="footnote">
-   ... or join the discussion on <a href="http://news.ycombinator.com/item?id={{ page.hackernews }}">Hacker News</a>.
-  </p>
-  {% endif %}
+  <script src="//platform.twitter.com/widgets.js"></script>
 </article>
