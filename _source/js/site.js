@@ -25,11 +25,11 @@
     },
     onLoad: function() {
       $.bigfoot();
-      return JMS.randomBGPosition();
+      return this.randomBGPosition();
     },
     init: function() {
-      JMS.onLoad();
-      $(".service_hackernews a, .service_instapaper a").click(function() {
+      this.onLoad();
+      $(".service_hackernews a, .service_instapaper a").on("click", function() {
         JMS.sharePopup($(this).attr('href'));
         return false;
       });

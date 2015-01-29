@@ -23,12 +23,12 @@ JMS =
 
   onLoad: ->
     $.bigfoot()
-    JMS.randomBGPosition()
+    @randomBGPosition()
 
   init: ->
-    JMS.onLoad()
+    @onLoad()
 
-    $(".service_hackernews a, .service_instapaper a").click ->
+    $(".service_hackernews a, .service_instapaper a").on "click", ->
       JMS.sharePopup $(this).attr 'href'
       false
 
