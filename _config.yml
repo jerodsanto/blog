@@ -1,7 +1,7 @@
 url: http://jerodsanto.net
 permalink: /:year/:month/:title
 highlighter: pygments
-exclude: [Rakefile]
+exclude: [Gemfile, Gemfile.lock, Rakefile]
 paginate: 10
 sass:
     sass_dir: _source/css/
