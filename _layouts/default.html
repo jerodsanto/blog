@@ -4,12 +4,16 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Jerod Santo" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="{{ page.excerpt }}" />
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
     {% unless page.home %}
-    <meta property="st:title" content="{{ page.title }}" />
+    <meta name="description" content="{{ page.title }} – {{ page.excerpt }}">
+    <meta property="st:title" content="{{ page.title }}">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.title }} – {{ page.excerpt }}">
+    <meta property="og:type" content="article">
     {% endunless %}
     <title>
       {% unless page.home %}{{ page.title }} | {% endunless %} Jerod Santo
@@ -17,7 +21,7 @@
 
     <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" media="all" href="/styles.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
     <script>
       /* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
       window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
@@ -27,7 +31,6 @@
     <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
     <script src="//use.typekit.net/ozg5mvx.js"></script>
     <script >try{Typekit.load();}catch(e){}</script>
-
     <script src="/js/modernizr-custom.js"></script>
 
     {{ page.head }}
