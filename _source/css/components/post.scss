@@ -79,7 +79,7 @@
     padding-bottom: 5px;
   }
   iframe, video, object {
-    margin: 0 auto;
+    margin: 0 auto !important;
     display: block;
     width: 100%;
   }

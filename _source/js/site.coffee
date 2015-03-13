@@ -61,7 +61,5 @@ JMS =
       $(this).remove()
       return
 
-    $("iframe").css("width", "100%")
-
     # Focus on Search form when landing on Search page
     $('.search-form input').focus()
