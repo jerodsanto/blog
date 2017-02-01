@@ -9,7 +9,7 @@ Ever wanted (or needed) to see your iPhone's network traffic? All you need is a 
 
 ## 1) Download and Install Paros
 
-Grab the download from the [Paros site][2]. Your install process will differ depending on your O/S, but they've provided some install instructions [here][3]. Everybody will need the Java Runtime Environment 1.4 or above.
+Grab the download from SourceForge ([direct link][2]).
 
 ## 2) Configure Paros
 
@@ -57,5 +57,4 @@ Sniffing traffic like this can help you understand how different iPhone apps wor
 
 
 [1]: http://www.parosproxy.org/index.shtml
-[2]: http://www.parosproxy.org/download.shtml
-[3]: http://www.parosproxy.org/install.shtml
+[2]: https://sourceforge.net/projects/paros/files/latest/download
