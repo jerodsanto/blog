@@ -9,11 +9,16 @@
     <meta name="author" content="Jerod Santo">
     <meta property="og:site_name" content="Jerod Santo">
     {% unless page.home %}
-    <meta name="description" content="{{ page.title }} – {{ page.excerpt }}">
+    <meta name="description" content="{{ page.excerpt }}">
     <meta property="st:title" content="{{ page.title }}">
     <meta property="og:title" content="{{ page.title }}">
-    <meta property="og:description" content="{{ page.title }} – {{ page.excerpt }}">
+    <meta property="og:description" content="{{ page.excerpt }}">
     <meta property="og:type" content="article">
+    {% if page.image %}
+    <meta property="og:image" content="{{ page.image }}">
+    {% else %}
+    <meta property="og:image" content="/icon.png">
+    {% endif %}
     {% endunless %}
     <title>
       {% unless page.home %}{{ page.title }} | {% endunless %} Jerod Santo
