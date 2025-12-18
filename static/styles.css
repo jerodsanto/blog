@@ -357,10 +357,6 @@ li::marker {
   line-height: 0;
 }
 
-::-webkit-scrollbar {
-  height: var(--line-height);
-}
-
 input,
 button,
 textarea {
@@ -443,6 +439,12 @@ label input {
   width: 100%;
 }
 
+@media screen and (max-width: 750px) {
+  .header .label {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 580px) {
   :root {
     font-size: 13px;
@@ -460,9 +462,6 @@ label input {
   .footer,
   hr {
     width: 98%;
-  }
-  .header tr:nth-child(3) {
-    display: none;
   }
   .footer table {
     display: block;
