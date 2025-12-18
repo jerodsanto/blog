@@ -15,11 +15,7 @@ I'll give you a few hints:
 3.  The data is sourced from [IMDB][imdb]
 
 <div class="chart">
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0Anc47_2p2GgFdGZfTjhYQ1VIdlZkSW1SMTk0ZTJKNkE&transpose=0&headers=0&range=A1%3AA8&gid=0&pub=1","options":{"vAxes":[{"useFormatFromData":true,"title":"Y Axis","formatOptions":{"source":"data","scaleFactor":null},"minorGridlines":{"count":"0"},"minValue":0,"viewWindowMode":"pretty","viewWindow":{"min":0,"max":10},"maxValue":10},{"useFormatFromData":true,"minValue":null,"viewWindow":{"min":null,"max":null},"maxValue":null}],"titleTextStyle":{"bold":true,"color":"#000","fontSize":16},"series":{"0":{"pointSize":7}},"curveType":"","booleanRole":"certainty","title":"","interpolateNulls":false,"animation":{"duration":500},"legend":"none","lineWidth":2,"hAxis":{"useFormatFromData":true,"title":"X Axis","minValue":null,"viewWindowMode":null,"viewWindow":null,"maxValue":null},"width":450,"height":320},"state":{},"view":{"columns":[{"calc":"emptyString","type":"string","sourceColumn":0},0]},"chartType":"LineChart","chartName":"Chart 1"}
-  </script>
-  <noscript>
     <img src="https://docs.google.com/spreadsheet/oimg?key=0Anc47_2p2GgFdGZfTjhYQ1VIdlZkSW1SMTk0ZTJKNkE&oid=1&zx=1ogdontcezw0" />
-  </noscript>
 </div>
 
 Know what it is? Ready to find out?!

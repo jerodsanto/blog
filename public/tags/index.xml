@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Tags on Jerod Santo</title>
-  <link href="http://localhost:1313/tags/" rel="alternate" type="text/html" />
-  <link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
-  <description>On software, life, &amp; the space between</description>
-  <generator>Hugo -- gohugo.io</generator>
-  <language>en-us</language><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
-</feed>

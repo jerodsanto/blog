@@ -1,6 +1,5 @@
 {{ $buttonText := .Get 0 | default "Reveal Answer" }}
-<div class='reveal-button'>
-  <a href='{{ .Page.Permalink }}#reveal'>{{ $buttonText }}</a>
-</div>
-<div class='reveal-content' data-content='{{ .Inner | markdownify }}'>
-</div>
+<details>
+  <summary>{{ $buttonText }}</summary>
+  {{ .Inner | markdownify }}
+</details>

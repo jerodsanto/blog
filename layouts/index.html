@@ -1,58 +1,38 @@
-{{ define "header" }}
-<div class="main-header">
-  <h1>
-    <a href="/" title="Home">
-      <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
-    </a>
-  </h1>
-  <a href="/" title="View Blog Archives" class="main-header-archive">Blog</a>
-  <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
-</div>
-{{ end }}
-
 {{ define "main" }}
-{{ if eq .RelPermalink "/home/" }}
-<div class="switchboard-alt">
-  <ul>
-    <li class="switch-blog"><a class="icon-shape-blog" href="http://blog.jerodsanto.net" title="">Blog</a></li>
-    <li class="switch-objectlateral"><a class="icon-shape-objectlateral" href="http://objectlateral.com" title="">Object Lateral</a></li>
-    <li class="switch-ows"><a class="icon-shape-ows" href="http://outwithsprout.com" title="">Out With Sprout</a></li>
-    <li class="switch-interface"><a class="icon-shape-interface" href="http://interfaceschool.com" title="">Interface School</a></li>
-    <li class="switch-changelog"><a class="icon-shape-changelog" href="http://thechangelog.com" title="">Changelog</a></li>
-    <li class="switch-biblically"><a class="icon-shape-biblically" href="#" title="">Biblically Speaking</a></li>
-    <li class="switch-github"><a class="icon-shape-github" href="http://github.com/jerodsanto" title="">Github</a></li>
-    <li class="switch-twitter"><a class="icon-shape-twitter" href="http://twitter.com/jerodsanto" title="">Twitter</a></li>
-    <li class="switch-rdio"><a class="icon-shape-rdio" href="http://rdio.com/jerodsanto" title="">Rdio</a></li>
-  </ul>
-</div>
-{{ else }}
-<section class="main-wrapper excerpt-list">
-  <header class="section-header">
-    <h1>
-      {{ if eq .Paginator.PageNumber 1 }}
-        {{ .Title }}
-      {{ else }}
-        <a href="/" title="Back to Page 1">Page {{ .Paginator.PageNumber }}</a>
-      {{ end }}
-    </h1>
-    {{ with .Params.subtitle }}
-      <h2>{{ . }}</h2>
-    {{ end }}
-  </header>
+<table class="header">
+  <tr>
+    <td colspan="7" rowspan="2" class="title right width-auto">
+      <h1>Jerod Santo</h1>
+      <span>Buy the truth, and sell it not</span>
+    </td>
+  </tr>
+  <tr></tr>
+  <tr>
+    <td><a href="https://changelog.com">Changelog</a></td>
+    <td><a href="https://linkedin.com/in/jerodsanto">LinkedIn</a></td>
+    <td><a href="https://changelog.social/@jerod">Mastodon</a></td>
+    <td><a href="https://github.com/jerodsanto">GitHub</a></td>
+    <td><a href="https://x.com/jerodsanto">TwiX</a></td>
+    <td><a href="/about">About</a></td>
+    <td><a href="mailto:jerod.santo@gmail.com">Contact</a></td>
+  </tr>
+</table>
 
-  {{ range .Paginator.Pages }}
-    {{ partial "excerpt.html" . }}
+<ul>
+  {{ range where .Site.RegularPages "Section" "posts" }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
   {{ end }}
+</ul>
 
-  <div class="pagination">
-    {{ if .Paginator.HasPrev }}
-        <a class="previous" href="{{ .Paginator.Prev.URL }}">&laquo; Newer</a>
-    {{ end }}
-    <span class="page_number ">{{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
-    {{ if .Paginator.HasNext }}
-      <a class="next" href="{{ .Paginator.Next.URL }}">Older &raquo;</a>
-    {{ end }}
-  </div>
-</section>
-{{ end }}
+<table class="footer">
+  <tr>
+    <td><a href="https://changelog.com">Changelog</a></td>
+    <td><a href="mailto:jerod.santo@gmail.com">Email</a></td>
+    <td><a href="https://linkedin.com/in/jerodsanto">LinkedIn</a></td>
+    <td><a href="https://changelog.social/@jerod">Mastodon</a></td>
+    <td><a href="https://github.com/jerodsanto">GitHub</a></td>
+    <td><a href="https://x.com/jerodsanto">TwiX</a></td>
+    <td><a href="/index.xml">RSS</a></td>
+  </tr>
+</table>
 {{ end }}

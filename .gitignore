@@ -5,3 +5,6 @@ _drafts
 .sass-cache/
 bower_components/
 node_modules/
+.claude
+public/
+.hugo_build.lock
