@@ -1,0 +1,32 @@
+{{ define "main" }} {{ partial "header.html" . }}
+
+<h2>Jerod's Newsletter</h2>
+
+<p>
+  Pop in your email address if you want to keep up with what I'm up to, but
+  don't want to drink from the RSS or social firehoses 💦
+</p>
+
+<p>Expect emails from me super infrequently. Maybe never!</p>
+
+<form
+  action="https://buttondown.email/api/emails/embed-subscribe/jerodsanto"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.email/jerodsanto', 'popupwindow')"
+>
+  <label>
+    Your email
+    <input
+      type="email"
+      name="email"
+      id="bd-email"
+      placeholder="grace@hopper.com"
+      required
+    />
+  </label>
+
+  <button type="submit">Subscribe</button>
+</form>
+
+{{ end }}

@@ -69,6 +69,7 @@ html {
 body {
   position: relative;
   width: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: calc(var(--line-height) + var(--baseline-offset)) 2ch
     var(--line-height);
@@ -417,6 +418,10 @@ button {
   text-transform: uppercase;
   font-weight: var(--font-weight-medium);
   cursor: pointer;
+}
+
+form button {
+  margin-top: calc(var(--line-height) * 1.5);
 }
 
 button:hover {
