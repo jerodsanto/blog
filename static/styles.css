@@ -35,7 +35,7 @@
   font-weight: var(--font-weight-normal);
   font-style: normal;
   font-variant-numeric: tabular-nums lining-nums;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -74,12 +74,6 @@ body {
     var(--line-height);
   line-height: var(--line-height);
   overflow-x: hidden;
-}
-
-.content {
-  max-width: calc(min(80ch, round(down, 100%, 1ch)));
-  margin-left: 4ch;
-  margin-right: auto;
 }
 
 h1,
@@ -180,12 +174,10 @@ th {
   font-weight: 700;
 }
 
-.width-auto {
-  width: 100%;
-}
-
-.right {
-  text-align: right;
+.content {
+  max-width: calc(min(80ch, round(down, 100%, 1ch)));
+  margin-left: 4ch;
+  margin-right: auto;
 }
 
 .header {
@@ -197,6 +189,7 @@ th {
 
 .header .title {
   font-family: var(--header-font);
+  text-align: right;
 }
 
 .header a,
@@ -207,6 +200,47 @@ th {
 
 .footer {
   margin-top: calc(var(--line-height) * 2.5);
+}
+
+.post-list {
+  padding: 0;
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 0;
+  }
+
+  li a {
+    flex: 1;
+    min-width: 0;
+  }
+
+  li span.pubdate {
+    margin-left: 2ch;
+    color: var(--text-color-alt);
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+.graph-paper {
+  --color: color-mix(
+    in srgb,
+    var(--text-color) 10%,
+    var(--background-color) 90%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(var(--color) 0 1px, transparent 1px 100%),
+    repeating-linear-gradient(90deg, var(--color) 0 1px, transparent 1px 100%);
+  background-size: 2ch var(--line-height);
+  margin: 0;
 }
 
 p {
@@ -409,26 +443,7 @@ label input {
   width: 100%;
 }
 
-.graph-paper {
-  --color: color-mix(
-    in srgb,
-    var(--text-color) 10%,
-    var(--background-color) 90%
-  );
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background-image:
-    repeating-linear-gradient(var(--color) 0 1px, transparent 1px 100%),
-    repeating-linear-gradient(90deg, var(--color) 0 1px, transparent 1px 100%);
-  background-size: 2ch var(--line-height);
-  margin: 0;
-}
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 580px) {
   :root {
     font-size: 13px;
     --baseline-offset: 0.7em;
