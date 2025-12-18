@@ -3,6 +3,13 @@ languageCode = "en-us"
 title = "Jerod Santo"
 disableKinds = ["taxonomy", "term", "section"]
 
+[outputs]
+  home = ["HTML", "RSS"]
+
+[outputFormats.RSS]
+  mediatype = "application/rss+xml"
+  baseName = "feed"
+
 [params]
   author = "Jerod Santo"
   description = "On software, life, & the space between"
