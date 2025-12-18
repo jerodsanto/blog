@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="It&rsquo;s been ~18 months since my first Ruby Rebus challenge and, frankly, that&rsquo;s just too long to ask y&rsquo;alls nerds to wait. Wait no more! I&rsquo;ve dreamt up 15 brand spankin&rsquo; new rebuses1 for your guessing pleasure.
+Last round I only picked movies from IMDB&rsquo;s Top 250 list. This time the tie that binds these movies is that I&rsquo;ve seen them and I like them.
+The other big change this time around is instant gratification. Instead of a follow-up post with the answers, just click the button under each rebus once you&rsquo;ve figured it out (or given up)! Enough intro,">
+    <meta property="st:title" content="Ruby Rebus! Part Deux">
+    <meta property="og:title" content="Ruby Rebus! Part Deux">
+    <meta property="og:description" content="It&rsquo;s been ~18 months since my first Ruby Rebus challenge and, frankly, that&rsquo;s just too long to ask y&rsquo;alls nerds to wait. Wait no more! I&rsquo;ve dreamt up 15 brand spankin&rsquo; new rebuses1 for your guessing pleasure.
+Last round I only picked movies from IMDB&rsquo;s Top 250 list. This time the tie that binds these movies is that I&rsquo;ve seen them and I like them.
+The other big change this time around is instant gratification. Instead of a follow-up post with the answers, just click the button under each rebus once you&rsquo;ve figured it out (or given up)! Enough intro,">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Ruby Rebus! Part Deux | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Ruby Rebus! Part Deux</h1>
+    
+    <p class="post-date">
+      April 7, 2014
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>It&rsquo;s been ~18 months since my <a href="/2012/10/ruby-rebus">first Ruby Rebus challenge</a> and, frankly, that&rsquo;s just too long to ask y&rsquo;alls nerds to wait. Wait no more! I&rsquo;ve dreamt up 15 brand spankin&rsquo; new rebuses<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> for your guessing pleasure.</p>
+<p>Last round I only picked movies from IMDB&rsquo;s <a href="http://www.imdb.com/chart/top">Top 250</a> list. This time the tie that binds these movies is that I&rsquo;ve seen them <em>and</em> I like them.</p>
+<p>The other big change this time around is <strong>instant gratification</strong>. Instead of a follow-up post with the answers, just click the button under each rebus once you&rsquo;ve figured it out (or given up)! Enough intro,</p>
+<h2 id="rebus-1">Rebus #1</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">throw</span> <span style="color:#032f62">:me</span> <span style="color:#cf222e">if</span> person<span style="color:#0550ae">.</span>is_a? <span style="color:#0550ae">ConMan</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content=''>
+</div>
+<h2 id="rebus-2">Rebus #2</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>expect<span style="color:#1f2328">(</span><span style="color:#0550ae">Game</span><span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>to receive<span style="color:#1f2328">(</span><span style="color:#032f62">:play</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+Gotta pull out your RSpec to solve this one.
+'>
+</div>
+<h2 id="rebus-3">Rebus #3</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0550ae">[].</span>method <span style="color:#032f62">:each</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+If you were thinking The Enumerator, you may have just stumbled upon Schwarzenegger&rsquo;s next flick&hellip;
+'>
+</div>
+<h2 id="rebus-4">Rebus #4</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0a3069">&#34;CATCGTAATGACGGCCT&#34;</span><span style="color:#0550ae">.</span>dup
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+This one would be better if you couldn&rsquo;t practically see the name in the string.
+'>
+</div>
+<h2 id="rebus-5">Rebus #5</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0550ae">[</span><span style="color:#0550ae">NoMethodError</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">NameError</span><span style="color:#0550ae">]</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+Is it just me or do NoMethodError and NameError account for 95% of all errors?
+'>
+</div>
+<h2 id="rebus-6">Rebus #6</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0550ae">[</span><span style="color:#6639ba">Float</span><span style="color:#0550ae">.</span>instance_method<span style="color:#1f2328">(</span><span style="color:#032f62">:ceil</span><span style="color:#1f2328">),</span> <span style="color:#6639ba">Float</span><span style="color:#0550ae">.</span>instance_method<span style="color:#1f2328">(</span><span style="color:#032f62">:floor</span><span style="color:#1f2328">)</span><span style="color:#0550ae">]</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+At first I included the round method, but thought that&rsquo;d be too easy.
+'>
+</div>
+<h2 id="rebus-7">Rebus #7</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0550ae">Actor</span> <span style="color:#0550ae">=</span> <span style="color:#0550ae">Struct</span><span style="color:#0550ae">.</span>new <span style="color:#032f62">:movie</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:first_name</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">Actor</span><span style="color:#0550ae">.</span>new <span style="color:#0a3069">&#34;Argo&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;John&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">Actor</span><span style="color:#0550ae">.</span>new <span style="color:#0a3069">&#34;Monsters, Inc.&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;John&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">Actor</span><span style="color:#0550ae">.</span>new <span style="color:#0a3069">&#34;The Big Lebowski&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;John&#34;</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+It&rsquo;s a few John Goodman movies. A few Goodman. Get it?!
+'>
+</div>
+<h2 id="rebus-8">Rebus #8</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Payment</span>
+</span></span><span style="display:flex;"><span>  delegate <span style="color:#032f62">:give</span><span style="color:#1f2328">,</span> <span style="color:#032f62">to</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:other</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+This code requires Rails to actually execute, but hopefully it will never actually execute.
+'>
+</div>
+<h2 id="rebus-9">Rebus #9</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Object</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> <span style="color:#6639ba">initialize</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#953800">@afraid</span> <span style="color:#0550ae">=</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+Object is Ruby&rsquo;s primordial ooze.
+'>
+</div>
+<h2 id="rebus-10">Rebus #10</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0550ae">%</span>i<span style="color:#1f2328">(</span>stop danger <span style="color:#cf222e">yield</span> detour<span style="color:#1f2328">)</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+Symbols. Signs. You see what I did there.
+'>
+</div>
+<h2 id="rebus-11">Rebus #11</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">if</span> s <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;AZ&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">raise</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+The challenge here was having something represent Arizona without being obvious. I may have failed at that.
+'>
+</div>
+<h2 id="rebus-12">Rebus #12</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0550ae">60</span><span style="color:#0550ae">.</span>times <span style="color:#1f2328">{</span> <span style="color:#6639ba">sleep</span> <span style="color:#0550ae">1</span> <span style="color:#1f2328">}</span> <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#6639ba">exit</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+Okay let&rsquo;s ride
+'>
+</div>
+<h2 id="rebus-13">Rebus #13</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">begin</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">[</span>darren<span style="color:#1f2328">,</span> judith<span style="color:#0550ae">].</span>join
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">rescue</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+Judith escaped. DURR!
+'>
+</div>
+<h2 id="rebus-14">Rebus #14</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">Time</span><span style="color:#1f2328">;</span> <span style="color:#cf222e">def</span> <span style="color:#6639ba">kill</span><span style="color:#1f2328">;</span> <span style="color:#6639ba">abort</span><span style="color:#1f2328">;</span> <span style="color:#cf222e">end</span><span style="color:#1f2328">;</span> <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>t <span style="color:#0550ae">=</span> <span style="color:#0550ae">Time</span><span style="color:#0550ae">.</span>now
+</span></span><span style="display:flex;"><span>t<span style="color:#0550ae">.</span>kill
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+This code is utterly asinine.
+'>
+</div>
+<h2 id="rebus-15">Rebus #15</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0a3069">&#34;スカーレット&#34;</span><span style="color:#0550ae">.</span>encode <span style="color:#0a3069">&#34;ascii&#34;</span> <span style="color:#cf222e">rescue</span> <span style="color:#0a3069">&#34;&#34;</span>
+</span></span></code></pre></div>
+<div class='reveal-button'>
+  <a href='http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal'>Reveal Answer</a>
+</div>
+<div class='reveal-content' data-content='
+This one is pretty rad, if I do say so myself.
+'>
+</div>
+<hr>
+<p>Which was your favorite? Least favorite? How many of the 15 did you get right? Let me know in the comments!</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>or is it rebi?&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2014%2f04%2fruby-rebus-part-deux%2f&via=jerodsanto&text=Ruby%20Rebus%21%20Part%20Deux" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2014%2f04%2fruby-rebus-part-deux%2f&t=Ruby%20Rebus%21%20Part%20Deux" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2014%2f04%2fruby-rebus-part-deux%2f&title=Ruby%20Rebus%21%20Part%20Deux" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2014\/04\/ruby-rebus-part-deux\/";
+    var disqus_title = "Ruby Rebus! Part Deux";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

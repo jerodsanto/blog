@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Talk on Jerod Santo</title>
+  <link href="http://localhost:1313/categories/talk/" rel="alternate" type="text/html" />
+  <link href="http://localhost:1313/categories/talk/index.xml" rel="self" type="application/rss+xml" />
+  <description>On software, life, &amp; the space between</description>
+  <generator>Hugo -- gohugo.io</generator>
+  <language>en-us</language>
+  <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/talk/index.xml" rel="self" type="application/rss+xml" />
+  <entry>
+    <title>Full Stack Radio</title>
+    <link href="http://localhost:1313/2019/06/full-stack-radio/"/>
+    <id>http://localhost:1313/2019/06/full-stack-radio/</id>
+    <updated>2019-06-10T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;Adam Wathan invited me on his excellent &amp;lt;a href=&amp;#34;http://www.fullstackradio.com&amp;#34;&amp;gt;Full Stack Radio&amp;lt;/a&amp;gt; podcast to talk about building &amp;lt;a href=&amp;#34;https://changelog.com&amp;#34;&amp;gt;Changelog.com&amp;lt;/a&amp;gt; with Elixir and Phoenix. Topics include:&amp;lt;/p&amp;gt;
+&amp;lt;ul&amp;gt;
+&amp;lt;li&amp;gt;How pattern matching works in Elixir and why it&amp;amp;rsquo;s more powerful than method overloading in other languages&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;How Elixir&amp;amp;rsquo;s pipe operator makes the transition from OO to functional programming more natural&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Why you don&amp;amp;rsquo;t need to be intimidated by unfamiliar features like GenServers to use Elixir for web app development&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Noticeable differences between working with Rails and Phoenix and what it was like to transition&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;How the Phoenix ORM makes n&#43;1 queries impossible&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Why background tasks are a lot easier in Elixir than in an ecosystem like PHP&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;What other tools and technology power the Changelog platform&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;How the Changelog Phoenix app is deployed&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;#34;http://www.fullstackradio.com/116&amp;#34;&amp;gt;You can listen to the episode right here.&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;If you like listening to me blather on about software development, also take a listen to &amp;lt;a href=&amp;#34;https://changelog.com/backstage/4&amp;#34;&amp;gt;Backstage #4&amp;lt;/a&amp;gt; where I do exactly that with fellow-developer, Nick Janetakis. And, since we built our own custom platform, I can even do a shiny embed of that episode for ya! 🙌&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;audio data-theme=&amp;#34;day&amp;#34; data-src=&amp;#34;https://changelog.com/backstage/4/embed&amp;#34; src=&amp;#34;https://cdn.changelog.com/uploads/backstage/4/backstage-4.mp3&amp;#34; preload=&amp;#34;none&amp;#34; class=&amp;#34;changelog-episode&amp;#34; controls&amp;gt;&amp;lt;/audio&amp;gt;&amp;lt;script async src=&amp;#34;//cdn.changelog.com/embed.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Listen to me on SendGrid&#39;s podcast</title>
+    <link href="http://localhost:1313/2019/02/listen-to-me-on-sendgrids-podcast/"/>
+    <id>http://localhost:1313/2019/02/listen-to-me-on-sendgrids-podcast/</id>
+    <updated>2019-02-13T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;I was honored to be interviewed by &amp;lt;a href=&amp;#34;https://mobile.twitter.com/thinkingserious&amp;#34;&amp;gt;Elmer Thomas&amp;lt;/a&amp;gt; for SendGrid&amp;amp;rsquo;s very cool &amp;lt;a href=&amp;#34;https://soundcloud.com/somecodingrequired&amp;#34;&amp;gt;Some Coding Required&amp;lt;/a&amp;gt; podcast. We talked about my favorite open source project, how open source has impacted my life, and gave some advice for open source contributors and maintainers.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;My segment &amp;lt;a href=&amp;#34;https://soundcloud.com/somecodingrequired/podcastinit6-oscon-2018-recap#t=7:19&amp;#34;&amp;gt;starts right here&amp;lt;/a&amp;gt;. Or listen to the whole thing. 14 minutes short.&amp;lt;/p&amp;gt;
+&amp;lt;iframe width=&amp;#34;100%&amp;#34; height=&amp;#34;300&amp;#34; scrolling=&amp;#34;no&amp;#34; frameborder=&amp;#34;no&amp;#34; allow=&amp;#34;autoplay&amp;#34; src=&amp;#34;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/563488455&amp;amp;color=%23ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&amp;amp;show_teaser=true&amp;amp;visual=true&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>So I gave a talk for NebraskaJS about AngularJS</title>
+    <link href="http://localhost:1313/2013/07/so-i-gave-a-talk-for-nebraskajs-about-angularjs/"/>
+    <id>http://localhost:1313/2013/07/so-i-gave-a-talk-for-nebraskajs-about-angularjs/</id>
+    <updated>2013-07-13T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;During the talk, I walked through building a little &amp;lt;a href=&amp;#34;http://angularjs.org&amp;#34;&amp;gt;Angular&amp;lt;/a&amp;gt; app called &amp;lt;a href=&amp;#34;https://github.com/jerodsanto/starlight&amp;#34;&amp;gt;Starlight&amp;lt;/a&amp;gt;. I think it turned out not too bad.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;#34;http://techomaha.com&amp;#34;&amp;gt;TechOmaha&amp;lt;/a&amp;gt; was awesome enough to record and publish a video of the talk, so here it is for your viewing pleasure. Be sure to watch it in full screen mode so you can actually read the code as it&amp;amp;rsquo;s discussed.&amp;lt;/p&amp;gt;
+&amp;lt;iframe width=&amp;#34;560&amp;#34; height=&amp;#34;315&amp;#34; src=&amp;#34;//www.youtube.com/embed/1JS07_sFMcs?rel=0&amp;#34; frameborder=&amp;#34;0&amp;#34; allowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;
+&amp;lt;p&amp;gt;You can also check out &amp;lt;a href=&amp;#34;http://slid.es/jerodsanto/nebraskajs-angularjs&amp;#34;&amp;gt;the slides&amp;lt;/a&amp;gt; and &amp;lt;a href=&amp;#34;https://github.com/jerodsanto/starlight&amp;#34;&amp;gt;the source code&amp;lt;/a&amp;gt; of the web app built during the talk.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Thanks to &amp;lt;a href=&amp;#34;http://nebraskajs.com/&amp;#34;&amp;gt;NebraskaJS&amp;lt;/a&amp;gt; for having me and all who came out!&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+</feed>

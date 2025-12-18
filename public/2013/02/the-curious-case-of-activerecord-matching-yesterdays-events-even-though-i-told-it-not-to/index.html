@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="We uncovered a Strange Thing when working on Omahype&rsquo;s event listings.
+Omahype is a curated events calendar helping to foster art and culture in Omaha and the surrounding areas. If you&rsquo;re in the area, you should definitely check it out!
+The Strange Thing
+Omahype&rsquo;s Events, which are ActiveRecord models, have a start_time field which we use to show people when the event starts.
+We also use this field to distinguish past events from upcoming ones. The site&rsquo;s category views call Event.upcoming to get only events from today and into the future. It looks something like this:">
+    <meta property="st:title" content="The Curious Case of ActiveRecord Matching Yesterday&#39;s Events Even Though I Told it Not To">
+    <meta property="og:title" content="The Curious Case of ActiveRecord Matching Yesterday&#39;s Events Even Though I Told it Not To">
+    <meta property="og:description" content="We uncovered a Strange Thing when working on Omahype&rsquo;s event listings.
+Omahype is a curated events calendar helping to foster art and culture in Omaha and the surrounding areas. If you&rsquo;re in the area, you should definitely check it out!
+The Strange Thing
+Omahype&rsquo;s Events, which are ActiveRecord models, have a start_time field which we use to show people when the event starts.
+We also use this field to distinguish past events from upcoming ones. The site&rsquo;s category views call Event.upcoming to get only events from today and into the future. It looks something like this:">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      The Curious Case of ActiveRecord Matching Yesterday&#39;s Events Even Though I Told it Not To | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>The Curious Case of ActiveRecord Matching Yesterday&#39;s Events Even Though I Told it Not To</h1>
+    
+    <p class="post-date">
+      February 19, 2013
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>We uncovered a Strange Thing when working on <a href="http://omahype.com">Omahype&rsquo;s</a> event listings.</p>
+<div class="notice">Omahype is a curated events calendar helping to foster art and culture in Omaha and the surrounding areas. If you&rsquo;re in the area, you should definitely check it out!</div>
+<h2 id="the-strange-thing">The Strange Thing</h2>
+<p>Omahype&rsquo;s <code>Event</code>s, which are ActiveRecord models, have a <code>start_time</code> field which we use to show people when the event starts.</p>
+<p>We also use this field to distinguish past events from upcoming ones. The site&rsquo;s <a href="http://omahype.com/category/music">category views</a> call <code>Event.upcoming</code> to get only events from today and into the future. It looks something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#1f2328">self</span><span style="color:#0550ae">.</span><span style="color:#6639ba">upcoming</span>
+</span></span><span style="display:flex;"><span>  where<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;start_time &gt;= ?&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">Date</span><span style="color:#0550ae">.</span>today<span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>order<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;start_time asc&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>That looked pretty good to me, but once the site was in production we noticed a problem.</p>
+<p><img src="http://jerodsanto.net/drop/test-in-production.png" alt=""></p>
+<p>The category views were displaying last night&rsquo;s events in addition to the ones we wanted. Troublesome. I added a test case<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> which reproduces the behavior:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>describe <span style="color:#0550ae">Event</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  describe <span style="color:#0a3069">&#34;.upcoming&#34;</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    it <span style="color:#0a3069">&#34;doesn&#39;t match events from last night&#34;</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>        last_night <span style="color:#0550ae">=</span> <span style="color:#0550ae">Time</span><span style="color:#0550ae">.</span>now<span style="color:#0550ae">.</span>beginning_of_day <span style="color:#0550ae">-</span> <span style="color:#0550ae">2</span><span style="color:#0550ae">.</span>hours
+</span></span><span style="display:flex;"><span>        create <span style="color:#032f62">:event</span><span style="color:#1f2328">,</span> <span style="color:#032f62">start_time</span><span style="color:#1f2328">:</span> last_night
+</span></span><span style="display:flex;"><span>        expect<span style="color:#1f2328">(</span><span style="color:#0550ae">Event</span><span style="color:#0550ae">.</span>upcoming<span style="color:#0550ae">.</span>count<span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>to eq <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>That test failed, but why is that?</p>
+<p>The query says that the start time must be greater than or equal to today&rsquo;s date and that&rsquo;s surely not the case with last night&rsquo;s events. Or is it?</p>
+<h2 id="the-reason">The Reason</h2>
+<p>ActiveRecord stores all timestamps in the database as <a href="http://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC</a> and converts back and forth between the applicable time zone in Ruby land before executing queries.</p>
+<p>Usually this works just fine with timestamp comparisons because the offsets are adjusted before the database makes the comparison, but it doesn&rsquo;t work so well when you are comparing against just a date.</p>
+<p>Omahype only tracks events in Omaha so we have Rails configured to use US Central Time (CST):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#57606a"># config/application.rb</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">module</span> <span style="color:#24292e">Omahype</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">class</span> <span style="color:#1f2328">Application</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">Rails</span><span style="color:#0550ae">::</span><span style="color:#0550ae">Application</span>
+</span></span><span style="display:flex;"><span>    config<span style="color:#0550ae">.</span>time_zone <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;Central Time (US &amp; Canada)&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>The problem is that CST is UTC-6 (or -5 during daylight savings), so any event created with a <code>start_time</code> of 6pm or later will be stored in the database as bright and early on the following morning.</p>
+<p>To be clear, when we do this in Ruby:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0550ae">Event</span><span style="color:#0550ae">.</span>create <span style="color:#032f62">start_time</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">Time</span><span style="color:#0550ae">.</span>parse<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;2013-02-19 20:00:00&#34;</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p>In the database (Postgres, in our case), it will be stored as a <a href="http://www.postgresql.org/docs/9.2/static/datatype-datetime.html">timestamp without time zone</a> of &ldquo;2013-02-20 02:00:00&rdquo;.</p>
+<p>See the problem?</p>
+<p>In UTC that event does start today even though in CST it starts last night. ActiveRecord can adjust the right-hand side of the comparison to UTC before executing the query, but it can&rsquo;t do anything about the left-hand side.</p>
+<p>Converting the right-hand side to UTC doesn&rsquo;t help us because the date remain the same.</p>
+<p>Bummer.</p>
+<h2 id="the-not-so-great-solution">The (not so great) Solution</h2>
+<p>We decided to convert the left-hand side of our comparison from UTC to CST.</p>
+<p>In Postgres you can use <code>AT TIME ZONE</code> to explicitly set the time zone which applies to a timestamp column. With this in hand, I adjusted the method to look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#1f2328">self</span><span style="color:#0550ae">.</span><span style="color:#6639ba">upcoming</span>
+</span></span><span style="display:flex;"><span>  where<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;start_time at time zone &#39;CST&#39; &gt;= ?&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">Date</span><span style="color:#0550ae">.</span>today<span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>order<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;start_time asc&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>Unfortunately, my test was still red.</p>
+<p>This confused me to no end, but it turns out that <code>AT TIME ZONE</code> only converts the time value when it is applied to a <code>timestamp with time zone</code> field not a <code>timestamp without time zone</code> field, which <code>start_time</code> is.</p>
+<p>Here&rsquo;s <a href="http://www.postgresql.org/docs/9.2/static/functions-datetime.html#FUNCTIONS-DATETIME-ZONECONVERT">their chart</a> of how it works for different field types:</p>
+<p><a href="http://www.postgresql.org/docs/9.2/static/functions-datetime.html#FUNCTIONS-DATETIME-ZONECONVERT"><img src="http://jerodsanto.net/drop/pg-at-time-zone-chart.jpg" alt="Click to see actual docs if it is too squished for your eyes"></a></p>
+<p>So I had to first convert <code>start_time</code> to a <code>timestamp with time zone</code> of UTC and then convert it from UTC to CST. Like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#1f2328">self</span><span style="color:#0550ae">.</span><span style="color:#6639ba">upcoming</span>
+</span></span><span style="display:flex;"><span>  where<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;start_time at time zone &#39;UTC&#39; at time zone &#39;CST&#39; &gt;= ?&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">Date</span><span style="color:#0550ae">.</span>today<span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>order<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;start_time asc&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>That is pretty ugly if you ask me, but the test was green.</p>
+<p>Finally.</p>
+<h2 id="the-alternatives-">The Alternatives (?)</h2>
+<p>There are a bevy of problems that I have with this solution.</p>
+<ol>
+<li>
+<p>I hardcoded &lsquo;CST&rsquo; into the query, which is okay for this app but would not work if we were switching time zones based on user location or any other criteria.</p>
+</li>
+<li>
+<p>The two calls to <code>at time zone</code> slow down the query by a smidgeon. Not much, but enough to not like it.</p>
+</li>
+<li>
+<p>Other finder methods will have to also use this workaround or they, too, will return bad results.</p>
+</li>
+</ol>
+<p>I&rsquo;d love to hear of others way to tackle this problem. One thing I thought of would be to store a separate <code>start_date</code> field alongside the <code>start_time</code>. That would make all comparisons apples-to-apples (dates-to-dates), but that is inelegant because it requires us to manage the two fields in the code and ensure they aren&rsquo;t different.</p>
+<p>Perhaps there is a smarter way to perform the same type of query? Or maybe I&rsquo;m missing some obvious time zone conversion thing in ActiveRecord that obviates the need for db-side conversions?</p>
+<p>Please let me know if you have any insight on this curious case!</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>I would have caught it sooner, but my original tests didn&rsquo;t cover the edges well enough. They used events from 10 days ago instead of last night.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2013%2f02%2fthe-curious-case-of-activerecord-matching-yesterdays-events-even-though-i-told-it-not-to%2f&via=jerodsanto&text=The%20Curious%20Case%20of%20ActiveRecord%20Matching%20Yesterday%27s%20Events%20Even%20Though%20I%20Told%20it%20Not%20To" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2013%2f02%2fthe-curious-case-of-activerecord-matching-yesterdays-events-even-though-i-told-it-not-to%2f&t=The%20Curious%20Case%20of%20ActiveRecord%20Matching%20Yesterday%27s%20Events%20Even%20Though%20I%20Told%20it%20Not%20To" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2013%2f02%2fthe-curious-case-of-activerecord-matching-yesterdays-events-even-though-i-told-it-not-to%2f&title=The%20Curious%20Case%20of%20ActiveRecord%20Matching%20Yesterday%27s%20Events%20Even%20Though%20I%20Told%20it%20Not%20To" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2013\/02\/the-curious-case-of-activerecord-matching-yesterdays-events-even-though-i-told-it-not-to\/";
+    var disqus_title = "The Curious Case of ActiveRecord Matching Yesterday\u0027s Events Even Though I Told it Not To";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

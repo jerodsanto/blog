@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head>
+	<meta name="generator" content="Hugo 0.152.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <title>
+      Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class=" home">
+    
+      
+<div class="main-header">
+  <h1>
+    <a href="/" title="Home">
+      <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+    </a>
+  </h1>
+  <a href="/" title="View Blog Archives" class="main-header-archive">Blog</a>
+  <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+</div>
+
+    
+
+    
+
+<section class="main-wrapper excerpt-list">
+  <header class="section-header">
+    <h1>
+      
+        <a href="/" title="Back to Page 1">Page 13</a>
+      
+    </h1>
+    
+  </header>
+
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/11/managing-broken-symlinks/">
+    <h1 class="excerpt-header">Managing Broken Symlinks</h1>
+    <p class="excerpt-date">November 5, 2009</p>
+    <p class="excerpt-text"><p>I just added two new functions to my <a href="http://github.com/jerodsanto/dotfiles/blob/master/bashrc">bashrc</a> which make it super-simple to find &amp; remove broken symbolic links on your system.</p>
+<p>They&rsquo;re simple wrappers around the ever-useful &ldquo;find&rdquo; utility:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#cf222e">function</span> find_broken_symlinks<span style="color:#0550ae">()</span> <span style="color:#0550ae">{</span> find -x -L <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">${</span><span style="color:#953800">1</span><span style="color:#1f2328">-.</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span> -type l<span style="color:#1f2328">;</span> <span style="color:#0550ae">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">function</span> rm_broken_symlinks<span style="color:#0550ae">()</span> <span style="color:#0550ae">{</span> find -x -L <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">${</span><span style="color:#953800">1</span><span style="color:#1f2328">-.</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span> -type l -exec rm <span style="color:#0550ae">{}</span> +<span style="color:#1f2328">;</span> <span style="color:#0550ae">}</span>
+</span></span></code></pre></div><p>You can call the functions with a specific path:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~$ find_broken_symlinks /usr/local/bin
+</span></span></span></code></pre></div><p>Or you can call them sans argument to search your current working directory:</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/11/learning-cappuccino-a-linked-list/">
+    <h1 class="excerpt-header">Learning Cappuccino: A Linked List</h1>
+    <p class="excerpt-date">November 1, 2009</p>
+    <p class="excerpt-text"><p>Picking up a new framework can be a daunting task, especially if you&rsquo;re simultaneously learning a new language. I&rsquo;ve done this before when I learned Ruby &amp; Rails all in one fell swoop. It was not easy. I&rsquo;m doing it again with Objective-J and <a href="http://cappuccino.org">Cappuccino</a>.</p>
+<p>Along the way I&rsquo;ve compiled a list of valuable resources. I believe many others will be taking this same journey in the coming days (especially once <a href="http://280atlas.com">Atlas</a> drops), so I&rsquo;m sharing my findings for the benefit of all.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/10/a-wordpress-skeleton-key/">
+    <h1 class="excerpt-header">A WordPress Skeleton Key</h1>
+    <p class="excerpt-date">October 29, 2009</p>
+    <p class="excerpt-text"><p>File this one under** &ldquo;scratching my own itch&rdquo;**</p>
+<h2 id="a-problem">A Problem</h2>
+<p>I often use WordPress as a CMS and have a couple of sites with many users contributing. I rarely go a week without an email or phone call from a user who needs help posting. When it comes to remote support there is no substitute for seeing what they&rsquo;re seeing.</p>
+<p>However, if you want to login to the site with their user account you have to either ask for their password (<em>tacky &amp; insecure</em>) or reset their password temporarily (<em>amateurish &amp; annoying</em>).</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/10/cheating-on-rails/">
+    <h1 class="excerpt-header">Cheating on Rails</h1>
+    <p class="excerpt-date">October 20, 2009</p>
+    <p class="excerpt-text"><p>Fellow command-line junkies either love <a href="http://cheat.errtheblog.com/" rel="external">the cheat gem</a> by <a href="http://ozmm.org/" rel="external">Chris Wanstrath</a> or they&rsquo;ve never heard of it.</p>
+<p>What &ldquo;cheat&rdquo; offers is a plethora (currently 601) of text-based cheat sheets at the tip of your fingers. Go ahead, give it a try:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~$ sudo gem install cheat
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~$ cheat apache2
+</span></span></span></code></pre></div><p>Pretty cool, huh?</p>
+<p>Some cheats are kind of long, so pipe them to &ldquo;less&rdquo; for pagination:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~$ cheat git | less
+</span></span></span></code></pre></div><p>List all the cheats available:</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/10/cappuccinoflow/">
+    <h1 class="excerpt-header">CappuccinoFlow</h1>
+    <p class="excerpt-date">October 14, 2009</p>
+    <p class="excerpt-text"><h2 id="in-brief">In Brief</h2>
+<p><a href="http://cappuccinoflow.com"><img title="CappuccinoFlow" src="/wp-content/uploads/2009/10/cf.png" height="125" alt="CappuccinoFlow" width="125" /></a>
+I just launched <a href="http://cappuccinoflow.com" rel="external">CappuccinoFlow</a>: a community driven link blog for the <a href="http://www.cappuccino.org" rel="external">Cappuccino</a> framework. If you&rsquo;re at all interested in this amazing new technology out of <a href="http://280north.com/" rel="external">280north</a>, make sure to subscribe to the <a href="http://feeds.feedburner.com/cappuccinoflow">RSS feed</a>, follow along on <a href="http://twitter.com/cappuccinoflow" rel="external">Twitter</a>, and <a href="http://cappuccinoflow.com/items/new" rel="external">post</a> cool Cappuccino-related links to the flow!</p>
+<h2 id="in-detail">In Detail</h2>
+<p>It has been a little quiet around these parts lately. I blame Cappuccino.</p>
+<p>For the uninitiated, Cappuccino is a framework for writing web applications (<a href="http://almost.at" rel="external">for example</a>). It is built on Objective-J, which is an Objective-C-esque superset of JavaScript. It is completely rad. Also, it&rsquo;s all client-side so I still get to use Rails on the back-end. I believe the apt word is: woot.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/09/run-os-x-system-profiler-from-terminal/">
+    <h1 class="excerpt-header">Run OS X System Profiler From Terminal</h1>
+    <p class="excerpt-date">September 9, 2009</p>
+    <p class="excerpt-text"><p>OS X&rsquo;s built-in <code>System Profiler</code> provides a great graphical display of pretty much anything you&rsquo;ll want to know about your Mac.</p>
+<img class="aligncenter size-full wp-image-664" title="profiler" src="/wp-content/uploads/2009/09/profiler.png" height="216" alt="profiler" width="640" />
+<p>That&rsquo;s cool and all, but what if you want to access that information programmatically? Turns out you can also run the <strong><em>System Profiler</em></strong> from the terminal by executing this command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~$ /usr/sbin/system_profiler
+</span></span></span></code></pre></div><p>What&rsquo;s great about this access method is that it allows you to slurp that data into any other program and have your way with it! For instance, I wanted to track my <a href="http://twitter.com/jerodsanto/status/3780056282" rel="external">new battery&rsquo;s</a> cycle count and charge capacity over time. Why? I dunno, because I&rsquo;m a geek, okay, get off my back!&hellip; Anyways, with the <strong><em>system_profiler</em></strong> command I simply run this little Ruby script every day:</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/09/cd-up-up-and-a-up/">
+    <h1 class="excerpt-header">cd up, up, and a-up</h1>
+    <p class="excerpt-date">September 7, 2009</p>
+    <p class="excerpt-text"><p>Command-line jockeys are intimately familiar with the <code>cd</code> command. We&rsquo;ve typed commands like this one a gozillion times:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~/src/ruby/rails$ cd ..
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~/src/ruby$
+</span></span></span></code></pre></div><p>We all know that <code>.</code> represents the current working directory and <code>..</code> represents the current working directory&rsquo;s parent directory. If we follow this pattern to its logical conclusion, then <code>...</code> would represent the current working directory&rsquo;s parent&rsquo;s parent, etc. Unfortunately, <code>cd</code> doesn&rsquo;t work that way.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~src/ruby/rails$ cd ...
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">-bash: cd: ...: No such file or directory
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~$
+</span></span></span></code></pre></div><p>Total bummer!</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/09/kill-snow-leopards-blue-ring-of-exposeacute/">
+    <h1 class="excerpt-header">Kill Snow Leopard&#39;s Blue Ring of Expos&amp;eacute;</h1>
+    <p class="excerpt-date">September 1, 2009</p>
+    <p class="excerpt-text"><p>Looks like <a href="%22http://twitter.com/dougneiner/status/3679180990%22">I&rsquo;m not the only one</a> who hates Snow Leopard&rsquo;s blue ring around selected windows in Exposé.</p>
+<p>Thankfully, we don&rsquo;t have to live with such monstrosities. Here&rsquo;s a quick fix to free yourself from the blue haze. Fire up Terminal.app, then:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">cd /System/Library/CoreServices/Dock.app/Contents/Resources/
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">sudo mv expose-window-selection-big.png expose-window-selection-big.ugly
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">sudo mv expose-window-selection-small.png expose-window-selection-small.ugly
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">sudo killall Dock
+</span></span></span></code></pre></div><p>This will disable the blue rings altogether, but you may want to replace these two images with some custom ones that look a little cooler instead.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/08/just-abort-it/">
+    <h1 class="excerpt-header">Just Abort It</h1>
+    <p class="excerpt-date">August 24, 2009</p>
+    <p class="excerpt-text"><p>A lot of people end up writing Ruby methods that looks something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">stop_error</span><span style="color:#1f2328">(</span>message<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">puts</span> <span style="color:#0a3069">&#34;ERROR: </span><span style="color:#0a3069">#{</span>message<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">exit</span><span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>Which they call in their app like so:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>stop_error <span style="color:#0a3069">&#34;Oh noes, file doesn&#39;t exist!&#34;</span> <span style="color:#cf222e">unless</span> <span style="color:#0550ae">File</span><span style="color:#0550ae">.</span>exist?<span style="color:#1f2328">(</span>file<span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p>I used to write that method a lot too. Did you know Ruby has a built-in method that provides just what we&rsquo;re all looking for?</p>
+<p><code>Kernel::abort</code></p>
+<p>So, stop writing your own little method and just abort it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#6639ba">abort</span> <span style="color:#0a3069">&#34;Oh noes, file doesn&#39;t exist!&#34;</span> <span style="color:#cf222e">unless</span> <span style="color:#0550ae">File</span><span style="color:#0550ae">.</span>exist?<span style="color:#1f2328">(</span>file<span style="color:#1f2328">)</span>
+</span></span></code></pre></div></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/08/appstore-ruby-module/">
+    <h1 class="excerpt-header">AppStore Ruby Module</h1>
+    <p class="excerpt-date">August 22, 2009</p>
+    <p class="excerpt-text"><p>So I was writing my first <a href="%22http://iphoneonrails.com/%22">iPhone on Rails</a> app when my <a href="%22http://www.google.com/reader/shared/05234492019244193889%22">Google Reader</a> dropped some pretty awful news on me. Somebody pre-empted my release with their (pretty excellent, but poorly named) <strong>&ldquo;Bargain Bin with Push!&rdquo;</strong> app (<a href="%22http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=302951751&amp;mt=8%22">iTunes link</a>).</p>
+<h2 id="the-bad-news">The Bad News</h2>
+<p><strong>&ldquo;Bargain Bin with Push!&rdquo;</strong> does pretty much exactly what my app was going to do. It provides push notifications when apps you&rsquo;re interested in drop in price. Instead of raging against the dying of the light, I&rsquo;ve decided to just user their app and let mine go gently into that good night.</p></p>
+  </a>
+</article>
+  
+
+  <div class="pagination">
+    
+        <a class="previous" href="/page/12/">&laquo; Newer</a>
+    
+    <span class="page_number ">13 of 20</span>
+    
+      <a class="next" href="/page/14/">Older &raquo;</a>
+    
+  </div>
+</section>
+
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

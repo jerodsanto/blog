@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="I recently enjoyed the opportunity to help Grooveshark reinvent their web interface. There are many things I could say about this project, but if I were limited to a summary statement it would be that we stood on the shoulders of one giant open source community.
+This post is my thanks to the authors and contributors of the software used. We probably could have done it without you, but I&rsquo;m sure glad we didn&rsquo;t have to!">
+    <meta property="st:title" content="The Tech Behind the New Grooveshark">
+    <meta property="og:title" content="The Tech Behind the New Grooveshark">
+    <meta property="og:description" content="I recently enjoyed the opportunity to help Grooveshark reinvent their web interface. There are many things I could say about this project, but if I were limited to a summary statement it would be that we stood on the shoulders of one giant open source community.
+This post is my thanks to the authors and contributors of the software used. We probably could have done it without you, but I&rsquo;m sure glad we didn&rsquo;t have to!">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      The Tech Behind the New Grooveshark | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>The Tech Behind the New Grooveshark</h1>
+    
+    <p class="post-date">
+      December 15, 2010
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>I recently enjoyed the opportunity to help <a href="http://listen.grooveshark.com">Grooveshark</a> reinvent their web interface. There are many things I could say about this project, but if I were limited to a summary statement it would be that we stood on the shoulders of one giant open source community.</p>
+<p>This post is my thanks to the authors and contributors of the software used. We probably <em>could have</em> done it without you, but I&rsquo;m sure glad we didn&rsquo;t have to!</p>
+<h2 id="jquery"><a href="http://jquery.com">jQuery</a></h2>
+<p><a href="http://twitter.com/wycats">Yehuda Katz</a> recently quipped that <a href="http://jquery.com">jQuery</a> is becoming the standard library of the web. And why shouldn&rsquo;t it? It makes otherwise arduous DOM manipulation a breeze, its API is mature, and it has been proven on major production sites.</p>
+<p>jQuery&rsquo;s other strength is its popularity. Some people dislike it for this reason, but I believe it is of real value. One of Grooveshark&rsquo;s goals for the rewrite was to improve designer/developer accessibility. Mission accomplished. There is no other JavaScript library on Earth that more people feel comfortable using.</p>
+<p>In fact, Grooveshark had already chosen jQuery as a component before I joined the party. I didn&rsquo;t complain :)</p>
+<h2 id="jquery-ui"><a href="http://jqueryui.com">jQuery UI</a></h2>
+<p>You may not notice <a href="http://jqueryui.com">jQuery UI</a> in the mix at first glance, but it&rsquo;s in there.</p>
+<p><img src="http://jerodsanto.net/drop/new-grooveshark-20101213-215629.jpg" alt="the new Grooveshark" title="The New Grooveshark"></p>
+<p>The only widgets used were Autocomplete, Slider, and Datepicker, but we employed a bevy of its other features. It drives all drag and drop interaction on the site as well as enabling the use of another big component: SlickGrid (see below).</p>
+<p>One of jQuery UI&rsquo;s greatest advantages (besides its use of jQuery, of course) is that you can pick and choose just what you need. Page load speed was another driving force of the rewrite, so this was paramount for us.</p>
+<h2 id="javascript-mvc"><a href="http://www.javascriptmvc.com/">JavaScript MVC</a></h2>
+<p>Grooveshark&rsquo;s Flash application was built with a <a href="http://en.wikipedia.org/wiki/Model-View-Controller">Model-View-Controller</a> (MVC) architecture and they were keen on retaining that paradaigm with the JavaScript application. We looked at a few options for this and ultimately settled on <a href="http://www.javascriptmvc.com/">JavaScript MVC</a> (JMVC).</p>
+<p>JMVC has a boatload of features (code generation, dependency resolution, documentation, etc.), but we ended up building just upon the core functionality it exposes. At its base is John Resig&rsquo;s <a href="http://ejohn.org/blog/simple-javascript-inheritance/">Simple Class inheritance</a>, which is key. From there JMVC provides base Model and Controller classes from which you inherit. JMVC controllers are great and with full fledged classical inheritance at our disposal we could extend it to fit all of our needs.</p>
+<p>JMVC&rsquo;s default templating engine is <a href="http://embeddedjs.com/getting_started.html">EJS</a>, which will look familiar to Ruby/Rails developers. Its similarity to vanilla HTML made it attractive right out of the gate (again, for developer accessibility) and powerful features like partials and view helpers means it can handle just about anything.</p>
+<h2 id="slickgrid"><a href="https://github.com/mleibman/SlickGrid/wiki">SlickGrid</a></h2>
+<p>A huge component of Grooveshark is the grid. Almost every content page has it, and it is busting at the seams with features (sorting, arbitrary row rendering, drag and drop, keyboard navigation, etc.).</p>
+<p><img src="http://jerodsanto.net/drop/new-grooveshark-grid-20101214-164846.jpg" alt="Grooveshark&rsquo;s Slick Grid" title="Grooveshark's Slick Grid"></p>
+<p>Features aside, the main thing the grid needs is to perform well with thousands of rows. Thankfully, <a href="https://github.com/mleibman/SlickGrid/wiki">SlickGrid</a> had crossed my radar a few months before the project began. Its adaptive virtual scrolling allows it to scale to hundreds of thousands of rows without losing responsiveness.</p>
+<p>The library was a joy to work with. You should definitely check it out if you have advanced grid needs.</p>
+<h2 id="jquery-hashchange"><a href="http://benalman.com/projects/jquery-hashchange-plugin/">jQuery Hashchange</a></h2>
+<p>Grooveshark is a single page application with many &ldquo;pages&rdquo; inside it. These pages have pretty URLs nested behind a hash (#) tag. We needed to preserve all of the publicly available URLs while providing back button and history support. Originally, we looked to <a href="http://code.quirkey.com/sammy/">Sammy JS</a> for this functionality.</p>
+<p>Sammy worked great for awhile, but we had some issues with back button support on older browsers. Also, Sammy provides a ton of functionality and we were only using a smidgeon of it. Instead, we switched to Ben Alman&rsquo;s <a href="http://benalman.com/projects/jquery-hashchange-plugin/">Hashchange plugin</a> and never looked back. It works great and has a small footprint.</p>
+<h2 id="storejs"><a href="https://github.com/marcuswestin/store.js">Store.js</a></h2>
+<p>Performance is a big deal to the Grooveshark team. We use local storage to persist user settings and libraries so they won&rsquo;t have to wait on the server to load up the application when they return. <a href="https://github.com/marcuswestin/store.js">Store.js</a> is a local storage wrapper that consolidates all the browser quirks into a single API. Awesome stuff.</p>
+<h2 id="jquery-localize"><a href="https://github.com/coderifous/jquery-localize/">jQuery-localize</a></h2>
+<p>Grooveshark currently supports switching between 17 languages. When the language is switched all localized elements on the page (and future elements) need to be swapped out. Our localization technique started with the <a href="https://github.com/coderifous/jquery-localize/">jquery-localize</a> plugin. We ended up extending it quite a bit to support some advanced string localizations, but the plugin definitely gave us a jumping off point.</p>
+<h2 id="other-stuff">Other Stuff</h2>
+<p>Those are the big pieces of the application, but there are other players that are worth mentioning:</p>
+<ul>
+<li><a href="https://github.com/phiggins42/bloody-jquery-plugins">PubSub</a> — communicating between disparate sections of the app</li>
+<li><a href="https://github.com/tzuryby/jquery.hotkeys">jquery.hotkeys</a> — keyboard shortcuts ftw</li>
+<li><a href="http://jursza.net/dev/jjmenu/">jjmenu</a> — context menus</li>
+<li><a href="http://www.json.org/">JSON</a> — pretty much the best thing ever, duh</li>
+<li><a href="http://documentcloud.github.com/underscore/">Underscore</a> — not used directly, but we yoinked a few functions from it</li>
+<li><a href="http://www.yaml.org/">Yaml</a> — dependency management and configuration</li>
+<li><a href="http://rake.rubyforge.org/">Rake</a> — build and deploy routines</li>
+<li><a href="http://code.google.com/closure/compiler/">Closure Compiler</a> — JavaScript minification</li>
+<li><a href="http://www.jslint.com/">JSLint</a> — keep our codes pretty</li>
+<li><a href="https://github.com/grosser/smusher">Smusher</a> — optimize images without installing ImageMagick</li>
+</ul>
+<hr>
+<p>If you authored or contributed to any of the projects listed above: <strong>THANKS!!</strong></p>
+<p>If you are interested in any of them or have questions about how we implemented other pieces of the application, please do ask.</p>
+<p>Oh yeah, there is One More Thing®. If you&rsquo;re a Grooveshark user, <a href="http://listen.grooveshark.com/#/user/jerodsanto/417270/">friend</a> me up. <a href="http://listen.grooveshark.com/#/user/jerodsanto/417270/community/fans">My community is weak</a>!</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2010%2f12%2fthe-tech-behind-the-new-grooveshark%2f&via=jerodsanto&text=The%20Tech%20Behind%20the%20New%20Grooveshark" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2010%2f12%2fthe-tech-behind-the-new-grooveshark%2f&t=The%20Tech%20Behind%20the%20New%20Grooveshark" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2010%2f12%2fthe-tech-behind-the-new-grooveshark%2f&title=The%20Tech%20Behind%20the%20New%20Grooveshark" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2010\/12\/the-tech-behind-the-new-grooveshark\/";
+    var disqus_title = "The Tech Behind the New Grooveshark";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

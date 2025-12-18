@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="1) Packages. Control them.
+Installing PackageControl is the first step on many Sublime Text 2 (ST2) blog posts around the web. Rightly so. It opens up a new world of functionality and makes managing that world a piece o&rsquo; cake.
+Once you have it installed, you&rsquo;re a quick ⇧⌘P and a &ldquo;pack&rdquo; from everything you need.
+
+2) Packages. Sync them.
+Even with PackageControl, installing and updating packages on each of your machines is more work than it needs to be.">
+    <meta property="st:title" content="7 Ways to Level Up Your Sublime Text Editing">
+    <meta property="og:title" content="7 Ways to Level Up Your Sublime Text Editing">
+    <meta property="og:description" content="1) Packages. Control them.
+Installing PackageControl is the first step on many Sublime Text 2 (ST2) blog posts around the web. Rightly so. It opens up a new world of functionality and makes managing that world a piece o&rsquo; cake.
+Once you have it installed, you&rsquo;re a quick ⇧⌘P and a &ldquo;pack&rdquo; from everything you need.
+
+2) Packages. Sync them.
+Even with PackageControl, installing and updating packages on each of your machines is more work than it needs to be.">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      7 Ways to Level Up Your Sublime Text Editing | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>7 Ways to Level Up Your Sublime Text Editing</h1>
+    
+    <p class="post-date">
+      August 17, 2012
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <h2 id="1-packages-control-them">1) Packages. Control them.</h2>
+<p>Installing <a href="http://wbond.net/sublime_packages/package_control">PackageControl</a> is the first step on many Sublime Text 2 (ST2) blog posts around the web. Rightly so. It opens up a new world of functionality and makes managing that world a piece o&rsquo; cake.</p>
+<p>Once you have it installed, you&rsquo;re a quick ⇧⌘P and a &ldquo;pack&rdquo; from everything you need.</p>
+<p><a href="http://wbond.net/sublime_packages/package_control"><img src="http://jerodsanto.net/drop/st2-package-control-20120817-104740.png" alt="&quot;Upgrade/Overwrite All Packages&quot; is super cool"></a></p>
+<h2 id="2-packages-sync-them">2) Packages. Sync them.</h2>
+<p>Even with PackageControl, installing and updating packages on each of your machines is more work than it needs to be.</p>
+<p>Instead of doing that, just move the <code>Packages</code> directory to your Dropbox or Google Drive and symlink it so ST2 can use it.</p>
+<p>On OS X with Dropbox it&rsquo;s as easy as this:</p>
+<p>On your first system:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">mv ~/Library/Application\ Support/Sublime\ Text\ 2/Packages \
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">  ~/Dropbox/appsync/Sublime\ Text\ 2/Packages
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">ln -s ~/Dropbox/appsync/Sublime\ Text\ 2/Packages \
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">  ~/Library/Application\ Support/Sublime\ Text\ 2/Packages
+</span></span></span></code></pre></div><p>On subsequent systems:\</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">rm ~/Library/Application\ Support/Sublime\ Text\ 2/Packages
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">ln -s ~/Dropbox/appsync/Sublime\ Text\ 2/Packages \
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">  ~/Library/Application\ Support/Sublime\ Text\ 2/Packages
+</span></span></span></code></pre></div><p>The really great thing about this is that ST2 stores your preferences in a package called <code>User</code> so all of your preferences come along for the syncing ride.</p>
+<h2 id="3-speaking-of-preferences">3) Speaking of preferences&hellip;</h2>
+<p>One of the first things about ST2 that made me go &ldquo;ZOMG THIS IS AWESOME&rdquo; is how it natively supported a handful of small features that are a PITA to get working in TextMate (my previous editor of choice) and Vim (my forever-editor-of-second-choice).</p>
+<p>IN ST2, they&rsquo;re just a boolean flag in your preferences.</p>
+<p>Here they are, in JSON format of course:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0a3069">&#34;ensure_newline_at_eof_on_save&#34;</span><span style="color:#0550ae">:</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0a3069">&#34;trim_trailing_white_space_on_save&#34;</span><span style="color:#0550ae">:</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0a3069">&#34;translate_tabs_to_spaces&#34;</span><span style="color:#0550ae">:</span> <span style="color:#cf222e">true</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0a3069">&#34;tab_size&#34;</span><span style="color:#0550ae">:</span> <span style="color:#0550ae">2</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0a3069">&#34;rulers&#34;</span><span style="color:#0550ae">:</span> <span style="color:#1f2328">[</span><span style="color:#0550ae">80</span><span style="color:#1f2328">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></div><p>The <code>ensure_newline_at_eof_on_save</code> and <code>trim_trailing_white_space_on_save</code> settings will save you (and others) endless headaches when collaborating via version control.</p>
+<p>The <code>translate_tabs_to_spaces</code>, <code>tab_size</code>, and <code>ruler</code> settings will help keep your code readable. (<a href="/2012/07/some-white-spaces-are-more-equal-than-others/">more on that here</a>)</p>
+<h2 id="4-git-with-it">4) Git with it</h2>
+<p>The <a href="https://github.com/kemayo/sublime-text-2-git">git package</a> is super handy to have around. It puts all the requisite git commands at your finger tips via the Command Palette.</p>
+<p>I don&rsquo;t personally use it to make commits, but where it really shines is in providing <code>git blame</code> and <code>git log</code> views in the context of the current ST2 tab.</p>
+<p>Here is the result of executing <code>Git: Log Current File</code> on a project&rsquo;s <code>pricing.erb</code> file:</p>
+<p><a href="https://github.com/kemayo/sublime-text-2-git"><img src="http://jerodsanto.net/drop/st2-git-log-current-file-20120817-110847.png" alt="Git: Blame works similarily"></a></p>
+<p>Selecting one of the log items from the list opens the commit details in a new tab. That&rsquo;s awesome.</p>
+<h2 id="5-n-views-to-a-kill">5) N Views to a Kill</h2>
+<p>One of my early gripes about ST2 was that it didn&rsquo;t provide split views. Then I realized that I was completely wrong and it does provide split views! Don&rsquo;t you love when that happens?</p>
+<p>You can find the settings for split views in <strong>View</strong> -&gt; <strong>Layout</strong>. There are many choices there, but all I usually need is two columns side-by-side so I&rsquo;ve trained myself on two keyboard shortcuts:</p>
+<ul>
+<li>⌘⌥2 — switch to the two column side-by-side layout</li>
+<li>⌘⌥1 — switch to the default on column layout</li>
+</ul>
+<p>Once you have multiple views up you can drag &amp; drop tabs between them. You can even open the same file in multiple views, if that floats your boat.</p>
+<p><img src="http://jerodsanto.net/drop/st2-split-view-same-file-20120817-120223.png" alt=""></p>
+<h2 id="6-enhance-the-sidebar">6) Enhance the Sidebar</h2>
+<p>The <a href="https://github.com/titoBouzout/SideBarEnhancements">SidebarEnhancements package</a> fills such a huge void in ST2&rsquo;s feature list that it should really be merged into core.</p>
+<p>Not only does it add handy things like the abilities to &ldquo;close&rdquo;, &ldquo;move&rdquo;, &ldquo;rename&rdquo;, and &ldquo;delete&rdquo; files (how avant garde!), but you can also &ldquo;open with&rdquo; a managed list of external applications.</p>
+<p>I like to preview my Markdown files in <a href="http://markedapp.com/">Marked</a>, which this package enables.</p>
+<p><img src="http://jerodsanto.net/drop/sublime-text-open-with-marked-20120813-101112.png" alt="Marked is complements ST2 nicely"></p>
+<p>If any influential ST2 people are reading this, please seriously consider getting SidebarEnhancements into ST2 proper.</p>
+<h2 id="7-all-the-small-keys">7) All the small keys</h2>
+<p>The best way to level up your text editing is by removing round trips to the mouse.</p>
+<p>In addition to supporting many of the Operating System&rsquo;s shortcuts, ST2 has a plethora of keyboard shortcuts for you to master.</p>
+<p>Here are a handful of them that I believe give you the most bang for your buck:</p>
+<ul>
+<li>⌘T — Goto Anything. This is TextMate&rsquo;s killer feature implemented flawlessly</li>
+<li>⌘D — Quick add next. When you have a text string selected and you want to quickly select subsequent matching strings, this is your best friend. Once you have all the things you want selected you can operate on them as a group (edit, delete, upcase, etc.)</li>
+<li>⌘L — Select the current line. Hold it down to contine to select subsequent lines</li>
+<li>⇧⌘[ and ⇧⌘] — Navigate left and right through your open tabs, just like in Chrome/Safari</li>
+<li>⌘K ⌘N — Fold code at indentation N</li>
+<li>⌘K ⌘J — Unfold all code in the document</li>
+<li>⌘K ⌘B — Toggle the sidebar. This is essential when working on a small screen and using split columns</li>
+</ul>
+<h2 id="fin">Fin</h2>
+<p>Those are the big ones. There&rsquo;s also writing your own custom snippets, but that&rsquo;s a big enough conversation to warrant its own post. Subscribe to the <a href="/feed.xml">feed</a> or follow along on <a href="http://twitter.com/jerodsanto">Twitter</a> to be notified of that and other future posts!</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2012%2f08%2f7-ways-to-level-up-your-sublime-text-editing%2f&via=jerodsanto&text=7%20Ways%20to%20Level%20Up%20Your%20Sublime%20Text%20Editing" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2012%2f08%2f7-ways-to-level-up-your-sublime-text-editing%2f&t=7%20Ways%20to%20Level%20Up%20Your%20Sublime%20Text%20Editing" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2012%2f08%2f7-ways-to-level-up-your-sublime-text-editing%2f&title=7%20Ways%20to%20Level%20Up%20Your%20Sublime%20Text%20Editing" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2012\/08\/7-ways-to-level-up-your-sublime-text-editing\/";
+    var disqus_title = "7 Ways to Level Up Your Sublime Text Editing";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

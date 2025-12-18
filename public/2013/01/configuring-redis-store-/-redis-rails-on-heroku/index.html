@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="redis-store&rsquo;s redis-rails gem is awesome, but it can be a pain in the buttox to get configured on Heroku.
+That&rsquo;s because Heroku&rsquo;s ever-growing list of Redis providers all use config vars to set the Redis URL and redis-rails expects you to hook up the cache store and session store during the Rails application boot process, during which the config vars are unavailable.
+Here&rsquo;s how I got it working:
+First, delete config/initializers/session_store.rb. It&rsquo;s not needed because we&rsquo;ll initialize the session store and the cache store in the same place.">
+    <meta property="st:title" content="Configuring redis-store / redis-rails on Heroku">
+    <meta property="og:title" content="Configuring redis-store / redis-rails on Heroku">
+    <meta property="og:description" content="redis-store&rsquo;s redis-rails gem is awesome, but it can be a pain in the buttox to get configured on Heroku.
+That&rsquo;s because Heroku&rsquo;s ever-growing list of Redis providers all use config vars to set the Redis URL and redis-rails expects you to hook up the cache store and session store during the Rails application boot process, during which the config vars are unavailable.
+Here&rsquo;s how I got it working:
+First, delete config/initializers/session_store.rb. It&rsquo;s not needed because we&rsquo;ll initialize the session store and the cache store in the same place.">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Configuring redis-store / redis-rails on Heroku | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Configuring redis-store / redis-rails on Heroku</h1>
+    
+    <p class="post-date">
+      January 23, 2013
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p><a href="https://github.com/jodosha/redis-store">redis-store&rsquo;s</a> redis-rails <a href="http://rubygems.org/gems/redis-rails">gem</a> is awesome, but it can be a pain in the buttox to get configured on Heroku.</p>
+<p>That&rsquo;s because Heroku&rsquo;s ever-growing <a href="https://addons.heroku.com/?q=redis">list of Redis providers</a> all use <a href="https://devcenter.heroku.com/articles/config-vars">config vars</a> to set the Redis URL and redis-rails expects you to hook up the cache store and session store during the Rails application boot process, during which the config vars are unavailable.</p>
+<p>Here&rsquo;s how I got it working:</p>
+<p>First, delete <code>config/initializers/session_store.rb</code>. It&rsquo;s not needed because we&rsquo;ll initialize the session store and the cache store in the same place.</p>
+<p>Next, create <code>config/initializers/redis_store.rb</code> and put this in it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>redis_url <span style="color:#0550ae">=</span> <span style="color:#0550ae">ENV</span><span style="color:#0550ae">[</span><span style="color:#0a3069">&#34;REDISCLOUD_URL&#34;</span><span style="color:#0550ae">]</span> <span style="color:#0550ae">||</span> <span style="color:#0a3069">&#34;redis://127.0.0.1:6379/0/myapp&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">MyApp</span><span style="color:#0550ae">::</span><span style="color:#0550ae">Application</span><span style="color:#0550ae">.</span>config<span style="color:#0550ae">.</span>cache_store <span style="color:#0550ae">=</span> <span style="color:#032f62">:redis_store</span><span style="color:#1f2328">,</span> redis_url
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">MyApp</span><span style="color:#0550ae">::</span><span style="color:#0550ae">Application</span><span style="color:#0550ae">.</span>config<span style="color:#0550ae">.</span>session_store <span style="color:#032f62">:redis_store</span><span style="color:#1f2328">,</span> <span style="color:#032f62">redis_server</span><span style="color:#1f2328">:</span> redis_url
+</span></span></code></pre></div><p>That&rsquo;s all there is to it! A few notes:</p>
+<ol>
+<li>initializers are executed <em>after</em> <code>application.rb</code>, at which point Heroku&rsquo;s config vars are available</li>
+<li>when the config var URL is nil, like in dev mode, it will revert to your local Redis server</li>
+<li>I&rsquo;m using <a href="https://addons.heroku.com/rediscloud">RedisCloud</a> as a Redis provider, but you&rsquo;ll need to adjust the config var to match whichever provider you choose</li>
+<li>Be sure to replace <code>MyApp</code> with the name of your app ;)</li>
+<li>The <code>/myapp</code> at the end of the fallback URL is optional. It adds a namespace to all Redis keys. I like this in dev mode because I can see all of my app&rsquo;s keys by doing a <code>keys myapp*</code> in the Redis CLI. Feel free to omit</li>
+</ol>
+<p>Happy caching!</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2013%2f01%2fconfiguring-redis-store-%2f-redis-rails-on-heroku%2f&via=jerodsanto&text=Configuring%20redis-store%20%2f%20redis-rails%20on%20Heroku" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2013%2f01%2fconfiguring-redis-store-%2f-redis-rails-on-heroku%2f&t=Configuring%20redis-store%20%2f%20redis-rails%20on%20Heroku" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2013%2f01%2fconfiguring-redis-store-%2f-redis-rails-on-heroku%2f&title=Configuring%20redis-store%20%2f%20redis-rails%20on%20Heroku" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2013\/01\/configuring-redis-store-\/-redis-rails-on-heroku\/";
+    var disqus_title = "Configuring redis-store \/ redis-rails on Heroku";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="I use gitosis for private git repository hosting (and it&rsquo;s awesome). If you are interested, this great tutorial will walk you through setting it up yourself.
+I recently needed to rename one of my repositories and couldn&rsquo;t find any info on how to do it, so here is a walk-thru. I will demonstrate the steps of renaming a repository called &ldquo;tk&rdquo; to &ldquo;show-time&rdquo;.
+Rename project in gitosis.conf
+Before:
+[group main]
+writable = tk
+After:">
+    <meta property="st:title" content="Rename A Gitosis Repository">
+    <meta property="og:title" content="Rename A Gitosis Repository">
+    <meta property="og:description" content="I use gitosis for private git repository hosting (and it&rsquo;s awesome). If you are interested, this great tutorial will walk you through setting it up yourself.
+I recently needed to rename one of my repositories and couldn&rsquo;t find any info on how to do it, so here is a walk-thru. I will demonstrate the steps of renaming a repository called &ldquo;tk&rdquo; to &ldquo;show-time&rdquo;.
+Rename project in gitosis.conf
+Before:
+[group main]
+writable = tk
+After:">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Rename A Gitosis Repository | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Rename A Gitosis Repository</h1>
+    
+    <p class="post-date">
+      May 28, 2009
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>I use <a href="http://eagain.net/gitweb/?p=gitosis.git;a=summary">gitosis</a> for private git repository hosting (and it&rsquo;s awesome). If you are interested, this<a href="http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way"> great tutorial</a> will walk you through setting it up yourself.</p>
+<p>I recently needed to rename one of my repositories and couldn&rsquo;t find any info on how to do it, so here is a walk-thru. I will demonstrate the steps of renaming a repository called &ldquo;<strong>tk</strong>&rdquo; to &ldquo;<strong>show-time</strong>&rdquo;.</p>
+<p>Rename project in gitosis.conf</p>
+<p>Before:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">[group main]
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">writable = tk
+</span></span></span></code></pre></div><p>After:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">[group main]
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">writable = show-time
+</span></span></span></code></pre></div><p>Push changes</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">git push origin master
+</span></span></span></code></pre></div><p>Connect to gitosis server and rename correct folder</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">cd /home/git/repositories
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">mv tk show-time
+</span></span></span></code></pre></div><p>Change the remote reference in all repository clones</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">cd /src/show-time
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">git remote rm origin
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">git remote add origin git@example-git-server.com:show-time.git
+</span></span></span></code></pre></div><p>Done and done.</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2009%2f05%2frename-a-gitosis-repository%2f&via=jerodsanto&text=Rename%20A%20Gitosis%20Repository" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2009%2f05%2frename-a-gitosis-repository%2f&t=Rename%20A%20Gitosis%20Repository" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2009%2f05%2frename-a-gitosis-repository%2f&title=Rename%20A%20Gitosis%20Repository" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2009\/05\/rename-a-gitosis-repository\/";
+    var disqus_title = "Rename A Gitosis Repository";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

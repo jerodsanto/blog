@@ -1,0 +1,25 @@
+baseURL = "https://jerodsanto.net"
+languageCode = "en-us"
+title = "Jerod Santo"
+
+[params]
+  author = "Jerod Santo"
+  description = "On software, life, & the space between"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github"
+    lineNos = false
+
+[permalinks]
+  posts = "/:year/:month/:title/"
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"

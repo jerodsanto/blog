@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head>
+	<meta name="generator" content="Hugo 0.152.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <title>
+      Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class=" home">
+    
+      
+<div class="main-header">
+  <h1>
+    <a href="/" title="Home">
+      <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+    </a>
+  </h1>
+  <a href="/" title="View Blog Archives" class="main-header-archive">Blog</a>
+  <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+</div>
+
+    
+
+    
+
+<section class="main-wrapper excerpt-list">
+  <header class="section-header">
+    <h1>
+      
+        <a href="/" title="Back to Page 1">Page 19</a>
+      
+    </h1>
+    
+  </header>
+
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2008/07/ip2loc/">
+    <h1 class="excerpt-header">ip2loc</h1>
+    <p class="excerpt-date">July 19, 2008</p>
+    <p class="excerpt-text"><p><a href="/wp-content/uploads/2008/07/ip2loc.png"><img class="aligncenter size-full wp-image-120" title="ip2loc" src="/wp-content/uploads/2008/07/ip2loc.png" height="211" alt="ip2loc" width="318" /></a></p>
+<p><a href="http://ip2loc.jerodsanto.net/">ip2loc</a> is a simple tool which visualizes location data for a given IP address using the Google Maps API. I created it for a few reasons:</p>
+<ol>
+<li>Most sites that do this charge or are clunky</li>
+<li>I wanted to write a simple application with <a href="http://sinatrarb.com/">Sinatra</a></li>
+<li>It was a good excuse to sharpen my <a href="http://jquery.com/">jQuery</a> skills</li>
+<li>Boredom</li>
+</ol>
+<p><a href="http://ip2loc.jerodsanto.net/">ip2loc</a> is powered by <a href="http://ruby-lang.org/">Ruby</a>, written with <a href="http://macromates.com/">TextMate</a>, and deployed with <a href="http://www.modrails.com/">Passenger</a> on <a href="http://www.dreamhost.com/r.cgi?143763">DreamHost</a>.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2008/07/my-perfect-os-x-ftp-server/">
+    <h1 class="excerpt-header">My Perfect OS X FTP Server</h1>
+    <p class="excerpt-date">July 17, 2008</p>
+    <p class="excerpt-text"><p>I don’t like FTP. Reasons abound, but to list a couple:</p>
+<ol>
+<li>Too complex to configure</li>
+<li>Insecure by default</li>
+</ol>
+<p>But lets face it, sometimes you need to set up a quick and dirty FTP server for one-time use. Sure, OS X supports FTP file sharing natively but its a bit clunky because you have to either A) allow Anonymous access, or B) create a user account on your system and set up sharing on it. Lame.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2008/07/traversing-directories-with-ruby/">
+    <h1 class="excerpt-header">Traversing Directories with Ruby</h1>
+    <p class="excerpt-date">July 15, 2008</p>
+    <p class="excerpt-text"><p>If you want to shove filenames of all files in a directory into an array, do:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#57606a"># (absolute path)</span>
+</span></span><span style="display:flex;"><span>files <span style="color:#0550ae">=</span> <span style="color:#0550ae">Dir</span><span style="color:#0550ae">[</span><span style="color:#0a3069">&#34;/Users/jerod/src/**&#34;</span><span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># (relative path)</span>
+</span></span><span style="display:flex;"><span>files <span style="color:#0550ae">=</span> <span style="color:#0550ae">Dir</span><span style="color:#0550ae">[</span><span style="color:#0550ae">File</span><span style="color:#0550ae">.</span>expand_path<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;~/src&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">+</span> <span style="color:#0a3069">&#34;/**&#34;</span><span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># (in ENV[&#34;PWD&#34;], aka current directory)</span>
+</span></span><span style="display:flex;"><span>files <span style="color:#0550ae">=</span> <span style="color:#0550ae">Dir</span><span style="color:#0550ae">[</span><span style="color:#0a3069">&#34;**&#34;</span><span style="color:#0550ae">]</span>
+</span></span></code></pre></div><p>If you want to shove filenames of all files in a directory <strong>recursively</strong> into an array, do:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#57606a"># (absolute path)</span>
+</span></span><span style="display:flex;"><span>files <span style="color:#0550ae">=</span> <span style="color:#0550ae">Dir</span><span style="color:#0550ae">[</span><span style="color:#0a3069">&#34;/Users/jerod/src/**/**&#34;</span><span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># (relative path)</span>
+</span></span><span style="display:flex;"><span>files <span style="color:#0550ae">=</span> <span style="color:#0550ae">Dir</span><span style="color:#0550ae">[</span><span style="color:#0550ae">File</span><span style="color:#0550ae">.</span>expand_path<span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;~/src&#34;</span><span style="color:#1f2328">)</span> <span style="color:#0550ae">+</span> <span style="color:#0a3069">&#34;/**/**&#34;</span><span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># (in ENV[&#34;PWD&#34;], aka current directory)</span>
+</span></span><span style="display:flex;"><span>files <span style="color:#0550ae">=</span> <span style="color:#0550ae">Dir</span><span style="color:#0550ae">[</span><span style="color:#0a3069">&#34;**/**&#34;</span><span style="color:#0550ae">]</span>
+</span></span></code></pre></div><p>It doesn’t get much easier than that.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2008/07/new-github-repo-aws-ruby-miscellany/">
+    <h1 class="excerpt-header">New GitHub Repo: AWS Ruby Miscellany</h1>
+    <p class="excerpt-date">July 14, 2008</p>
+    <p class="excerpt-text"><p>I decided to source out a few random Ruby scripts I use to interface with Amazon’s Simple Storage Service <a href="http://www.amazon.com/gp/browse.html?node=16427261">(S3)</a> from the command line. Right now there are scripts which allow:</p>
+<ul>
+<li>Duplicating a local folder in a specified S3 bucket (recursively)</li>
+<li>Listing all buckets and files stored on an S3 account</li>
+<li>Uploading a specified file to a specified S3 bucket</li>
+<li>Downloading a specified file from a specified S3 bucket.</li>
+</ul>
+<p>I’m sure the functionality will grow as needs arise. For now, check out the <a href="http://github.com/jerodsanto/aws-ruby-miscellany/tree/master">repo on GitHub</a></p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2008/07/capify-public-key-deployment/">
+    <h1 class="excerpt-header">Capify - public key deployment</h1>
+    <p class="excerpt-date">July 11, 2008</p>
+    <p class="excerpt-text"><p>I’ve been playing with <a href="http://capify.org/">Capistrano</a> a lot lately and loving it. Here is an example of how easy it is to write tasks and use them on multiple remote servers.</p>
+<p>This task installs your SSH public key on the remote machine to allow key-based authentication:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>set <span style="color:#032f62">:key_file</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">Capistrano</span><span style="color:#0550ae">::</span><span style="color:#0550ae">CLI</span><span style="color:#0550ae">.</span>ui<span style="color:#0550ae">.</span>ask <span style="color:#0a3069">&#34;enter public key to push: &#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>desc <span style="color:#0a3069">&#34;configures key-based SSH administration&#34;</span>
+</span></span><span style="display:flex;"><span>task <span style="color:#032f62">:push_key</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:roles</span>  <span style="color:#0550ae">=&gt;</span> <span style="color:#032f62">:all</span> <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  key_location <span style="color:#0550ae">=</span> <span style="color:#0550ae">File</span><span style="color:#0550ae">.</span>expand_path<span style="color:#1f2328">(</span>key_file<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">unless</span> <span style="color:#0550ae">File</span><span style="color:#0550ae">.</span>exist?<span style="color:#1f2328">(</span>key_location<span style="color:#1f2328">)</span> <span style="color:#0550ae">and</span> key_file<span style="color:#0550ae">.</span>match<span style="color:#1f2328">(</span><span style="color:#0a3069">/\.pub$/</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">puts</span> <span style="color:#0a3069">&#34;Couldn&#39;t locate public key. Try again&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">exit</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>  key_file_name <span style="color:#0550ae">=</span> <span style="color:#0550ae">File</span><span style="color:#0550ae">.</span>basename<span style="color:#1f2328">(</span>key_location<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  upload key_location<span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;/tmp/</span><span style="color:#0a3069">#{</span>key_file_name<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>  run <span style="color:#0a3069">&#34;if [ ! -e ~/.ssh ];then mkdir ~/.ssh; fi&#34;</span>
+</span></span><span style="display:flex;"><span>  run <span style="color:#0a3069">&#34;cat /tmp/</span><span style="color:#0a3069">#{</span>key_file_name<span style="color:#0a3069">}</span><span style="color:#0a3069"> &gt;&gt; ~/.ssh/authorized_keys&#34;</span>
+</span></span><span style="display:flex;"><span>  run <span style="color:#0a3069">&#34;rm /tmp/</span><span style="color:#0a3069">#{</span>key_file_name<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>  run <span style="color:#0a3069">&#34;chmod 600 ~/.ssh/authorized_keys&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>Silky smooth.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2008/06/rails-nested-layouts/">
+    <h1 class="excerpt-header">Rails: Nested Layouts</h1>
+    <p class="excerpt-date">June 20, 2008</p>
+    <p class="excerpt-text"><p>Sometimes one layout (application.html.erb) just doesn’t cut it, but you don’t want a separate layout for each controller in your app. You can use the following technique to nest your Rails app’s layouts:</p>
+<p>In this example, there are two controllers for a simple todo list manager; <code>lists</code> and <code>tasks</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#57606a">#  application.html.erb</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">&lt;</span>html<span style="color:#0550ae">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&lt;</span>head<span style="color:#0550ae">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&lt;</span>title<span style="color:#0550ae">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">TODO</span> <span style="color:#0550ae">&gt;&gt;</span> <span style="color:#0550ae">&lt;</span><span style="color:#0a3069">%= yield(:title) || &#34;Get things done!&#34; %&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &lt;/title&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &lt;%=</span> stylesheet_link_tag <span style="color:#0a3069">&#39;todo&#39;</span> <span style="color:#0a3069">%&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">  &lt;/head&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&lt;</span>body<span style="color:#0550ae">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&lt;</span>div <span style="color:#6639ba">id</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;container&#34;</span><span style="color:#0550ae">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&lt;</span><span style="color:#6639ba">p</span> style<span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;color: green&#34;</span><span style="color:#0550ae">&gt;&lt;</span><span style="color:#0a3069">%= flash[:notice] %&gt;&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">      &lt;%=</span> <span style="color:#cf222e">yield</span> <span style="color:#032f62">:main</span> <span style="color:#0a3069">%&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">    &lt;/div&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&lt;</span><span style="color:#0a3069">/body&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069">&lt;/</span>html<span style="color:#0550ae">&gt;</span>
+</span></span></code></pre></div><p>The key here is the <code>yield :main</code> which means we can use <code>content_for</code> to put our nested layouts’ output inside the yield. Here is the <code>lists</code> layout:</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2008/06/slicehost--debian--firehol-gotchas/">
+    <h1 class="excerpt-header">SliceHost &#43; Debian &#43; FireHOL gotchas</h1>
+    <p class="excerpt-date">June 20, 2008</p>
+    <p class="excerpt-text"><p>Securing your <a href="http://www.slicehost.com">slice</a> with <a href="http://firehol.sourceforge.net">FireHOL</a> is a really, really good move. Here are a few notes that may save you some time:</p>
+<p>FireHOL requires a kernel config to know which modules to load, SliceHost uses Xen, so to get the kernel configuration in the right place, execute the following commands:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/proc/config.gz ~ <span style="color:#0550ae">&amp;&amp;</span> <span style="color:#6639ba">cd</span> ~
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gunzip config.gz <span style="color:#0550ae">&amp;&amp;</span> mv config /boot/config-<span style="color:#0a3069">`</span>uname -r<span style="color:#0a3069">`</span>
+</span></span></code></pre></div><p>FireHOL ships with a safety net configured in <code>/etc/defaults/firehol</code>. It will not start until you edit this file and change this:</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2008/06/htop-like-top-but-awesome/">
+    <h1 class="excerpt-header">htop: like top, but awesome</h1>
+    <p class="excerpt-date">June 3, 2008</p>
+    <p class="excerpt-text"><p>If you’ve been hacking at your linux CLI for a little while, you’re probably familiar with the pic below. If not, just type <code>top</code> and your terminal will spring to life with an ever-updating process and usage display.</p>
+<p><img src="/wp-content/uploads/2008/06/top.jpg" alt="top"></p>
+<p>While very useful, <code>top</code>’s output is oogly. It’s the 21st century already! Let’s use some colors!!</p>
+<p>Thankfully, <code>htop</code> is here to save the day. To install on a Debian-based linux, simply type:</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2008/05/10.5.3-fixes-spaces/">
+    <h1 class="excerpt-header">10.5.3 Fixes Spaces</h1>
+    <p class="excerpt-date">May 31, 2008</p>
+    <p class="excerpt-text"><p>If you’re like me then one desktop just doesn’t cut it anymore. Leopard’s Spaces is Apple’s attempt at a virtual desktop management app and it has lacked one very crucial feature until the .3 release of the operating system which was pushed last week.</p>
+<p>Its a difficult feature to explain but it basically allows your to divide your spaces by task instead of by application. I was dying for this fix because everytime I would switch to an application in a space that didn’t have it open already, I would be whisked away to another space that I did not want to be in.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2008/05/debian-disable-sytem-beep/">
+    <h1 class="excerpt-header">Debian: Disable Sytem Beep</h1>
+    <p class="excerpt-date">May 19, 2008</p>
+    <p class="excerpt-text"><p>Here’s how to turn off that annoying system beep at your Debian CLI:</p>
+<p>Just edit <code>/etc/modprobe.d/blacklist</code> and append this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>blacklist pcspkr
+</span></span></code></pre></div><p>Then reboot. Can’t wait for reboot? type this command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo rmmod pcspkr
+</span></span></code></pre></div></p>
+  </a>
+</article>
+  
+
+  <div class="pagination">
+    
+        <a class="previous" href="/page/18/">&laquo; Newer</a>
+    
+    <span class="page_number ">19 of 20</span>
+    
+      <a class="next" href="/page/20/">Older &raquo;</a>
+    
+  </div>
+</section>
+
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

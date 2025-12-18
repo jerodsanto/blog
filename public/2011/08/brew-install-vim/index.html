@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="OS X users who prefer command-line Vim over MacVim (I&rsquo;m sure we&rsquo;re few and far between) may become frustrated with the lack of features enabled in Apple&rsquo;s stock /usr/bin/vim. For me, seeing -clipboard and -ruby in my vim --version just wasn&rsquo;t gonna cut it.
+Turning to Homebrew &ldquo;proper&rdquo; for a solution would only further that frustration:
+brew search vim
+
+If you meant `vim&#39; precisely:
+
+Apple distributes vim with OS X, you can find it in /usr/bin.
+Thankfully, there&rsquo;s a great unofficial repository of alternative Homebrew formulae to fill the void!">
+    <meta property="st:title" content="Brew Install Vim">
+    <meta property="og:title" content="Brew Install Vim">
+    <meta property="og:description" content="OS X users who prefer command-line Vim over MacVim (I&rsquo;m sure we&rsquo;re few and far between) may become frustrated with the lack of features enabled in Apple&rsquo;s stock /usr/bin/vim. For me, seeing -clipboard and -ruby in my vim --version just wasn&rsquo;t gonna cut it.
+Turning to Homebrew &ldquo;proper&rdquo; for a solution would only further that frustration:
+brew search vim
+
+If you meant `vim&#39; precisely:
+
+Apple distributes vim with OS X, you can find it in /usr/bin.
+Thankfully, there&rsquo;s a great unofficial repository of alternative Homebrew formulae to fill the void!">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Brew Install Vim | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Brew Install Vim</h1>
+    
+    <p class="post-date">
+      August 4, 2011
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>OS X users who prefer command-line Vim over MacVim (I&rsquo;m sure we&rsquo;re few and far between) may become frustrated with the lack of features enabled in Apple&rsquo;s stock <code>/usr/bin/vim</code>. For me, seeing <code>-clipboard</code> and <code>-ruby</code> in my <code>vim --version</code> just wasn&rsquo;t gonna cut it.</p>
+<p>Turning to <a href="http://mxcl.github.com/homebrew/">Homebrew &ldquo;proper&rdquo;</a> for a solution would only further that frustration:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">brew search vim
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328"></span><span style="color:#f6f8fa;background-color:#82071e">
+</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#1f2328">If you meant `vim&#39; precisely:
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328"></span><span style="color:#f6f8fa;background-color:#82071e">
+</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#1f2328">Apple distributes vim with OS X, you can find it in /usr/bin.
+</span></span></span></code></pre></div><p>Thankfully, there&rsquo;s a great <a href="https://github.com/adamv/homebrew-alt">unofficial repository</a> of alternative Homebrew formulae to fill the void!</p>
+<p>In it is a formula that will compile a feature-rich version of Vim. You can install it by cloning the repo and pointing to the formula on your local file system or by simply pointing <code>brew install</code> at the raw URL, like so:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">brew install https://raw.github.com/adamv/homebrew-alt/master/duplicates/vim.rb
+</span></span></span></code></pre></div><p>Seriously, do it. Do it. DO IT.</p>
+<div style="width: 560px; margin: 0 auto;">
+<iframe width="560" height="349" src="http://www.youtube.com/embed/JoqDYcCDOTg" frameborder="0" align="center"></iframe>
+</div>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2011%2f08%2fbrew-install-vim%2f&via=jerodsanto&text=Brew%20Install%20Vim" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2011%2f08%2fbrew-install-vim%2f&t=Brew%20Install%20Vim" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2011%2f08%2fbrew-install-vim%2f&title=Brew%20Install%20Vim" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2011\/08\/brew-install-vim\/";
+    var disqus_title = "Brew Install Vim";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

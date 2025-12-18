@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="You&rsquo;ve probably heard of Pow. It is awesome. However, it doesn&rsquo;t play nice with Apache running on the same box. Pow redirects all localhost traffic on port 80 to its own application server listening on a different port. This sucks for anybody — myself included — who also develops non-Ruby web apps using Apache virtual hosts.
+Thankfully there&rsquo;s an elegant workaround to this problem and it comes from the future: IPv6.
+I&rsquo;m sure you know that IPv6 is not actually from the future, but its wide-spread adoption certainly is!
+By configuring Apache to use IPv6 and Pow to use IPv4 they can both live in harmony and bind to port 80 to their heart&rsquo;s content. Pow is on IPv4 already, so we just have to get Apache on IPv6. Here&rsquo;s how:">
+    <meta property="st:title" content="Pow and Apache Side-by-Side">
+    <meta property="og:title" content="Pow and Apache Side-by-Side">
+    <meta property="og:description" content="You&rsquo;ve probably heard of Pow. It is awesome. However, it doesn&rsquo;t play nice with Apache running on the same box. Pow redirects all localhost traffic on port 80 to its own application server listening on a different port. This sucks for anybody — myself included — who also develops non-Ruby web apps using Apache virtual hosts.
+Thankfully there&rsquo;s an elegant workaround to this problem and it comes from the future: IPv6.
+I&rsquo;m sure you know that IPv6 is not actually from the future, but its wide-spread adoption certainly is!
+By configuring Apache to use IPv6 and Pow to use IPv4 they can both live in harmony and bind to port 80 to their heart&rsquo;s content. Pow is on IPv4 already, so we just have to get Apache on IPv6. Here&rsquo;s how:">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Pow and Apache Side-by-Side | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Pow and Apache Side-by-Side</h1>
+    
+    <p class="post-date">
+      April 12, 2011
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>You&rsquo;ve probably heard of <a href="http://pow.cx/">Pow</a>. It is awesome. However, it <a href="https://github.com/37signals/pow/issues/48#issuecomment-973701">doesn&rsquo;t play nice</a> with Apache running on the same box. Pow redirects all localhost traffic on port 80 to its own application server listening on a different port. This sucks for anybody — myself included — who also develops non-Ruby web apps using Apache virtual hosts.</p>
+<p>Thankfully there&rsquo;s an elegant workaround to this problem and it comes from the future: <a href="http://en.wikipedia.org/wiki/IPv6">IPv6</a>.</p>
+<div class="notice">I&rsquo;m sure you know that IPv6 is not actually from the future, but its wide-spread adoption certainly is!</div>
+<p>By configuring Apache to use IPv6 and Pow to use IPv4 they can both live in harmony and bind to port 80 to their heart&rsquo;s content. Pow is on IPv4 already, so we just have to get Apache on IPv6. Here&rsquo;s how:</p>
+<h2 id="1-make-it-listen">1) Make it Listen</h2>
+<p>Set (or change) the <code>Listen</code> directive in your Apache configuration (probably <code>/etc/apache2/httpd.conf</code>) to use IPv6 address syntax:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-apache" data-lang="apache"><span style="display:flex;"><span><span style="color:#6639ba">Listen</span> [::]:80
+</span></span></code></pre></div><p>The <code>::</code> means to bind on all available IPv6 addresses (akin to IPv4&rsquo;s 0.0.0.0). We have to wrap it in square brackets to distinguish the address portion from the colon preceding the port assignment. If you have your <code>NameVirtualHost</code> and <code>VirtualHost</code> directives set to use <code>*:80</code> then you shouldn&rsquo;t need any other changes. Restart Apache and it should be all good.</p>
+<h2 id="2-add-hosts">2) Add Hosts</h2>
+<p>You have to add the hosts you want Apache to serve to <code>/etc/hosts</code> with IPv6 addresses so the browser gets routed properly. <code>::1</code> is the default loopback address, so add them like so:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">::1 localhost
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">::1 wp30.local
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">::1 wp31.local
+</span></span></span></code></pre></div><p>One thing to note is that it is required to put them on separate lines like that. With IPv4 addresses you could stack them on a single line, but for some reason that doesn&rsquo;t work with IPv6.</p>
+<p>To make sure the routing is working properly, ping the hosts using the IPv6 version of ping:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~$ ping6 wp30.local
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">PING6(56=40+8+8 bytes) ::1 --&gt; ::1
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">16 bytes from ::1, icmp_seq=0 hlim=64 time=0.076 ms
+</span></span></span></code></pre></div><h2 id="3-browse-it-up">3) Browse It Up</h2>
+<p>At this point you <strong>should</strong> be able to access both Apache virtual hosts and Pow virtual hosts in your browser. Boom shakalaka</p>
+<h2 id="notes-and-drawbacks">Notes and Drawbacks</h2>
+<p>A few things to note about this solution:</p>
+<p>First, Chrome doesn&rsquo;t seem to resolve the IPv6 hosts properly, which is strange because both Safari 5 and Firefox 4 do. I&rsquo;m on the dev channel, so maybe that has something to do with it.</p>
+<p>Next, you must add the hosts to <code>/etc/hosts</code>. Tools like my <a href="http://detoursapp.com">Detours</a> application do not properly register the IPv6 addresses for lookup (I&rsquo;m going to see if I can fix that, more to come).</p>
+<p>Finally, if IPv6 ever does get deployed into the mainstream, Pow may adopt it and we&rsquo;ll be back where we started. I don&rsquo;t think we have to worry about that for awhile.</p>
+<p>As always, YMMV. Enjoy.</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2011%2f04%2fpow-and-apache-side-by-side%2f&via=jerodsanto&text=Pow%20and%20Apache%20Side-by-Side" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2011%2f04%2fpow-and-apache-side-by-side%2f&t=Pow%20and%20Apache%20Side-by-Side" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2011%2f04%2fpow-and-apache-side-by-side%2f&title=Pow%20and%20Apache%20Side-by-Side" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2011\/04\/pow-and-apache-side-by-side\/";
+    var disqus_title = "Pow and Apache Side-by-Side";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="Rails 3.1&rsquo;s asset pipeline compiles all of our JavaScript into a single file which is executed on all pages which include the javascript_include_tag method. Most of the time that method is in the layout, which means evey page gets the same bundle of JavaScript. This is great for caching, but not so great for selective code execution.
+I developed a pretty simple pattern to namespace and selectively execute certain bits of JavaScript depending on which Rails controller action is active. Just do the following:">
+    <meta property="st:title" content="A Simple Pattern to Namespace and Selectively Execute Certain Bits of JavaScript Depending on Which Rails Controller and Action are Active">
+    <meta property="og:title" content="A Simple Pattern to Namespace and Selectively Execute Certain Bits of JavaScript Depending on Which Rails Controller and Action are Active">
+    <meta property="og:description" content="Rails 3.1&rsquo;s asset pipeline compiles all of our JavaScript into a single file which is executed on all pages which include the javascript_include_tag method. Most of the time that method is in the layout, which means evey page gets the same bundle of JavaScript. This is great for caching, but not so great for selective code execution.
+I developed a pretty simple pattern to namespace and selectively execute certain bits of JavaScript depending on which Rails controller action is active. Just do the following:">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      A Simple Pattern to Namespace and Selectively Execute Certain Bits of JavaScript Depending on Which Rails Controller and Action are Active | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>A Simple Pattern to Namespace and Selectively Execute Certain Bits of JavaScript Depending on Which Rails Controller and Action are Active</h1>
+    
+    <p class="post-date">
+      February 8, 2012
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>Rails 3.1&rsquo;s asset pipeline compiles all of our JavaScript into a single file which is executed on all pages which include the <code>javascript_include_tag</code> method. Most of the time that method is in the layout, which means evey page gets the same bundle of JavaScript. This is great for caching, but not so great for selective code execution.</p>
+<p>I developed a pretty simple pattern to namespace and selectively execute certain bits of JavaScript depending on which Rails controller action is active. Just do the following:</p>
+<div class="notice">I talk about JavaScript, but my code samples are all in CoffeeScript. That&rsquo;s because they&rsquo;re really the same thing. Aren&rsquo;t they?</div>
+<h2 id="1-create-an-application-object">1) Create an application object</h2>
+<p>Let&rsquo;s write a Rails app for accurately predicting weather patterns. We&rsquo;ll call it <em>Elijah</em>. The first step is to create a top-level JavaScript object named after our application.</p>
+<p>Create <code>app/assets/javascripts/elijah.js.coffee</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#1f2328">Elijah</span> <span style="color:#0550ae">?=</span> <span style="color:#1f2328">{}</span>
+</span></span></code></pre></div><p>This is also a nice place to define common methods that will be used all across the application.</p>
+<p>All controller-level objects will be namescaped inside this object, so it must be specified first in the application manifest. Edit <code>app/assets/javascripts/application.js</code> like so:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#57606a">//= require jquery
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//= require elijah
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//= require_tree .
+</span></span></span></code></pre></div><h2 id="2-add-a-javascript-controller-for-each-rails-controller">2) Add a JavaScript controller for each Rails controller</h2>
+<p>Each Rails controller will have a matching JavaScript controller to manage code executed on the Rails controller&rsquo;s actions.</p>
+<p><em>Elijah</em> has a <code>TemperaturesController</code>, so we need our JavaScript to follow suit. Create <code>app/assets/javascripts/temperatures.js.coffee</code>. In it, define a class and instantiate an object of the class.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coffeescript" data-lang="coffeescript"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">TemperaturesController</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#953800">init: </span><span style="color:#6639ba">-&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">console</span><span style="color:#1f2328">.</span><span style="color:#1f2328">log</span> <span style="color:#0a3069">&#34;temps init!&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#953800">index: </span><span style="color:#6639ba">-&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">console</span><span style="color:#1f2328">.</span><span style="color:#1f2328">log</span> <span style="color:#0a3069">&#34;temps index!&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">this</span><span style="color:#1f2328">.</span><span style="color:#953800">Elijah.temperatures = </span><span style="color:#cf222e">new</span> <span style="color:#1f2328">TemperaturesController</span>
+</span></span></code></pre></div><p>The <code>init</code> method is where to put any setup code that will be executed on before all actions for a given controller.</p>
+<p>Each action can optionally have its own method which will be executed on it and no other actions owned by the controller.</p>
+<p>This example will log &ldquo;temps init!&rdquo; followed by &ldquo;temps index!&rdquo; when a user visits the temperatures index.</p>
+<h2 id="3-embed-the-current-controller-and-action-in-the-html">3) Embed the current controller and action in the HTML</h2>
+<p>Somehow we have to let our <em>Elijah</em> JavaScript object know which controller/action pair are active for a given page request. I do this by adding <code>data-</code> attributes to the <code>body</code> element of the layout, like so:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#1f2328">&lt;</span><span style="color:#0550ae">body</span> <span style="color:#1f2328">data-controller</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&lt;%= controller.controller_path %&gt;&#34;</span> <span style="color:#1f2328">data-action</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;&lt;%= controller.action_name %&gt;&#34;</span><span style="color:#1f2328">&gt;</span>
+</span></span></code></pre></div><p>It&rsquo;s important to use <code>controller_path</code> instead of <code>controller_name</code> if you ever want to namespace your Rails controllers.</p>
+<h2 id="4-auto-execute-the-matching-controlleraction-javascript">4) Auto-execute the matching controller/action JavaScript</h2>
+<p>The last thing to do is make sure that the active Rails controller/action have their matching JavaScript controller/method executed when the page loads.</p>
+<p>This can be set up right inside the application manifest file because code added there is executed <em>after</em> all other compiled code. This way we&rsquo;re sure to have our JavaScript controller objects in place.</p>
+<p>It&rsquo;ll look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#57606a">// - snipped -
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a">//= require_tree .
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">(</span><span style="color:#cf222e">function</span><span style="color:#1f2328">(</span><span style="color:#1f2328">$</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">undefined</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#cf222e">function</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">var</span> <span style="color:#1f2328">$body</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;body&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">var</span> <span style="color:#1f2328">controller</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">$body</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;controller&#34;</span><span style="color:#1f2328">).</span><span style="color:#1f2328">replace</span><span style="color:#1f2328">(</span><span style="color:#0a3069">/\//g</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;_&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">var</span> <span style="color:#1f2328">action</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">$body</span><span style="color:#1f2328">.</span><span style="color:#1f2328">data</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;action&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">var</span> <span style="color:#1f2328">activeController</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">Elijah</span><span style="color:#1f2328">[</span><span style="color:#1f2328">controller</span><span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">activeController</span> <span style="color:#0550ae">!==</span> <span style="color:#cf222e">undefined</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">$</span><span style="color:#1f2328">.</span><span style="color:#1f2328">isFunction</span><span style="color:#1f2328">(</span><span style="color:#1f2328">activeController</span><span style="color:#1f2328">.</span><span style="color:#1f2328">init</span><span style="color:#1f2328">))</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">activeController</span><span style="color:#1f2328">.</span><span style="color:#1f2328">init</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">$</span><span style="color:#1f2328">.</span><span style="color:#1f2328">isFunction</span><span style="color:#1f2328">(</span><span style="color:#1f2328">activeController</span><span style="color:#1f2328">[</span><span style="color:#1f2328">action</span><span style="color:#1f2328">]))</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">activeController</span><span style="color:#1f2328">[</span><span style="color:#1f2328">action</span><span style="color:#1f2328">]();</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">});</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">})(</span><span style="color:#1f2328">jQuery</span><span style="color:#1f2328">);</span>
+</span></span></code></pre></div><p>Nothing too crazy going on here. It just extracts the embedded controller/action combo and executes the matching JavaScript controller&rsquo;s <code>init</code> method followed by the action method.</p>
+<p>Ruby controller namespaces need to be replaced by underscores in JavaScript. For example, an <code>Admin::UsersController</code> will require a JavaScript object called <code>Elijah.admin_users</code>.</p>
+<h2 id="5-there-is-no-step-5">5) There is no step 5</h2>
+<p>That&rsquo;s all there is to it. So far, this has worked pretty well to keep my JavaScript organized.</p>
+<p>Are there better paths to the same goal? How do you go about it?</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2012%2f02%2fa-simple-pattern-to-namespace-and-selectively-execute-certain-bits-of-javascript-depending-on-which-rails-controller-and-action-are-active%2f&via=jerodsanto&text=A%20Simple%20Pattern%20to%20Namespace%20and%20Selectively%20Execute%20Certain%20Bits%20of%20JavaScript%20Depending%20on%20Which%20Rails%20Controller%20and%20Action%20are%20Active" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2012%2f02%2fa-simple-pattern-to-namespace-and-selectively-execute-certain-bits-of-javascript-depending-on-which-rails-controller-and-action-are-active%2f&t=A%20Simple%20Pattern%20to%20Namespace%20and%20Selectively%20Execute%20Certain%20Bits%20of%20JavaScript%20Depending%20on%20Which%20Rails%20Controller%20and%20Action%20are%20Active" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2012%2f02%2fa-simple-pattern-to-namespace-and-selectively-execute-certain-bits-of-javascript-depending-on-which-rails-controller-and-action-are-active%2f&title=A%20Simple%20Pattern%20to%20Namespace%20and%20Selectively%20Execute%20Certain%20Bits%20of%20JavaScript%20Depending%20on%20Which%20Rails%20Controller%20and%20Action%20are%20Active" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2012\/02\/a-simple-pattern-to-namespace-and-selectively-execute-certain-bits-of-javascript-depending-on-which-rails-controller-and-action-are-active\/";
+    var disqus_title = "A Simple Pattern to Namespace and Selectively Execute Certain Bits of JavaScript Depending on Which Rails Controller and Action are Active";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

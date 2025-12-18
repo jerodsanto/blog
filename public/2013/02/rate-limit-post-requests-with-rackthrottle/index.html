@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="Rack::Throttle is an awesome piece of Rack middleware for rate limiting your Rails / Sinatra / Rack app&rsquo;s clients.
+It ships with three rate limiting strategies out of the box: Interval, Hourly, and Daily.
+These strategies will serve 95% of people&rsquo;s needs, but you can also write your own strategy from scratch by subclassing the Limiter and implementing an allowed? method.
+In my experience, writing a strategy from scratch has not been necessary, but I have needed to extend the provided strategies a bit.">
+    <meta property="st:title" content="Rate Limit POST Requests with Rack::Throttle">
+    <meta property="og:title" content="Rate Limit POST Requests with Rack::Throttle">
+    <meta property="og:description" content="Rack::Throttle is an awesome piece of Rack middleware for rate limiting your Rails / Sinatra / Rack app&rsquo;s clients.
+It ships with three rate limiting strategies out of the box: Interval, Hourly, and Daily.
+These strategies will serve 95% of people&rsquo;s needs, but you can also write your own strategy from scratch by subclassing the Limiter and implementing an allowed? method.
+In my experience, writing a strategy from scratch has not been necessary, but I have needed to extend the provided strategies a bit.">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Rate Limit POST Requests with Rack::Throttle | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Rate Limit POST Requests with Rack::Throttle</h1>
+    
+    <p class="post-date">
+      February 3, 2013
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p><a href="https://github.com/datagraph/rack-throttle">Rack::Throttle</a> is an awesome piece of Rack middleware for rate limiting your Rails / Sinatra / Rack app&rsquo;s clients.</p>
+<p>It ships with three rate limiting strategies out of the box: <a href="https://github.com/datagraph/rack-throttle/blob/master/lib/rack/throttle/interval.rb">Interval</a>, <a href="https://github.com/datagraph/rack-throttle/blob/master/lib/rack/throttle/hourly.rb">Hourly</a>, and <a href="https://github.com/datagraph/rack-throttle/blob/master/lib/rack/throttle/daily.rb">Daily</a>.</p>
+<p>These strategies will serve 95% of people&rsquo;s needs, but you can also write your own strategy from scratch by subclassing the <a href="https://github.com/datagraph/rack-throttle/blob/master/lib/rack/throttle/limiter.rb">Limiter</a> and implementing an <code>allowed?</code> method.</p>
+<p>In my experience, writing a strategy from scratch has not been necessary, but I have needed to extend the provided strategies a bit.</p>
+<p>For instance, I have an app where we want to limit writes per hour, but we don&rsquo;t care about reads. In this case, I just subclassed the <a href="https://github.com/datagraph/rack-throttle/blob/master/lib/rack/throttle/hourly.rb">Hourly</a> strategy and made mine allow anything that isn&rsquo;t a POST request.</p>
+<p>My subclass is crazy simple:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">module</span> <span style="color:#24292e">Rack</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">module</span> <span style="color:#24292e">Throttle</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">class</span> <span style="color:#1f2328">HourlyPosts</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">Hourly</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">def</span> <span style="color:#6639ba">allowed?</span><span style="color:#1f2328">(</span>request<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">return</span> <span style="color:#cf222e">true</span> <span style="color:#cf222e">unless</span> request<span style="color:#0550ae">.</span>request_method <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;POST&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">super</span> request
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>Then I invoke it just like I&rsquo;d invoke the default hourly strategy:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>use <span style="color:#0550ae">Rack</span><span style="color:#0550ae">::</span><span style="color:#0550ae">Throttle</span><span style="color:#0550ae">::</span><span style="color:#0550ae">HourlyPosts</span><span style="color:#1f2328">,</span> <span style="color:#032f62">max</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">10</span>
+</span></span></code></pre></div><p>My app doesn&rsquo;t allow updating (PUT) or destroying (DELETE) records, but it&rsquo;d be trivial to modify the subclass to account for them as well.</p>
+<p>I love libraries like Rack::Throttle with small, simple interfaces that are easily extended. It also provides a plethora of options for storage, such as in-memory, gdbm, Memcache, or Redis.</p>
+<p>Highly recommended!</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2013%2f02%2frate-limit-post-requests-with-rackthrottle%2f&via=jerodsanto&text=Rate%20Limit%20POST%20Requests%20with%20Rack%3a%3aThrottle" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2013%2f02%2frate-limit-post-requests-with-rackthrottle%2f&t=Rate%20Limit%20POST%20Requests%20with%20Rack%3a%3aThrottle" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2013%2f02%2frate-limit-post-requests-with-rackthrottle%2f&title=Rate%20Limit%20POST%20Requests%20with%20Rack%3a%3aThrottle" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2013\/02\/rate-limit-post-requests-with-rackthrottle\/";
+    var disqus_title = "Rate Limit POST Requests with Rack::Throttle";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

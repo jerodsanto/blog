@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="The new Omahype, which is a custom Rails-based CMS centered around Omaha-area events, has a separate blog that runs on WordPress.
+This is not all that uncommon. WordPress is great for blogging. Developing (or extending) a custom Rails blogging solution is of little value unless you&rsquo;re doing some crazy custom stuff.
+Despite the blog and main site being on different platforms, there was still the need to integrate the blog content into every page of the Rails site.">
+    <meta property="st:title" content="Easy &#39;Share-Nothing&#39; WordPress Blog Syndication on Rails">
+    <meta property="og:title" content="Easy &#39;Share-Nothing&#39; WordPress Blog Syndication on Rails">
+    <meta property="og:description" content="The new Omahype, which is a custom Rails-based CMS centered around Omaha-area events, has a separate blog that runs on WordPress.
+This is not all that uncommon. WordPress is great for blogging. Developing (or extending) a custom Rails blogging solution is of little value unless you&rsquo;re doing some crazy custom stuff.
+Despite the blog and main site being on different platforms, there was still the need to integrate the blog content into every page of the Rails site.">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Easy &#39;Share-Nothing&#39; WordPress Blog Syndication on Rails | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Easy &#39;Share-Nothing&#39; WordPress Blog Syndication on Rails</h1>
+    
+    <p class="post-date">
+      March 1, 2013
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>The new <a href="http://omahype.com">Omahype</a>, which is a custom Rails-based CMS centered around Omaha-area events, has a separate blog that runs on WordPress.</p>
+<p>This is not all that uncommon. WordPress is great for blogging. Developing (or extending) a custom Rails blogging solution is of little value unless you&rsquo;re doing some crazy custom stuff.</p>
+<p>Despite the blog and main site being on different platforms, there was still the need to integrate the blog content into every page of the Rails site.</p>
+<p><img src="http://jerodsanto.net/drop/omahype-blog.jpg" alt="&lsquo;From the blog&rsquo; is in the footer of every page"></p>
+<p>There are a handful of ways to skin this cat, but most of them require WordPress and Rails to have things in common: share a database, share a server, and/or share a domain.</p>
+<p>Share-Something.</p>
+<p>Omahype is hosted on a <a href="http://heroku.com">&lsquo;Share-Nothing&rsquo; platfom</a> and the WordPress blog was already up and running on Media Temple, so we needed an easy &lsquo;Share-Nothing&rsquo; solution.</p>
+<p>Here&rsquo;s how we do it:</p>
+<h2 id="the-syndication">The Syndication</h2>
+<p>This part is the easiest. WordPress provides syndicated content out of the box via <a href="http://en.wikipedia.org/wiki/RSS">RSS</a> which means we don&rsquo;t have to resort to page scraping or the like.</p>
+<p>Omahype&rsquo;s standard RSS feed is located <a href="http://blog.omahype.com/feed/">here</a>, but we had some simplifications and customizations of the feed&rsquo;s content in mind, so we created a special one just for Rails to consume.</p>
+<p><a href="http://blog.omahype.com/recent/"><img src="http://jerodsanto.net/drop/omahype-rss-pic.jpg" alt=""></a></p>
+<p>This <a href="http://blog.omahype.com/recent/">special feed</a> provides exactly what we need and nothing else: The 4 most recent posts in a format that is easier to repurpose than the main feed.</p>
+<h2 id="pulling-it-in">Pulling It In</h2>
+<p>The syndicated blog content is a value-add to the core features of Omahype&rsquo;s event calendars so we definitely don&rsquo;t want it to slow down page loads.</p>
+<p>Because of this, we decided to pull the content in outside of Rails&rsquo; main request / response lifecycle. This is done via jQuery&rsquo;s <code>$.get</code> and <code>$.parseXML</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<p>Here&rsquo;s our CoffeeScript source which generates the requisite JavaScript to pull in the content and add it to the DOM:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coffeescript" data-lang="coffeescript"><span style="display:flex;"><span><span style="color:#953800">loadBlogPosts: </span><span style="color:#6639ba">-&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">$</span><span style="color:#1f2328">.</span><span style="color:#1f2328">get</span> <span style="color:#0a3069">&#34;http://blog.omahype.com/recent/&#34;</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">(data) -&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#953800">doc = </span><span style="color:#1f2328">$</span><span style="color:#1f2328">.</span><span style="color:#1f2328">parseXML</span> <span style="color:#1f2328">data</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#1f2328">doc</span><span style="color:#1f2328">).</span><span style="color:#1f2328">find</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;item&#34;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">.</span><span style="color:#1f2328">each</span> <span style="color:#6639ba">-&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#953800">$item = </span><span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#953800">title = </span><span style="color:#1f2328">$item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">find</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;title&#34;</span><span style="color:#1f2328">).</span><span style="color:#1f2328">text</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#953800">link = </span><span style="color:#1f2328">$item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">find</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;link&#34;</span><span style="color:#1f2328">).</span><span style="color:#1f2328">text</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#953800">image = </span><span style="color:#1f2328">$item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">find</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;image&#34;</span><span style="color:#1f2328">).</span><span style="color:#1f2328">text</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#953800">description = </span><span style="color:#1f2328">$item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">find</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;description&#34;</span><span style="color:#1f2328">).</span><span style="color:#1f2328">text</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#953800">categories = </span><span style="color:#1f2328">$item</span><span style="color:#1f2328">.</span><span style="color:#1f2328">find</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;category&#34;</span><span style="color:#1f2328">).</span><span style="color:#1f2328">map</span> <span style="color:#6639ba">-&gt;</span> <span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#cf222e">this</span><span style="color:#1f2328">).</span><span style="color:#1f2328">text</span><span style="color:#1f2328">().</span><span style="color:#1f2328">toLowerCase</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#953800">classes = </span><span style="color:#1f2328">$</span><span style="color:#1f2328">.</span><span style="color:#1f2328">makeArray</span><span style="color:#1f2328">(</span><span style="color:#1f2328">categories</span><span style="color:#1f2328">).</span><span style="color:#1f2328">join</span> <span style="color:#0a3069">&#34; &#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#cf222e">if</span> <span style="color:#1f2328">image</span><span style="color:#1f2328">.</span><span style="color:#1f2328">length</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#1f2328">classes</span> <span style="color:#0550ae">+=</span> <span style="color:#0a3069">&#34; hasImage&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#953800">description = </span><span style="color:#0a3069">&#34;&lt;img src=&#39;</span><span style="color:#0a3069">#{</span><span style="color:#1f2328">image</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#39;&gt;&lt;/img&gt; </span><span style="color:#0a3069">#{</span><span style="color:#1f2328">description</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#953800">html = </span><span style="color:#0a3069">&#34;&lt;a href=&#39;</span><span style="color:#0a3069">#{</span><span style="color:#1f2328">link</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#39; title=&#39;Read Article&#39;&gt;&#34;</span> <span style="color:#0550ae">+</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#0a3069">&#34;&lt;article class=&#39;</span><span style="color:#0a3069">#{</span><span style="color:#1f2328">classes</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&#39;&gt;&lt;h1&gt;</span><span style="color:#0a3069">#{</span><span style="color:#1f2328">title</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&lt;/h1&gt;&#34;</span> <span style="color:#0550ae">+</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#0a3069">&#34;&lt;p&gt;</span><span style="color:#0a3069">#{</span><span style="color:#1f2328">description</span><span style="color:#0a3069">}</span><span style="color:#0a3069">&lt;/p&gt;&lt;/article&gt;&lt;/a&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;#blog&#34;</span><span style="color:#1f2328">).</span><span style="color:#1f2328">append</span> <span style="color:#1f2328">html</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">.</span><span style="color:#1f2328">promise</span><span style="color:#1f2328">().</span><span style="color:#1f2328">done</span> <span style="color:#6639ba">-&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#1f2328">Omahype</span><span style="color:#1f2328">.</span><span style="color:#1f2328">equalHeight</span> <span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;section#blog article&#34;</span><span style="color:#1f2328">)</span>
+</span></span></code></pre></div><p>Much of that is implementation details specific to how we want the content formatted, but the gist of it is you:</p>
+<ol>
+<li>make the <code>GET</code> request for the content,</li>
+<li>parse the raw data into <code>doc</code></li>
+<li>find the <code>item</code> elements in the <code>doc</code></li>
+<li>loop over them, extracting their contents and putting them in the page<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+</ol>
+<p>If you&rsquo;ve been reading closely, and you&rsquo;ve noticed that our &lsquo;Share-Nothing&rsquo; scenario means that Rails and WordPress don&rsquo;t event share a domain, then you&rsquo;ll notice a problem with the code above.</p>
+<p>The <code>GET</code> request will fail due to JavaScript&rsquo;s <a href="http://en.wikipedia.org/wiki/Same_origin_policy">Same origin policy</a>. Bummer.</p>
+<p>There are two ways to get around this problem.</p>
+<ol>
+<li>We could configure <a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> on the WordPress server to allow requests from omahype.com</li>
+<li>We could introduce a proxy on the Rails side and serve the feed from there</li>
+</ol>
+<p>I chose the latter option because it brings with it an easy win: caching.</p>
+<h2 id="the-middle-man">The Middle Man</h2>
+<p>We need the <code>$.get</code> to hit a URL on the Rails side, so we add a <code>ProxyController</code> and route to it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#57606a"># config/routes.rb</span>
+</span></span><span style="display:flex;"><span>get <span style="color:#0a3069">&#34;/proxy&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">to</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;proxy#index&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">as</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:proxy</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># app/controllers/proxy_controller.rb</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">require</span> <span style="color:#0a3069">&#34;open-uri&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">ProxyController</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">ApplicationController</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> <span style="color:#6639ba">index</span>
+</span></span><span style="display:flex;"><span>    feed <span style="color:#0550ae">=</span> <span style="color:#6639ba">open</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;http://blog.omahype.com/recent/&#34;</span><span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>read
+</span></span><span style="display:flex;"><span>    render <span style="color:#032f62">text</span><span style="color:#1f2328">:</span> feed
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>With this in hand, we just change the <code>$.get</code> to point to our middle man:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coffeescript" data-lang="coffeescript"><span style="display:flex;"><span>    <span style="color:#953800">loadBlogPosts: </span><span style="color:#6639ba">-&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">$</span><span style="color:#1f2328">.</span><span style="color:#1f2328">get</span> <span style="color:#0a3069">&#34;/proxy&#34;</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">(data) -&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#57606a"># ... snip ...
+</span></span></span></code></pre></div><p>Bada boom bada bing. The recent posts now load into our footer.</p>
+<p>However, every single page load will now make a subsequent request to the blog&rsquo;s RSS feed. That seems excessive since we&rsquo;re loading content that changes maybe a few times a day, maybe less.</p>
+<p>Remember above when I said a proxy gives us an easy win? Here it is.</p>
+<p>We can use Rails&rsquo; built-in cache to only fetch new content from WordPress at a set interval.</p>
+<p>To accomplish this, we change the <code>ProxyController</code>&rsquo;s index action to look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">def</span> <span style="color:#6639ba">index</span>
+</span></span><span style="display:flex;"><span>  feed <span style="color:#0550ae">=</span> <span style="color:#0550ae">Rails</span><span style="color:#0550ae">.</span>cache<span style="color:#0550ae">.</span>fetch <span style="color:#0a3069">&#34;blog-posts&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">expires_in</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">5</span><span style="color:#0550ae">.</span>minutes <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">open</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;http://blog.omahype.com/recent/&#34;</span><span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>read
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  render <span style="color:#032f62">text</span><span style="color:#1f2328">:</span> feed
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>Now it&rsquo;s super fast when it hits the cache and doesn&rsquo;t have to hit WordPress all the time!</p>
+<p>And there you have it. Easy &lsquo;Share-Nothing&rsquo; WordPress blog syndication on Rails.</p>
+<p>Wow, this post&rsquo;s title is extremely accurate ;)</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Did you know jQuery has had built-in XML parsing since version 1.5? Seems like it should be a plugin to me (whereas $.parseJSON makes complete sense in core), but nevertheless it is exactly what we need for parsing RSS.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>This part is specifically messy and was <em>almost</em> means for a templating solution, but I decided it wasn&rsquo;t worth it for this  single use.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2013%2f03%2feasy-share-nothing-wordpress-blog-syndication-on-rails%2f&via=jerodsanto&text=Easy%20%27Share-Nothing%27%20WordPress%20Blog%20Syndication%20on%20Rails" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2013%2f03%2feasy-share-nothing-wordpress-blog-syndication-on-rails%2f&t=Easy%20%27Share-Nothing%27%20WordPress%20Blog%20Syndication%20on%20Rails" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2013%2f03%2feasy-share-nothing-wordpress-blog-syndication-on-rails%2f&title=Easy%20%27Share-Nothing%27%20WordPress%20Blog%20Syndication%20on%20Rails" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2013\/03\/easy-share-nothing-wordpress-blog-syndication-on-rails\/";
+    var disqus_title = "Easy \u0027Share-Nothing\u0027 WordPress Blog Syndication on Rails";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

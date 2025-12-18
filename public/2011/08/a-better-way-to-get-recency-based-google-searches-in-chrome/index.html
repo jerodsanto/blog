@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="Last week I shared my Dotjs hack which forces Chrome&rsquo;s Omnibar searches to use Google&rsquo;s &ldquo;past year&rdquo; parameter. Since then I&rsquo;ve learned a few things:
+
+My JavaScript-based solution creates a blip effect because the page first loads a regular search and then immediately updates to load the &ldquo;past year&rdquo; search. That blip is annoying.
+Even though I quite often want a recency-based search, there are plenty of times that I don&rsquo;t. I&rsquo;d rather opt-in than opt-out.
+There is probably a better way.
+
+I Combined those new bits of knowledge and came up with a better way to get recency-based Google searches in Chrome: add a custom search engine.">
+    <meta property="st:title" content="A Better Way to Get Recency-based Google Searches in Chrome">
+    <meta property="og:title" content="A Better Way to Get Recency-based Google Searches in Chrome">
+    <meta property="og:description" content="Last week I shared my Dotjs hack which forces Chrome&rsquo;s Omnibar searches to use Google&rsquo;s &ldquo;past year&rdquo; parameter. Since then I&rsquo;ve learned a few things:
+
+My JavaScript-based solution creates a blip effect because the page first loads a regular search and then immediately updates to load the &ldquo;past year&rdquo; search. That blip is annoying.
+Even though I quite often want a recency-based search, there are plenty of times that I don&rsquo;t. I&rsquo;d rather opt-in than opt-out.
+There is probably a better way.
+
+I Combined those new bits of knowledge and came up with a better way to get recency-based Google searches in Chrome: add a custom search engine.">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      A Better Way to Get Recency-based Google Searches in Chrome | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>A Better Way to Get Recency-based Google Searches in Chrome</h1>
+    
+    <p class="post-date">
+      August 2, 2011
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>Last week I shared <a href="/2011/07/my-dotjs-hack-to-default-google-searches-to-past-year/">my Dotjs hack</a> which forces Chrome&rsquo;s Omnibar searches to use Google&rsquo;s &ldquo;past year&rdquo; parameter. Since then I&rsquo;ve learned a few things:</p>
+<ol>
+<li>My JavaScript-based solution creates a blip effect because the page first loads a regular search and then immediately updates to load the &ldquo;past year&rdquo; search. That blip is annoying.</li>
+<li>Even though I quite often want a recency-based search, there are plenty of times that I don&rsquo;t. I&rsquo;d rather opt-in than opt-out.</li>
+<li>There is <a href="/2011/07/my-dotjs-hack-to-default-google-searches-to-past-year/#comment-266238490">probably a better way</a>.</li>
+</ol>
+<p>I Combined those new bits of knowledge and came up with a better way to get recency-based Google searches in Chrome: <em>add a custom search engine</em>.</p>
+<p>Here&rsquo;s how.</p>
+<ol>
+<li>Open Chrome&rsquo;s preferences and navigate to Basics =&gt; Search =&gt; Manage Search Engines</li>
+<li>Add a new search engine under the list of &ldquo;Other search engines&rdquo; with the following values.</li>
+</ol>
+<p><strong>Name:</strong> &ldquo;Google (recent)&rdquo; or whatever makes sense to you</p>
+<p><strong>Keyword:</strong> &ldquo;recent&rdquo; or something else short and easily typed</p>
+<p><strong>URL:</strong> <a href="http://www.google.com/search?q=%25s&amp;tbs=qdr:y&amp;tbo=1">http://www.google.com/search?q=%s&amp;tbs=qdr:y&amp;tbo=1</a></p>
+<p>See my list of other search engines below:</p>
+<p><img src="http://jerodsanto.net/drop/other-search-engines-20110802-084545.jpg" alt="other search engines"></p>
+<p>When you want to use it, start typing the search engine&rsquo;s keyword into the Omnibar and hit the &ldquo;tab&rdquo; key. Chrome will select the appropriate search engine.</p>
+<p><img src="http://jerodsanto.net/drop/google-recent-search-20110802-083728.jpg" alt="recent search example"></p>
+<p>That&rsquo;s all there is to it. Better, no?</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2011%2f08%2fa-better-way-to-get-recency-based-google-searches-in-chrome%2f&via=jerodsanto&text=A%20Better%20Way%20to%20Get%20Recency-based%20Google%20Searches%20in%20Chrome" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2011%2f08%2fa-better-way-to-get-recency-based-google-searches-in-chrome%2f&t=A%20Better%20Way%20to%20Get%20Recency-based%20Google%20Searches%20in%20Chrome" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2011%2f08%2fa-better-way-to-get-recency-based-google-searches-in-chrome%2f&title=A%20Better%20Way%20to%20Get%20Recency-based%20Google%20Searches%20in%20Chrome" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2011\/08\/a-better-way-to-get-recency-based-google-searches-in-chrome\/";
+    var disqus_title = "A Better Way to Get Recency-based Google Searches in Chrome";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

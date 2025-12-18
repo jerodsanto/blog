@@ -1,0 +1,75 @@
+{{ define "main" }}
+<article class="post">
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+      <h2>{{ . }}</h2>
+    {{ end }}
+    <p class="post-date">
+      {{ .Date.Format "January 2, 2006" }}
+    </p>
+  </header>
+
+  {{ with .Params.author }}
+    <p>
+      This is a guest post written by <a href="http://twitter.com/{{ .twitter }}" title="{{ .full }}">@{{ .twitter }}</a>. {{ .description }}
+    </p>
+  {{ end }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url={{ .Permalink }}&via=jerodsanto&text={{ .Title }}" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u={{ .Permalink }}&t={{ .Title }}" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url={{ .Permalink }}&title={{ .Title }}" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  {{ $related := .Site.RegularPages.Related . | first 3 }}
+  {{ with $related }}
+  <p class="post-related">
+    {{ $category := index $.Params.categories 0 }}
+    If you enjoyed this <a href="/categories/{{ $category | urlize }}" title="{{ $category }}">{{ $category | title }}</a> post,
+    you'll probably enjoy reading
+    {{ range $i, $post := . }}
+      {{ if eq (add $i 1) (len $related) }}
+        and <a href="{{ $post.Permalink }}" title="{{ $post.Title }}">{{ $post.Title }}</a>.
+      {{ else }}
+        <a href="{{ $post.Permalink }}" title="{{ $post.Title }}">{{ $post.Title }}</a>,
+      {{ end }}
+    {{ end }}
+  </p>
+  {{ end }}
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "{{ .Permalink }}";
+    var disqus_title = "{{ .Title }}";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+{{ end }}

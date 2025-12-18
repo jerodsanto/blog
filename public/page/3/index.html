@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head>
+	<meta name="generator" content="Hugo 0.152.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <title>
+      Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class=" home">
+    
+      
+<div class="main-header">
+  <h1>
+    <a href="/" title="Home">
+      <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+    </a>
+  </h1>
+  <a href="/" title="View Blog Archives" class="main-header-archive">Blog</a>
+  <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+</div>
+
+    
+
+    
+
+<section class="main-wrapper excerpt-list">
+  <header class="section-header">
+    <h1>
+      
+        <a href="/" title="Back to Page 1">Page 3</a>
+      
+    </h1>
+    
+  </header>
+
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2014/09/list-all-git-commits-that-are-on-one-branch-but-arent-on-the-other/">
+    <h1 class="excerpt-header">List all Git commits that are on one branch, but aren&#39;t on the other</h1>
+    <p class="excerpt-date">September 6, 2014</p>
+    <p class="excerpt-text"><p>Common need: show me all the comits that branch <code>X</code> has, but branch <code>Y</code> doesn&rsquo;t.</p>
+<p>Why is this need common? Because Heroku-style deployment environments are increasingly common and it&rsquo;s super handy to quickly see which commits you haven&rsquo;t pushed to production.</p>
+<p>Here is the Git command in all its glory</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">git log --left-right --graph --cherry-pick --oneline X...Y
+</span></span></span></code></pre></div><p>Hopefully obvious, but worth a mention: replace <code>X</code> and <code>Y</code> above with the names of the branches you want to compare.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2014/06/a-step-by-step-guide-to-bulletproof-404s-on-rails/">
+    <h1 class="excerpt-header">A step by step guide to bulletproof 404s on Rails</h1>
+    <p class="excerpt-date">June 20, 2014</p>
+    <p class="excerpt-text"><h2 id="step-1-configure-your-router-as-the-exceptions-app">Step 1: Configure your router as the exceptions app</h2>
+<p>Since Rails 3 you&rsquo;ve been able to configure an app to handle exceptions, which you want to point right at your router. To do this, add the following to <code>config/application.rb</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">module</span> <span style="color:#24292e">MyApp</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">class</span> <span style="color:#1f2328">Application</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">Rails</span><span style="color:#0550ae">::</span><span style="color:#0550ae">Application</span>
+</span></span><span style="display:flex;"><span>    config<span style="color:#0550ae">.</span>exceptions_app <span style="color:#0550ae">=</span> <span style="color:#6639ba">self</span><span style="color:#0550ae">.</span>routes
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><h2 id="step-2-add-a-catch-all-route">Step 2: Add a catch-all route</h2>
+<p>Make sure this is the last rule in <code>config/routes.rb</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0550ae">MyApp</span><span style="color:#0550ae">::</span><span style="color:#0550ae">Application</span><span style="color:#0550ae">.</span>routes<span style="color:#0550ae">.</span>draw <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  get <span style="color:#0a3069">&#34;*any&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">via</span><span style="color:#1f2328">:</span> <span style="color:#032f62">:all</span><span style="color:#1f2328">,</span> <span style="color:#032f62">to</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;errors#not_found&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>With this, any requested path — whatever the request type — that doesn&rsquo;t match the previous routing rules will match this rule. The <code>*any</code> path starts with the <code>*</code> wildcard, so it will match anything. The <code>any</code> part is arbitrary, but you have to put <em>something</em> after the <code>*</code> to make it work. I&rsquo;m sure there&rsquo;s a good reason why, but somebody else will have to explain it.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2014/04/ruby-rebus-part-deux/">
+    <h1 class="excerpt-header">Ruby Rebus! Part Deux</h1>
+    <p class="excerpt-date">April 7, 2014</p>
+    <p class="excerpt-text"><p>It&rsquo;s been ~18 months since my <a href="/2012/10/ruby-rebus">first Ruby Rebus challenge</a> and, frankly, that&rsquo;s just too long to ask y&rsquo;alls nerds to wait. Wait no more! I&rsquo;ve dreamt up 15 brand spankin&rsquo; new rebuses<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> for your guessing pleasure.</p>
+<p>Last round I only picked movies from IMDB&rsquo;s <a href="http://www.imdb.com/chart/top">Top 250</a> list. This time the tie that binds these movies is that I&rsquo;ve seen them <em>and</em> I like them.</p>
+<p>The other big change this time around is <strong>instant gratification</strong>. Instead of a follow-up post with the answers, just click the button under each rebus once you&rsquo;ve figured it out (or given up)! Enough intro,</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2014/02/out-with-sprout/">
+    <h1 class="excerpt-header">Out with Sprout</h1>
+    <p class="excerpt-date">February 11, 2014</p>
+    <p class="excerpt-text"><p>A little over a year ago, I <a href="http://objectlateral.com/blog/omahype-trim-flexxive/">had the pleasure</a> of helping my good friend<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> <a href="http://codyjamespeterson.com">Cody</a> build the 3rd iteration of <a href="http://omahype.com">Omahype</a>. I wasn&rsquo;t a user before the project, but I quickly became one after launch.</p>
+<p>Omahype is <em>the</em> place to go when you want to find awesome events in the area. It wasn&rsquo;t long before Rachel and I began pining for a similar site specifically serving<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> families.</p>
+<p>We asked Cody if that was something he would help make happen, teamed up with our close friends/family (Jason and Sarah), and created <a href="http://www.outwithsprout.com">Out with Sprout</a>: Omaha&rsquo;s Family Event Calendar.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2013/12/beloved-bits-2013/">
+    <h1 class="excerpt-header">Beloved Bits, 2013</h1>
+    <p class="excerpt-date">December 31, 2013</p>
+    <p class="excerpt-text"><p>Welcome to the third annual (<a href="/2011/12/beloved-bits-2011">2011</a>, <a href="/2012/12/beloved-bits-2012">2012</a>) list of my favorite digital things. That&rsquo;s right kids, another year in the can. Is it just me or are they passing progressively faster?</p>
+<p>Remember how I roll? Like this:</p>
+<ol>
+<li>List items must be anatomically digital</li>
+<li>List items must have won <em>me</em> over in 2013</li>
+<li>List items may or may not have been released in 2013</li>
+</ol>
+<p>&lsquo;Nuff said. Let&rsquo;s get right to it:</p>
+<h2 id="ios-apps">iOS Apps</h2>
+<p>iOS 7 and a retina iPad mini rocked my iOS world this year, along with these apps:</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2013/12/rails-4-let-specific-actions-be-embedded-as-iframes/">
+    <h1 class="excerpt-header">Rails 4: let specific actions be embedded as iframes</h1>
+    <p class="excerpt-date">December 4, 2013</p>
+    <p class="excerpt-text"><p>Rails 4 added a default <code>X-Frame-Options</code> HTTP header value of <code>SAMEORIGIN</code>. This is good <a href="http://en.wikipedia.org/wiki/Clickjacking">for security</a>, because browsers use this header to decide whether or not your site can be <code>iframe</code>d by other sites.</p>
+<p>However, sometimes you <em>do</em> want a particular action to be embeddable in another site. If you know the site which embeds the action, you can simply change the header to explicitly allow it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">MyController</span> <span style="color:#0550ae">&lt;</span> <span style="color:#0550ae">ApplicationController</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> <span style="color:#6639ba">my_embeddable_widget</span>
+</span></span><span style="display:flex;"><span>    response<span style="color:#0550ae">.</span>headers<span style="color:#0550ae">[</span><span style="color:#0a3069">&#34;X-FRAME-OPTIONS&#34;</span><span style="color:#0550ae">]</span> <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;ALLOW-FROM http://example.com&#34;</span>
+</span></span><span style="display:flex;"><span>    render
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>If, instead, you want the action to be embeddable by any site on the web, just delete the header:</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2013/11/make-activeadmin-and-friendlyid-play-nice/">
+    <h1 class="excerpt-header">Make ActiveAdmin and FriendlyId play nice</h1>
+    <p class="excerpt-date">November 15, 2013</p>
+    <p class="excerpt-text"><p><a href="http://activeadmin.info">ActiveAdmin</a> and <a href="https://github.com/norman/friendly_id">FriendlyId</a> are both handy gems, but they don&rsquo;t play nice together out of the box.</p>
+<p>This is because <code>FriendlyId</code>&rsquo;d models don&rsquo;t follow the default <code>to_param</code> style of id-based lookups which ActiveAdmin expects.</p>
+<p>However, the two are easily reconciled by changing how ActiveAdmin fetches resources. Throw this in your ActiveAdmin initializer:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#57606a"># config/initializers/active_admin.rb</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">ActiveAdmin</span><span style="color:#0550ae">::</span><span style="color:#0550ae">ResourceController</span><span style="color:#0550ae">.</span>class_eval <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">def</span> <span style="color:#6639ba">find_resource</span>
+</span></span><span style="display:flex;"><span>    id_field <span style="color:#0550ae">=</span> <span style="color:#0a3069">&#34;id&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> scoped_collection<span style="color:#0550ae">.</span>is_a? <span style="color:#0550ae">FriendlyId</span>
+</span></span><span style="display:flex;"><span>      id_field <span style="color:#0550ae">=</span> scoped_collection<span style="color:#0550ae">.</span>friendly_id_config<span style="color:#0550ae">.</span>query_field
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    scoped_collection<span style="color:#0550ae">.</span>find_by! id_field <span style="color:#0550ae">=&gt;</span> params<span style="color:#0550ae">[</span><span style="color:#032f62">:id</span><span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>That&rsquo;ll do it. You can alternatively define <code>find_resource</code> inside each registered resource&rsquo;s <code>controller</code> block if you want to be picky.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2013/11/your-dev-user-should-be-really-crazy/">
+    <h1 class="excerpt-header">Your dev user should be really crazy</h1>
+    <p class="excerpt-date">November 8, 2013</p>
+    <p class="excerpt-text"><p>Up until now, my dev user on systems I&rsquo;m building has been pretty predictable. Something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0550ae">User</span><span style="color:#0550ae">.</span>create <span style="color:#032f62">first_name</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Jerod&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">last_name</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Santo&#34;</span>
+</span></span></code></pre></div><p>There are other attributes like email, password, etc., but you get the point.</p>
+<p>This is convenient, but pretty short sighted. I&rsquo;ll use this account for the duration of development. Why not make it more useful by populating its attributes with crazy data?</p>
+<p>This user is much more useful:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#0550ae">User</span><span style="color:#0550ae">.</span>create <span style="color:#032f62">first_name</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&lt;script&gt;alert(&#39;OHAI!&#39;);&lt;/script&gt;&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">last_name</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;朋美&#34;</span>
+</span></span></code></pre></div><p>Now we&rsquo;re talking! This user will help catch any <a href="http://en.wikipedia.org/wiki/Cross-site_scripting">XSS</a> vulnerabilities and ensure that unicode text is rendered properly.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2013/10/ruby-quick-tip-easily-count-occurrences-of-array-elements/">
+    <h1 class="excerpt-header">Ruby Quick Tip: Easily Count Occurrences of Array Elements</h1>
+    <p class="excerpt-date">October 24, 2013</p>
+    <p class="excerpt-text"><p>Have you ever needed to see how many times each element occurs in an array? Perhaps sort the elements by occurrence? Using an awesome feature of <code>Hash.new</code> makes this task quick and easy.</p>
+<p><code>Hash.new</code> takes an argument that will be returned when a key that doesn&rsquo;t correspond to a hash entry is accessed. Basically, a default value for all hash keys.</p>
+<p>With that knowledge in hand, we can take our array of elements and easily get occurrence counts for each unique element. We just need to initialize each key to 0 and then increment the count each time the element appears.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2013/09/my-biggest-disappointment-with-apples-2013-iphone-upgrades/">
+    <h1 class="excerpt-header">My biggest disappointment with Apple&#39;s 2013 iPhone upgrades</h1>
+    <p class="excerpt-date">September 20, 2013</p>
+    <p class="excerpt-text"><p>On the <a href="http://atp.fm/episodes/31-swimming-in-16-gb-gold">latest episode</a> of ATP (and the &ldquo;after dark&rdquo; of the <a href="http://atp.fm/episodes/30-full-frontal-thumb">previous ep.</a>) John Siracusa ranted<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> about his disappointment in Apple&rsquo;s failure to &ldquo;storage shift&rdquo; the iPhone 5S. Storage sizes for the iPhone have been stuck at 16GB/32GB/64GB for a few generations and the 5S does not improve the situation at all.</p>
+<p>I get his disappointment even though I&rsquo;m not personally too affected by Apple&rsquo;s decision. I&rsquo;ve always bought the smallest storage capacity available (I&rsquo;ve owned the 3G, 4, and now 5) and have never run out of space<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. I&rsquo;m not sure why. I listen to music, take pictures, download podcasts, and watch videos on my phone. I&rsquo;ve always been a bit of a &ldquo;purger&rdquo; when it comes to digital media, so maybe that explains it. But I digress&hellip;</p></p>
+  </a>
+</article>
+  
+
+  <div class="pagination">
+    
+        <a class="previous" href="/page/2/">&laquo; Newer</a>
+    
+    <span class="page_number ">3 of 20</span>
+    
+      <a class="next" href="/page/4/">Older &raquo;</a>
+    
+  </div>
+</section>
+
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

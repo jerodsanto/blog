@@ -1,0 +1,15 @@
+{{ define "main" }}
+<h4>Ouch. The page you were looking for is gone.</h4>
+
+<p>Somehow the page you're looking for vanished. You can go to the <a href="/">homepage</a> or check the recent articles below to try to find what you're looking for.</p>
+
+{{ range first 10 .Site.RegularPages }}
+  {{ if eq .Type "posts" }}
+  <div class="post">
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
+    <p>{{ .Summary }}</p>
+  </div>
+  {{ end }}
+{{ end }}
+{{ end }}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="Ever wanted (or needed) to see your iPhone&rsquo;s network traffic? All you need is a wireless LAN and the cross-platform proxy application, Paros. There are other proxy server&rsquo;s that can be used, but Paros was built for web application security assessments, so it provides an intimate hook into the HTTP request/response flow. Let&rsquo;s get started!
+1) Download and Install Paros
+Grab the download from SourceForge (direct link).
+2) Configure Paros
+Once installed, launch Paros and find the configuration options (on OS X they are under Tools -&gt; Options). Paros is configured by default to listen on localhost only, but we are going to route our iPhone&rsquo;s traffic through Paros, so we need to set it to listen on the IP address of the interface connected to the same LAN as the iPhone.">
+    <meta property="st:title" content="Sniff Your iPhone&#39;s Network Traffic">
+    <meta property="og:title" content="Sniff Your iPhone&#39;s Network Traffic">
+    <meta property="og:description" content="Ever wanted (or needed) to see your iPhone&rsquo;s network traffic? All you need is a wireless LAN and the cross-platform proxy application, Paros. There are other proxy server&rsquo;s that can be used, but Paros was built for web application security assessments, so it provides an intimate hook into the HTTP request/response flow. Let&rsquo;s get started!
+1) Download and Install Paros
+Grab the download from SourceForge (direct link).
+2) Configure Paros
+Once installed, launch Paros and find the configuration options (on OS X they are under Tools -&gt; Options). Paros is configured by default to listen on localhost only, but we are going to route our iPhone&rsquo;s traffic through Paros, so we need to set it to listen on the IP address of the interface connected to the same LAN as the iPhone.">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Sniff Your iPhone&#39;s Network Traffic | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Sniff Your iPhone&#39;s Network Traffic</h1>
+    
+    <p class="post-date">
+      June 13, 2009
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>Ever wanted (or needed) to see your iPhone&rsquo;s network traffic? All you need is a wireless LAN and the cross-platform proxy application, <a href="http://www.parosproxy.org/index.shtml">Paros.</a> There are other proxy server&rsquo;s that can be used, but Paros was built for web application security assessments, so it provides an intimate hook into the HTTP request/response flow. Let&rsquo;s get started!</p>
+<h2 id="1-download-and-install-paros">1) Download and Install Paros</h2>
+<p>Grab the download from SourceForge (<a href="https://sourceforge.net/projects/paros/files/latest/download">direct link</a>).</p>
+<h2 id="2-configure-paros">2) Configure Paros</h2>
+<p>Once installed, launch Paros and find the configuration options (on OS X they are under Tools -&gt; Options). Paros is configured by default to listen on localhost only, but we are going to route our iPhone&rsquo;s traffic through Paros, so we need to set it to listen on the IP address of the interface connected to the same LAN as the iPhone.</p>
+<p>My LAN&rsquo;s network is 1.1.1.0/16, so I&rsquo;ll configure the Local Proxy address accordingly:</p>
+<img src="/wp-content/uploads/2009/06/paros_config.png" height="246" alt="paros_config" width="540" />
+<p>That should be the only setting that we need to fuss with. Paros is all set and listening on port 8080, let&rsquo;s configure the iPhone to route its traffic through our proxy!</p>
+<h2 id="3-configure-iphone">3) Configure iPhone</h2>
+<p>On the iPhone, open the &ldquo;<strong>Settings</strong>&rdquo; app and navigate to the Wi-Fi page. Once there, edit the settings for the wireless network you are currently connected to (this needs to be the same network where your proxy is running). To do this, click the little blue arrow on the right side of the screen.</p>
+<img src="/wp-content/uploads/2009/06/config_wifi.png" height="480" alt="config_wifi" width="322" />
+<p>Now, scroll all the way to the bottom of the settings page and change the <strong>&ldquo;HTTP Proxy&rdquo;</strong> setting to manual. Enter the IP address and port number of your Paros Proxy.</p>
+<img src="/wp-content/uploads/2009/06/config_proxy.png" height="480" alt="config_proxy" width="320" />
+<p>All set! Now all web traffic to and from the iPhone is routed through Paros. Let&rsquo;s go see what we can see.</p>
+<h2 id="4-using-paros">4) Using Paros</h2>
+<p>The main section of Paros is the &ldquo;<strong>Request/Response/Trap</strong>.&rdquo; As the iPhone talks through Paros to Internet sites, it will display the iPhone&rsquo;s request and the server&rsquo;s response. The &ldquo;<strong>trap</strong>&rdquo; functionality allows you to stop either the request or the response and view/modify it before sending it along to the recipient. Trapping is very cool, and why Paros is used for security auditing, but for our purposes we just want to see what is going on, so I won&rsquo;t explain it any further.</p>
+<p>For now, let&rsquo;s see what happens when we fire up my iPhone&rsquo;s &ldquo;<strong>App Store</strong>&rdquo; app:</p>
+<p>In the bottom section of the screen is the history viewer. There we can see that my iPhone made 4 requests to different servers ( 3 GETs and 1 POST):</p>
+<img src="/wp-content/uploads/2009/06/history.png" height="67" alt="history" width="540" />
+<p>Highlighting the first GET in the history list shows its details. The iPhone&rsquo;s HTTP request header looked like this:</p>
+<img src="/wp-content/uploads/2009/06/request.png" height="337" alt="request" width="540" />
+<p>One noteworthy tidbit is that the iPhone is sending a custom header (X-Apple-Connection-Type) which tells the server that it is connected to WiFi. Next, let&rsquo;s take a look at the server&rsquo;s response:</p>
+<img src="/wp-content/uploads/2009/06/response.png" height="408" alt="response" width="540" />
+<p>Notice that in the response we see both the headers that the server returned AND the response data itself, in this case an xml plist file.</p>
+<p>Sniffing traffic like this can help you understand how different iPhone apps work behind the scenes or it can help debug interaction for an app that you&rsquo;re writing. Hope this helps you get started!</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2009%2f06%2fsniff-your-iphones-network-traffic%2f&via=jerodsanto&text=Sniff%20Your%20iPhone%27s%20Network%20Traffic" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2009%2f06%2fsniff-your-iphones-network-traffic%2f&t=Sniff%20Your%20iPhone%27s%20Network%20Traffic" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2009%2f06%2fsniff-your-iphones-network-traffic%2f&title=Sniff%20Your%20iPhone%27s%20Network%20Traffic" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2009\/06\/sniff-your-iphones-network-traffic\/";
+    var disqus_title = "Sniff Your iPhone\u0027s Network Traffic";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

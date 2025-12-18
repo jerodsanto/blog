@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="Good security require defense in depth. The more security layers you add, the harder it is to subvert them all. Here is a reactionary layer you can add to your security practices.
+The only thing worse than getting hacked is getting hacked and not knowing it (or worse yet, having one of your clients inform you). Often times an attacker needs to add and/or change files on your site to accomplish their goal. Wouldn&rsquo;t it be nice if something could inform you of unauthorized changes? Enter Git.">
+    <meta property="st:title" content="Git Informed When Your Site Is Hacked">
+    <meta property="og:title" content="Git Informed When Your Site Is Hacked">
+    <meta property="og:description" content="Good security require defense in depth. The more security layers you add, the harder it is to subvert them all. Here is a reactionary layer you can add to your security practices.
+The only thing worse than getting hacked is getting hacked and not knowing it (or worse yet, having one of your clients inform you). Often times an attacker needs to add and/or change files on your site to accomplish their goal. Wouldn&rsquo;t it be nice if something could inform you of unauthorized changes? Enter Git.">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Git Informed When Your Site Is Hacked | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Git Informed When Your Site Is Hacked</h1>
+    
+    <p class="post-date">
+      May 4, 2009
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>Good security require <a href="http://en.wikipedia.org/wiki/Defense_in_Depth_(computing)">defense in depth</a>. The more security layers you add, the harder it is to subvert them all. Here is a reactionary layer you can add to your security practices.</p>
+<p>The only thing worse than getting hacked is getting hacked and not knowing it (or worse yet, having one of your clients inform you). Often times an attacker needs to add and/or change files on your site to accomplish their goal. Wouldn&rsquo;t it be nice if something could inform you of unauthorized changes? Enter <a href="http://git-scm.com/">Git</a>.</p>
+<p>I will demonstrate using Git for change notification on a WordPress install using Ruby, but you can apply this principle in many scenarios (hmm, /etc&hellip;?).</p>
+<p>~</p>
+<p><strong>1) ignore folders/directories of no interest</strong></p>
+<p>We don&rsquo;t want Git to track every file in the directory, so we&rsquo;ll tell it which ones to ignore. Common choices are temporary directories, log files, and any file or directory that gets update frequently. Create a file called .gitignore in your site&rsquo;s root directory. List the stuff for Git to ignore in it. It should look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wp-content/cache/*
+</span></span><span style="display:flex;"><span>wp-content/uploads/*
+</span></span></code></pre></div><p><strong>2) create new Git repository, add all files and execute first commit</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -a -m <span style="color:#0a3069">&#34;Initial Commit&#34;</span>
+</span></span></code></pre></div><p>Now you&rsquo;re set.</p>
+<p><strong>3) download &amp; customize script</strong></p>
+<p>Git alone won&rsquo;t check itself and email you. For this, we&rsquo;ll need help of a scripting language. I wrote this little script in Ruby, but the same could be accomplished in Bash, Python, or whatever suits your fancy. You can write your own or download and customize the one I use:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget http://jerodsanto.net/src/ruby/git_watch.rb
+</span></span><span style="display:flex;"><span>chmod +x git_watch.rb
+</span></span></code></pre></div><p>The key to the script is where it shells out and runs the &lsquo;git status&rsquo; command. If there have been changes to the repository that were not properly committed, &lsquo;git status&rsquo; will not return &ldquo;working directory clean&rdquo;. The check is simple:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>result <span style="color:#0550ae">=</span> <span style="color:#0a3069">`git status`</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">unless</span> result <span style="color:#0550ae">=~</span> <span style="color:#0a3069">/working directory clean/</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57606a"># set up email</span>
+</span></span><span style="display:flex;"><span>  send_email <span style="color:#0550ae">SEND_TO</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:body</span>  <span style="color:#0550ae">=&gt;</span> message
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>You&rsquo;ll need to edit this file and change the <code>SEND_TO</code> variable to your email address. You can also customize the email that is sent by modifying the <code>send_email</code> function near the top.</p>
+<p><strong>4) schedule script execution</strong></p>
+<p>Now, lets make this script check the blog for changes once every hour. Edit your user&rsquo;s cron configuration and add a line similar to this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#0550ae">0</span> * * * * /scripts/git_watch.rb /var/www/mysite/wordpress
+</span></span></code></pre></div><p>I put all my custom scripts in a <code>/scripts</code> directory on every server I administer. That way I always know where to look no matter what server I&rsquo;m currently on. The script takes one argument, the directory to check for changes. Adjust your cron for your script and site locations.</p>
+<p>But what about authorized changes? Simple. Commit them using Git and they won&rsquo;t be triggered on.</p>
+<p>For example, you install a new plugin to your blog and you don&rsquo;t want your git_watch script to email you about it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add wp-content/plugins/github-widget/
+</span></span><span style="display:flex;"><span>git commit -a -m <span style="color:#0a3069">&#34;installed github widget plugin&#34;</span>
+</span></span></code></pre></div><p>The added bonus of this technique is you are creating a verifiable changelog of your site over time, complete with notes! An example from one of my sites:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>commit 109d30026118de089297a4d7fa56babff3677bdc
+</span></span><span style="display:flex;"><span>Author: Jerod Santo &lt;jerod.santo@gmail.com&gt;
+</span></span><span style="display:flex;"><span>Date:   Sat May <span style="color:#0550ae">2</span> 07:55:08 <span style="color:#0550ae">2009</span> -0700
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    fixed bad php4 install and upgraded wp-cache
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>commit edc1e89c2cbf38ae1373f6b5cf03d29942399fd8
+</span></span><span style="display:flex;"><span>Author: Jerod Santo &lt;jerod.santo@gmail.com&gt;
+</span></span><span style="display:flex;"><span>Date:   Fri Apr <span style="color:#0550ae">10</span> 06:25:31 <span style="color:#0550ae">2009</span> -0700
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ignore sitemap changes
+</span></span></code></pre></div><p>Plus, it is easy to trace the attacker&rsquo;s steps if you do get compromised because you can see which files have been changed and what has been done to them (using the <code>git diff</code> command). Once you diagnose the problem, you can simply revert to an old commit before the attack (you&rsquo;re still vulnerable at this point, but at least your site is clean until you can patch it).</p>
+<p>Enjoy!</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2009%2f05%2fgit-informed-when-your-site-is-hacked%2f&via=jerodsanto&text=Git%20Informed%20When%20Your%20Site%20Is%20Hacked" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2009%2f05%2fgit-informed-when-your-site-is-hacked%2f&t=Git%20Informed%20When%20Your%20Site%20Is%20Hacked" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2009%2f05%2fgit-informed-when-your-site-is-hacked%2f&title=Git%20Informed%20When%20Your%20Site%20Is%20Hacked" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2009\/05\/git-informed-when-your-site-is-hacked\/";
+    var disqus_title = "Git Informed When Your Site Is Hacked";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

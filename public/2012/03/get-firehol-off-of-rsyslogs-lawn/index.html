@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="FireHOL is the best tool I&rsquo;ve used for configuring Linux firewalls. But it can really spew its logs all over your kern.log and syslog. Getting it to stop this is non-obvious so hopefully this saves you some time.
+This tutorial is for Debian 6 running rsyslog. As always, YMMV.
+Install FireHOL
+This is the easy part.
+aptitude install firehol
+Make sure it can start
+Debian&rsquo;s FireHOL package has it disabled by default. Edit /etc/default/firehol and set:">
+    <meta property="st:title" content="Get FireHOL off of RSyslog&#39;s lawn">
+    <meta property="og:title" content="Get FireHOL off of RSyslog&#39;s lawn">
+    <meta property="og:description" content="FireHOL is the best tool I&rsquo;ve used for configuring Linux firewalls. But it can really spew its logs all over your kern.log and syslog. Getting it to stop this is non-obvious so hopefully this saves you some time.
+This tutorial is for Debian 6 running rsyslog. As always, YMMV.
+Install FireHOL
+This is the easy part.
+aptitude install firehol
+Make sure it can start
+Debian&rsquo;s FireHOL package has it disabled by default. Edit /etc/default/firehol and set:">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Get FireHOL off of RSyslog&#39;s lawn | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Get FireHOL off of RSyslog&#39;s lawn</h1>
+    
+    <p class="post-date">
+      March 27, 2012
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p><a href="http://firehol.sourceforge.net/">FireHOL</a> is the best tool I&rsquo;ve used for configuring Linux firewalls. But it can really spew its logs all over your <code>kern.log</code> and <code>syslog</code>. Getting it to stop this is non-obvious so hopefully this saves you some time.</p>
+<div class="notice">This tutorial is for Debian 6 running rsyslog. As always, YMMV.</div>
+<h2 id="install-firehol">Install FireHOL</h2>
+<p>This is the easy part.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">aptitude install firehol
+</span></span></span></code></pre></div><h2 id="make-sure-it-can-start">Make sure it can start</h2>
+<p>Debian&rsquo;s FireHOL package has it disabled by default. Edit <code>/etc/default/firehol</code> and set:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">START_FIREHOL=YES
+</span></span></span></code></pre></div><h2 id="set-a-custom-log-prefix">Set a custom log prefix</h2>
+<p>Edit <code>/etc/firehol/firehol.conf</code> and add the following:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">FIREHOL_LOG_PREFIX=&#34;firehol: &#34;
+</span></span></span></code></pre></div><p>This ensures that all FireHOL-generated log messages contain this string. While you&rsquo;re here, you might want to configure the firewall itself :)</p>
+<h2 id="create-a-special-rule-in-rsyslog">Create a special rule in rsyslog</h2>
+<p>Add a file at <code>/etc/rsyslog.d/30-firehol.conf</code> and make it have the following content:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">:msg, contains, &#34;&#39;firehol: &#34; -/var/log/firehol.log
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">&amp; ~
+</span></span></span></code></pre></div><p>This will make all log messages that contain the &ldquo;&lsquo;firehol: &quot; string log to their own file. It then skips the rest of the rules so they don&rsquo;t also go to <code>kern.log</code> and <code>syslog</code>. The &ldquo;30&rdquo; in the filename is just there to ensure that this file is evaluated before the others. I&rsquo;m not sure if it&rsquo;s actually necessary or not.</p>
+<h2 id="restart-stuff">Restart stuff</h2>
+<p>That should be all you need to do. Now restart FireHOL and Rsyslog like so:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">/etc/init.d/firehol stop
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">/etc/init.d/rsyslog stop
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">/etc/init.d/firehol start
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">/etc/init.d/rsyslog start
+</span></span></span></code></pre></div><p>Then check <code>/var/log/firehol.log</code> to make sure FireHOL is logging there.</p>
+<h2 id="bonus">Bonus</h2>
+<p>You may also be getting sick of seeing this warning every time you restart FireHOL:</p>
+<p>File &lsquo;/etc/firehol/RESERVED_IPS&rsquo; is more than 90 days old</p>
+<p>The worst part is that the script to update the reserved IPs list (as of right now) 404s so you can&rsquo;t fix it. What you can do is this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">touch /etc/firehol/RESERVED_IPS
+</span></span></span></code></pre></div><p>That&rsquo;ll shut it up, if for only another 3 months.</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2012%2f03%2fget-firehol-off-of-rsyslogs-lawn%2f&via=jerodsanto&text=Get%20FireHOL%20off%20of%20RSyslog%27s%20lawn" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2012%2f03%2fget-firehol-off-of-rsyslogs-lawn%2f&t=Get%20FireHOL%20off%20of%20RSyslog%27s%20lawn" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2012%2f03%2fget-firehol-off-of-rsyslogs-lawn%2f&title=Get%20FireHOL%20off%20of%20RSyslog%27s%20lawn" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2012\/03\/get-firehol-off-of-rsyslogs-lawn\/";
+    var disqus_title = "Get FireHOL off of RSyslog\u0027s lawn";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

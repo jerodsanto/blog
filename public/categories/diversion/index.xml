@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Diversion on Jerod Santo</title>
+  <link href="http://localhost:1313/categories/diversion/" rel="alternate" type="text/html" />
+  <link href="http://localhost:1313/categories/diversion/index.xml" rel="self" type="application/rss+xml" />
+  <description>On software, life, &amp; the space between</description>
+  <generator>Hugo -- gohugo.io</generator>
+  <language>en-us</language>
+  <lastBuildDate>Mon, 07 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/diversion/index.xml" rel="self" type="application/rss+xml" />
+  <entry>
+    <title>Ruby Rebus! Part Deux</title>
+    <link href="http://localhost:1313/2014/04/ruby-rebus-part-deux/"/>
+    <id>http://localhost:1313/2014/04/ruby-rebus-part-deux/</id>
+    <updated>2014-04-07T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;It&amp;amp;rsquo;s been ~18 months since my &amp;lt;a href=&amp;#34;/2012/10/ruby-rebus&amp;#34;&amp;gt;first Ruby Rebus challenge&amp;lt;/a&amp;gt; and, frankly, that&amp;amp;rsquo;s just too long to ask y&amp;amp;rsquo;alls nerds to wait. Wait no more! I&amp;amp;rsquo;ve dreamt up 15 brand spankin&amp;amp;rsquo; new rebuses&amp;lt;sup id=&amp;#34;fnref:1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;#fn:1&amp;#34; class=&amp;#34;footnote-ref&amp;#34; role=&amp;#34;doc-noteref&amp;#34;&amp;gt;1&amp;lt;/a&amp;gt;&amp;lt;/sup&amp;gt; for your guessing pleasure.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Last round I only picked movies from IMDB&amp;amp;rsquo;s &amp;lt;a href=&amp;#34;http://www.imdb.com/chart/top&amp;#34;&amp;gt;Top 250&amp;lt;/a&amp;gt; list. This time the tie that binds these movies is that I&amp;amp;rsquo;ve seen them &amp;lt;em&amp;gt;and&amp;lt;/em&amp;gt; I like them.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The other big change this time around is &amp;lt;strong&amp;gt;instant gratification&amp;lt;/strong&amp;gt;. Instead of a follow-up post with the answers, just click the button under each rebus once you&amp;amp;rsquo;ve figured it out (or given up)! Enough intro,&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-1&amp;#34;&amp;gt;Rebus #1&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;throw&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:me&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;if&amp;lt;/span&amp;gt; person&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;is_a? &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;ConMan&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-2&amp;#34;&amp;gt;Rebus #2&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;expect&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Game&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;to receive&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:play&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+Gotta pull out your RSpec to solve this one.
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-3&amp;#34;&amp;gt;Rebus #3&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[].&amp;lt;/span&amp;gt;method &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:each&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+If you were thinking The Enumerator, you may have just stumbled upon Schwarzenegger&amp;amp;rsquo;s next flick&amp;amp;hellip;
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-4&amp;#34;&amp;gt;Rebus #4&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;CATCGTAATGACGGCCT&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;dup
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+This one would be better if you couldn&amp;amp;rsquo;t practically see the name in the string.
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-5&amp;#34;&amp;gt;Rebus #5&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;NoMethodError&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;NameError&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+Is it just me or do NoMethodError and NameError account for 95% of all errors?
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-6&amp;#34;&amp;gt;Rebus #6&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;Float&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;instance_method&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:ceil&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;),&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;Float&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;instance_method&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:floor&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+At first I included the round method, but thought that&amp;amp;rsquo;d be too easy.
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-7&amp;#34;&amp;gt;Rebus #7&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Actor&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Struct&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;new &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:movie&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:first_name&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Actor&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;new &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Argo&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;John&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Actor&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;new &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Monsters, Inc.&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;John&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Actor&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;new &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;The Big Lebowski&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;John&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+It&amp;amp;rsquo;s a few John Goodman movies. A few Goodman. Get it?!
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-8&amp;#34;&amp;gt;Rebus #8&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;class&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;Payment&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  delegate &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:give&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;to&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:other&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+This code requires Rails to actually execute, but hopefully it will never actually execute.
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-9&amp;#34;&amp;gt;Rebus #9&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;class&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;Object&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;def&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;initialize&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;    &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;@afraid&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;true&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+Object is Ruby&amp;amp;rsquo;s primordial ooze.
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-10&amp;#34;&amp;gt;Rebus #10&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;%&amp;lt;/span&amp;gt;i&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;stop danger &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;yield&amp;lt;/span&amp;gt; detour&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+Symbols. Signs. You see what I did there.
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-11&amp;#34;&amp;gt;Rebus #11&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;if&amp;lt;/span&amp;gt; s &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;==&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;AZ&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;raise&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+The challenge here was having something represent Arizona without being obvious. I may have failed at that.
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-12&amp;#34;&amp;gt;Rebus #12&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;60&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;times &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;{&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;sleep&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;1&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;&amp;amp;amp;&amp;amp;amp;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;exit&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+Okay let&amp;amp;rsquo;s ride
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-13&amp;#34;&amp;gt;Rebus #13&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;begin&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;darren&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; judith&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;].&amp;lt;/span&amp;gt;join
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;rescue&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+Judith escaped. DURR!
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-14&amp;#34;&amp;gt;Rebus #14&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;class&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;Time&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;def&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;kill&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;abort&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;t &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Time&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;now
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;t&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;kill
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+This code is utterly asinine.
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-15&amp;#34;&amp;gt;Rebus #15&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;スカーレット&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;encode &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;ascii&amp;amp;#34;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;rescue&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2014/04/ruby-rebus-part-deux/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;
+This one is pretty rad, if I do say so myself.
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;hr&amp;gt;
+&amp;lt;p&amp;gt;Which was your favorite? Least favorite? How many of the 15 did you get right? Let me know in the comments!&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;footnotes&amp;#34; role=&amp;#34;doc-endnotes&amp;#34;&amp;gt;
+&amp;lt;hr&amp;gt;
+&amp;lt;ol&amp;gt;
+&amp;lt;li id=&amp;#34;fn:1&amp;#34;&amp;gt;
+&amp;lt;p&amp;gt;or is it rebi?&amp;amp;#160;&amp;lt;a href=&amp;#34;#fnref:1&amp;#34; class=&amp;#34;footnote-backref&amp;#34; role=&amp;#34;doc-backlink&amp;#34;&amp;gt;&amp;amp;#x21a9;&amp;amp;#xfe0e;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;/div&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Name That Trend - Nose Dive Edition</title>
+    <link href="http://localhost:1313/2013/03/name-that-trend-nose-dive-edition/"/>
+    <id>http://localhost:1313/2013/03/name-that-trend-nose-dive-edition/</id>
+    <updated>2013-03-07T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;I recently stumbled across a spectacular nose dive in public perception that I thought would make a fun diversion. Can you figure out what dataset this trend represents?&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;I&amp;amp;rsquo;ll give you a few hints:&amp;lt;/p&amp;gt;
+&amp;lt;ol&amp;gt;
+&amp;lt;li&amp;gt;I found it after watching a trailer for a movie set to release in June&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;I&amp;amp;rsquo;ll reiterate — it is related to public perception&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;The data is sourced from &amp;lt;a href=&amp;#34;http://imdb.com&amp;#34;&amp;gt;IMDB&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;div class=&amp;#34;chart&amp;#34;&amp;gt;
+  &amp;lt;script type=&amp;#34;text/javascript&amp;#34; src=&amp;#34;//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js&amp;#34;&amp;gt; {&amp;#34;dataSourceUrl&amp;#34;:&amp;#34;//docs.google.com/spreadsheet/tq?key=0Anc47_2p2GgFdGZfTjhYQ1VIdlZkSW1SMTk0ZTJKNkE&amp;amp;transpose=0&amp;amp;headers=0&amp;amp;range=A1%3AA8&amp;amp;gid=0&amp;amp;pub=1&amp;#34;,&amp;#34;options&amp;#34;:{&amp;#34;vAxes&amp;#34;:[{&amp;#34;useFormatFromData&amp;#34;:true,&amp;#34;title&amp;#34;:&amp;#34;Y Axis&amp;#34;,&amp;#34;formatOptions&amp;#34;:{&amp;#34;source&amp;#34;:&amp;#34;data&amp;#34;,&amp;#34;scaleFactor&amp;#34;:null},&amp;#34;minorGridlines&amp;#34;:{&amp;#34;count&amp;#34;:&amp;#34;0&amp;#34;},&amp;#34;minValue&amp;#34;:0,&amp;#34;viewWindowMode&amp;#34;:&amp;#34;pretty&amp;#34;,&amp;#34;viewWindow&amp;#34;:{&amp;#34;min&amp;#34;:0,&amp;#34;max&amp;#34;:10},&amp;#34;maxValue&amp;#34;:10},{&amp;#34;useFormatFromData&amp;#34;:true,&amp;#34;minValue&amp;#34;:null,&amp;#34;viewWindow&amp;#34;:{&amp;#34;min&amp;#34;:null,&amp;#34;max&amp;#34;:null},&amp;#34;maxValue&amp;#34;:null}],&amp;#34;titleTextStyle&amp;#34;:{&amp;#34;bold&amp;#34;:true,&amp;#34;color&amp;#34;:&amp;#34;#000&amp;#34;,&amp;#34;fontSize&amp;#34;:16},&amp;#34;series&amp;#34;:{&amp;#34;0&amp;#34;:{&amp;#34;pointSize&amp;#34;:7}},&amp;#34;curveType&amp;#34;:&amp;#34;&amp;#34;,&amp;#34;booleanRole&amp;#34;:&amp;#34;certainty&amp;#34;,&amp;#34;title&amp;#34;:&amp;#34;&amp;#34;,&amp;#34;interpolateNulls&amp;#34;:false,&amp;#34;animation&amp;#34;:{&amp;#34;duration&amp;#34;:500},&amp;#34;legend&amp;#34;:&amp;#34;none&amp;#34;,&amp;#34;lineWidth&amp;#34;:2,&amp;#34;hAxis&amp;#34;:{&amp;#34;useFormatFromData&amp;#34;:true,&amp;#34;title&amp;#34;:&amp;#34;X Axis&amp;#34;,&amp;#34;minValue&amp;#34;:null,&amp;#34;viewWindowMode&amp;#34;:null,&amp;#34;viewWindow&amp;#34;:null,&amp;#34;maxValue&amp;#34;:null},&amp;#34;width&amp;#34;:450,&amp;#34;height&amp;#34;:320},&amp;#34;state&amp;#34;:{},&amp;#34;view&amp;#34;:{&amp;#34;columns&amp;#34;:[{&amp;#34;calc&amp;#34;:&amp;#34;emptyString&amp;#34;,&amp;#34;type&amp;#34;:&amp;#34;string&amp;#34;,&amp;#34;sourceColumn&amp;#34;:0},0]},&amp;#34;chartType&amp;#34;:&amp;#34;LineChart&amp;#34;,&amp;#34;chartName&amp;#34;:&amp;#34;Chart 1&amp;#34;}
+  &amp;lt;/script&amp;gt;
+  &amp;lt;noscript&amp;gt;
+    &amp;lt;img src=&amp;#34;https://docs.google.com/spreadsheet/oimg?key=0Anc47_2p2GgFdGZfTjhYQ1VIdlZkSW1SMTk0ZTJKNkE&amp;amp;oid=1&amp;amp;zx=1ogdontcezw0&amp;#34; /&amp;gt;
+  &amp;lt;/noscript&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;p&amp;gt;Know what it is? Ready to find out?!&amp;lt;/p&amp;gt;
+
+&amp;lt;div class=&amp;#39;reveal-button&amp;#39;&amp;gt;
+  &amp;lt;a href=&amp;#39;http://localhost:1313/2013/03/name-that-trend-nose-dive-edition/#reveal&amp;#39;&amp;gt;Reveal Answer&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;#39;reveal-content&amp;#39; data-content=&amp;#39;And the trend is&amp;amp;hellip;
+Average IMDB ratings of movies directed by M. Night Shyamalan!
+Surprised? Probably not too much. He&amp;amp;rsquo;s been on quite the downward spiral since the glories days of The Sixth Sense (8.2) and Unbreakable (7.2).
+The trailer that inspired this trend spotting was for the Shyamlan written/directed After Earth. I was surpised to find out that he was involved since the trailer doesn&amp;amp;rsquo;t mention his name once. Ouch.
+&amp;#39;&amp;gt;
+&amp;lt;/div&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Ruby Rebus</title>
+    <link href="http://localhost:1313/2012/10/ruby-rebus/"/>
+    <id>http://localhost:1313/2012/10/ruby-rebus/</id>
+    <updated>2012-10-31T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;One of my favorite things on the &amp;lt;a href=&amp;#34;http://revision3.com/trs&amp;#34;&amp;gt;Totally Rad Show&amp;lt;/a&amp;gt; is their RADRebus segment. In it, Alex, Dan, and Jeff try to guess movie titles from word/picture puzzles called &amp;lt;a href=&amp;#34;http://en.wikipedia.org/wiki/Rebus&amp;#34;&amp;gt;rebuses&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;For the uninitiated, I&amp;amp;rsquo;ve embedded the first ever RADRebus episode right there ↓&amp;lt;/p&amp;gt;
+&amp;lt;iframe width=&amp;#34;560&amp;#34; height=&amp;#34;315&amp;#34; src=&amp;#34;http://www.youtube.com/embed/ra2O5TyW2z8?rel=0&amp;#34; frameborder=&amp;#34;0&amp;#34; allowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;
+&amp;lt;p&amp;gt;I was watching TRS the other day and thought it&amp;amp;rsquo;d be fun makes some rebuses with Ruby. So I did!&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;an-example-rebus&amp;#34;&amp;gt;An Example Rebus&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;If you don&amp;amp;rsquo;t want to watch the RADRebus video and you don&amp;amp;rsquo;t know what a rebus is, an example may help out.  Here is a movie rebus taken from &amp;lt;a href=&amp;#34;http://www.ericharshbarger.org/&amp;#34;&amp;gt;Eric Harshbarger&amp;amp;rsquo;s&amp;lt;/a&amp;gt; list of &amp;lt;a href=&amp;#34;http://www.ericharshbarger.org/epp/2006/fall/movie_rebuses_100.pdf&amp;#34;&amp;gt;100 Movie Rebus Puzzles&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The puzzle is this:&amp;lt;/p&amp;gt;
+&amp;lt;blockquote&amp;gt;
+&amp;lt;p&amp;gt;chiTROUBLEna&amp;lt;/p&amp;gt;
+&amp;lt;/blockquote&amp;gt;
+&amp;lt;p&amp;gt;And the answer is &amp;lt;a href=&amp;#34;http://www.imdb.com/title/tt0090728/&amp;#34;&amp;gt;Big Touble in Little China&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;See how that works? Good.&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;the-challenge&amp;#34;&amp;gt;The Challenge&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;I have created 20 Ruby-based rebuses representing movie titles. Some are pretty easy, but others I hope will pose a challenge.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;See if you can figure out all 20 and post your answers in the comments!&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;rebus-1&amp;#34;&amp;gt;Rebus #1&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;require&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;active_record&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;class&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;Person&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;&amp;amp;lt;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;ActiveRecord&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;::&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Base&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Person&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;where&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;sex&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;M&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;age&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;78&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;map&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;&amp;amp;amp;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:country&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;compact
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# =&amp;amp;gt; []&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-2&amp;#34;&amp;gt;Rebus #2&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;%w(stand sit walk run him her me you)&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;&amp;amp;amp;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;%w(put place stand lean them we me us)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-3&amp;#34;&amp;gt;Rebus #3&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;while&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;true&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;do&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Time&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;new&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;1993&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;2&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;2&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;6&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;-05:00&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;sleep&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;86_400&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-4&amp;#34;&amp;gt;Rebus #4&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;inside &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[]&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;ones &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;%w(one one one one)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;inside &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;&amp;amp;lt;&amp;amp;lt;&amp;lt;/span&amp;gt; ones&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;last
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-5&amp;#34;&amp;gt;Rebus #5&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;begin&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Class&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;new &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;{&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;private&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;def&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;ryan&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;new&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;ryan
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;rescue&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-6&amp;#34;&amp;gt;Rebus #6&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;def&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;movie&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;episode&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;case&amp;lt;/span&amp;gt; episode
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;when&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;4&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;then&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Guinness&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;when&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;5&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;then&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Prowse&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;when&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;6&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;then&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Hamill&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-7&amp;#34;&amp;gt;Rebus #7&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Batman&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;new
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-8&amp;#34;&amp;gt;Rebus #8&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;require&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;singleton&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;class&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;Parent&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;class&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;Child&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;&amp;amp;lt;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Parent&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;include&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Singleton&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;ObjectSpace&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;each_object&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;::&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Class&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;find &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;{&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;|&amp;lt;/span&amp;gt;klass&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;|&amp;lt;/span&amp;gt; klass &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;&amp;amp;lt;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Parent&amp;lt;/span&amp;gt;  &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;instance
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-9&amp;#34;&amp;gt;Rebus #9&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;class&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;Murder&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;def&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;self&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;inspect&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;    &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;methods&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;      &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;instance_methods&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;      &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;ancestors&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;    &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;].&amp;lt;/span&amp;gt;join&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;, &amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Murder&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;inspect
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-10&amp;#34;&amp;gt;Rebus #10&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[[&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Switch&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Dozer&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Mouse&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Tank&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Cypher&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Apoc&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]]&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-11&amp;#34;&amp;gt;Rebus #11&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;otnemem&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;reverse
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-12&amp;#34;&amp;gt;Rebus #12&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;husband &amp;amp;amp; wife&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;split&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34; &amp;amp;amp; &amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-13&amp;#34;&amp;gt;Rebus #13&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;fish&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;upcase
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-14&amp;#34;&amp;gt;Rebus #14&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;{&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;lucy&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Ishii&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;vivica&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Green&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;daryl&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Driver&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;michael&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Budd&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;david&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;Bill&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;clear
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-15&amp;#34;&amp;gt;Rebus #15&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;require&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;timecop&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Timecop&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;freeze &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Date&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;parse&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;2012-12-21&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;do&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Time&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;now
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-16&amp;#34;&amp;gt;Rebus #16&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;class&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;Hash&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;alias&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:movie&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:fetch&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-17&amp;#34;&amp;gt;Rebus #17&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;require&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;rspec&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Fowl&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;should_receive&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#032f62&amp;#34;&amp;gt;:kill&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;with&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;2&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;{&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;nil&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-18&amp;#34;&amp;gt;Rebus #18&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Process&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;kill &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;9&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;1988&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-19&amp;#34;&amp;gt;Rebus #19&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;11:59&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;gsub&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;:&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;.&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;to_f&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;ceil
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;rebus-20&amp;#34;&amp;gt;Rebus #20&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;10&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;times&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;map &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;{&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;pennies&amp;amp;#34;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;5&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;bonus-challenge&amp;#34;&amp;gt;Bonus Challenge!&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;All of the movies in this list have a common bond. Can you figure out what it is?&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;(tip: if you can figure out the bonus question early on may will help you get the more difficult rebuses.)&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;the-answers&amp;#34;&amp;gt;The Answers&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;UPDATE:&amp;lt;/strong&amp;gt; The &amp;lt;a href=&amp;#34;/2012/11/ruby-rebus-answers/&amp;#34;&amp;gt;answers post&amp;lt;/a&amp;gt; is now available&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;I will reveal the answers to all 20 rebuses and the bonus challenge in a follow-up post.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Be sure to grab the &amp;lt;a href=&amp;#34;/feed.xml&amp;#34;&amp;gt;RSS&amp;lt;/a&amp;gt;, follow along on &amp;lt;a href=&amp;#34;https://twitter.com/jerodsanto&amp;#34;&amp;gt;Twitter&amp;lt;/a&amp;gt;, or bookmark this page so you don&amp;amp;rsquo;t miss the BIG reveal! ;)&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>You Might be a Unix Geek</title>
+    <link href="http://localhost:1313/2012/07/you-might-be-a-unix-geek/"/>
+    <id>http://localhost:1313/2012/07/you-might-be-a-unix-geek/</id>
+    <updated>2012-07-14T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you&amp;amp;rsquo;re not disgusted by the thought of piping things in to or out of a cat&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you commonly instruct people to ask &amp;amp;ldquo;Your friend, Manuel&amp;amp;rdquo;&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If naming software projects using a recursive acronym really trips your trigger&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Related: if you&amp;amp;rsquo;ve ever laughed out loud at a joke which requires a thorough understanding and deep appreciation of the concept of recursion&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you&amp;amp;rsquo;ve long since forgotten that your coffee mug has &amp;lt;em&amp;gt;vi&amp;lt;/em&amp;gt; commands on it&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;http://jerodsanto.net/drop/mug-of-vi-20120713-084959.png&amp;#34; alt=&amp;#34;this is not my wife&amp;amp;rsquo;s favorite coffee mug&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you maintain an SSH link to you parents&amp;amp;rsquo; home network&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you own a t-shirt that says &amp;amp;ldquo;No, I won&amp;amp;rsquo;t fix your computer&amp;amp;rdquo;, but you can&amp;amp;rsquo;t find it anymore&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you&amp;amp;rsquo;re judging me because the &amp;lt;em&amp;gt;actual&amp;lt;/em&amp;gt; shirt says &amp;amp;ldquo;No, I &amp;lt;em&amp;gt;will not&amp;lt;/em&amp;gt; fix your computer&amp;amp;rdquo; and you know that for a fact because you&amp;amp;rsquo;re wearing it right now&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek and a pedant. ;)&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If your preferred Twitter client has a command line interface&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you have to constantly remind yourself that RTFM is not a socially acceptable answer&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;http://jerodsanto.net/drop/rtfm-you-must-20120714-085811.png&amp;#34; alt=&amp;#34;rtfm&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you&amp;amp;rsquo;ve ever lectured somebody on the virtues of considering everything as a file&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If the phrase &amp;amp;ldquo;less is more&amp;amp;rdquo; invokes your thoughts on the pros and cons of different text pagers&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you can enumerate the differences between OpenBSD, FreeBSD, and NetBSD&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If &amp;amp;ldquo;tar czvf&amp;amp;rdquo; makes any sense to you at all&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you&amp;amp;rsquo;ve ever made one of your friends telnet to towel.blinkenlights.nl&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you have &amp;amp;ldquo;emacs rules&amp;amp;rdquo; tattooed across your fingers&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;a href=&amp;#34;http://www.flickr.com/photos/rore/4457009838/&amp;#34;&amp;gt;
+  &amp;lt;img src=&amp;#34;http://farm5.staticflickr.com/4011/4457009838_382885ee5b.jpg&amp;#34; width=&amp;#34;500&amp;#34; height=&amp;#34;177&amp;#34; alt=&amp;#34;What&amp;#39;s the one about emacs and how many fingers you need to use it?&amp;#34;&amp;gt;
+&amp;lt;/a&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek. And a mutant.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If you have a server in your employ with more than 3 years of uptime&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If your notes, to-dos, grocery list, essays, and email are all stored as plain text&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You might be a Unix Geek.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;And finally&amp;amp;hellip;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;If while reading this you felt compelled to point out that most of these jokes don&amp;amp;rsquo;t relate directly to Unix, but instead to &amp;amp;lsquo;Unix-like&amp;amp;rsquo; derivatives such as Linux and associated software such as the suite of Gnu utilities which, for my information, are expressly NOT Unix even in their very name&amp;amp;hellip;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Congratulations, you&amp;amp;rsquo;re a HUGE Unix Geek! ;)&amp;lt;/p&amp;gt;
+&amp;lt;hr&amp;gt;
+&amp;lt;p&amp;gt;Surely I&amp;amp;rsquo;m neither the funniest nor the biggest Unix Geek in the room. Please, add your own in the comments or &amp;lt;a href=&amp;#34;https://twitter.com/jerodsanto&amp;#34;&amp;gt;tweet&amp;lt;/a&amp;gt; them to me and I&amp;amp;rsquo;ll post them here!&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Best Buy Considered Harmful</title>
+    <link href="http://localhost:1313/2012/03/best-buy-considered-harmful/"/>
+    <id>http://localhost:1313/2012/03/best-buy-considered-harmful/</id>
+    <updated>2012-03-05T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;Once in a blue moon I have a valid reason to visit &amp;lt;a href=&amp;#34;http://www.bestbuy.com/&amp;#34;&amp;gt;Best Buy&amp;lt;/a&amp;gt;. In this particular case, an upcoming snowboarding trip had me wanting some cheap headphones that wrap around your ears. I found a pair from &amp;lt;a href=&amp;#34;http://www.amazon.com/Sony-MDR-J10-Headphones-Non-Slip-Design/dp/B000092YR6/ref=sr_1_1?s=electronics&amp;amp;amp;ie=UTF8&amp;amp;amp;qid=1330799507&amp;amp;amp;sr=1-1&amp;#34;&amp;gt;Sony&amp;lt;/a&amp;gt; that looked like they&amp;amp;rsquo;d do the trick, but they weren&amp;amp;rsquo;t on Amazon Prime so I couldn&amp;amp;rsquo;t get them delivered on time.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;a href=&amp;#34;http://www.amazon.com/Sony-MDR-J10-Headphones-Non-Slip-Design/dp/B000092YR6/ref=sr_1_1?s=electronics&amp;amp;amp;ie=UTF8&amp;amp;amp;qid=1330799507&amp;amp;amp;sr=1-1&amp;#34;&amp;gt;&amp;lt;img src=&amp;#34;http://jerodsanto.net/drop/sony-clip-on-ears-20120304-080505.png&amp;#34; alt=&amp;#34;Sony MDR-J10&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Best Buy&amp;amp;rsquo;s website showed the same model for $9.99 in stock at my local store. It was a bright and breezy Saturday morning, so I made my first trip to Best Buy in recent memory.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Oh man it sucked for so many reasons…&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;the-hunt&amp;#34;&amp;gt;The Hunt&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;I could write a whole seperate rant on the search inadequacies of brick-and-morter retail stores, but let&amp;amp;rsquo;s just focus on the particular item I was at Best Buy to acquire.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;I walked in and saw two distinct sections on separate sides of the store:&amp;lt;/p&amp;gt;
+&amp;lt;ol&amp;gt;
+&amp;lt;li&amp;gt;Music&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;iPods/MP3 Players&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;p&amp;gt;Which of these two sections would you expect to find the headphones? That&amp;amp;rsquo;s a trick question. There are headphones in both sections. Except each section has different models.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;http://jerodsanto.net/drop/double-facepalm-20120303-144151.png&amp;#34; alt=&amp;#34;Double Facepalm&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;I first glanced at the &amp;lt;em&amp;gt;Music&amp;lt;/em&amp;gt; section and saw a rack of headphones. These particular headphones had &amp;amp;ldquo;sports&amp;amp;rdquo; and &amp;amp;ldquo;fitness&amp;amp;rdquo; keywords on their packaging so I figured I was in the right place. They were specialized headphones which are designed to stay on your ears while doing physical activity.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Bingo, right?! Wrong.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;My $10 Sony&amp;amp;rsquo;s were nowhere to be found. The cheapest alternative on this rack was $29. If I didn&amp;amp;rsquo;t already know that the Sony&amp;amp;rsquo;s existed &amp;lt;em&amp;gt;somewhere&amp;lt;/em&amp;gt; in the store I probably would have walked out paying 3x for a similar product.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;It turns out the &amp;lt;em&amp;gt;right&amp;lt;/em&amp;gt; place to look for $10 stay-on-your-ear Sony headphones is in the &amp;lt;em&amp;gt;iPods/MP3 Player&amp;lt;/em&amp;gt; section with all of the noise cancelling and professional-grade headphones. Naturally.&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;the-irl-disadvantage&amp;#34;&amp;gt;The IRL (dis)Advantage&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;Once I found the pair that I came for, it was time to evaluate the product to see if they were a good fit for the job. At this point I&amp;amp;rsquo;d expect Best Buy to cream the online stores where you&amp;amp;rsquo;re left to look at a few low resolution images and read other people&amp;amp;rsquo;s opinions.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Nope, not in the least.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Most of the headphones are wrapped in their standard plastic packaging, my Sony&amp;amp;rsquo;s included. There is no way to easily open the package to inspect them closer. There are no demo units. You literally can&amp;amp;rsquo;t put them on or hear how they sound. Wha?&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Come on, Best Buy! This is your one chance — your only chance — to put Amazon&amp;amp;rsquo;s shopping experience to shame. Have a demo pair of each headphone and an iPod there loaded with music. Are you ascared of theft? Fine, latch the freaking iPod to a table or something. Just do something! You&amp;amp;rsquo;re doing nothing to improve on what the Internet offers. NOTHING.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;They forced me to be that guy who pries open the packaging of a potential purchase and squeezes the item out just enough to get his fingers on it… just enough to hold the whole package up to my ear and see how it fits. We all know that guy. We don&amp;amp;rsquo;t want to be that guy, but I was without choice.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;http://jerodsanto.net/drop/thatguy-20120303-144346.png&amp;#34; alt=&amp;#34;That guy&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;the-crap-canal&amp;#34;&amp;gt;The Crap Canal&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;I don&amp;amp;rsquo;t know when it happened, but at some point Best Buy decided it&amp;amp;rsquo;d be cool to force all of their paying customers through a crap canal on the way out the door (they may have cribbed this idea from Ikea, which is infamous for it).&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;http://jerodsanto.net/drop/crap-canal-20120304-085210.png&amp;#34; alt=&amp;#34;The Crap Canal&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Typical items you might find in the crap canal: Funyuns, Tamagotchi, a Justin Beiber bracelet, or the &amp;lt;a href=&amp;#34;http://www.imdb.com/title/tt0270846/&amp;#34;&amp;gt;Superbabies&amp;lt;/a&amp;gt; Director&amp;amp;rsquo;s Cut on DVD.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You know, the &amp;lt;em&amp;gt;good&amp;lt;/em&amp;gt; stuff. The stuff we all came to an &amp;lt;strong&amp;gt;electronics&amp;lt;/strong&amp;gt; store for in the first place.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;What&amp;amp;rsquo;s worse is that once you reach the end of the canal — where the crappiest crap resides — you have to stand there and wait for the next available cashier. They won&amp;amp;rsquo;t let you queue like normal behind each cashier. You have to queue right there next to the Barbie Pez Dispensers and the Zune case/charger combo packs.&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;the-tipping-point&amp;#34;&amp;gt;The Tipping Point&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;Where my Best Buy experience went from Just Bad® to The Worst Ever® was at checkout. After politely declining a Best Buy Rewards account, I was prompted with a question so ridiculous that the cashier felt compelled to preface it with &amp;amp;ldquo;I have to ask you this&amp;amp;rdquo;:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Would I like to buy a $5 warranty for my $10 purchase?&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Would I what? Like to buy… a $5 warranty… for my $10 purchase?&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;http://jerodsanto.net/drop/mindblown.gif&amp;#34; alt=&amp;#34;mind blow in a bad way&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>The Coldplay Effect</title>
+    <link href="http://localhost:1313/2011/07/the-coldplay-effect/"/>
+    <id>http://localhost:1313/2011/07/the-coldplay-effect/</id>
+    <updated>2011-07-25T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;I thought I&amp;amp;rsquo;d share an interesting term I picked up last week from &amp;lt;a href=&amp;#34;http://twitter.com/ashenden&amp;#34;&amp;gt;John Ashenden&amp;lt;/a&amp;gt; of Grooveshark: The Coldplay Effect&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;As an Internet radio listener, your like/dislike history and recently played music are used to determine which songs to play next (it&amp;amp;rsquo;s obviously much more complicated than that, but I&amp;amp;rsquo;m speaking in generalities here, so back off!). Your most recently played songs are weighted the heaviest. That makes sense. It is of little consequence that you like The Beach Boys when you&amp;amp;rsquo;ve been listening to Deadmau5 and the Aphex Twins for the last two hours.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;This data is compared to songs in the provider&amp;amp;rsquo;s catalog and (again, using a complex algorithm) songs are picked based on their level of &amp;amp;ldquo;likeness&amp;amp;rdquo; to what you currently deem play-worthy. I&amp;amp;rsquo;m not sure exactly how song likeness is determined, but it&amp;amp;rsquo;s probably a combination of genre, beats per minute, and many other characteristics that can be expressed mathematically.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The Coldplay Effect is an unfortunate phenomenon that arises when certain artists&amp;amp;rsquo; music (like Coldplay&amp;amp;rsquo;s) ranks high for likeness across diverse genres. It doesn&amp;amp;rsquo;t matter that you are on an electronic trance binge, because some Coldplay song is &amp;lt;em&amp;gt;just enough&amp;lt;/em&amp;gt; like the third track on the Fight Club soundtrack to bring it into your queue.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Once the Coldplay track plays, it&amp;amp;rsquo;s all over. Your previously specialized stream has been normalized and pretty much anything can play next.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;This seems like a Hard Problem™, and I don&amp;amp;rsquo;t think anybody has solved it just yet. Perhaps this — along with other problems faced by programmatic music recommendation engines — plays into the &amp;lt;a href=&amp;#34;http://gadgetwise.blogs.nytimes.com/2011/07/20/spotify-is-great-but-turntable-fm-is-amazing/&amp;#34;&amp;gt;recent praise&amp;lt;/a&amp;gt; of &amp;lt;a href=&amp;#34;http://turntable.fm/&amp;#34;&amp;gt;TurnTable.fm&amp;lt;/a&amp;gt;, which uses humans to pick which songs play next.&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Benchmarketing</title>
+    <link href="http://localhost:1313/2011/04/benchmarketing/"/>
+    <id>http://localhost:1313/2011/04/benchmarketing/</id>
+    <updated>2011-04-16T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;hr&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;bench•mar•ket•ing  |&amp;amp;lsquo;bench,märkiti NG|&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;noun&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;ol&amp;gt;
+&amp;lt;li&amp;gt;(&amp;lt;em&amp;gt;pejorative&amp;lt;/em&amp;gt;) The misleading use of unrepresentative benchmark software results in marketing a computer system.&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;hr&amp;gt;
+&amp;lt;p&amp;gt;I fear we are quite often subject to such misleading tactics. It is difficult to discern between a benchmark and a benchmarket. What a great term.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;(via &amp;lt;a href=&amp;#34;http://en.wiktionary.org/wiki/benchmarketing&amp;#34;&amp;gt;Wiktionary&amp;lt;/a&amp;gt; and a &amp;lt;a href=&amp;#34;http://news.ycombinator.com/item?id=2449125&amp;#34;&amp;gt;great comment&amp;lt;/a&amp;gt; by &amp;lt;em&amp;gt;jread&amp;lt;/em&amp;gt; on HN)&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+</feed>

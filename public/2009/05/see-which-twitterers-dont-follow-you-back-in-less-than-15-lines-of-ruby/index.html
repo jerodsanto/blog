@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="The asynchronous nature of Twitter is one of its keys to success. No friend requests. Awesome.
+A lot of the people I follow on Twitter have no business following me. I didn&rsquo;t get upset when DHH, _why, and alexalbrecht did not reciprocate interest. Why would they? They don&rsquo;t know me from Adam (even though I&rsquo;m waayyy cooler than that dude&hellip;).
+However, sometimes it is interesting to see all the jerks people who you follow that do not follow you back. There&rsquo;s probably a web application out there that does this, but who needs a web app when this is a perfectly good excuse to play with Ruby?">
+    <meta property="st:title" content="See Which Twitterers Don&#39;t Follow You Back In Less Than 15 Lines of Ruby">
+    <meta property="og:title" content="See Which Twitterers Don&#39;t Follow You Back In Less Than 15 Lines of Ruby">
+    <meta property="og:description" content="The asynchronous nature of Twitter is one of its keys to success. No friend requests. Awesome.
+A lot of the people I follow on Twitter have no business following me. I didn&rsquo;t get upset when DHH, _why, and alexalbrecht did not reciprocate interest. Why would they? They don&rsquo;t know me from Adam (even though I&rsquo;m waayyy cooler than that dude&hellip;).
+However, sometimes it is interesting to see all the jerks people who you follow that do not follow you back. There&rsquo;s probably a web application out there that does this, but who needs a web app when this is a perfectly good excuse to play with Ruby?">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      See Which Twitterers Don&#39;t Follow You Back In Less Than 15 Lines of Ruby | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>See Which Twitterers Don&#39;t Follow You Back In Less Than 15 Lines of Ruby</h1>
+    
+    <p class="post-date">
+      May 12, 2009
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>The asynchronous nature of Twitter is one of its keys to success. No friend requests. <strong>Awesome.</strong></p>
+<p>A lot of the people I follow on Twitter have no business following me. I didn&rsquo;t get upset when <a href="http://twitter.com/dhh">DHH</a>, <a href="http://twitter.com/_why">_why</a>, and <a href="http://twitter.com/alexalbrecht">alexalbrecht</a> did not reciprocate interest. Why would they? They don&rsquo;t know me from Adam (even though I&rsquo;m waayyy cooler than that dude&hellip;).</p>
+<p>However, sometimes <em>it is</em> interesting to see all the <strike>jerks</strike> people who you follow that do not follow you back. There&rsquo;s probably a web application out there that does this, but who needs a web app when this is a perfectly good excuse to play with Ruby?</p>
+<p>The <a href="http://github.com/jnunemaker/twitter/tree/master">twitter gem</a> by <a href="http://railstips.org/">John Nunemaker</a> makes this task so easy it&rsquo;s retarded. First, get the gem if you don&rsquo;t already have it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>jerod@mbp:~$ gem install twitter
+</span></span></code></pre></div><p>Now. The script:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#6639ba">require</span> <span style="color:#0a3069">&#39;rubygems&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">require</span> <span style="color:#0a3069">&#39;twitter&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>auth   <span style="color:#0550ae">=</span> <span style="color:#0550ae">Twitter</span><span style="color:#0550ae">::</span><span style="color:#0550ae">HTTPAuth</span><span style="color:#0550ae">.</span>new<span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;username&#39;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#39;password&#39;</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>base   <span style="color:#0550ae">=</span> <span style="color:#0550ae">Twitter</span><span style="color:#0550ae">::</span><span style="color:#0550ae">Base</span><span style="color:#0550ae">.</span>new<span style="color:#1f2328">(</span>auth<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>guilty <span style="color:#0550ae">=</span> base<span style="color:#0550ae">.</span>friend_ids <span style="color:#0550ae">-</span> base<span style="color:#0550ae">.</span>follower_ids
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">puts</span> <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">#{</span>guilty<span style="color:#0550ae">.</span>size<span style="color:#0a3069">}</span><span style="color:#0a3069"> people you follow don&#39;t follow you back&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>guilty<span style="color:#0550ae">.</span>each <span style="color:#cf222e">do</span> <span style="color:#0550ae">|</span>user_id<span style="color:#0550ae">|</span>
+</span></span><span style="display:flex;"><span>  user <span style="color:#0550ae">=</span> base<span style="color:#0550ae">.</span>user<span style="color:#1f2328">(</span>user_id<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">puts</span> <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">#{</span>user<span style="color:#0550ae">.</span>name<span style="color:#0a3069">}</span><span style="color:#0a3069"> follows </span><span style="color:#0a3069">#{</span>user<span style="color:#0550ae">.</span>friends_count<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span> <span style="color:#0550ae">+</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#0a3069">&#34; and has </span><span style="color:#0a3069">#{</span>user<span style="color:#0550ae">.</span>followers_count<span style="color:#0a3069">}</span><span style="color:#0a3069"> followers.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>Isn&rsquo;t that simple? Are you with me on the retarded comment now? How it works:</p>
+<p>The <code>friend_ids</code> and <code>follower_ids</code> methods each return an array of ids and we subtract the followers array from the friends array. All that is left over after subtraction are the ids of users in your friends list (people you follow) that are not in your followers list. Then we loop over the new array of &ldquo;guilty&rdquo; parties and fetch their user account information based on their user_id, printing the details each time.</p>
+<p>Just replace <code>username</code> and <code>password</code> with your own information and you&rsquo;re off to the races. Run the script from your command line and you should see output similar to this:</p>
+<img class="aligncenter size-full wp-image-296" title="no_follows" src="/wp-content/uploads/2009/05/no_follows.png" height="212" alt="no_follows" width="475" />
+<p><strong>NOTE:</strong> Twitter only allows (currently) 100 API requests per hour. Each user account lookup requires an API request, so if your &ldquo;guilty&rdquo; array is quite large, you&rsquo;ll probably get an error before the script terminates (Maybe its time to un-follow a few peeps!).</p>
+<p>What other cool tricks can we do using the Twitter gem?</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2009%2f05%2fsee-which-twitterers-dont-follow-you-back-in-less-than-15-lines-of-ruby%2f&via=jerodsanto&text=See%20Which%20Twitterers%20Don%27t%20Follow%20You%20Back%20In%20Less%20Than%2015%20Lines%20of%20Ruby" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2009%2f05%2fsee-which-twitterers-dont-follow-you-back-in-less-than-15-lines-of-ruby%2f&t=See%20Which%20Twitterers%20Don%27t%20Follow%20You%20Back%20In%20Less%20Than%2015%20Lines%20of%20Ruby" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2009%2f05%2fsee-which-twitterers-dont-follow-you-back-in-less-than-15-lines-of-ruby%2f&title=See%20Which%20Twitterers%20Don%27t%20Follow%20You%20Back%20In%20Less%20Than%2015%20Lines%20of%20Ruby" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2009\/05\/see-which-twitterers-dont-follow-you-back-in-less-than-15-lines-of-ruby\/";
+    var disqus_title = "See Which Twitterers Don\u0027t Follow You Back In Less Than 15 Lines of Ruby";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

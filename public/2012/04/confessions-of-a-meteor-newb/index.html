@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="I recently took part in the first (annual, I hope) Hack Omaha competition. I teamed up with the ridiculously talented Zach Leatherman to create Omaha Bounty Hunter, a web-based The-Price-is-Right-style game using the provided Property Crime data set.
+
+As Zach and I were getting started, we were lamenting how timed coding competitions rarely provide opportunity to learn new tricks or try new tech. That&rsquo;s when one of us (I can&rsquo;t recall who) had a crazy idea&hellip; let&rsquo;s build this thing with the just-released Meteor JavaScript framework!">
+    <meta property="st:title" content="Confessions of a Meteor Newb">
+    <meta property="og:title" content="Confessions of a Meteor Newb">
+    <meta property="og:description" content="I recently took part in the first (annual, I hope) Hack Omaha competition. I teamed up with the ridiculously talented Zach Leatherman to create Omaha Bounty Hunter, a web-based The-Price-is-Right-style game using the provided Property Crime data set.
+
+As Zach and I were getting started, we were lamenting how timed coding competitions rarely provide opportunity to learn new tricks or try new tech. That&rsquo;s when one of us (I can&rsquo;t recall who) had a crazy idea&hellip; let&rsquo;s build this thing with the just-released Meteor JavaScript framework!">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Confessions of a Meteor Newb | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Confessions of a Meteor Newb</h1>
+    
+    <p class="post-date">
+      April 23, 2012
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>I recently took part in the first (annual, I hope) <a href="http://hackomaha.com">Hack Omaha</a> competition. I teamed up with the ridiculously talented <a href="http://www.zachleat.com/web/">Zach Leatherman</a> to create <a href="http://www.omahabountyhunter.com">Omaha Bounty Hunter</a>, a web-based The-Price-is-Right-style game using the provided <a href="https://hackomaha.socrata.com/Government/CRIME_property/3nfn-ev8i">Property Crime</a> data set.</p>
+<p><a href="http://www.omahabountyhunter.com"><img src="http://www.omahabountyhunter.com/obh-logo.png" alt="Omaha Bounty Hunter" style="background: black"></a></p>
+<p>As Zach and I were getting started, we were lamenting how timed coding competitions rarely provide opportunity to learn new tricks or try new tech. That&rsquo;s when one of us (I can&rsquo;t recall who) had a crazy idea&hellip; let&rsquo;s build this thing with the just-released <a href="http://meteor.com">Meteor</a> JavaScript framework!</p>
+<p>And that&rsquo;s exactly what we did. Well, kind of&hellip;</p>
+<p>Here&rsquo;s how it went down, from a total Meteor Newb&rsquo;s perspective.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>Congrats to the Meteor team for making getting started a breeze. You literally just run:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">curl install.meteor.com | /bin/sh
+</span></span></span></code></pre></div><p>and you can start coding a Meteor app. I figured that I&rsquo;d at least have to have <a href="http://www.mongodb.org/">MongoDB</a> installed on my machine (this is the default — and currently only — persistence mechanism) before I could start. Nope. They bundle it up and manage the MongoDB server for you seamlessly. Very nice.</p>
+<div class="notice">Newb tip: You can hop right into the Mongo shell by typing <code>meteor mongo</code> inside your app&rsquo;s root directory.</div>
+<p>The provided <code>meteor</code> command has many features right out of the gate, most importantly a <code>--help</code> flag for general help and a <code>meteor help &lt;command&gt;</code> to learn more about each specific command.</p>
+<p>I was excited to see <code>meteor update</code> which brings your Meteor install up to the latest release. A young project having an easy update feature baked right in says to me that the devs really thought this through.</p>
+<p>I think it&rsquo;s safe to say that Zach and I were both up and running with Meteor in about 15 minutes.</p>
+<h2 id="packages">Packages</h2>
+<p>One big piece of Meteor is the package system. The good news is that for us the package system just worked. The bad news is that there aren&rsquo;t very many packages in the directory yet. This wouldn&rsquo;t be a probem if Meteor just directly integrated <a href="http://npmjs.org/">npm</a>, therefore inheriting its large package index, but I&rsquo;m sure they had their reasons.</p>
+<p>The packages employed by any given Meteor app are listed in <code>.meteor/packages</code> and can be installed via:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">meteor add &lt;package_name&gt;
+</span></span></span></code></pre></div><p>We used the <em>less</em> and <em>underscore</em> packages, but I couldn&rsquo;t talk Zach into using the <em>coffeescript</em> package. Oh well, there&rsquo;s always next year&hellip;</p>
+<p>(<a href="http://docs.meteor.com/#packages">More info on packages</a>)</p>
+<h2 id="getting-help">Getting Help</h2>
+<p>The <a href="http://docs.meteor.com/">Meteor docs</a> are surprisingly good. They definitely didn&rsquo;t answer all of our questions and they definitely need <em>more</em> examples, but what is there is easy to read and organized really well. I can&rsquo;t even complain about the lack of search, because everything is on a single page. Chrome&rsquo;s inline search was sufficient to find anything we needed.</p>
+<p>But what happens when the docs aren&rsquo;t cutting it and you have like 30 hours to get this dog hunting? <a href="http://meteor.com/irc">IRC</a>, that&rsquo;s what. I had two critical questions answered in #meteor AND they were answered swiftly AND it was a Saturday morning. That&rsquo;s pretty rad.</p>
+<h2 id="autopublish-is-the-devil">Autopublish is the Devil</h2>
+<p>It&rsquo;s a good thing that getting help was so painless, because boy did we need it! Everything was going peechy until I got the <a href="https://github.com/jerodsanto/obh/blob/master/import/import.rb">import script</a> (Yes, Ruby) working and imported slightly over 30,000 records into our <code>Bounties</code> collection.</p>
+<p>This is where the S really hit the F.</p>
+<p><a href="http://www.amazon.com/dp/B002AV8UH2/?tag=shoes4all-20"><img src="http://ecx.images-amazon.com/images/I/418FkFqBrPL.jpg" alt="You gotta be kidding me"></a></p>
+<p>Meteor dutifully refreshed my browser for me and suddenly Chrome was crushing my CPU. I tried quitting Chrome. Nothing. I tried force quitting Chrome. Nothing. Tried again. Finally, it quit.</p>
+<p>What the what?</p>
+<p>After restarting Chrome and seeing my CPU spike again, I knew this was not a fluke. I managed to get the Dev Tools open this time to see a 7.8MB XHR request flying down the wire. Yup, the server was sending all 30k+ records down to my client.</p>
+<p>You see, one of the reasons that Meteor demos so well is that you can execute arbitrary Mongo queries right in the client. What they don&rsquo;t tell you in the demo (but they will tell you on SO or IRC) is that this works out of the box because of a feature called <code>autopublish</code> which does pretty much what it sounds like. If you have more than a few documents in your database you need to disable <code>autopublish</code> and you need to disable it right now.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">meteor remove autopublish
+</span></span></span></code></pre></div><p>After disabling autopublish I could once again load our app without crashing my browser, but now then there were no items available in the client&rsquo;s representation of the Bounties collection.</p>
+<h2 id="i-dont-think-that-word-means-what-you-think-it-means">I don&rsquo;t think that word means what you think it means</h2>
+<p>Once autopublish is out of the picture, you have to manually publish and subscribe in order to get data down to your clients. The way this works in Meteor is, to me, non-intuitive.</p>
+<p>First you have to set up a publish on a channel from your server and then you have to subscribe to that channel from your clients. Notice the order there: first you publish, then you subscribe.</p>
+<p>This was super weird for us because we wanted to have 2 clients join the same &ldquo;room&rdquo; and then have the server publish 5 random bounties down to the clients (we never got this far and thus our game is single player). The way I tried to get this working — but eventually abandoned — was to define methods that clients could call to initiate a battle, get a UUID from the server, and then join the channel with that UUID. It looked something like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#1f2328">Meteor</span><span style="color:#1f2328">.</span><span style="color:#1f2328">startup</span><span style="color:#1f2328">(</span><span style="color:#cf222e">function</span> <span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#57606a">// code to run on server at startup
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span>  <span style="color:#1f2328">WAITING</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">[];</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">BOUNTY_COUNT</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">Bounties</span><span style="color:#1f2328">.</span><span style="color:#1f2328">find</span><span style="color:#1f2328">().</span><span style="color:#1f2328">count</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">function</span> <span style="color:#1f2328">getRando</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">return</span> <span style="color:#6639ba">Math</span><span style="color:#1f2328">.</span><span style="color:#1f2328">floor</span><span style="color:#1f2328">(</span><span style="color:#6639ba">Math</span><span style="color:#1f2328">.</span><span style="color:#1f2328">random</span><span style="color:#1f2328">()</span> <span style="color:#0550ae">*</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">BOUNTY_COUNT</span> <span style="color:#0550ae">-</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">))</span> <span style="color:#0550ae">+</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">Meteor</span><span style="color:#1f2328">.</span><span style="color:#1f2328">methods</span><span style="color:#1f2328">({</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">startSingle</span><span style="color:#0550ae">:</span> <span style="color:#cf222e">function</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">Meteor</span><span style="color:#1f2328">.</span><span style="color:#1f2328">uuid</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">startBattle</span><span style="color:#0550ae">:</span> <span style="color:#cf222e">function</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span><span style="color:#1f2328">WAITING</span><span style="color:#1f2328">.</span><span style="color:#1f2328">length</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">var</span> <span style="color:#1f2328">uuid</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">WAITING</span><span style="color:#1f2328">.</span><span style="color:#1f2328">pop</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span> <span style="color:#cf222e">else</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">var</span> <span style="color:#1f2328">uuid</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">Meteor</span><span style="color:#1f2328">.</span><span style="color:#1f2328">uuid</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">WAITING</span><span style="color:#1f2328">.</span><span style="color:#1f2328">push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">uuid</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">return</span> <span style="color:#1f2328">uuid</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">join</span><span style="color:#0550ae">:</span> <span style="color:#cf222e">function</span><span style="color:#1f2328">(</span><span style="color:#1f2328">uuid</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">var</span> <span style="color:#1f2328">randos</span> <span style="color:#0550ae">=</span> <span style="color:#1f2328">[];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">_</span><span style="color:#1f2328">.</span><span style="color:#1f2328">times</span><span style="color:#1f2328">(</span><span style="color:#0550ae">5</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">function</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span> <span style="color:#1f2328">randos</span><span style="color:#1f2328">.</span><span style="color:#1f2328">push</span><span style="color:#1f2328">(</span><span style="color:#1f2328">getRando</span><span style="color:#1f2328">());</span> <span style="color:#1f2328">});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">Meteor</span><span style="color:#1f2328">.</span><span style="color:#1f2328">publish</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#34;bounties-&#34;</span> <span style="color:#0550ae">+</span> <span style="color:#1f2328">uuid</span><span style="color:#1f2328">,</span> <span style="color:#cf222e">function</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#cf222e">return</span> <span style="color:#1f2328">Bounties</span><span style="color:#1f2328">.</span><span style="color:#1f2328">find</span><span style="color:#1f2328">({</span><span style="color:#1f2328">rando</span><span style="color:#0550ae">:</span> <span style="color:#1f2328">{</span><span style="color:#1f2328">$in</span><span style="color:#0550ae">:</span> <span style="color:#1f2328">randos</span><span style="color:#1f2328">}});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">});</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
+</span></span></code></pre></div><p>The idea here is that when a user clicked the &ldquo;Battle Mode&rdquo; link then they would call <code>startBattle</code>, get and store a UUID, and then call <code>join</code> with the given UUID. This would subscribe them to a channel and they&rsquo;d be waiting for an opponent to join with the same UUID.</p>
+<p>The two clients would play the game with their 5 bounties and then somehow trigger the server to republish 5 different bounties to play with. The problem with that is what I said before, you have to publish before you subscribe (which, again, doesn&rsquo;t make much sense to me) and you can&rsquo;t republish to the same channel. The server would just need to change the Bounties collection on the channel and both clients would get the new bounties, but how does the server get the handle to the unique channel id?</p>
+<p>Now, I may have just been thinking too client-server-y, but I never did figure out how to accomplish this pretty trivial work flow. If any Meteor non-newbs are reading, please post answers in the comments!</p>
+<p>We ran out of time to figure out a good way to periodically fetch random bounties, so the end result of the server code is when somebody starts the game it just hands out 50 random bounties. If a user is wicked smart and gets all 50 bounties right, it creates a rift in the space-time continuum and a very naked Arnold Schwarzenegger shows up at their house looking for clothes, boots, and a motorcycle.</p>
+<p><a href="http://www.imdb.com/title/tt0103064/"><img src="http://jerodsanto.net/drop/terminator_528_poster-20120423-161807.png" alt="T2"></a></p>
+<h2 id="javascript-javascript-everywhere">JavaScript, JavaScript Everywhere</h2>
+<p>One of the claimed advantages of using entirely JavaScript-based app stacks like Meteor is that you don&rsquo;t have to context switch between a server-side language and a client-side language. I don&rsquo;t think this is a much of a win for a couple of reasons:</p>
+<ol>
+<li>I find switching between Ruby and JavaScript (esp. CoffeeScript) pretty easy</li>
+<li>You still have HTML, CSS, and some templating system in play so contexts still need switching quite often</li>
+</ol>
+<p>Now, I could be totally wrong and never having to stop to think about which language your code is running in could be a huge win, but with Meteor I experienced a completely different disorienting effect: I kept forgetting <em>where</em> my code was running. Is this the client? Is this the server? WHERE AM I?!</p>
+<p>It helped to split the implementations up into separate files, but even then there are some Meteor APIs exposed only in the client&rsquo;s context, some exposed only in the server&rsquo;s context, and some exposed in both contexts. Figuring out what stuff was available where was&hellip;odd.</p>
+<div class="notice">Newb tip: the docs says Client, Server, or Anywhere next to each method so it&rsquo;s not too much work to figure out</div>
+<p>I have a feeling that this is something I&rsquo;d get used to pretty quickly, but it was frustrating nonetheless.</p>
+<h2 id="meteor-and-mongo-sitting-in-a-tree">Meteor and Mongo, sitting in a tree</h2>
+<p>MongoDB is tons of fun and I can&rsquo;t wait to use it again. One frustrating thing about using MongoDB from within Meteor is that only a subset of Mongo&rsquo;s JavaScript API is available from inside a Meteor collection. That said, I&rsquo;m no MongoDB pro so I&rsquo;m not sure how significant of a subset it is.</p>
+<p>(<a href="http://docs.meteor.com/#meteor_collection">More on Meteor Collections</a>)</p>
+<h2 id="deploying">Deploying</h2>
+<p>Meteor provides free hosting on one of their subdomains (which is really awesome, btw), but we wanted to use our own domain so we deployed to Heroku instead. This was made relatively painless thanks to <a href="https://github.com/jordansissel/heroku-buildpack-meteor">this build pack</a>. I had to make a few adjustments to deploy from a subdirectory instead of the root directory (so as to ignore our import script), but other than that it just worked. I&rsquo;ve been using Heroku for years and it still impresses me more every time I use it.</p>
+<h2 id="conclusions-faq-style">Conclusions, FAQ-style</h2>
+<p><em>Did our Meteor app win the contest?</em></p>
+<p>Nope. <a href="http://www.siliconprairienews.com/2012/04/food-fight-gamifies-restaurant-ratings-wins-hack-omaha-video">This awesome app</a> did.</p>
+<p><em>Would our app have won if we built it on our bread-and-butter tools instead of Meteor?</em></p>
+<p>Nope. <a href="http://www.siliconprairienews.com/2012/04/food-fight-gamifies-restaurant-ratings-wins-hack-omaha-video">This awesome app</a> would have.</p>
+<p><em>Would I use Meteor for a production application?</em></p>
+<p>Not yet. I&rsquo;d wait until they have more security features and more example code is available. I&rsquo;m also concerned about how well Meteor will scale (code-wise) to a very complex application. Hopefully there will be an aggressive, complex, open source Meteor app soon.</p>
+<p><em>Would I use Meteor for fun, hacks, tech demos, etc?</em></p>
+<p>Absolutely, but it might be worth checking out <a href="http://derbyjs.com/">Derby</a> too.</p>
+<p><em>Is everything in this blog post absolute truth?</em></p>
+<p>Absolutely not. When it comes to Meteor I&rsquo;m a total newb, remember!</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2012%2f04%2fconfessions-of-a-meteor-newb%2f&via=jerodsanto&text=Confessions%20of%20a%20Meteor%20Newb" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2012%2f04%2fconfessions-of-a-meteor-newb%2f&t=Confessions%20of%20a%20Meteor%20Newb" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2012%2f04%2fconfessions-of-a-meteor-newb%2f&title=Confessions%20of%20a%20Meteor%20Newb" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2012\/04\/confessions-of-a-meteor-newb\/";
+    var disqus_title = "Confessions of a Meteor Newb";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

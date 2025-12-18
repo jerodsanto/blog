@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sysadmin on Jerod Santo</title>
+  <link href="http://localhost:1313/categories/sysadmin/" rel="alternate" type="text/html" />
+  <link href="http://localhost:1313/categories/sysadmin/index.xml" rel="self" type="application/rss+xml" />
+  <description>On software, life, &amp; the space between</description>
+  <generator>Hugo -- gohugo.io</generator>
+  <language>en-us</language>
+  <lastBuildDate>Mon, 08 Apr 2013 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/sysadmin/index.xml" rel="self" type="application/rss+xml" />
+  <entry>
+    <title>Be Careful When You Create a Unified SSL Certificate for Nginx</title>
+    <link href="http://localhost:1313/2013/04/be-careful-when-you-create-a-unified-ssl-certificate-for-nginx/"/>
+    <id>http://localhost:1313/2013/04/be-careful-when-you-create-a-unified-ssl-certificate-for-nginx/</id>
+    <updated>2013-04-08T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;If one of the files doesn&amp;amp;rsquo;t have a newline at the end and you create the unified certificate (as instructed for &amp;lt;a href=&amp;#34;http://www.startssl.com/?app=42&amp;#34;&amp;gt;StartSSL&amp;lt;/a&amp;gt; certs) like so:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;cat ssl.crt sub.class1.server.ca.pem ca.pem &amp;amp;gt; /etc/nginx/conf/ssl-unified.crt
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Then you will end up with an error that looks like this:&amp;lt;/p&amp;gt;
+&amp;lt;blockquote&amp;gt;
+&amp;lt;p&amp;gt;SSL_CTX_use_certificate_chain_file failed (SSL: error:0906D066:PEM routines:PEM_read_bio:bad end line error:140DC009:SSL routines:SSL_CTX_use_certificate_chain_file:PEM lib)&amp;lt;/p&amp;gt;
+&amp;lt;/blockquote&amp;gt;
+&amp;lt;p&amp;gt;Check out your &amp;lt;code&amp;gt;ssl-unified.crt&amp;lt;/code&amp;gt; and you&amp;amp;rsquo;ll see that there is no newline between one or more of the certificates, like this:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;-----END CERTIFICATE----------BEGIN CERTIFICATE-----
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Add it yourself and everything should be peachy:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;-----END CERTIFICATE-----
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;-----BEGIN CERTIFICATE-----
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Creating an SSH Tunnel to a Remote Service</title>
+    <link href="http://localhost:1313/2012/11/creating-an-ssh-tunnel-to-a-remote-service/"/>
+    <id>http://localhost:1313/2012/11/creating-an-ssh-tunnel-to-a-remote-service/</id>
+    <updated>2012-11-28T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;File this under &amp;lt;strong&amp;gt;just-blog-it-already-so-you-can-stop-googling-it&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Imagine having Nagios/Resque Web/Monit/Cacti/MySQL/etc all set up on one of your servers. You want to access it from your local machine, but you don&amp;amp;rsquo;t want to make it listen on a public interface and set up a firewall and all that junk.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Instead, you can use SSH to tunnel your local client to the remote server&amp;amp;rsquo;s service. The command looks like this:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;ssh user@remotehost -N -L localhost:localport:remotehost:remoteport
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;For example, let&amp;amp;rsquo;s say that &amp;lt;a href=&amp;#34;https://github.com/defunkt/resque-web&amp;#34;&amp;gt;Resque Web&amp;lt;/a&amp;gt; is listening on port &amp;lt;strong&amp;gt;5678&amp;lt;/strong&amp;gt; on my &amp;lt;strong&amp;gt;jerodsanto.net&amp;lt;/strong&amp;gt; server and I want to access it via port &amp;lt;strong&amp;gt;9999&amp;lt;/strong&amp;gt; in my local browser.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The command would be:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;ssh me@jerodsanto.net -N -L localhost:9999:jerodsanto.net:5678
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;With that command running I can visit &amp;lt;strong&amp;gt;localhost:9999&amp;lt;/strong&amp;gt; in my browser and it will load the remote Resque Web app.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;A few notes about the given flags:&amp;lt;/p&amp;gt;
+&amp;lt;ul&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;code&amp;gt;-N&amp;lt;/code&amp;gt; tells SSH not to execute any commands on the machine, just connect to it&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;code&amp;gt;-L&amp;lt;/code&amp;gt; is what tells SSH to forward traffic on the given local port to the given remote port&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;you can use &amp;lt;code&amp;gt;-f&amp;lt;/code&amp;gt; if you want SSH to detach and run in a background process&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;p&amp;gt;Oh, and one more thing. If you have this host set up in your &amp;lt;a href=&amp;#34;/2009/05/avoid-sore-fingers-while-sshing-around/&amp;#34;&amp;gt;SSH config&amp;lt;/a&amp;gt;, you can use that too.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;So, if I had created an SSH host named &amp;lt;strong&amp;gt;jms&amp;lt;/strong&amp;gt;, the command would instead be:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;ssh jms -N -L localhost:9999:jms:5678
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Happy tunneling!&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>3 Tools I Install on Every Server</title>
+    <link href="http://localhost:1313/2012/06/3-tools-i-install-on-every-server/"/>
+    <id>http://localhost:1313/2012/06/3-tools-i-install-on-every-server/</id>
+    <updated>2012-06-14T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;Over the years, I&amp;amp;rsquo;ve found a few tools so invaluable for managing *nix servers that I end up installing them on every machine under my employ.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;They are, in no particular order:&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;htop&amp;#34;&amp;gt;htop&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;htop&amp;lt;/code&amp;gt; is what &amp;lt;code&amp;gt;top&amp;lt;/code&amp;gt; looks like after she puts on her dancing shoes on a Friday night. Basically &amp;lt;code&amp;gt;htop&amp;lt;/code&amp;gt; turns this:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;http://jerodsanto.net/drop/top-20120614-160039.png&amp;#34; alt=&amp;#34;top&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;into this:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;http://jerodsanto.net/drop/htop-20120614-155945.png&amp;#34; alt=&amp;#34;htop&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;It&amp;amp;rsquo;s such an improvement over plain ole&amp;amp;rsquo; &amp;lt;code&amp;gt;top&amp;lt;/code&amp;gt; — with no known downsides — that I have an alias in my shell:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;if&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[[&amp;lt;/span&amp;gt; -x &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;`&amp;lt;/span&amp;gt;which htop&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;`&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]]&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;then&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;alias&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;top&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;htop&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;fi&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;To install &amp;lt;code&amp;gt;htop&amp;lt;/code&amp;gt; from repos:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# Debian&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;$ aptitude install htop
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# Arch&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;$ pacman -S htop
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# OS X&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;brew install htop-osx
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;ack&amp;#34;&amp;gt;ack&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;ack&amp;lt;/code&amp;gt; is a text search tool akin to &amp;lt;code&amp;gt;grep&amp;lt;/code&amp;gt;, but with some pretty distinct advantages:&amp;lt;/p&amp;gt;
+&amp;lt;ul&amp;gt;
+&amp;lt;li&amp;gt;fast — it only searches what makes sense to search&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;defaults to recursive searches&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;defaults to colored output&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;defaults to show line numbers of matched strings&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;takes fewer keystrokes&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;uses Perl&amp;amp;rsquo;s powerful regular expressions&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;p&amp;gt;Needless to say, it&amp;amp;rsquo;s &amp;lt;a href=&amp;#34;http://betterthangrep.com/&amp;#34;&amp;gt;better than grep&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;To install &amp;lt;code&amp;gt;ack&amp;lt;/code&amp;gt; from repos:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# Debian&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;$ aptitude install ack-grep
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;$ ln -s /usr/bin/ack-grep /usr/bin/ack
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# Arch&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;$ pacman -S ack
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# OS X&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;$ brew install ack
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;tree&amp;#34;&amp;gt;tree&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;tree&amp;lt;/code&amp;gt; is a great way to wrap your head around a directory structure instead of &amp;lt;code&amp;gt;cd&amp;lt;/code&amp;gt;ing and &amp;lt;code&amp;gt;ls&amp;lt;/code&amp;gt;ing all over the place.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;tree&amp;lt;/code&amp;gt;&amp;amp;rsquo;s output looks like this:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;http://jerodsanto.net/drop/tree-20120614-161039.png&amp;#34; alt=&amp;#34;tree&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The output can be a bit overwhelming for directories with many files and subdirectories, but it can be easily piped to &amp;lt;code&amp;gt;less&amp;lt;/code&amp;gt; so you can page and navigate it.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;To install &amp;lt;code&amp;gt;tree&amp;lt;/code&amp;gt; from repos:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# Debian&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;$ aptitude install tree
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# Arch&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;$ pacman -S tree
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# OS X&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;$ brew install tree
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;quid-pro-quo&amp;#34;&amp;gt;quid pro quo&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;What about you?&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Do you have any tools that don&amp;amp;rsquo;t ship with your server operating system of choice, but you just can&amp;amp;rsquo;t live without?&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;If so, I probably can&amp;amp;rsquo;t live without them either and just don&amp;amp;rsquo;t know it yet. Please share :)&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Tee for Two</title>
+    <link href="http://localhost:1313/2012/05/tee-for-two/"/>
+    <id>http://localhost:1313/2012/05/tee-for-two/</id>
+    <updated>2012-05-16T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;&amp;lt;a href=&amp;#34;http://en.wikipedia.org/wiki/Tee_(command)&amp;#34;&amp;gt;Tee&amp;lt;/a&amp;gt; is one of those commands so simple, so basic that you&amp;amp;rsquo;ve either been using it for years (and turn your nose up at me for writing about something so obvious) or you&amp;amp;rsquo;ll wish you had been (and sing my praises for writing about something so useful).&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Sometimes you want to send a program&amp;amp;rsquo;s output to two locations. The most obvious case (and really the only one that I use) is when you want to display logging/debugging information in your shell and also capture it on disk for later analysis. Tee makes it dead simple. For example, an uploader Ruby script that logs to STDOUT:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;ruby uploader.rb | tee uploader.log
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;You can also use it as a middle man between between programs. For example, finding pdf files in a directory, writing the results to a new file while also using a pager on them:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;find ~/Documents -name *.pdf | tee pdfs.log | less
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;You&amp;amp;rsquo;ll find the &amp;lt;code&amp;gt;tee&amp;lt;/code&amp;gt; command preinstalled on most unixes and in the package repositories of those that don&amp;amp;rsquo;t ship with it. I&amp;amp;rsquo;m pretty sure Windows PowerShell has it too, if you&amp;amp;rsquo;re in to that kind of thing.&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Get FireHOL off of RSyslog&#39;s lawn</title>
+    <link href="http://localhost:1313/2012/03/get-firehol-off-of-rsyslogs-lawn/"/>
+    <id>http://localhost:1313/2012/03/get-firehol-off-of-rsyslogs-lawn/</id>
+    <updated>2012-03-27T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;&amp;lt;a href=&amp;#34;http://firehol.sourceforge.net/&amp;#34;&amp;gt;FireHOL&amp;lt;/a&amp;gt; is the best tool I&amp;amp;rsquo;ve used for configuring Linux firewalls. But it can really spew its logs all over your &amp;lt;code&amp;gt;kern.log&amp;lt;/code&amp;gt; and &amp;lt;code&amp;gt;syslog&amp;lt;/code&amp;gt;. Getting it to stop this is non-obvious so hopefully this saves you some time.&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;notice&amp;#34;&amp;gt;This tutorial is for Debian 6 running rsyslog. As always, YMMV.&amp;lt;/div&amp;gt;
+&amp;lt;h2 id=&amp;#34;install-firehol&amp;#34;&amp;gt;Install FireHOL&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;This is the easy part.&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;aptitude install firehol
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;make-sure-it-can-start&amp;#34;&amp;gt;Make sure it can start&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;Debian&amp;amp;rsquo;s FireHOL package has it disabled by default. Edit &amp;lt;code&amp;gt;/etc/default/firehol&amp;lt;/code&amp;gt; and set:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;START_FIREHOL=YES
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;set-a-custom-log-prefix&amp;#34;&amp;gt;Set a custom log prefix&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;Edit &amp;lt;code&amp;gt;/etc/firehol/firehol.conf&amp;lt;/code&amp;gt; and add the following:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;FIREHOL_LOG_PREFIX=&amp;amp;#34;firehol: &amp;amp;#34;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;This ensures that all FireHOL-generated log messages contain this string. While you&amp;amp;rsquo;re here, you might want to configure the firewall itself :)&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;create-a-special-rule-in-rsyslog&amp;#34;&amp;gt;Create a special rule in rsyslog&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;Add a file at &amp;lt;code&amp;gt;/etc/rsyslog.d/30-firehol.conf&amp;lt;/code&amp;gt; and make it have the following content:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;:msg, contains, &amp;amp;#34;&amp;amp;#39;firehol: &amp;amp;#34; -/var/log/firehol.log
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;&amp;amp;amp; ~
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;This will make all log messages that contain the &amp;amp;ldquo;&amp;amp;lsquo;firehol: &amp;amp;quot; string log to their own file. It then skips the rest of the rules so they don&amp;amp;rsquo;t also go to &amp;lt;code&amp;gt;kern.log&amp;lt;/code&amp;gt; and &amp;lt;code&amp;gt;syslog&amp;lt;/code&amp;gt;. The &amp;amp;ldquo;30&amp;amp;rdquo; in the filename is just there to ensure that this file is evaluated before the others. I&amp;amp;rsquo;m not sure if it&amp;amp;rsquo;s actually necessary or not.&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;restart-stuff&amp;#34;&amp;gt;Restart stuff&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;That should be all you need to do. Now restart FireHOL and Rsyslog like so:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;/etc/init.d/firehol stop
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;/etc/init.d/rsyslog stop
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;/etc/init.d/firehol start
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;/etc/init.d/rsyslog start
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Then check &amp;lt;code&amp;gt;/var/log/firehol.log&amp;lt;/code&amp;gt; to make sure FireHOL is logging there.&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;#34;bonus&amp;#34;&amp;gt;Bonus&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;You may also be getting sick of seeing this warning every time you restart FireHOL:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;File &amp;amp;lsquo;/etc/firehol/RESERVED_IPS&amp;amp;rsquo; is more than 90 days old&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The worst part is that the script to update the reserved IPs list (as of right now) 404s so you can&amp;amp;rsquo;t fix it. What you can do is this:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;touch /etc/firehol/RESERVED_IPS
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;That&amp;amp;rsquo;ll shut it up, if for only another 3 months.&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Quickly Determine Your Current Heroku Database Size</title>
+    <link href="http://localhost:1313/2011/01/quickly-determine-your-current-heroku-database-size/"/>
+    <id>http://localhost:1313/2011/01/quickly-determine-your-current-heroku-database-size/</id>
+    <updated>2011-01-26T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;Heroku&amp;amp;rsquo;s free offering includes a 5MB shared database. After your database grows past that, you&amp;amp;rsquo;ll have to upgrade to their (as of now) $15 per month shared database which can grow up to 20GB.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;5MB ain&amp;amp;rsquo;t much, but it will get you started. But how do you know where your app currently stands? Heroku does not expose the current database size of your application via their web interface or command-line tool, but it&amp;amp;rsquo;s pretty easy to get at.&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;alert&amp;#34;&amp;gt;UPDATE: It turns out this post was 100% wrong. Heroku &amp;lt;em&amp;gt;does&amp;lt;/em&amp;gt; expose the current database size of your application via the command-line tool. Simply run &amp;lt;code&amp;gt;heroku info&amp;lt;/code&amp;gt; and you&amp;amp;rsquo;ll see it in there next to &amp;amp;ldquo;Data size&amp;amp;rdquo; in all its glory. I can&amp;amp;rsquo;t believe I glossed that when I was looking previously. Thanks to &amp;lt;a href=&amp;#34;http://www.williamayd.com/&amp;#34;&amp;gt;William Ayd&amp;lt;/a&amp;gt; for sorting me out!&amp;lt;/div&amp;gt;
+&amp;lt;ol&amp;gt;
+&amp;lt;li&amp;gt;Connect to your app&amp;amp;rsquo;s console:&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;heroku console
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;ol start=&amp;#34;2&amp;#34;&amp;gt;
+&amp;lt;li&amp;gt;Run this code:&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;ActiveRecord&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;::&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;Base&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;connection&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;execute&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;SELECT pg_size_pretty(pg_database_size(&amp;amp;#39;postgres&amp;amp;#39;))&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;first
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Alternatively, if you&amp;amp;rsquo;ve already upgraded to one of the paid database add-ons and you have Postgresql installed locally, you can connect directly to your app&amp;amp;rsquo;s database like so:&amp;lt;/p&amp;gt;
+&amp;lt;ol&amp;gt;
+&amp;lt;li&amp;gt;Connect using the &amp;lt;code&amp;gt;heroku&amp;lt;/code&amp;gt; command:&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;heroku pg:psql
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;ol start=&amp;#34;2&amp;#34;&amp;gt;
+&amp;lt;li&amp;gt;Run this query:&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-mysql&amp;#34; data-lang=&amp;#34;mysql&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;SELECT&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#fff&amp;#34;&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;pg_size_pretty&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;pg_database_size&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#39;postgres&amp;amp;#39;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;));&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#fff&amp;#34;&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Managing Broken Symlinks</title>
+    <link href="http://localhost:1313/2009/11/managing-broken-symlinks/"/>
+    <id>http://localhost:1313/2009/11/managing-broken-symlinks/</id>
+    <updated>2009-11-05T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;I just added two new functions to my &amp;lt;a href=&amp;#34;http://github.com/jerodsanto/dotfiles/blob/master/bashrc&amp;#34;&amp;gt;bashrc&amp;lt;/a&amp;gt; which make it super-simple to find &amp;amp;amp; remove broken symbolic links on your system.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;They&amp;amp;rsquo;re simple wrappers around the ever-useful &amp;amp;ldquo;find&amp;amp;rdquo; utility:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;function&amp;lt;/span&amp;gt; find_broken_symlinks&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;()&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;{&amp;lt;/span&amp;gt; find -x -L &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;${&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;1&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;-.&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;&amp;lt;/span&amp;gt; -type l&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;function&amp;lt;/span&amp;gt; rm_broken_symlinks&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;()&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;{&amp;lt;/span&amp;gt; find -x -L &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;${&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;1&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;-.&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;&amp;lt;/span&amp;gt; -type l -exec rm &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;{}&amp;lt;/span&amp;gt; &#43;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;You can call the functions with a specific path:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;jerod@mbp:~$ find_broken_symlinks /usr/local/bin
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Or you can call them sans argument to search your current working directory:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;jerod@mbp:~$ find_broken_symlinks
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Enjoy!&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>PHP5 with readline support on OS X</title>
+    <link href="http://localhost:1313/2009/06/php5-with-readline-support-on-os-x/"/>
+    <id>http://localhost:1313/2009/06/php5-with-readline-support-on-os-x/</id>
+    <updated>2009-06-06T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;OS X ships with PHP5 installed but it does not have &amp;lt;code&amp;gt;readline()&amp;lt;/code&amp;gt; support compiled in. Anybody using PHP from the command-line will want this, as it allows handy things such as tab completion and scrolling through command history using the up arrow.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Thankfully, &amp;lt;a href=&amp;#34;http://www.macports.org/&amp;#34;&amp;gt;MacPorts&amp;lt;/a&amp;gt; has a readline variant that can be easily installed:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;sudo port install php5 &#43;readline
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;If you execute the command above, apache2 will come along for the ride because it&amp;amp;rsquo;s a default variant for the PHP5 port. If you don&amp;amp;rsquo;t want apache2 (OS X ships with apache2 anyways), modify the command to look like this:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;sudo port install php5 -apache2 &#43;readline
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Not sure if your PHP install has readline support? Execute this one-liner to find out:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-php&amp;#34; data-lang=&amp;#34;php&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;&amp;amp;lt;?&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;php&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;echo&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;function_exists&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#39;readline&amp;amp;#39;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;?&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;yes&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;\n&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;:&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;no&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;\n&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;?&amp;amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#f6f8fa;background-color:#82071e&amp;#34;&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Rename A Gitosis Repository</title>
+    <link href="http://localhost:1313/2009/05/rename-a-gitosis-repository/"/>
+    <id>http://localhost:1313/2009/05/rename-a-gitosis-repository/</id>
+    <updated>2009-05-28T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;I use &amp;lt;a href=&amp;#34;http://eagain.net/gitweb/?p=gitosis.git;a=summary&amp;#34;&amp;gt;gitosis&amp;lt;/a&amp;gt; for private git repository hosting (and it&amp;amp;rsquo;s awesome). If you are interested, this&amp;lt;a href=&amp;#34;http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way&amp;#34;&amp;gt; great tutorial&amp;lt;/a&amp;gt; will walk you through setting it up yourself.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;I recently needed to rename one of my repositories and couldn&amp;amp;rsquo;t find any info on how to do it, so here is a walk-thru. I will demonstrate the steps of renaming a repository called &amp;amp;ldquo;&amp;lt;strong&amp;gt;tk&amp;lt;/strong&amp;gt;&amp;amp;rdquo; to &amp;amp;ldquo;&amp;lt;strong&amp;gt;show-time&amp;lt;/strong&amp;gt;&amp;amp;rdquo;.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Rename project in gitosis.conf&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Before:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;[group main]
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;writable = tk
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;After:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;[group main]
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;writable = show-time
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Push changes&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;git push origin master
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Connect to gitosis server and rename correct folder&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;cd /home/git/repositories
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;mv tk show-time
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Change the remote reference in all repository clones&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;cd /src/show-time
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;git remote rm origin
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;git remote add origin git@example-git-server.com:show-time.git
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Done and done.&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Avoid Sore Fingers While SSHing Around</title>
+    <link href="http://localhost:1313/2009/05/avoid-sore-fingers-while-sshing-around/"/>
+    <id>http://localhost:1313/2009/05/avoid-sore-fingers-while-sshing-around/</id>
+    <updated>2009-05-14T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;If you&amp;amp;rsquo;re anything like me, you&amp;amp;rsquo;ve gotten accustomed to commands like this:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;jerod@mbp:~$ ssh &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;user&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;@&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;remote.server.com&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;If you find yourself connecting to the same machines repeatedly, save a few keystrokes by creating a handy alias for them. Create (or edit) &amp;amp;ldquo;&amp;lt;strong&amp;gt;~/.ssh/config&amp;lt;/strong&amp;gt;&amp;amp;rdquo; and add as many of these as your little heart desires:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;Host &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;the alias&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;HostName &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;domain name or IP address&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;User &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;the account to login as&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Now you don&amp;amp;rsquo;t have to use the full command to access the machine, just use the alias! For example, here is how I access one of my DreamHost servers:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;jerod@mbp:~$ ssh dh
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;The same goes for SCP! So, to secure copy a file (my_file.txt) in my current directory to the same machine I would simply issue:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;jerod@mbp:~$ scp my_file.txt dh:
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Ahh&amp;amp;hellip; that is easy on the fingers! What else can we do with SSH config files?&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>2&gt;&amp;1</title>
+    <link href="http://localhost:1313/2009/03/21/"/>
+    <id>http://localhost:1313/2009/03/21/</id>
+    <updated>2009-03-17T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;A common practice when adding entries to crontab is to end the entry like this:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;amp;gt;/dev/null 2&amp;amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;&amp;amp;amp;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;1&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;The purpose of this is to suppress any output from the command itself, because we&amp;amp;rsquo;re not interested. I picked up this syntax years ago because it just works, but I never knew what the &amp;lt;code&amp;gt;2&amp;amp;gt;&amp;amp;amp;1&amp;lt;/code&amp;gt; actually meant, until today.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The first part:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;amp;gt;/dev/null
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Means redirect &amp;lt;code&amp;gt;STDOUT&amp;lt;/code&amp;gt; (the standard output stream) to &amp;lt;code&amp;gt;/dev/null&amp;lt;/code&amp;gt; (which is basically a blackhole for bits). That&amp;amp;rsquo;s easy enough.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The second part:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;2&amp;amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;&amp;amp;amp;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;1&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Means redirect &amp;lt;code&amp;gt;STDERR&amp;lt;/code&amp;gt; (standard error stream) to the same place as &amp;lt;code&amp;gt;STDOUT&amp;lt;/code&amp;gt; (which was just specified). &amp;lt;code&amp;gt;STDOUT&amp;lt;/code&amp;gt; has the assigned number 1 and &amp;lt;code&amp;gt;STDERR&amp;lt;/code&amp;gt; has the assigned number 2.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;This way both &amp;lt;code&amp;gt;STDOUT&amp;lt;/code&amp;gt; (1) and &amp;lt;code&amp;gt;STDERR&amp;lt;/code&amp;gt; (2) are directed to &amp;lt;code&amp;gt;/dev/null&amp;lt;/code&amp;gt; and all output of the cronned command is suppressed.&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Rsnapshot (Rsync) Gotcha</title>
+    <link href="http://localhost:1313/2009/03/rsnapshot-rsync-gotcha/"/>
+    <id>http://localhost:1313/2009/03/rsnapshot-rsync-gotcha/</id>
+    <updated>2009-03-09T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;If you&amp;amp;rsquo;re trying to backup a remote host using &amp;lt;a href=&amp;#34;http://rsnapshot.org/&amp;#34;&amp;gt;rsnapshot&amp;lt;/a&amp;gt; (or rsync by itself) and run into one of the following ambiguous errors:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;rsnapshot version:&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;ERROR: /usr/bin/rsync returned 12 while processing ...
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;rsync version:&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-console&amp;#34; data-lang=&amp;#34;console&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;rsync error: error in rsync protocol data stream (code 12)
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;It&amp;amp;rsquo;s probably because you don&amp;amp;rsquo;t have rsync installed on the remote host (doh!)&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Bash array and loops in FireHOL configuration</title>
+    <link href="http://localhost:1313/2009/02/bash-array-and-loops-in-firehol-configuration/"/>
+    <id>http://localhost:1313/2009/02/bash-array-and-loops-in-firehol-configuration/</id>
+    <updated>2009-02-26T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;IPTables is a powerful but cryptic firewall solution. &amp;lt;a href=&amp;#34;http://firehol.sourceforge.net/&amp;#34;&amp;gt;FireHOL&amp;lt;/a&amp;gt; is an IPTables configurator that flat out rocks. One of FireHOL&amp;amp;rsquo;s strengths is that it uses standard &amp;lt;a href=&amp;#34;http://www.gnu.org/software/bash/bash.html&amp;#34;&amp;gt;BASH&amp;lt;/a&amp;gt; syntax inside its configuration file, so you get all the power of BASH to configure your firewall.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Let&amp;amp;rsquo;s see how a BASH array and for loop can help clean up our FireHOL config:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You have 3 machines that need SSH access to the server. First, you can setup variable names to reference the IP addresses (or DNS names) of the machines. Put these declarations at the top of your FireHOL config for easy maintenance.&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;srv1&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;205.205.205.1&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;srv2&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;srv2.example.com&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;srv3&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;143.32.2.44&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Now lets see what the SSH allow declaration will look like using these variables on interface eth0:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;interface eth0 public
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  policy reject
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  server ssh accept src &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;$srv1&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  server ssh accept src &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;$srv2&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  server ssh accept src &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;$srv3&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Notice how each host you want to allow SSH access adds another line to your configuration. This may seem trivial in my example but can add a lot of complexity as your environment grows. Is there a better way to implement? You bet.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;First, lets create an array to house all of the hosts we want to provide SSH access to:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;ssh_list&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;$srv1&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;$srv2&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;$srv3&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Next, we change the declaration on our interface to simply loop through this list of hosts and allow SSH access:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;interface eth0 public
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  policy reject
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;for&amp;lt;/span&amp;gt; host in &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;${&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;ssh_list&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;[@]&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;do&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;    server ssh accept &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;$host&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;done&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Much better! Now we can simply add/remove hosts from our &amp;lt;code&amp;gt;ssh_list&amp;lt;/code&amp;gt; array (at the top of the config file where all our variables are declared) and let BASH do the rest. The key here is the &amp;lt;code&amp;gt;${ssh_list[@]}&amp;lt;/code&amp;gt; which returns the evaluated list of hosts inside the &amp;lt;code&amp;gt;ssh_list&amp;lt;/code&amp;gt; array. Enjoy.&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Getting ready for Lenny</title>
+    <link href="http://localhost:1313/2009/02/getting-ready-for-lenny/"/>
+    <id>http://localhost:1313/2009/02/getting-ready-for-lenny/</id>
+    <updated>2009-02-16T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;You don&amp;amp;rsquo;t need to fire up an editor to switch your APT repositories from Debian 4 (Etch) to Debian 5 (Lenny):&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;ruby &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;-&amp;lt;/span&amp;gt;i &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;-&amp;lt;/span&amp;gt;pe &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#39;$_.gsub!(&amp;amp;#34;etch&amp;amp;#34;,&amp;amp;#34;lenny&amp;amp;#34;)&amp;amp;#39;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;/etc/&amp;lt;/span&amp;gt;apt&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;/&amp;lt;/span&amp;gt;sources&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;lst
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Great Article on Aptitude vs Apt-Get</title>
+    <link href="http://localhost:1313/2009/02/great-article-on-aptitude-vs-apt-get/"/>
+    <id>http://localhost:1313/2009/02/great-article-on-aptitude-vs-apt-get/</id>
+    <updated>2009-02-16T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;If you need some convincing to start using aptitude for all your Debian/Ubuntu software management needs, Aaron Toponce&amp;amp;rsquo;s article will do the job. It&amp;amp;rsquo;s a few years old (at the time of this post) but still relevant.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Don&amp;amp;rsquo;t take my word for it. &amp;lt;a href=&amp;#34;http://pthree.org/2007/08/12/aptitude-vs-apt-get/&amp;#34;&amp;gt;Read it for yourself.&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>fix your Debian VMware image&#39;s network after offline copy</title>
+    <link href="http://localhost:1313/2008/09/fix-your-debian-vmware-images-network-after-offline-copy/"/>
+    <id>http://localhost:1313/2008/09/fix-your-debian-vmware-images-network-after-offline-copy/</id>
+    <updated>2008-09-17T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;If you copy and move a VMware virtual machine that runs Debian, you’ll find that the network adapter is no longer available, which sucks.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;I implemented a simple fix using Ruby. Just make it start at boot by adding it to your &amp;lt;code&amp;gt;/etc/rc.local&amp;lt;/code&amp;gt; and it should be all good.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;NOTICE:&amp;lt;/strong&amp;gt; automatically reboots machine&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-ruby&amp;#34; data-lang=&amp;#34;ruby&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#57606a&amp;#34;&amp;gt;# 2&amp;amp;gt;&amp;amp;amp;1 redirects stderr to stdout so we can capture it&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;if_status &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;`ifconfig eth0 2&amp;amp;gt;&amp;amp;amp;1`&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;config_file &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;/etc/udev/rules.d/z25_persistent-net.rules&amp;amp;#34;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;if&amp;lt;/span&amp;gt; if_status &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=~&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;/Device not found/&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  config_text &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;Array&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;new
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;File&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;open&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;config_file&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;r&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;{&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;|&amp;lt;/span&amp;gt;file&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;|&amp;lt;/span&amp;gt; config_text &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; file&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;readlines &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  relevant_text &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; config_text&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;select &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;{&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;|&amp;lt;/span&amp;gt;line&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;|&amp;lt;/span&amp;gt; line &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=~&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;/^SUBSYSTEM==/&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  output &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; relevant_text&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;last&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;gsub&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;/ethd/&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;eth0&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;File&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;open&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;config_file&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;,&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;w&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;){&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;|&amp;lt;/span&amp;gt;file&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;|&amp;lt;/span&amp;gt; file&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;.&amp;lt;/span&amp;gt;puts output &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;}&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;system&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#34;reboot&amp;amp;#34;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;end&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;a href=&amp;#34;http://jerodsanto.net/src/ruby/vm_mac_fixer.rb&amp;#34;&amp;gt;Download&amp;lt;/a&amp;gt; and use it if you’d like.&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Starting Asterisk on Boot in Debian</title>
+    <link href="http://localhost:1313/2008/09/starting-asterisk-on-boot-in-debian/"/>
+    <id>http://localhost:1313/2008/09/starting-asterisk-on-boot-in-debian/</id>
+    <updated>2008-09-03T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;Here’s a quickie. You just compiled &amp;lt;a href=&amp;#34;http://asterisk.org/&amp;#34;&amp;gt;Asterisk&amp;lt;/a&amp;gt; on your &amp;lt;a href=&amp;#34;http://debian.org/&amp;#34;&amp;gt;Debian&amp;lt;/a&amp;gt; server and you want to make sure it starts when you reboot. Here’s how:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Look in the &amp;lt;code&amp;gt;/contrib/init.d&amp;lt;/code&amp;gt; folder of your Asterisk source directory. You’ll see a file called &amp;lt;code&amp;gt;rc.debian.asterisk&amp;lt;/code&amp;gt;. If you installed Asterisk to the default location, don’t worry about editing this file. If you installed to a different location (eg - /usr/local), change the following line in the file:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;DAEMON&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt;/usr/sbin/asterisk
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Point this at your Asterisk binary. Not sure where it is? Just type &amp;lt;code&amp;gt;which asterisk&amp;lt;/code&amp;gt; from the command line and it will show you the full path.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Next, copy the file into the &amp;lt;code&amp;gt;/etc/init.d/&amp;lt;/code&amp;gt; directory like so:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;cp rc.debian.asterisk /etc/init.d/asterisk
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;(NOTE: I am renaming the file on purpose)&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Now you can control Asterisk by executing this script. Make sure it starts and stops before continuing:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;/etc/init.d/asterisk start
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;Starting Asterisk PBX: asterisk.
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;/etc/init.d/asterisk stop
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;Stopping Asterisk PBX: asterisk.
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Finally, make the system run this script during the boot process:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;update-rc.d asterisk defaults
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Done and done. Reboot and check the process list just to be sure!&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Configure Network Time Protocol (NTP) in Debian</title>
+    <link href="http://localhost:1313/2008/08/configure-network-time-protocol-ntp-in-debian/"/>
+    <id>http://localhost:1313/2008/08/configure-network-time-protocol-ntp-in-debian/</id>
+    <updated>2008-08-27T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;Ok, this bugs the crap out of me. I set up a shiny new Debian 4.0 base install and go on my merry way, meanwhile the system time is off by a long shot! I only notice when it starts to hurt…&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Here’s how to synchronize your Debian system’s time with network time servers, in a few simple steps (use sudo as needed):&amp;lt;/p&amp;gt;
+&amp;lt;ol&amp;gt;
+&amp;lt;li&amp;gt;Install the necessary packages:&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;apt-get install ntp ntpdate
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;ol start=&amp;#34;2&amp;#34;&amp;gt;
+&amp;lt;li&amp;gt;Stop the NTP daemon for now (apt-get will start the service upon successful installation):&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;/etc/init.d/ntp stop
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;ol start=&amp;#34;3&amp;#34;&amp;gt;
+&amp;lt;li&amp;gt;Manually synchronize the system clock to the NTP server pool:&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;ntpdate pool.ntp.org
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;3.5) An explanation: the NTP server daemon will fail to sync with the NTP servers if the system time is too far from the NTP servers time so its best to manually synchronize once to get your system time close enough.&amp;lt;/p&amp;gt;
+&amp;lt;ol start=&amp;#34;4&amp;#34;&amp;gt;
+&amp;lt;li&amp;gt;Restart the NTP daemon:&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;/etc/init.d/ntp start
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;ol start=&amp;#34;5&amp;#34;&amp;gt;
+&amp;lt;li&amp;gt;(Optionally) Verify that the NTP daemon is synchronized by checking the syslog:&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;grep ntpd /var/log/syslog &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;|&amp;lt;/span&amp;gt; tail
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;ntpd&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;6348&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;: synchronized to 74.53.198.146, stratum &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;2&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;ntpd&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;6348&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;: kernel &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;time&amp;lt;/span&amp;gt; sync enabled &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;0001&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;ntpd&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;6348&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;: synchronized to 128.10.19.24, stratum &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;1&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Your output may vary, but it should look similar to mine.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;That’s all for now!&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Debian Etch: Default Repositories</title>
+    <link href="http://localhost:1313/2008/08/debian-etch-default-repositories/"/>
+    <id>http://localhost:1313/2008/08/debian-etch-default-repositories/</id>
+    <updated>2008-08-22T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;In case you muck up your &amp;lt;code&amp;gt;/etc/apt/sources.list&amp;lt;/code&amp;gt; and want to set it back to the defaults, just copy and paste this in:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;deb http://ftp.debian.org/debian/ etch main
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;deb-src http://ftp.debian.org/debian/ etch main
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;deb http://security.debian.org/ etch/updates main contrib
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;deb-src http://security.debian.org/ etch/updates main contrib
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Debian Quickie: MailUtils</title>
+    <link href="http://localhost:1313/2008/08/debian-quickie-mailutils/"/>
+    <id>http://localhost:1313/2008/08/debian-quickie-mailutils/</id>
+    <updated>2008-08-12T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;All (except for one RHEL4 box) of the servers I run use &amp;lt;a href=&amp;#34;http://debian.org/&amp;#34;&amp;gt;Debian&amp;lt;/a&amp;gt;. I have become accustomed to using the default mail client &amp;lt;code&amp;gt;/usr/bin/mail&amp;lt;/code&amp;gt; that ships with the O/S for reading local email coming in from cron jobs.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Well, it turns out that this handy little tool doesn’t &amp;lt;em&amp;gt;actually&amp;lt;/em&amp;gt; ship with a base Debian Etch install.&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;bash: mail: &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;command&amp;lt;/span&amp;gt; not found
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Grrrr!&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Turns out you have to have mailutils installed to get &amp;lt;code&amp;gt;/usr/bin/mail&amp;lt;/code&amp;gt;. I always forget this package name so I figured I’d post it here for easy access.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;To install the necessary packages under &amp;lt;a href=&amp;#34;http://debian.org/&amp;#34;&amp;gt;Debian&amp;lt;/a&amp;gt; just issue the following command:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;apt-get install mailutils
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Enjoy the fresh maily goodness.&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Symlink Your Samba Shares</title>
+    <link href="http://localhost:1313/2008/07/symlink-your-samba-shares/"/>
+    <id>http://localhost:1313/2008/07/symlink-your-samba-shares/</id>
+    <updated>2008-07-23T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;Lets face it, oftentimes a symbolic link is just the quickest/easiest solution to the task at hand.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;To configure &amp;lt;a href=&amp;#34;http://www.samba.org&amp;#34;&amp;gt;Samba&amp;lt;/a&amp;gt; to allow symlinking directories/files into your shared directories, add the following three lines to the global section of &amp;lt;code&amp;gt;smb.conf&amp;lt;/code&amp;gt;:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;follow &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;symlinks&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; yes
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;wide &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;symlinks&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; yes
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;unix &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;extensions&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt; no
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Easy peasy lemon squeezy.&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>SliceHost &#43; Debian &#43; FireHOL gotchas</title>
+    <link href="http://localhost:1313/2008/06/slicehost--debian--firehol-gotchas/"/>
+    <id>http://localhost:1313/2008/06/slicehost--debian--firehol-gotchas/</id>
+    <updated>2008-06-20T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;Securing your &amp;lt;a href=&amp;#34;http://www.slicehost.com&amp;#34;&amp;gt;slice&amp;lt;/a&amp;gt; with &amp;lt;a href=&amp;#34;http://firehol.sourceforge.net&amp;#34;&amp;gt;FireHOL&amp;lt;/a&amp;gt; is a really, really good move. Here are a few notes that may save you some time:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;FireHOL requires a kernel config to know which modules to load, SliceHost uses Xen, so to get the kernel configuration in the right place, execute the following commands:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;/proc/config.gz ~ &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;&amp;amp;amp;&amp;amp;amp;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;cd&amp;lt;/span&amp;gt; ~
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;gunzip config.gz &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;&amp;amp;amp;&amp;amp;amp;&amp;lt;/span&amp;gt; mv config /boot/config-&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;`&amp;lt;/span&amp;gt;uname -r&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;`&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;FireHOL ships with a safety net configured in &amp;lt;code&amp;gt;/etc/defaults/firehol&amp;lt;/code&amp;gt;. It will not start until you edit this file and change this:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;START_FIREHOL&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt;NO
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;to this:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;START_FIREHOL&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt;YES
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;That should do it for gotchas. Now you can lock down your machine to assure you’re only serving what you expect. Fore more on configuring FireHOL, check out their &amp;lt;a href=&amp;#34;http://firehol.sourceforge.net/tutorial.html&amp;#34;&amp;gt;online tutorial&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>htop: like top, but awesome</title>
+    <link href="http://localhost:1313/2008/06/htop-like-top-but-awesome/"/>
+    <id>http://localhost:1313/2008/06/htop-like-top-but-awesome/</id>
+    <updated>2008-06-03T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;If you’ve been hacking at your linux CLI for a little while, you’re probably familiar with the pic below. If not, just type &amp;lt;code&amp;gt;top&amp;lt;/code&amp;gt; and your terminal will spring to life with an ever-updating process and usage display.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;/wp-content/uploads/2008/06/top.jpg&amp;#34; alt=&amp;#34;top&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;While very useful, &amp;lt;code&amp;gt;top&amp;lt;/code&amp;gt;’s output is oogly. It’s the 21st century already! Let’s use some colors!!&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Thankfully, &amp;lt;code&amp;gt;htop&amp;lt;/code&amp;gt; is here to save the day. To install on a Debian-based linux, simply type:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;sudo apt-get install htop
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;now we should have &amp;lt;code&amp;gt;htop&amp;lt;/code&amp;gt; installed. Let’s add a quick alias so we don’t accidentally launch &amp;lt;code&amp;gt;top&amp;lt;/code&amp;gt; anymore. Open your &amp;lt;code&amp;gt;.bashrc&amp;lt;/code&amp;gt; in your favorite editor and add the following code to it:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;if&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt; -f /usr/bin/htop &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;then&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;  &amp;lt;span style=&amp;#34;color:#6639ba&amp;#34;&amp;gt;alias&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#953800&amp;#34;&amp;gt;top&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;=&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;amp;#39;htop&amp;amp;#39;&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#cf222e&amp;#34;&amp;gt;fi&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Now whenever you start a terminal session and type &amp;lt;code&amp;gt;top&amp;lt;/code&amp;gt; you’ll launch &amp;lt;code&amp;gt;htop&amp;lt;/code&amp;gt; instead (but only if &amp;lt;code&amp;gt;htop&amp;lt;/code&amp;gt; is installed on the system). Quickly tell bash to re-read your configuration file and try launching &amp;lt;code&amp;gt;htop&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img src=&amp;#34;/wp-content/uploads/2008/06/htop.jpg&amp;#34; alt=&amp;#34;htop&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;And there’s the &amp;lt;strong&amp;gt;awesome&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+
+    </content>
+  </entry>
+  
+  <entry>
+    <title>Debian: Disable Sytem Beep</title>
+    <link href="http://localhost:1313/2008/05/debian-disable-sytem-beep/"/>
+    <id>http://localhost:1313/2008/05/debian-disable-sytem-beep/</id>
+    <updated>2008-05-19T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;p&amp;gt;Here’s how to turn off that annoying system beep at your Debian CLI:&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Just edit &amp;lt;code&amp;gt;/etc/modprobe.d/blacklist&amp;lt;/code&amp;gt; and append this:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;blacklist pcspkr
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Then reboot. Can’t wait for reboot? type this command:&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;sudo rmmod pcspkr
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+    </content>
+  </entry>
+  
+  <entry>
+    <title>MySQL backup and restore</title>
+    <link href="http://localhost:1313/2008/05/mysql-backup-and-restore/"/>
+    <id>http://localhost:1313/2008/05/mysql-backup-and-restore/</id>
+    <updated>2008-05-19T00:00:00Z</updated>
+    <content type="html">
+      &amp;lt;h2 id=&amp;#34;create-the-backup&amp;#34;&amp;gt;Create the backup&amp;lt;/h2&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;mysqldump --add-drop-table -h &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;host&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt; -u &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;user&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;\
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;&amp;lt;span style=&amp;#34;color:#0a3069&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;-p &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;databasename&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt; &amp;amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;backupfile&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;.sql
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Optionally&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Specify a table -&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt; ...&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;databasename&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;(&amp;lt;/span&amp;gt;tablename tablename tablename&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;)&amp;lt;/span&amp;gt; ...
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Add compression -&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt; ...&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;databasename&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;#34;color:#1f2328&amp;#34;&amp;gt;|&amp;lt;/span&amp;gt; bzip2 -c &amp;amp;gt; backupfile.sql.bz2
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;h2 id=&amp;#34;restore-from-backup&amp;#34;&amp;gt;Restore from backup&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;Create database if it doesn&amp;amp;rsquo;t already exist (from inside mysql client)&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;mysql&amp;amp;gt; create database &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;databasename&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;Run the restore&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;mysql -h &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;host&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt; -u &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;user&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt; -p &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;databasename&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt; &amp;amp;lt; &amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;[&amp;lt;/span&amp;gt;backupfile&amp;lt;span style=&amp;#34;color:#0550ae&amp;#34;&amp;gt;]&amp;lt;/span&amp;gt;.sql
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Optionally&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Uncompress before restoring -&amp;lt;/p&amp;gt;
+&amp;lt;div class=&amp;#34;highlight&amp;#34;&amp;gt;&amp;lt;pre tabindex=&amp;#34;0&amp;#34; style=&amp;#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&amp;#34;&amp;gt;&amp;lt;code class=&amp;#34;language-bash&amp;#34; data-lang=&amp;#34;bash&amp;#34;&amp;gt;&amp;lt;span style=&amp;#34;display:flex;&amp;#34;&amp;gt;&amp;lt;span&amp;gt;bzip2 -d backupfile.sql.bz2
+&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+    </content>
+  </entry>
+  
+</feed>

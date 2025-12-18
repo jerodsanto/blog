@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="If, like me, you prefer staying light on your feet, you probably use a powerful text editor coupled with multiple shell sessions to drive your Rails development. Unfortunately, managing said shells can get a bit unwieldy, but thankfully UNIX-based systems have a tool just for the job: GNU Screen.
+This post isn&rsquo;t trying to sell you on screen. There are umpteen sites out there which do that. Instead, I&rsquo;d like to share with you how I&rsquo;ve engineered my setup such that it&rsquo;s a joy to use.">
+    <meta property="st:title" content="The Perfect Setup: Rails on Screen">
+    <meta property="og:title" content="The Perfect Setup: Rails on Screen">
+    <meta property="og:description" content="If, like me, you prefer staying light on your feet, you probably use a powerful text editor coupled with multiple shell sessions to drive your Rails development. Unfortunately, managing said shells can get a bit unwieldy, but thankfully UNIX-based systems have a tool just for the job: GNU Screen.
+This post isn&rsquo;t trying to sell you on screen. There are umpteen sites out there which do that. Instead, I&rsquo;d like to share with you how I&rsquo;ve engineered my setup such that it&rsquo;s a joy to use.">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      The Perfect Setup: Rails on Screen | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>The Perfect Setup: Rails on Screen</h1>
+    
+    <p class="post-date">
+      February 25, 2011
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>If, like me, you prefer staying light on your feet, you probably use a powerful text editor coupled with multiple shell sessions to drive your <a href="http://rubyonrails.org">Rails</a> development. Unfortunately, managing said shells <em>can</em> get a bit unwieldy, but thankfully UNIX-based systems have a tool just for the job: <a href="http://www.gnu.org/software/screen/">GNU Screen</a>.</p>
+<p>This post isn&rsquo;t trying to sell you on <code>screen</code>. There are umpteen sites out there which do that. Instead, I&rsquo;d like to share with you how I&rsquo;ve engineered my setup such that it&rsquo;s a joy to use.</p>
+<p><img src="http://jerodsanto.net/drop/rails-screen-20110225-204305.png" alt="rails screen" title="Rails on Screen"></p>
+<h2 id="the-premise">The Premise</h2>
+<p>Each Rails project I work on has the same basic needs. I want each of those needs facilitated by a <code>screen</code> window, and I don&rsquo;t want to manually bootstrap the environment each time I return to a project. The things I want in each Rails app (currently) are:</p>
+<ol>
+<li>TextMate</li>
+<li>Autotest</li>
+<li>Development server</li>
+<li>Development Console</li>
+<li>GitX</li>
+<li>A spare Bash session</li>
+</ol>
+<p>Ideally, I would be able to <code>cd</code> to my application&rsquo;s root directory, execute a single command, and be up and running. But&hellip;</p>
+<h2 id="the-problem">The Problem</h2>
+<p>There is no straight forward way (that I know of) to configure screen for multiple unrelated sessions. In other words, you can configure it to <em>always</em> do certain things when it is invoked, but you can&rsquo;t configure it to <em>sometimes</em> do certain things when it is invoked. WANT.</p>
+<h2 id="my-solution">My Solution</h2>
+<p>Good news! Passing the <code>-c</code> flag to <code>screen</code> specifies a configuration file to use. I leverage this feature to (sometimes) load in a custom, Rails-specific configuration. That plus a wrapper function does the job perfectly. Here&rsquo;s how:</p>
+<h2 id="1-create-a-custom-screenrc-just-for-rails">1) Create a custom screenrc just for rails</h2>
+<p>In it I put everything required to get the session all set up. Mine looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">source $HOME/.screenrc
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328"></span><span style="color:#f6f8fa;background-color:#82071e">
+</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#1f2328">screen 0 bash
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">title &#34;tests&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">stuff &#34;autotest\015&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328"></span><span style="color:#f6f8fa;background-color:#82071e">
+</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#1f2328">screen 1 bash
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">title &#34;server&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">stuff &#34;rails server\015&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328"></span><span style="color:#f6f8fa;background-color:#82071e">
+</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#1f2328">screen 2 bash
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">title &#34;console&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">stuff &#34;rails console\015&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328"></span><span style="color:#f6f8fa;background-color:#82071e">
+</span></span></span><span style="display:flex;"><span><span style="color:#f6f8fa;background-color:#82071e"></span><span style="color:#1f2328">screen 3 bash
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">stuff &#34;gitx &amp;&amp; mate .\015&#34;
+</span></span></span></code></pre></div><p>The first thing to note here is that this file will source my main <code>.screenrc</code> file. That means I don&rsquo;t have to repeat any of those settings. Gotta love that!</p>
+<p>Next, notice that for each separate window I have 3 lines. The first line indicates which <code>screen</code> window it will be in and starts a bash shell, the second line is obviously the title of the window, and the third line is the actual command to &ldquo;stuff&rdquo; into the window.</p>
+<div class="notice">I <em>could</em> bypass the whole &ldquo;stuff&rdquo; thing by passing the command directly on the &ldquo;screen&rdquo; line instead of passing in &ldquo;bash&rdquo;, but that will exit the window when the process terminates, which is annoying.</div>
+<p>Finally, I should explain the <code>\015</code> at the end of each &ldquo;stuff&rdquo; line. That is telling <code>screen</code> to enter a line feed (LF) character which will actually execute the command.</p>
+<h2 id="2-a-screen-wrapper-function">2) A screen wrapper function</h2>
+<p>Now that I have a custom config file, I make it super-simple to invoke <code>screen</code> with it by adding this function to my <code>.bashrc</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#cf222e">function</span> screen<span style="color:#0550ae">()</span> <span style="color:#0550ae">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#953800">super</span><span style="color:#0550ae">=</span><span style="color:#0a3069">`</span>which screen<span style="color:#0a3069">`</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">if</span> <span style="color:#0550ae">[</span> <span style="color:#0a3069">&#34;</span><span style="color:#953800">$1</span><span style="color:#0a3069">&#34;</span> <span style="color:#0550ae">==</span> <span style="color:#0a3069">&#34;rails&#34;</span> <span style="color:#0550ae">]</span><span style="color:#1f2328">;</span> <span style="color:#cf222e">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#953800">$super</span> -S <span style="color:#0a3069">`</span>basename <span style="color:#953800">$PWD</span><span style="color:#0a3069">`</span> -c <span style="color:#953800">$HOME</span>/.screenrailsrc
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#953800">$super</span> <span style="color:#953800">$@</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">}</span>
+</span></span></code></pre></div><p>This should be pretty self-explanatory. It calls <code>screen</code> with the custom config if the first argument is &ldquo;rails&rdquo;, otherwise it punts.</p>
+<p>One noteworthy tidbit is that it also sets the <code>-S</code> flag to the name of the directory holding the Rails application. That way if the session ever gets detached I can reattach it with the project name instead of some obscure session id.</p>
+<h2 id="one-stone-many-birds">One Stone, Many Birds</h2>
+<p>I like this system a lot. What is really nice about it is that I can easily extend it to many different scenarios by creating new custom config files and adding matchers to the wrapper function.</p>
+<p>Is that perfect or what?</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2011%2f02%2fthe-perfect-setup-rails-on-screen%2f&via=jerodsanto&text=The%20Perfect%20Setup%3a%20Rails%20on%20Screen" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2011%2f02%2fthe-perfect-setup-rails-on-screen%2f&t=The%20Perfect%20Setup%3a%20Rails%20on%20Screen" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2011%2f02%2fthe-perfect-setup-rails-on-screen%2f&title=The%20Perfect%20Setup%3a%20Rails%20on%20Screen" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2011\/02\/the-perfect-setup-rails-on-screen\/";
+    var disqus_title = "The Perfect Setup: Rails on Screen";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head>
+	<meta name="generator" content="Hugo 0.152.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <title>
+      Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class=" home">
+    
+      
+<div class="main-header">
+  <h1>
+    <a href="/" title="Home">
+      <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+    </a>
+  </h1>
+  <a href="/" title="View Blog Archives" class="main-header-archive">Blog</a>
+  <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+</div>
+
+    
+
+    
+
+<section class="main-wrapper excerpt-list">
+  <header class="section-header">
+    <h1>
+      
+        <a href="/" title="Back to Page 1">Page 16</a>
+      
+    </h1>
+    
+  </header>
+
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/05/jquery-set-mouse-focus-on-page-load/">
+    <h1 class="excerpt-header">jQuery: Set Mouse Focus On Page Load</h1>
+    <p class="excerpt-date">May 9, 2009</p>
+    <p class="excerpt-text"><h2 id="first-input">First Input:</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#6639ba">document</span><span style="color:#1f2328">).</span><span style="color:#1f2328">ready</span><span style="color:#1f2328">(</span><span style="color:#cf222e">function</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;input:text:first&#39;</span><span style="color:#1f2328">).</span><span style="color:#1f2328">focus</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
+</span></span></code></pre></div><h2 id="first-empty-input">First Empty Input:</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#6639ba">document</span><span style="color:#1f2328">).</span><span style="color:#1f2328">ready</span><span style="color:#1f2328">(</span><span style="color:#cf222e">function</span><span style="color:#1f2328">()</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">$</span><span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;input:text[value=&#34;&#34;]:first&#39;</span><span style="color:#1f2328">).</span><span style="color:#1f2328">focus</span><span style="color:#1f2328">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">});</span>
+</span></span></code></pre></div></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/05/git-informed-when-your-site-is-hacked/">
+    <h1 class="excerpt-header">Git Informed When Your Site Is Hacked</h1>
+    <p class="excerpt-date">May 4, 2009</p>
+    <p class="excerpt-text"><p>Good security require <a href="http://en.wikipedia.org/wiki/Defense_in_Depth_(computing)">defense in depth</a>. The more security layers you add, the harder it is to subvert them all. Here is a reactionary layer you can add to your security practices.</p>
+<p>The only thing worse than getting hacked is getting hacked and not knowing it (or worse yet, having one of your clients inform you). Often times an attacker needs to add and/or change files on your site to accomplish their goal. Wouldn&rsquo;t it be nice if something could inform you of unauthorized changes? Enter <a href="http://git-scm.com/">Git</a>.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/05/dreamy-now-with-100-api-coverage/">
+    <h1 class="excerpt-header">Dreamy: Now With 100% API Coverage</h1>
+    <p class="excerpt-date">May 2, 2009</p>
+    <p class="excerpt-text"><p>The folks at DreamHost were gracious enough to provide me with a complimentary Private Server account so I could expand <a href="http://github.com/jerodsanto/dreamy">Dreamy&rsquo;s</a> functionality. What a nice surprise that was!</p>
+<p>So, to ensure they got their money&rsquo;s worth, I added all the Private Server API calls to Dreamy! This means that Dreamy now covers the entire DreamHost API. Check out all the new commands added to &ldquo;dh&rdquo; (the accompanying command-line tool):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ps                                 <span style="color:#57606a"># list private servers</span>
+</span></span><span style="display:flex;"><span>ps:add &lt;web<span style="color:#1f2328">|</span>mysql&gt; &lt;yes<span style="color:#1f2328">|</span>no&gt;        <span style="color:#57606a"># adds a private server of type &lt;web|mysql&gt;</span>
+</span></span><span style="display:flex;"><span>ps:pending                         <span style="color:#57606a"># list private servers scheduled to be created</span>
+</span></span><span style="display:flex;"><span>ps:reboots &lt;name&gt;                  <span style="color:#57606a"># list historical reboots for &lt;name&gt;</span>
+</span></span><span style="display:flex;"><span>ps:reboot &lt;name&gt; now!              <span style="color:#57606a"># reboot &lt;name&gt; now! (proceed with caution)</span>
+</span></span><span style="display:flex;"><span>ps:remove                          <span style="color:#57606a"># removes all pending private servers</span>
+</span></span><span style="display:flex;"><span>ps:settings &lt;name&gt;                 <span style="color:#57606a"># list settings for private server &lt;name&gt;</span>
+</span></span><span style="display:flex;"><span>ps:set &lt;name&gt; &lt;setting&gt; &lt;value&gt;    <span style="color:#57606a"># change &lt;setting&gt; on &lt;name&gt; to &lt;value&gt;</span>
+</span></span><span style="display:flex;"><span>ps:size &lt;name&gt;                     <span style="color:#57606a"># list historical memory sizes for &lt;name&gt;</span>
+</span></span><span style="display:flex;"><span>ps:size &lt;name&gt; &lt;value&gt;             <span style="color:#57606a"># set new memory &lt;value&gt; for &lt;name&gt;</span>
+</span></span><span style="display:flex;"><span>ps:usage &lt;name&gt;                    <span style="color:#57606a"># list historical memory &amp; CPU usage for &lt;name&gt;</span>
+</span></span></code></pre></div><p>You&rsquo;ll need version 0.4.2 of the Dreamy gem to use the new functionality. To upgrade your gem, simply run the following:</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/04/clean-wp-dashboard/">
+    <h1 class="excerpt-header">Clean WP Dashboard</h1>
+    <p class="excerpt-date">April 23, 2009</p>
+    <p class="excerpt-text"><p>I just published my 2nd WordPress plugin, <a href="http://wordpress.org/extend/plugins/clean-wp-dashboard/">Clean WP Dashboard</a>.</p>
+<p>WordPress 2.7&rsquo;s dashboard is a huge improvement over previous versions, but when you&rsquo;re running a site with many users sometimes you just want to simplify things. Enter <a href="http://wordpress.org/extend/plugins/clean-wp-dashboard/">Clean WP Dashboard</a>.</p>
+<p>This plugin adds a simple administration page called &ldquo;Dashboard Settings&rdquo; which allows you to select/de-select which of the default WordPress widgets are available on the dashboard.</p>
+<p>Source code is on my <a href="http://github.com/jerodsanto">GitHub account</a>, as usual.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/04/tweetie-has-arrived/">
+    <h1 class="excerpt-header">Tweetie Has Arrived</h1>
+    <p class="excerpt-date">April 21, 2009</p>
+    <p class="excerpt-text"><p>The anointing of an OS X application:</p>
+<img class="alignleft size-full wp-image-236" title="dockit" src="/wp-content/uploads/2009/04/dockit.png" height="206" alt="dockit" width="261" /></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/04/new-gem-rack-noie6/">
+    <h1 class="excerpt-header">New Gem: Rack-noIE6</h1>
+    <p class="excerpt-date">April 18, 2009</p>
+    <p class="excerpt-text"><p>Many web developers are discontinuing support for IE6. I, happily, am one of them (unless a client demands it). The other day I went searching for an IE6 detection and redirect solution to aide in my un-support of the browser. What I found was pretty rad.</p>
+<p>Now that Rails is on Rack, dozens of useful middleware apps are being developed and can be plugged into Rails with ease. Thanks to a simple <a href="http://github.com">GitHub</a> search, I found the <a href="http://github.com/juliocesar/rack-noie/tree/master">rack-noie</a> project by Julio Cesar.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/04/so-dreamy/">
+    <h1 class="excerpt-header">So Dreamy!</h1>
+    <p class="excerpt-date">April 18, 2009</p>
+    <p class="excerpt-text"><p>DreamHost is running a <a href="http://blog.dreamhost.com/2009/04/09/big-boy-time/">kick-off competition</a> in support of their newly released <a href="http://wiki.dreamhost.com/API">API</a>. It seems like their developer community could use a little productivity boost, so I thought I&rsquo;d create a Ruby library to interact with their API.</p>
+<p>The resulting Ruby Gem, <a href="http://github.com/jerodsanto/dreamy">available on GitHub</a>, is called &ldquo;<strong>Dreamy</strong>&rdquo; and includes a library and a command-line tool.</p>
+<p>Why a command-line tool? Because sometimes you wanna see what&rsquo;s going on with your DH account without having to pop open the control panel (also, as an example of how to use the library). Here is some sample output returning all DNS records for domains matching the string &ldquo;rachel&rdquo; (my wife&rsquo;s name):</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/03/21/">
+    <h1 class="excerpt-header">2&gt;&amp;1</h1>
+    <p class="excerpt-date">March 17, 2009</p>
+    <p class="excerpt-text"><p>A common practice when adding entries to crontab is to end the entry like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt;/dev/null 2&gt;<span style="color:#1f2328">&amp;</span><span style="color:#0550ae">1</span>
+</span></span></code></pre></div><p>The purpose of this is to suppress any output from the command itself, because we&rsquo;re not interested. I picked up this syntax years ago because it just works, but I never knew what the <code>2&gt;&amp;1</code> actually meant, until today.</p>
+<p>The first part:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt;/dev/null
+</span></span></code></pre></div><p>Means redirect <code>STDOUT</code> (the standard output stream) to <code>/dev/null</code> (which is basically a blackhole for bits). That&rsquo;s easy enough.</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/03/rsnapshot-rsync-gotcha/">
+    <h1 class="excerpt-header">Rsnapshot (Rsync) Gotcha</h1>
+    <p class="excerpt-date">March 9, 2009</p>
+    <p class="excerpt-text"><p>If you&rsquo;re trying to backup a remote host using <a href="http://rsnapshot.org/">rsnapshot</a> (or rsync by itself) and run into one of the following ambiguous errors:</p>
+<p><strong>rsnapshot version:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">ERROR: /usr/bin/rsync returned 12 while processing ...
+</span></span></span></code></pre></div><p><strong>rsync version:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">rsync error: error in rsync protocol data stream (code 12)
+</span></span></span></code></pre></div><p>It&rsquo;s probably because you don&rsquo;t have rsync installed on the remote host (doh!)</p></p>
+  </a>
+</article>
+  
+    <article class="excerpt">
+  <a href="http://localhost:1313/2009/02/bash-array-and-loops-in-firehol-configuration/">
+    <h1 class="excerpt-header">Bash array and loops in FireHOL configuration</h1>
+    <p class="excerpt-date">February 26, 2009</p>
+    <p class="excerpt-text"><p>IPTables is a powerful but cryptic firewall solution. <a href="http://firehol.sourceforge.net/">FireHOL</a> is an IPTables configurator that flat out rocks. One of FireHOL&rsquo;s strengths is that it uses standard <a href="http://www.gnu.org/software/bash/bash.html">BASH</a> syntax inside its configuration file, so you get all the power of BASH to configure your firewall.</p>
+<p>Let&rsquo;s see how a BASH array and for loop can help clean up our FireHOL config:</p>
+<p>You have 3 machines that need SSH access to the server. First, you can setup variable names to reference the IP addresses (or DNS names) of the machines. Put these declarations at the top of your FireHOL config for easy maintenance.</p></p>
+  </a>
+</article>
+  
+
+  <div class="pagination">
+    
+        <a class="previous" href="/page/15/">&laquo; Newer</a>
+    
+    <span class="page_number ">16 of 20</span>
+    
+      <a class="next" href="/page/17/">Older &raquo;</a>
+    
+  </div>
+</section>
+
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

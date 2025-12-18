@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="Cody and I recently added a subtle feature1 to Oma/Sprout that we think is pretty neat. I haven&rsquo;t seen other people doing this, so I thought I&rsquo;d publish the idea and how we pulled it off.
+The Problem
+Much of our recurring traffic comes from social media2. To foster this flow of traffic, we post our sites&rsquo; daily event pages to Facebook and Twitter on a regular basis.
+The web in general — and social media in particular — is a fight for attention. What makes it worse is that people don&rsquo;t read words. What they do do3 is look at pictures. Disagree with that? Just ask Instagram or Pinterest about it.">
+    <meta property="st:title" content="Art-directed, data-driven image files to accompany your website">
+    <meta property="og:title" content="Art-directed, data-driven image files to accompany your website">
+    <meta property="og:description" content="Cody and I recently added a subtle feature1 to Oma/Sprout that we think is pretty neat. I haven&rsquo;t seen other people doing this, so I thought I&rsquo;d publish the idea and how we pulled it off.
+The Problem
+Much of our recurring traffic comes from social media2. To foster this flow of traffic, we post our sites&rsquo; daily event pages to Facebook and Twitter on a regular basis.
+The web in general — and social media in particular — is a fight for attention. What makes it worse is that people don&rsquo;t read words. What they do do3 is look at pictures. Disagree with that? Just ask Instagram or Pinterest about it.">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Art-directed, data-driven image files to accompany your website | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Art-directed, data-driven image files to accompany your website</h1>
+    
+    <p class="post-date">
+      January 19, 2015
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p><a href="http://codyjamespeterson.com">Cody</a> and I recently added a subtle feature<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> to <a href="http://omahype.com">Oma</a>/<a href="http://outwithsprout.com">Sprout</a> that we think is pretty neat. I haven&rsquo;t seen other people doing this, so I thought I&rsquo;d publish the idea and how we pulled it off.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>Much of our recurring traffic comes from social media<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. To foster this flow of traffic, we post our sites&rsquo; daily event pages to Facebook and Twitter on a regular basis.</p>
+<p>The web in general — and social media in particular — is a fight for attention. What makes it worse is that <a href="http://www.nngroup.com/articles/how-users-read-on-the-web/">people don&rsquo;t read words</a>. What they do do<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> is look at pictures. Disagree with that? Just ask Instagram or Pinterest about it.</p>
+<p>Social media posts that include imagery out-perform posts that don&rsquo;t. Any Social Media Guru worth her weight in Likes will tell you that. Because of this, we include our site&rsquo;s logo with each post. (Posts promoting specific events often have better images that we use, but our logo is the fallback.)</p>
+<p><img src="http://jerodsanto.net/drop/oma-sprout.png" alt="Omahype / Out with Sprout logos"></p>
+<p>An image of our logo is better than nothing. It makes our posts immediatey recognizable, but it&rsquo;s also <em>boring</em>. In a zero-sum fight for attention, boring loses every time. What can we do to improve our reach?</p>
+<h2 id="the-solution">The Solution</h2>
+<p>Each day&rsquo;s events are unique. If we could somehow reflect that uniqueness in the imagery that gets posted to social media, then we would have de facto fresh image content each day<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
+<p>Enter our art-directed, data-driven image files. Check out the day view for Saturday, January 17th.</p>
+<p><a href="http://www.outwithsprout.com/2015/01/17">http://www.outwithsprout.com/2015/01/17</a></p>
+<p><a href="http://www.outwithsprout.com/2015/01/17"><img src="http://jerodsanto.net/drop/ows-day-view.png" alt=" "></a></p>
+<p>You will notice:</p>
+<ul>
+<li>3 <a href="http://www.outwithsprout.com/category/explore">Explore</a> events (highlighted in red)</li>
+<li>1 <a href="http://www.outwithsprout.com/category/experience">Experience</a> event (yellow highlighted in yellow)</li>
+<li>1 <a href="http://www.outwithsprout.com/category/play">Play</a> event (highlighted in green)</li>
+<li>2 <a href="http://www.outwithsprout.com/category/create">Create</a> events (highlighted in pink)</li>
+<li>1 <a href="http://www.outwithsprout.com/category/cheer">Cheer</a> event (highlighted in blue)</li>
+</ul>
+<p>Now, append a <code>.png</code> to the end of that URL:</p>
+<p><a href="http://www.outwithsprout.com/2015/01/17.png">http://www.outwithsprout.com/2015/01/17.png</a></p>
+<p>You get this instead:</p>
+<p><a href="http://www.outwithsprout.com/2015/01/17"><img src="http://www.outwithsprout.com/2015/01/17.png" alt=" "></a></p>
+<p>Pretty cool, right? Not only is the day&rsquo;s date presented in a little calendar widget, but each event for that day is represented by a color-coordinated circle. It&rsquo;s a subtle-but-unique way to re-enforce how color plays a role in our sites&rsquo; content.</p>
+<p>Next, check out the <a href="http://www.outwithsprout.com/2015/01/18">18th</a>:</p>
+<p><a href="http://www.outwithsprout.com/2015/01/18"><img src="http://www.outwithsprout.com/2015/01/18.png" alt="Saturday is king for kids events. Sunday, not so much."></a></p>
+<p>There are only 3 events on the 18th. Hence, 3 colored circles on its image. Each image is generated <em>on request</em> and represents the current state of our database of events. We use these images in place of our logo on social media.</p>
+<p><img src="http://jerodsanto.net/drop/ows-fb-post.png" alt="A familiar, branded, &amp; unique image for each day&rsquo;s post"></p>
+<h2 id="how-we-pull-it-off">How We Pull it Off</h2>
+<p>There&rsquo;s an awesome gem called <a href="https://github.com/csquared/IMGKit">IMGKit</a> — which wraps <a href="https://github.com/wkhtmltopdf/wkhtmltopdf">wkhtmltoimage</a> — that we use to pull this all off. The gem takes our authored HTML and converts it in to an image.</p>
+<div class="notice">This app is on Rails, so these setup instructions are specific to that environment, but the concept itself can easily be ported to other stacks.</div>
+<p>Rails is designed to handle alternate MIME types — via the <a href="http://api.rubyonrails.org/classes/ActionController/MimeResponds.html#method-i-respond_to">respond_to</a> API — really well. We already have a controller action that fetches the day&rsquo;s events, so all we have to do is tell it to respond to <code>png</code> requests:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>respond_to <span style="color:#cf222e">do</span> <span style="color:#0550ae">|</span><span style="color:#6639ba">format</span><span style="color:#0550ae">|</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">format</span><span style="color:#0550ae">.</span>html
+</span></span><span style="display:flex;"><span>  <span style="color:#6639ba">format</span><span style="color:#0550ae">.</span>png <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>    kit <span style="color:#0550ae">=</span> <span style="color:#0550ae">IMGKit</span><span style="color:#0550ae">.</span>new render_to_string<span style="color:#1f2328">,</span> <span style="color:#032f62">width</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">300</span><span style="color:#1f2328">,</span> <span style="color:#032f62">height</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">300</span>
+</span></span><span style="display:flex;"><span>    send_data kit<span style="color:#0550ae">.</span>to_png<span style="color:#1f2328">,</span> <span style="color:#032f62">type</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;image/png&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">disposition</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;inline&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>Requests for <code>html</code> will render the <code>app/views/events/day.html.erb</code> view, just like always. Requests for <code>png</code> will render the <code>app/views/events/day.png.erb</code> view. Now we add a view that includes the HTML to be converted in to the image and we&rsquo;re done!</p>
+<p>Here&rsquo;s the guts of the view (sans CSS):</p>
+<pre tabindex="0"><code class="language-erb" data-lang="erb">&lt;body class=&#34;&lt;%= Omahype.theme %&gt;&#34;&gt;
+  &lt;div class=&#34;calendar&#34;&gt;
+    &lt;h1 class=&#34;calendar-month&#34;&gt;&lt;%= day.to_s :month %&gt;&lt;/h1&gt;
+    &lt;h2 class=&#34;calendar-day&#34;&gt;&lt;%= day.to_s :day_number %&gt;&lt;/h2&gt;
+    &lt;ul class=&#34;event-dots&#34;&gt;
+      &lt;% day.events.each do |event| %&gt;
+        &lt;li class=&#34;&lt;%= event.event_classes %&gt;&#34;&gt;&lt;/li&gt;
+      &lt;% end %&gt;
+    &lt;/li&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>Pretty simple, huh? One thing to note: you cannot easily reference external style sheets from your image views. We inline everything in a <code>style</code> tag to get around this limitation.</p>
+<p>Finally, we point the social medias at this new <code>.png</code> URL so they grab it instead of the logo image. Here&rsquo;s the meta tags generated to handle this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#1f2328">&lt;</span><span style="color:#0550ae">meta</span> <span style="color:#1f2328">property</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;og:image&#34;</span> <span style="color:#1f2328">content</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;http://www.outwithsprout.com/2015/01/17.png&#34;</span> <span style="color:#1f2328">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;</span><span style="color:#0550ae">meta</span> <span style="color:#1f2328">property</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;og:image&#34;</span> <span style="color:#1f2328">content</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;http://ows-production.s3.amazonaws.com/assets/ows/fb-og-8eb228bfcc6eebb2397df92c5ccf3b3d.png&#34;</span> <span style="color:#1f2328">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">&lt;</span><span style="color:#0550ae">meta</span> <span style="color:#1f2328">property</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;twitter:image:src&#34;</span> <span style="color:#1f2328">content</span><span style="color:#0550ae">=</span><span style="color:#0a3069">&#34;http://www.outwithsprout.com/2015/01/17.png&#34;</span> <span style="color:#1f2328">/&gt;</span>
+</span></span></code></pre></div><p>Why two <code>og:image</code> tags, you wonder? Because Facebook will accept a cascade of images and use the first (or best) one by default. We want to use our custom day view image, but if something goes wrong we fall back to our logo image instead.</p>
+<h3 id="caching">Caching</h3>
+<p>Generating these images isn&rsquo;t the fastest process in the world. It generally takes between 500ms and 1800ms per request. We don&rsquo;t need them to be <em>up-to-the-moment</em> fresh, so we add a <a href="https://github.com/mperham/dalli">cache</a> and only regenerate them once every 24 hours. This is just a single line of code added to the <code>respond_to</code> block:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#6639ba">format</span><span style="color:#0550ae">.</span>png <span style="color:#cf222e">do</span>
+</span></span><span style="display:flex;"><span>  expires_in <span style="color:#0550ae">24</span><span style="color:#0550ae">.</span>hours<span style="color:#1f2328">,</span> <span style="color:#cf222e">public</span><span style="color:#1f2328">:</span> <span style="color:#cf222e">true</span>
+</span></span><span style="display:flex;"><span>  kit <span style="color:#0550ae">=</span> <span style="color:#0550ae">IMGKit</span><span style="color:#0550ae">.</span>new render_to_string<span style="color:#1f2328">,</span> <span style="color:#032f62">width</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">612</span><span style="color:#1f2328">,</span> <span style="color:#032f62">height</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">612</span>
+</span></span><span style="display:flex;"><span>  send_data kit<span style="color:#0550ae">.</span>to_png<span style="color:#1f2328">,</span> <span style="color:#032f62">type</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;image/png&#34;</span><span style="color:#1f2328">,</span> <span style="color:#032f62">disposition</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;inline&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><h2 id="other-uses">Other Uses</h2>
+<p>Once we went through all the work of setting up the dynamic images, we started to think of other ways we could reuse them. Our newsletter lists the upcoming week&rsquo;s events day-by-day, so that was a natural fit. We link the day images in to it via a good ole&rsquo; <code>img</code> tag. No extra coding necessary!</p>
+<p><a href="http://eepurl.com/NRfgD"><img src="http://jerodsanto.net/drop/weekly-images.png" alt=" "></a></p>
+<p>Caching plays a huge role in this use case because each person that opens the email will hit our server for five day images.</p>
+<p>We&rsquo;ve been experimenting with another use for these images which could be awesome (especially for Omahype).</p>
+<p>We could just as easily design a custom <em>event</em> image. It would frame in the event&rsquo;s artwork and overlay it with date/time/location info. Then these event images could be made available for download so others can use them to promote the event.</p>
+<p>We made a few steps down that road, but haven&rsquo;t fully fleshed the idea out yet.</p>
+<h2 id="all-the-small-things">All The Small Things</h2>
+<p>This is a minor feature that many people will never even notice. Why all the fuss? Because it&rsquo;s small details like these that surprise and delight people.</p>
+<p>If your website has unique and interesting content, I&rsquo;m sure you can come up with some rad uses for art-directed, data-driven image files. It&rsquo;ll set you apart from the crowd.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>The beauty of side projects — especially those with active users — is that you can use them as playgrounds for trying out new things.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>A fact that I loathe. We&rsquo;re trying to break free of Facebook&rsquo;s shackles with a <a href="http://eepurl.com/NRfgD">newsletter</a>. So far that strategy is working just OK.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Snicker at this and you&rsquo;re as juvenile as I am.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Cody gets full credit for this idea. I just made it happen.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2015%2f01%2fart-directed-data-driven-image-files-to-accompany-your-website%2f&via=jerodsanto&text=Art-directed%2c%20data-driven%20image%20files%20to%20accompany%20your%20website" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2015%2f01%2fart-directed-data-driven-image-files-to-accompany-your-website%2f&t=Art-directed%2c%20data-driven%20image%20files%20to%20accompany%20your%20website" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2015%2f01%2fart-directed-data-driven-image-files-to-accompany-your-website%2f&title=Art-directed%2c%20data-driven%20image%20files%20to%20accompany%20your%20website" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2015\/01\/art-directed-data-driven-image-files-to-accompany-your-website\/";
+    var disqus_title = "Art-directed, data-driven image files to accompany your website";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

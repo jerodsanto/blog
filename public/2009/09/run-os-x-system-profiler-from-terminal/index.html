@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="OS X&rsquo;s built-in System Profiler provides a great graphical display of pretty much anything you&rsquo;ll want to know about your Mac.
+
+That&rsquo;s cool and all, but what if you want to access that information programmatically? Turns out you can also run the System Profiler from the terminal by executing this command:
+jerod@mbp:~$ /usr/sbin/system_profiler
+What&rsquo;s great about this access method is that it allows you to slurp that data into any other program and have your way with it! For instance, I wanted to track my new battery&rsquo;s cycle count and charge capacity over time. Why? I dunno, because I&rsquo;m a geek, okay, get off my back!&hellip; Anyways, with the system_profiler command I simply run this little Ruby script every day:">
+    <meta property="st:title" content="Run OS X System Profiler From Terminal">
+    <meta property="og:title" content="Run OS X System Profiler From Terminal">
+    <meta property="og:description" content="OS X&rsquo;s built-in System Profiler provides a great graphical display of pretty much anything you&rsquo;ll want to know about your Mac.
+
+That&rsquo;s cool and all, but what if you want to access that information programmatically? Turns out you can also run the System Profiler from the terminal by executing this command:
+jerod@mbp:~$ /usr/sbin/system_profiler
+What&rsquo;s great about this access method is that it allows you to slurp that data into any other program and have your way with it! For instance, I wanted to track my new battery&rsquo;s cycle count and charge capacity over time. Why? I dunno, because I&rsquo;m a geek, okay, get off my back!&hellip; Anyways, with the system_profiler command I simply run this little Ruby script every day:">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Run OS X System Profiler From Terminal | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Run OS X System Profiler From Terminal</h1>
+    
+    <p class="post-date">
+      September 9, 2009
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>OS X&rsquo;s built-in <code>System Profiler</code> provides a great graphical display of pretty much anything you&rsquo;ll want to know about your Mac.</p>
+<img class="aligncenter size-full wp-image-664" title="profiler" src="/wp-content/uploads/2009/09/profiler.png" height="216" alt="profiler" width="640" />
+<p>That&rsquo;s cool and all, but what if you want to access that information programmatically? Turns out you can also run the <strong><em>System Profiler</em></strong> from the terminal by executing this command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~$ /usr/sbin/system_profiler
+</span></span></span></code></pre></div><p>What&rsquo;s great about this access method is that it allows you to slurp that data into any other program and have your way with it! For instance, I wanted to track my <a href="http://twitter.com/jerodsanto/status/3780056282" rel="external">new battery&rsquo;s</a> cycle count and charge capacity over time. Why? I dunno, because I&rsquo;m a geek, okay, get off my back!&hellip; Anyways, with the <strong><em>system_profiler</em></strong> command I simply run this little Ruby script every day:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#6639ba">require</span> <span style="color:#0a3069">&#39;date&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data      <span style="color:#0550ae">=</span> <span style="color:#0a3069">`/usr/sbin/system_profiler SPPowerDataType`</span>
+</span></span><span style="display:flex;"><span>cycles    <span style="color:#0550ae">=</span> data<span style="color:#0550ae">[</span><span style="color:#0a3069">/Cycle count: (\d+)/</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span>condition <span style="color:#0550ae">=</span> data<span style="color:#0550ae">[</span><span style="color:#0a3069">/Condition: (\w+)/</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span>capacity  <span style="color:#0550ae">=</span> data<span style="color:#0550ae">[</span><span style="color:#0a3069">/Full charge capacity \(mAh\): (\d+)/</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">1</span><span style="color:#0550ae">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0550ae">File</span><span style="color:#0550ae">.</span>open<span style="color:#1f2328">(</span><span style="color:#0a3069">&#39;/Users/jerod/Documents/battery_history.csv&#39;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;a&#34;</span><span style="color:#1f2328">)</span> <span style="color:#cf222e">do</span> <span style="color:#0550ae">|</span>file<span style="color:#0550ae">|</span>
+</span></span><span style="display:flex;"><span>  file<span style="color:#0550ae">.</span>puts <span style="color:#0a3069">&#34;</span><span style="color:#0a3069">#{</span><span style="color:#0550ae">Date</span><span style="color:#0550ae">.</span>today<span style="color:#0a3069">}</span><span style="color:#0a3069">,</span><span style="color:#0a3069">#{</span>cycles<span style="color:#0a3069">}</span><span style="color:#0a3069">,</span><span style="color:#0a3069">#{</span>capacity<span style="color:#0a3069">}</span><span style="color:#0a3069">,</span><span style="color:#0a3069">#{</span>condition<span style="color:#0a3069">}</span><span style="color:#0a3069">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">end</span>
+</span></span></code></pre></div><p>Ruby uses the (possibly familiar) backticks to capture output from a shell command. All that was left for me to do was to parse the raw data and save it to a CSV file.</p>
+<p>Finally, note that the my script is passing <code>SPPowerDataType</code> as an argument which narrows down the returned results. You can learn more about how to use the <code>system_profiler</code> command by readings its manual. Just:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">jerod@mbp:~$ man system_profiler
+</span></span></span></code></pre></div>
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2009%2f09%2frun-os-x-system-profiler-from-terminal%2f&via=jerodsanto&text=Run%20OS%20X%20System%20Profiler%20From%20Terminal" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2009%2f09%2frun-os-x-system-profiler-from-terminal%2f&t=Run%20OS%20X%20System%20Profiler%20From%20Terminal" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2009%2f09%2frun-os-x-system-profiler-from-terminal%2f&title=Run%20OS%20X%20System%20Profiler%20From%20Terminal" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2009\/09\/run-os-x-system-profiler-from-terminal\/";
+    var disqus_title = "Run OS X System Profiler From Terminal";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

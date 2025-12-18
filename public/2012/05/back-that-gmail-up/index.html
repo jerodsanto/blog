@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+
+
+ <html class="no-js"> 
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Jerod Santo">
+    <meta property="og:site_name" content="Jerod Santo">
+    
+    <meta name="description" content="I&rsquo;m not leery of Google shuttering its Gmail service, but I can imagine a scenario where they cut off my access to Gmail and I have no way to plead my case to the search behemoth. So I went looking for a Gmail backup solution to put my mind at ease.
+There are many options out there, but I ended up using BaGoMa with much success. Things that turned me on to BaGoMa:">
+    <meta property="st:title" content="Back That Gmail Up">
+    <meta property="og:title" content="Back That Gmail Up">
+    <meta property="og:description" content="I&rsquo;m not leery of Google shuttering its Gmail service, but I can imagine a scenario where they cut off my access to Gmail and I have no way to plead my case to the search behemoth. So I went looking for a Gmail backup solution to put my mind at ease.
+There are many options out there, but I ended up using BaGoMa with much success. Things that turned me on to BaGoMa:">
+    <meta property="og:type" content="article">
+    
+    <meta property="og:image" content="/icon.png">
+    
+    
+    <title>
+      Back That Gmail Up | Jerod Santo
+    </title>
+
+    <link rel="icon" href="/icon.png" sizes="256x256" type="image/png">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="/styles.css">
+    <script>
+       
+      window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+      grunticon(["/icons/icons.data.svg.css", "/icons/icons.data.png.css", "/icons/icons.fallback.css"]);
+    </script>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400' rel='stylesheet' type='text/css'>
+    <script src="//use.typekit.net/ozg5mvx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="/js/modernizr-custom.js"></script>
+
+    
+
+    <link rel="alternate" type="application/atom+xml" href="/index.xml" />
+  </head>
+  <body class="">
+    
+    <div class="main-header">
+      <h1>
+        <a href="/" title="Home">
+          <span class="big-dot">&middot;</span> Jerod Santo <span class="big-dot">&middot;</span>
+        </a>
+      </h1>
+      <a href="javascript:void(0);" title="Moar" class="main-header-more">+</a>
+      <a href="/archives/" title="View Blog Archives" class="main-header-archive">Archives</a>
+      <a href="mailto:jerod.santo@gmail.com" title="Contact Jerod" class="main-header-contact">Contact</a>
+      <a href="/search/" title="Search the site" class="main-header-search">Search</a>
+    </div>
+    
+
+    
+<article class="post">
+  <header class="post-header">
+    <h1>Back That Gmail Up</h1>
+    
+    <p class="post-date">
+      May 26, 2012
+    </p>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>I&rsquo;m not leery of Google shuttering its Gmail service, but I can imagine a scenario where they cut off <em>my</em> access to Gmail and I have no way to plead my case to the search behemoth. So I went looking for a Gmail backup solution to put my mind at ease.</p>
+<p>There are many options out there, but I ended up using <a href="http://bagoma.sourceforge.net/">BaGoMa</a> with much success. Things that turned me on to BaGoMa:</p>
+<ol>
+<li>People were raving about it on a forum</li>
+<li>Python is already on all of my machines</li>
+<li>I can read Python pretty well and it looked well written</li>
+<li>Its flags are plentiful and documented</li>
+<li>It works with Google Apps for Domains</li>
+<li>It works with multiple accounts</li>
+<li>It respects Gmail&rsquo;s labels</li>
+<li>It uses IMAP smartly</li>
+<li>It can run headless and be scheduled with cron</li>
+<li>It&rsquo;s hosted on SourceForge, just kidding that was weird and scary</li>
+</ol>
+<p>After installing BaGoMa on my backup server — a.k.a. The iMac in our bedroom — I wrote a little shell script to set the options and run the backup on all of our Gmail accounts:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#57606a"></span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;Backing up Jerod&#39;s email&#34;</span>
+</span></span><span style="display:flex;"><span>/usr/bin/python /Users/santo/src/bagoma.py <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  --file<span style="color:#0550ae">=</span>off <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  --email<span style="color:#0550ae">=</span>jerod.santo@gmail.com <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  --pwd<span style="color:#0550ae">=</span>ohnoididnt <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  --dir<span style="color:#0550ae">=</span>/Users/santo/Documents/Email/Jerod <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  --action<span style="color:#0550ae">=</span>backup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6639ba">echo</span> <span style="color:#0a3069">&#34;Backing up RSDi&#39;s email&#34;</span>
+</span></span><span style="display:flex;"><span>/usr/bin/python /Users/santo/src/bagoma.py <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  --file<span style="color:#0550ae">=</span>off <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  --email<span style="color:#0550ae">=</span>jerod@rsdcompany.com <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  --pwd<span style="color:#0550ae">=</span>againwiththepassword <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  --dir<span style="color:#0550ae">=</span>/Users/santo/Documents/Email/RSDi <span style="color:#0a3069">\
+</span></span></span><span style="display:flex;"><span><span style="color:#0a3069"></span>  --action<span style="color:#0550ae">=</span>backup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># other accounts follow...</span>
+</span></span></code></pre></div><p>The <code>--file</code> option disables logging to a file so all output is sent to STDOUT. The rest should be self-explanatory. After running the script manually a few times (the first run takes a LONG time if you have a lot of email), I set up a cron job to back up our email every night at 3AM.</p>
+<p>I executed <code>crontab -e</code> and added the following line:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span><span style="color:#1f2328">0 3 * * * /Users/santo/bin/backup_email &gt;&gt;/var/log/backup_email.log 2&gt;&amp;1
+</span></span></span></code></pre></div><p>BaGoMa&rsquo;s output is pretty informative so I send it to log a file in case I ever want to check up on it and make sure the backups are still working.</p>
+<p>That&rsquo;s it. The thing has been running like clockwork ever since. If you&rsquo;re similarily concerned about continued access to your email, I highly recommend <a href="http://bagoma.sourceforge.net/">BaGoMa</a>.</p>
+<p>But whatever you do, don&rsquo;t <a href="http://twitter.com/jerodsanto">follow me on Twitter</a>. That would be absolutely ridiculous.</p>
+
+  </div>
+
+  <ul class="post-share-buttons">
+    <li class="service_twitter post-share-1">
+      <a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http%3a%2f%2flocalhost%3a1313%2f2012%2f05%2fback-that-gmail-up%2f&via=jerodsanto&text=Back%20That%20Gmail%20Up" title="Tweet">
+        <span>Tweet</span>
+      </a>
+    </li>
+    <li class="service_rss post-share-2">
+      <a class="icon-rss" href="/index.xml" title="Subscribe to the feed!">
+        <span>RSS</span>
+      </a>
+    </li>
+    <li class="service_hackernews post-share-3">
+      <a class="icon-hackernews" href="http://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2f2012%2f05%2fback-that-gmail-up%2f&t=Back%20That%20Gmail%20Up" title="Post to Hacker News">
+        <span>Hacker News</span>
+      </a>
+    </li>
+    <li class="service_instapaper post-share-4">
+      <a class="icon-instapaper" href="http://www.instapaper.com/hello2?url=http%3a%2f%2flocalhost%3a1313%2f2012%2f05%2fback-that-gmail-up%2f&title=Back%20That%20Gmail%20Up" title="Read later">
+        <span>Instapaper</span>
+      </a>
+    </li>
+  </ul>
+
+  
+  
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_url   = "http:\/\/localhost:1313\/2012\/05\/back-that-gmail-up\/";
+    var disqus_title = "Back That Gmail Up";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'https://blogt0sk1.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script src="//platform.twitter.com/widgets.js"></script>
+</article>
+
+
+    <footer class="main-footer">
+  <p>
+    Copyright &copy; 2008&mdash;2025 Jerod Santo
+  </p>
+</footer>
+
+    
+    <script src="/js/compiled.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-3287978-16', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>
