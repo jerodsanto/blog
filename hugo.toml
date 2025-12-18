@@ -1,6 +1,7 @@
 baseURL = "https://jerodsanto.net"
 languageCode = "en-us"
 title = "Jerod Santo"
+disableKinds = ["taxonomy", "term", "section"]
 
 [params]
   author = "Jerod Santo"
@@ -19,7 +20,3 @@ title = "Jerod Santo"
 
 [pagination]
   pagerSize = 10
-
-[taxonomies]
-  category = "categories"
-  tag = "tags"
