@@ -20,7 +20,7 @@
   --header-font: "Departure Mono", monospace;
   --line-height: 1.2rem;
   --baseline-offset: 1.95em;
-  --border-thickness: 2px;
+  --border-thickness: 1.5px;
   --text-color: #000;
   --text-color-alt: #666;
   --background-color: #fff;
@@ -119,11 +119,14 @@ hr:after {
   height: 0;
 }
 
+article {
+}
+
 a {
   text-decoration-thickness: var(--border-thickness);
 }
 
-a:link,
+a,
 a:visited {
   color: var(--text-color);
 }
@@ -135,18 +138,31 @@ p {
 strong {
   font-weight: var(--font-weight-bold);
 }
+
 em {
   font-style: italic;
 }
 
-sub {
+sub,
+sup {
   position: relative;
   display: inline-block;
-  margin: 0;
-  vertical-align: sub;
+  margin-left: 0.5ch;
   line-height: 0;
   width: calc(1ch / 0.75);
   font-size: 0.75rem;
+
+  a {
+    color: var(--text-color-alt) !important;
+  }
+}
+
+sub {
+  vertical-align: sub;
+}
+
+sup {
+  vertical-align: super;
 }
 
 table {
@@ -175,73 +191,7 @@ th {
   font-weight: 700;
 }
 
-.content {
-  max-width: calc(min(80ch, round(down, 100%, 1ch)));
-  margin-left: 4ch;
-  margin-right: auto;
-}
-
-.header {
-  margin-bottom: calc(var(--line-height) * 2.5);
-}
-.header h1 {
-  margin: 0;
-}
-
-.header .title {
-  font-family: var(--header-font);
-  text-align: right;
-}
-
-.header a,
-.footer a {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.footer {
-  margin-top: calc(var(--line-height) * 2.5);
-}
-
-.post-list {
-  padding: 0;
-  li {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-bottom: 0;
-  }
-
-  li a {
-    flex: 1;
-    min-width: 0;
-  }
-
-  li span.pubdate {
-    margin-left: 2ch;
-    color: var(--text-color-alt);
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-}
-
-.graph-paper {
-  --color: color-mix(
-    in srgb,
-    var(--text-color) 10%,
-    var(--background-color) 90%
-  );
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background-image:
-    repeating-linear-gradient(var(--color) 0 1px, transparent 1px 100%),
-    repeating-linear-gradient(90deg, var(--color) 0 1px, transparent 1px 100%);
-  background-size: 2ch var(--line-height);
-  margin: 0;
+footer {
 }
 
 p {
@@ -444,6 +394,70 @@ label input {
   width: 100%;
 }
 
+.content {
+  max-width: calc(min(80ch, round(down, 100%, 1ch)));
+  margin-left: 4ch;
+  margin-right: auto;
+}
+
+.header {
+  margin-bottom: calc(var(--line-height) * 2.5);
+}
+.header h1 {
+  margin: 0;
+}
+
+.header .title {
+  font-family: var(--header-font);
+  text-align: right;
+}
+
+.header a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.post-list {
+  padding: 0;
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 0;
+  }
+
+  li a {
+    flex: 1;
+    min-width: 0;
+  }
+
+  li span.pubdate {
+    margin-left: 2ch;
+    color: var(--text-color-alt);
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+.graph-paper {
+  --color: color-mix(
+    in srgb,
+    var(--text-color) 10%,
+    var(--background-color) 90%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(var(--color) 0 1px, transparent 1px 100%),
+    repeating-linear-gradient(90deg, var(--color) 0 1px, transparent 1px 100%);
+  background-size: 2ch var(--line-height);
+  margin: 0;
+}
+
 @media screen and (max-width: 750px) {
   .header .label {
     display: none;
@@ -455,35 +469,19 @@ label input {
     font-size: 13px;
     --baseline-offset: 0.7em;
   }
+
   body {
     padding: calc(var(--line-height) + var(--baseline-offset)) 1ch
       var(--line-height);
   }
+
   .content {
     margin-left: 1ch;
     margin-right: 1ch;
   }
+
   .header,
-  .footer,
   hr {
     width: 98%;
-  }
-  .footer table {
-    display: block;
-  }
-  .footer tbody {
-    display: block;
-  }
-  .footer tr {
-    display: block;
-    border: none;
-  }
-  .footer td {
-    display: block;
-    width: 100%;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    text-align: left;
   }
 }

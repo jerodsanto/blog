@@ -1,12 +1,16 @@
 {{ define "main" }} {{ partial "header.html" . }}
 
-<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+<article>
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 
-{{ with .Params.author }}
-<p>
-  This is a guest post written by
-  <a href="http://twitter.com/{{ .twitter }}" title="{{ .full }}"
-    >@{{ .twitter }}</a
-  >. {{ .description }}
-</p>
-{{ end }} {{ .Content }} {{ end }}
+  {{ with .Params.author }}
+  <p>
+    This is a guest post written by
+    <a href="http://twitter.com/{{ .twitter }}" title="{{ .full }}"
+      >@{{ .twitter }}</a
+    >. {{ .description }}
+  </p>
+  {{ end }} {{ .Content }}
+</article>
+
+{{ partial "footer.html" . }}{{ end }}
