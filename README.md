@@ -1,67 +1,52 @@
-# Jekyll to Hugo Migration
+# jerodsanto.net
 
-This repository has been converted from Jekyll to Hugo while preserving the original layout, style, and content.
+My personal blog built with [Hugo](https://gohugo.io).
 
-## What was migrated:
+## Local Development
 
-### Structure
-- ✅ All posts from Jekyll `_posts` directories converted to Hugo `content/posts/`
-- ✅ Jekyll layouts converted to Hugo layouts with template syntax updates
-- ✅ Jekyll includes converted to Hugo partials
-- ✅ Category pages converted to Hugo taxonomy pages
-- ✅ Static assets copied to Hugo `static/` directory
-- ✅ RSS feed template converted to Hugo format
-- ✅ 404 page converted
-- ✅ Search and archives pages converted
+Install Hugo and run the development server:
 
-### Content
-- ✅ All {{ site.posts | size }} posts migrated with proper front matter
-- ✅ Jekyll liquid syntax converted to Hugo template syntax
-- ✅ Jekyll highlight tags converted to Hugo code fences
-- ✅ Custom Jekyll plugins converted to Hugo shortcodes (`aside`, `reveal`)
+```bash
+hugo server -D
+```
 
-### Configuration
-- ✅ Jekyll `_config.yml` settings converted to Hugo `hugo.toml`
-- ✅ Permalinks structure preserved (`/:year/:month/:title/`)
-- ✅ Pagination settings maintained
-- ✅ Category taxonomy configured
+The site will be available at `http://localhost:1313`
 
-## To run the Hugo site:
+## Writing a New Post
 
-1. Install Hugo: https://gohugo.io/installation/
-2. Run the development server:
-   ```bash
-   hugo server -D
-   ```
-3. Build for production:
-   ```bash
-   hugo
-   ```
+Create a new post using Hugo's archetype system:
 
-## Key differences from Jekyll:
+```bash
+hugo new content/posts/YYYY-MM-DD-slug-for-post.md
+```
 
-- Configuration is now in `hugo.toml` instead of `_config.yml`
-- Posts are in `content/posts/` instead of category-specific `_posts/` directories
-- Templates use Go template syntax instead of Liquid
-- Custom plugins are now shortcodes in `layouts/shortcodes/`
-- Static files are in `static/` directory
-- RSS feed is automatically generated (or use custom template in `layouts/_default/rss.xml`)
+This creates a new file in `content/posts/` with the front matter template:
 
-## Files you can remove:
+```yaml
+---
+title: Slug For Post
+date: 'YYYY-MM-DD'
+categories:
+draft: true
+---
+```
 
-The following Jekyll-specific files are no longer needed:
-- `_config.yml`
-- `Gemfile` and `Gemfile.lock`
-- `Rakefile`
-- All `_posts/` directories
-- `_includes/` directory
-- `_layouts/` directory (Jekyll version)
-- `_plugins/` directory
-- Jekyll-specific category index files
+Edit the post, add categories, and remove `draft: true` when ready to publish.
 
-## Notes:
+## Deploying
 
-- The site maintains the same URL structure and appearance
-- All content and metadata has been preserved
-- Custom Jekyll plugins have been converted to Hugo shortcodes
-- The migration script (`migrate_posts.rb`) can be removed after verification
+Run the deployment script:
+
+```bash
+./scripts/deploy.sh
+```
+
+This builds the site with Hugo and syncs it to production using rsync (only uploading changed files).
+
+## Site Configuration
+
+- `hugo.toml` - Main site configuration
+- `layouts/` - Page templates and partials
+- `content/posts/` - Blog posts
+- `static/` - Static assets (CSS, images, etc.)
+- `archetypes/` - Templates for new content
