@@ -147,7 +147,6 @@ sub,
 sup {
   position: relative;
   display: inline-block;
-  margin-left: 0.5ch;
   line-height: 0;
   width: calc(1ch / 0.75);
   font-size: 0.75rem;
