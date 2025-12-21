@@ -74,11 +74,9 @@ Or at you. But nobody’s keeping score.
 
 They stuck together, in better & worse, sickness & health
 
-through the peaks & valleys, the highs & the lows, rivers & roads…
+through the peaks & valleys, the highs & the lows, the rivers & roads…
 
-
-Shielding us kids from the 99 problems that every faithful marriage
-endures.
+Shielding us kids from the 99 problems that every faithful marriage endures.
 
 I never wondered whether or not they loved me, or each other
 
@@ -96,7 +94,7 @@ We’re talkin:
 
 Winning Powerball ticket, rare
 
-Cubs take the pennant, rare.
+Cubs take the pennant, rare
 
 Mr. C’s prime rib just how you like it, rare.
 
