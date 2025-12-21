@@ -19,7 +19,7 @@
   --copy-font: "JetBrains Mono", monospace;
   --header-font: "Departure Mono", monospace;
   --line-height: 1.2rem;
-  --baseline-offset: 1.95em;
+  --baseline-offset: 2.4em;
   --border-thickness: 1.5px;
   --text-color: #000;
   --text-color-alt: #666;
@@ -119,9 +119,6 @@ hr:after {
   height: 0;
 }
 
-article {
-}
-
 a {
   text-decoration-thickness: var(--border-thickness);
 }
@@ -166,7 +163,6 @@ sup {
 
 table {
   position: relative;
-  top: calc(var(--line-height) / 2);
   width: 100%;
   border-collapse: collapse;
   margin: 0 0 calc(var(--line-height) * 2);
@@ -188,9 +184,6 @@ table tbody tr:first-child > * {
 
 th {
   font-weight: 700;
-}
-
-footer {
 }
 
 p {
@@ -324,7 +317,7 @@ textarea {
   line-height: normal;
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 input[type="checkbox"] {
@@ -393,27 +386,36 @@ label input {
   width: 100%;
 }
 
-.content {
-  max-width: calc(min(80ch, round(down, 100%, 1ch)));
-  margin-left: 4ch;
-  margin-right: auto;
+header {
+  margin-bottom: calc(var(--line-height) * 2.2);
 }
-
-.header {
-  margin-bottom: calc(var(--line-height) * 2.5);
-}
-.header h1 {
+header h1 {
   margin: 0;
 }
 
-.header .title {
+header .title {
   font-family: var(--header-font);
   text-align: right;
 }
 
-.header a {
+header a {
   text-decoration: none;
   cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  font-size: 13px;
+
+  hr {
+    margin-bottom: 0;
+  }
+}
+
+.content {
+  max-width: calc(min(80ch, round(down, 100%, 1ch)));
+  margin-left: 4ch;
+  margin-right: auto;
 }
 
 .post-list {
@@ -458,15 +460,19 @@ label input {
 }
 
 @media screen and (max-width: 750px) {
-  .header .label {
+  header .label {
     display: none;
+  }
+
+  footer {
+    font-size: 10px;
   }
 }
 
 @media screen and (max-width: 580px) {
   :root {
     font-size: 13px;
-    --baseline-offset: 0.7em;
+    --baseline-offset: 1.2em;
   }
 
   body {
@@ -474,13 +480,13 @@ label input {
       var(--line-height);
   }
 
+  header,
+  hr {
+    width: 98%;
+  }
+
   .content {
     margin-left: 1ch;
     margin-right: 1ch;
-  }
-
-  .header,
-  hr {
-    width: 98%;
   }
 }
