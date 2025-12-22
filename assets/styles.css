@@ -387,7 +387,7 @@ label input {
 }
 
 header {
-  margin-bottom: calc(var(--line-height) * 2.2);
+  margin-bottom: 2.5em;
 }
 header h1 {
   margin: 0;
