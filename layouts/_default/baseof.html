@@ -19,8 +19,20 @@
     <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
     <link rel="icon" href="/icon.png" sizes="256x256" type="image/png" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/reset.css" />
-    <link rel="stylesheet" href="/styles.css" />
+    {{ $reset := resources.Get "reset.css" | resources.Minify |
+    resources.Fingerprint "sha384" }}
+    <link
+      rel="stylesheet"
+      href="{{ $reset.RelPermalink }}"
+      integrity="{{ $reset.Data.Integrity }}"
+    />
+    {{ $styles := resources.Get "styles.css" | resources.Minify |
+    resources.Fingerprint "sha384" }}
+    <link
+      rel="stylesheet"
+      href="{{ $styles.RelPermalink }}"
+      integrity="{{ $styles.Data.Integrity }}"
+    />
     <link rel="alternate" type="application/atom+xml" href="/feed.xml" />
   </head>
   <body>
