@@ -1,22 +1,40 @@
-{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>{{ .Site.Title }}</title>
-  <link href="{{ .Site.BaseURL }}feed.xml" rel="self"/>
-  <link href="{{ .Site.BaseURL }}"/>
-  <updated>{{ now.Format "2006-01-02T15:04:05-07:00" }}</updated>
-  <id>{{ .Site.BaseURL }}</id>
-  <author>
-    <name>{{ .Site.Params.author }}</name>
-  </author>
-  {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
-  <entry>
-    <title type="html">{{ .Title }}</title>
-    <link href="{{ .Permalink }}"/>
-    <id>{{ .Permalink }}</id>
-    <updated>{{ .Date.Format "2006-01-02T15:04:05-07:00" }}</updated>
-    <content type="html">
-      {{ .Content }}
-    </content>
-  </entry>
-  {{ end }}
-</feed>
+{{ "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>{{ .Site.Title }}</title>
+    <link>{{ .Site.BaseURL }}</link>
+    <description>{{ with .Site.Params.description }}{{ . | safeHTML }}{{ end }}</description>
+    <generator>Hugo</generator>
+    <language>{{ site.Language.Lang }}</language>
+    {{ with site.Params.copyright }}<copyright>{{ . | safeHTML }}</copyright>{{ end }}
+    <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+
+    {{ range (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      {{ with .Params.author }}<author>{{ . }}</author>{{ end }}
+      <guid>{{ .Permalink }}</guid>
+      {{ $baseURL := .Site.BaseURL }}
+      {{ $summary := .Summary |
+          replaceRE `src="/` (printf `src="%s` $baseURL) |
+          replaceRE `href="/` (printf `href="%s` $baseURL) |
+          replaceRE `src="\./` (printf `src="%s` $baseURL) |
+          replaceRE `href="\./` (printf `href="%s` $baseURL)
+      }}
+      <description>{{ (printf "<![CDATA[%s]]>" $summary) | safeHTML }}</description>
+      {{ $content := .Content |
+          replaceRE `src="/` (printf `src="%s` $baseURL) |
+          replaceRE `href="/` (printf `href="%s` $baseURL) |
+          replaceRE `src="\./` (printf `src="%s` $baseURL) |
+          replaceRE `href="\./` (printf `href="%s` $baseURL)
+      }}
+      <content:encoded>{{ (printf "<![CDATA[%s]]>" $content) | safeHTML }}</content:encoded>
+    </item>
+    {{ end }}
+  </channel>
+</rss>

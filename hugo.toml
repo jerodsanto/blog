@@ -12,7 +12,7 @@ disableKinds = ["taxonomy", "term", "section"]
 
 [params]
   author = "Jerod Santo"
-  description = "On software, life, & the space between"
+  description = "Buy the truth, and sell it not"
 
 [markup]
   [markup.goldmark]
