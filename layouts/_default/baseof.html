@@ -5,8 +5,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
+    <title>{{ if .IsHome }}{{ .Site.Title }} | {{ end }}{{ .Title }}</title>
     <meta name="author" content="{{ .Site.Params.author }}" />
-    {{ if not .IsHome }}
+    {{ if .IsHome }}
+    <meta name="description" content="I like writing, but not about myself." />
+    {{ else }}
     <meta name="description" content="{{ .Summary }}" />
     <meta property="og:title" content="{{ .Title }}" />
     <meta property="og:description" content="{{ .Summary }}" />
@@ -16,7 +19,6 @@
     {{ else }}
     <meta property="og:image" content="/icon.png" />
     {{ end }} {{ end }}
-    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
     <link rel="icon" href="/icon.png" sizes="256x256" type="image/png" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     {{ $reset := resources.Get "reset.css" | resources.Minify |
