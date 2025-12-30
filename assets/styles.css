@@ -14,6 +14,11 @@
   font-weight: 600;
   src: url("/fonts/JetBrainsMono-Medium.woff2") format("woff2");
 }
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 800;
+  src: url("/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+}
 
 :root {
   --copy-font: "JetBrains Mono", monospace;
@@ -384,6 +389,12 @@ label {
 
 label input {
   width: 100%;
+}
+
+blockquote {
+  margin-left: 0.75em;
+  padding-left: 10px;
+  border-left: var(--border-thickness) solid var(--text-color);
 }
 
 header {
