@@ -27,7 +27,7 @@ disableKinds = ["taxonomy", "term", "section"]
     lineNos = false
 
 [permalinks]
-  posts = "/:year/:month/:title/"
+  posts = "/:year/:month/:slug/"
 
 [pagination]
   pagerSize = 10
