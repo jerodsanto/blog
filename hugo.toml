@@ -4,11 +4,15 @@ title = "Jerod Santo"
 disableKinds = ["taxonomy", "term", "section"]
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "POSSE"]
 
 [outputFormats.RSS]
   mediatype = "application/rss+xml"
   baseName = "feed"
+
+[outputFormats.POSSE]
+  mediatype = "application/rss+xml"
+  baseName = "posse"
 
 [params]
   author = "Jerod Santo"

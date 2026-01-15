@@ -1,0 +1,23 @@
+{{ "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:posse="https://posseparty.com/2024/Feed">
+  <title>{{ .Site.Title }}</title>
+  <subtitle>{{ with .Site.Params.description }}{{ . }}{{ end }}</subtitle>
+  <id>{{ .Site.BaseURL }}</id>
+  <link href="{{ .Site.BaseURL }}" rel="alternate" type="text/html"/>
+  <link href="{{ .Site.BaseURL }}posse.xml" rel="self" type="application/atom+xml"/>
+  <updated>{{ now.Format "2006-01-02T15:04:05Z" }}</updated>
+  <author>
+    <name>{{ .Site.Params.author }}</name>
+  </author>
+
+  {{ range (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+  <entry>
+    <id>{{ .Permalink }}</id>
+    <title>{{ .Title }}</title>
+    <updated>{{ .Date.Format "2006-01-02T15:04:05Z" }}</updated>
+    <published>{{ .Date.Format "2006-01-02T15:04:05Z" }}</published>
+    <link href="{{ .Permalink }}" rel="alternate" type="text/html"/>
+    <posse:post format="json">{{ printf "<![CDATA[\n{\n  \"id\": %s,\n  \"title\": %s,\n  \"url\": %s,\n  \"published_at\": %s,\n  \"updated_at\": %s,\n  \"author_name\": %s,\n  \"format_string\": \"{{title}}\",\n  \"syndicate\": true\n}\n]]>" (.Permalink | jsonify) (.Title | jsonify) (.Permalink | jsonify) (.Date.Format "2006-01-02T15:04:05Z" | jsonify) (.Lastmod.Format "2006-01-02T15:04:05Z" | jsonify) ($.Site.Params.author | jsonify) | safeHTML }}</posse:post>
+  </entry>
+  {{ end }}
+</feed>
