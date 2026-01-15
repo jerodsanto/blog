@@ -443,7 +443,7 @@ footer {
     min-width: 0;
   }
 
-  li span.pubdate {
+  li time.pubdate {
     margin-left: 2ch;
     color: var(--text-color-alt);
     flex-shrink: 0;

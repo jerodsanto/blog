@@ -4,7 +4,7 @@
   {{ range where .Site.RegularPages "Section" "posts" }}
   <li>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    <span class="pubdate">{{ .Date.Format "2006-01-02" }}</span>
+    <time class="pubdate" datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
   </li>
   {{ end }}
 </ul>
