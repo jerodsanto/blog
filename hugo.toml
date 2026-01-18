@@ -23,8 +23,7 @@ disableKinds = ["taxonomy", "term", "section"]
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
-    style = "github"
-    lineNos = false
+    noClasses = false
 
 [permalinks]
   posts = "/:year/:month/:slug/"
