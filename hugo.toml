@@ -10,8 +10,11 @@ disableKinds = ["taxonomy", "term", "section"]
   mediatype = "application/rss+xml"
   baseName = "feed"
 
+[mediaTypes."application/atom+xml"]
+  suffixes = ["xml"]
+
 [outputFormats.POSSE]
-  mediatype = "application/rss+xml"
+  mediatype = "application/atom+xml"
   baseName = "posse"
 
 [params]
