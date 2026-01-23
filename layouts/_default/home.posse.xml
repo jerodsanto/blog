@@ -17,17 +17,18 @@
     <updated>{{ .Date.Format "2006-01-02T15:04:05Z" }}</updated>
     <published>{{ .Date.Format "2006-01-02T15:04:05Z" }}</published>
     <link href="{{ .Permalink }}" rel="alternate" type="text/html"/>
-    {{- $title := .Title }}{{ with .Params.stab }}{{ $title = . }}{{ end }}
+    {{- $subtitle := .Title }}{{ with .Params.stab }}{{ $subtitle = . }}{{ end }}
     <posse:post format="json">{{ "<![CDATA[" | safeHTML }}
 {
   "id": {{ .Permalink | jsonify }},
-  "title": {{ $title | jsonify }},
+  "title": {{ .Title | jsonify }},
+  "subtitle": {{ $subtitle | jsonify }},
   "summary": {{ .Summary | plainify | jsonify }},
   "url": {{ .Permalink | jsonify }},
   "published_at": {{ .Date.Format "2006-01-02T15:04:05Z" | jsonify }},
   "updated_at": {{ .Lastmod.Format "2006-01-02T15:04:05Z" | jsonify }},
   "author_name": {{ $.Site.Params.author | jsonify }},
-  "format_string": "{{ "{{title}}" }}",
+  "format_string": "{{ "{{subtitle}}" }}",
   "syndicate": true
 }
 {{ "]]>" | safeHTML }}</posse:post>
