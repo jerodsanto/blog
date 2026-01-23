@@ -7,19 +7,26 @@
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
     <title>{{ if .IsHome }}{{ .Site.Title }} | {{ end }}{{ .Title }}</title>
+    <meta property="og:title" content="{{ .Title }}" />
     <meta name="author" content="{{ .Site.Params.author }}" />
     {{ if .IsHome }}
     <meta name="description" content="I like writing, but not about myself." />
     {{ else }}
     <meta name="description" content="{{ .Summary }}" />
-    <meta property="og:title" content="{{ .Title }}" />
     <meta property="og:description" content="{{ .Summary }}" />
     <meta property="og:type" content="article" />
-    {{ with .Params.image }}
-    <meta property="og:image" content="{{ . }}" />
-    {{ else }}
-    <meta property="og:image" content="/icon.png" />
-    {{ end }} {{ end }}
+    {{ end }}
+    {{- $image := "/share.png" | absURL }}
+    {{- with .Params.image }}
+      {{- with $.Resources.GetMatch . }}
+        {{- $image = .Permalink }}
+      {{- else }}
+        {{- $image = . | absURL }}
+      {{- end }}
+    {{- end }}
+    <meta property="og:image" content="{{ $image }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="{{ $image }}" />
     <link rel="icon" href="/icon.png" sizes="256x256" type="image/png" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     {{ $reset := resources.Get "reset.css" | resources.Minify |
