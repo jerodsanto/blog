@@ -133,10 +133,6 @@ a:visited {
   color: var(--text-color);
 }
 
-p {
-  margin-bottom: var(--line-height);
-}
-
 strong {
   font-weight: var(--font-weight-bold);
 }
@@ -191,9 +187,7 @@ th {
 }
 
 p {
-  word-break: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
+  margin: 0 0 var(--line-height) 0;
 }
 
 img,
@@ -287,7 +281,7 @@ figcaption {
 ul,
 ol {
   padding: 0;
-  margin: 0 0 var(--line-height);
+  margin: var(--line-height) 0 0 0;
 }
 
 ul {
