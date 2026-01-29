@@ -48,9 +48,9 @@ If you go that route, use [this link][6] to pitch me a little something for the 
 
 
 [1]: #wheretobuy
-[2]: "http://en.wikipedia.org/wiki/There%27s_more_than_one_way_to_do_it"
-[3]: "http://cdn.oreilly.com/books/9780596523008/Mastering_the_Dynamic_Toolkit.xml.pdf"
-[4]: "http://github.com/technicalpickles/jeweler/"
-[5]: "http://blog.rubybestpractices.com/"
-[6]: "http://www.amazon.com/gp/product/0596523009?ie=UTF8&tag=standadeviat-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0596523009"
-[7]: "http://www.amazon.com/Ruby-Best-Practices-Gregory-Brown/dp/0596523009/ref=sr_1_1?ie=UTF8&s=books&qid=1249140448&sr=8-1"
+[2]: https://en.wikipedia.org/wiki/There%27s_more_than_one_way_to_do_it
+[3]: https://cdn.oreilly.com/books/9780596523008/Mastering_the_Dynamic_Toolkit.xml.pdf
+[4]: https://github.com/technicalpickles/jeweler/
+[5]: https://blog.rubybestpractices.com/
+[6]: http://www.amazon.com/gp/product/0596523009?ie=UTF8&tag=standadeviat-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0596523009
+[7]: http://www.amazon.com/Ruby-Best-Practices-Gregory-Brown/dp/0596523009/ref=sr_1_1?ie=UTF8&s=books&qid=1249140448&sr=8-1

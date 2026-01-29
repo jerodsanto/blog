@@ -39,7 +39,7 @@ VoilÃ !
 
 [DOWNLOAD HERE][4]
 
-[1]: "http://twitter.com/dougneiner/status/3679180990"
-[2]: "http://twitter.com/jerodsanto"
-[3]: "http://www.google.com/profiles/douglasneiner"
-[4]: "/wp-content/uploads/2009/09/expose-rings.zip"
+[1]: https://twitter.com/dougneiner/status/3679180990
+[2]: https://twitter.com/jerodsanto
+[3]: https://www.google.com/profiles/douglasneiner
+[4]: /wp-content/uploads/2009/09/expose-rings.zip

@@ -70,10 +70,9 @@ That one has bit me more than once!
 
 [^3]: I'm using the `!` bang suffix for no other reason then it makes the method more fun to call
 
-[rspec]:rspec.info
-[capybara]:http://jnicklas.github.com/capybara/
-[capybara-webkit]:https://github.com/thoughtbot/capybara-webkit
-[poltergeist]:https://github.com/jonleighton/poltergeist
-[poltergeist-pic]:http://jerodsanto.net/drop/poltergeist.png
-[phantomjs]:http://phantomjs.org/
-
+[rspec]: https://rspec.info
+[capybara]: https://jnicklas.github.com/capybara/
+[capybara-webkit]: https://github.com/thoughtbot/capybara-webkit
+[poltergeist]: https://github.com/jonleighton/poltergeist
+[poltergeist-pic]: https://jerodsanto.net/drop/poltergeist.png
+[phantomjs]: https://phantomjs.org/
