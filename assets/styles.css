@@ -43,15 +43,6 @@
   font-size: 15px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #d3d3d4;
-    --text-color-alt: #aaa;
-    --background-color: #111;
-    --background-color-alt: #222;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -766,8 +757,19 @@ footer {
   text-decoration: underline;
 }
 
-/* Syntax highlighting - Dark mode (github-dark theme) */
 @media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #d3d3d4;
+    --text-color-alt: #aaa;
+    --background-color: #111;
+    --background-color-alt: #222;
+  }
+
+  .graph-paper {
+    --color: color-mix(in srgb, #72e344 20%, var(--background-color) 80%);
+  }
+
+  /* Syntax highlighting - Dark mode (github-dark theme) */
   .chroma .err {
     color: #f85149;
   }
