@@ -31,4 +31,4 @@ Now if you want to see the commits on your master branch that aren't on Heroku's
 git compare master...heroku/master
 ```
 
-Admittedly, `compare` is a pretty generic name for this alias. Naming things is [hard](2014/08/naming-things-is-hard-lets-go-shopping/). Let me know if you have a better one!
+Admittedly, `compare` is a pretty generic name for this alias. Naming things is [hard](/2014/08/naming-things-is-hard-lets-go-shopping/). Let me know if you have a better one!
