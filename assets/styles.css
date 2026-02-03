@@ -177,7 +177,8 @@ th {
   font-weight: 700;
 }
 
-p {
+p,
+form {
   margin: 0 0 var(--line-height) 0;
 }
 
