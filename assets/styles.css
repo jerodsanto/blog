@@ -248,7 +248,7 @@ code {
 /* Inline code (not in pre blocks) */
 :not(pre) > code {
   background: var(--background-color-alt);
-  padding: 0.1em 0.4ch;
+  padding: 0 0.4ch;
 }
 
 /* Hugo/Chroma syntax highlighting wrapper */
@@ -781,7 +781,7 @@ footer {
     --text-color: #d3d3d4;
     --text-color-alt: #aaa;
     --background-color: #111;
-    --background-color-alt: #222;
+    --background-color-alt: #555;
   }
 
   #dragme {
