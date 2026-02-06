@@ -30,6 +30,7 @@
   --text-color-alt: #666;
   --background-color: #fff;
   --background-color-alt: #eee;
+  --neon-green: #72e344;
 
   --font-weight-normal: 500;
   --font-weight-medium: 600;
@@ -430,6 +431,7 @@ footer {
   max-width: calc(min(80ch, round(down, 100%, 1ch)));
   margin-left: 4ch;
   margin-right: auto;
+  transition: margin-left 150ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .post-list {
@@ -471,6 +473,22 @@ footer {
     repeating-linear-gradient(90deg, var(--color) 0 1px, transparent 1px 100%);
   background-size: 2ch var(--line-height);
   margin: 0;
+}
+
+#dragme {
+  display: none;
+}
+@media screen and (min-width: 900px) {
+  #dragme {
+    display: block;
+    position: absolute;
+    cursor: grab;
+    z-index: 1;
+    fill: var(--text-color);
+  }
+  #dragme:active {
+    cursor: grabbing;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -766,8 +784,16 @@ footer {
     --background-color-alt: #222;
   }
 
+  #dragme {
+    fill: var(--neon-green);
+  }
+
   .graph-paper {
-    --color: color-mix(in srgb, #72e344 20%, var(--background-color) 80%);
+    --color: color-mix(
+      in srgb,
+      var(--neon-green) 20%,
+      var(--background-color) 80%
+    );
   }
 
   /* Syntax highlighting - Dark mode (github-dark theme) */

@@ -50,5 +50,64 @@
   <body>
     <div class="content">{{ block "main" . }}{{ end }}</div>
     <div class="graph-paper"></div>
+    <script>
+      const dragme = document.getElementById("dragme");
+      const content = document.querySelector(".content");
+      let dragging = false;
+      let startX = 0;
+      let baseMarginCh = 0;
+      let chSize = 0;
+
+      function getChSize() {
+        const el = document.createElement("span");
+        el.style.cssText = "position:absolute;visibility:hidden;width:1ch";
+        document.body.appendChild(el);
+        const size = el.offsetWidth;
+        el.remove();
+        return size;
+      }
+
+      let minCh = 0;
+      let maxCh = 0;
+
+      function getDefaultMarginCh() {
+        const prev = content.style.marginLeft;
+        content.style.marginLeft = "";
+        const ch = Math.round(parseFloat(getComputedStyle(content).marginLeft) / chSize);
+        content.style.marginLeft = prev;
+        return ch;
+      }
+
+      dragme.addEventListener("mousedown", (e) => {
+        if (window.innerWidth < 900) return;
+        dragging = true;
+        content.style.transition = "none";
+        startX = e.clientX;
+        chSize = getChSize();
+        baseMarginCh = Math.round(parseFloat(getComputedStyle(content).marginLeft) / chSize);
+        const defaultCh = getDefaultMarginCh();
+        minCh = defaultCh;
+        const bodyStyle = getComputedStyle(document.body);
+        const available = document.body.clientWidth
+          - parseFloat(bodyStyle.paddingLeft)
+          - parseFloat(bodyStyle.paddingRight);
+        maxCh = Math.floor((available - content.offsetWidth - defaultCh * chSize) / (chSize * 4)) * 4;
+        maxCh = Math.max(minCh, maxCh);
+        e.preventDefault();
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!dragging) return;
+        const deltaCh = Math.round((e.clientX - startX) / (chSize * 4)) * 4;
+        const clamped = Math.min(maxCh, Math.max(minCh, baseMarginCh + deltaCh));
+        content.style.marginLeft = clamped + "ch";
+      });
+
+      document.addEventListener("mouseup", () => {
+        if (!dragging) return;
+        dragging = false;
+        content.style.transition = "";
+      });
+    </script>
   </body>
 </html>
