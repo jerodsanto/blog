@@ -6,18 +6,8 @@
 
 @font-face {
   font-family: "JetBrains Mono";
-  font-weight: 500;
-  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  font-weight: 600;
-  src: url("/fonts/JetBrainsMono-Medium.woff2") format("woff2");
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  font-weight: 800;
-  src: url("/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 100 800;
+  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2");
 }
 
 :root {
@@ -32,9 +22,9 @@
   --background-color-alt: #eee;
   --neon-green: #72e344;
 
-  --font-weight-normal: 500;
-  --font-weight-medium: 600;
-  --font-weight-bold: 800;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
 
   font-family: var(--copy-font);
   font-optical-sizing: auto;
