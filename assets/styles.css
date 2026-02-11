@@ -485,6 +485,9 @@ footer {
     cursor: grab;
     z-index: 1;
     fill: var(--text-color);
+    transform: rotate(180deg);
+    transform-origin: center;
+    transform-box: fill-box; /* This helps Safari */
   }
   #dragme:active {
     cursor: grabbing;
