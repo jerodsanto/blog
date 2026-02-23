@@ -2,39 +2,6 @@
 
 <h2>Jerod News</h2>
 
-<p>Do you enjoy electronic mail from actual humans?</p>
-
-<p>
-  I'll send you (up to) one email each month* that rounds up what I've been
-  reading, writing, clipping, coding, thinking, watching, and/or enjoying
-  lately. Replies encouraged, but no strings attached...
-</p>
-
-<form
-  action="https://buttondown.email/api/emails/embed-subscribe/jerodsanto"
-  method="post"
-  target="popupwindow"
-  onsubmit="window.open('https://buttondown.email/jerodsanto', 'popupwindow')"
->
-  <label>
-    Your email
-    <input
-      type="email"
-      name="email"
-      id="bd-email"
-      placeholder="grace@hopper.com"
-      required
-    />
-  </label>
-
-  <button type="submit">Subscribe</button>
-</form>
-
-<p>
-  <em
-    >(*There will surely be some overlap with my RSS/social feeds, but I do plan
-    on sitting down and crafting something fresh each time, too.)</em
-  >
-</p>
+{{ .Content }}
 
 {{ partial "footer.html" . }}{{ end }}
