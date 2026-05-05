@@ -422,6 +422,13 @@ footer {
   margin-left: 4ch;
   margin-right: auto;
   transition: margin-left 150ms cubic-bezier(0.25, 1, 0.5, 1);
+  container-type: inline-size;
+}
+
+img[style*="--w"] {
+  height: round(up, calc(100cqw * var(--h) / var(--w)), var(--line-height));
+  object-fit: cover;
+  object-position: top;
 }
 
 .post-list {

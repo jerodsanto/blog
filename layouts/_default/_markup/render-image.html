@@ -1,0 +1,6 @@
+{{- $img := .Page.Resources.GetMatch .Destination -}}
+{{- if $img -}}
+<img src="{{ $img.RelPermalink }}" alt="{{ .Text }}" width="{{ $img.Width }}" height="{{ $img.Height }}" style="--w: {{ $img.Width }}; --h: {{ $img.Height }};" loading="lazy">
+{{- else -}}
+<img src="{{ .Destination }}" alt="{{ .Text }}" loading="lazy">
+{{- end -}}
