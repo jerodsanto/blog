@@ -1,5 +1,6 @@
 ---
 title: Rack, and Firebug, and Fuel. Oh Hai!
+slug: rack-and-firebug-and-fuel
 date: '2010-03-20'
 categories:
 - announcement

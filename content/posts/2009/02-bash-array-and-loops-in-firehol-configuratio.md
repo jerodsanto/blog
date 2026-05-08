@@ -1,5 +1,6 @@
 ---
 title: Bash array and loops in FireHOL configuration
+slug: bash-array-and-loops-in-firehol-configuratio
 date: '2009-02-26'
 categories:
 - sysadmin

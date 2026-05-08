@@ -1,5 +1,6 @@
 ---
 title: Rate Limit POST Requests with Rack::Throttle
+slug: rate-limit-post-requests-with-rack-throttle
 date: '2013-02-03'
 categories:
 - development

@@ -1,5 +1,6 @@
 ---
 title: So I gave a talk for NebraskaJS about AngularJS
+slug: so-i-gave-a-talk-for-nebraskajs-on-angularjs
 date: '2013-07-13'
 categories:
 - talk

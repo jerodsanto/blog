@@ -1,5 +1,6 @@
 ---
 title: A Photo Stream Problem, Workaround, &amp; Bonus
+slug: a-photostream-problem-workaround-bonus
 date: '2011-12-11'
 categories:
 - hack

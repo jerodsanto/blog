@@ -1,5 +1,6 @@
 ---
 title: Fix Rails-API Oauth2 CSRF Errors On Rails 3.2.9+
+slug: fix-rails-api-oauth2-csrf-errors-on-rails-3-2-9-plus
 date: '2013-02-01'
 categories:
 - development

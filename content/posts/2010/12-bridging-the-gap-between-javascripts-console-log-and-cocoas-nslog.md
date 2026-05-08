@@ -1,5 +1,6 @@
 ---
 title: Bridging the Gap Between JavaScript's console.log and Cocoa's NSLog
+slug: bridging-the-gap-between-javascripts-console-log-and-cocoas-nslog
 date: '2010-12-27'
 categories:
 - development

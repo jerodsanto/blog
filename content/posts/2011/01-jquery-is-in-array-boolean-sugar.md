@@ -1,5 +1,6 @@
 ---
 title: 'jQuery: isInArray Boolean Sugar'
+slug: jquery-is-in-array-boolean-sugar
 date: '2011-01-31'
 categories:
 - development

@@ -1,5 +1,6 @@
 ---
 title: 10.5.3 Fixes Spaces
+slug: 10-5-3-fixes-spaces
 date: '2008-05-31'
 categories:
 - ecosystem

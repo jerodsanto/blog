@@ -1,5 +1,6 @@
 ---
 title: Kill Snow Leopard's Blue Ring of Expos&eacute;
+slug: kill-snow-leopards-blue-ring-of-expose
 date: '2009-09-01'
 categories:
 - hack

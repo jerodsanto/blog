@@ -1,5 +1,6 @@
 ---
 title: My biggest disappointment with Apple's 2013 iPhone upgrades
+slug: my-biggest-disappointment-with-apple-2013-iphone-upgrades
 date: '2013-09-20'
 categories:
 - editorial

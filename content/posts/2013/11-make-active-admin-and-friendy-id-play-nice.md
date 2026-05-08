@@ -1,5 +1,6 @@
 ---
 title: Make ActiveAdmin and FriendlyId play nice
+slug: make-active-admin-and-friendy-id-play-nice
 date: '2013-11-15'
 categories:
 - development

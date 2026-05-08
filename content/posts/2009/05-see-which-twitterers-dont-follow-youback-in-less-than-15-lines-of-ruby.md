@@ -1,5 +1,6 @@
 ---
 title: See Which Twitterers Don't Follow You Back In Less Than 15 Lines of Ruby
+slug: see-which-twitterers-dont-follow-youback-in-less-than-15-lines-of-ruby
 date: '2009-05-12'
 categories:
 - development

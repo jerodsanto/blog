@@ -1,5 +1,6 @@
 ---
 title: A Simple Pattern to Namespace and Selectively Execute Certain Bits of JavaScript
+slug: a-simple-pattern-to-namespace-and-selectively-execute-certain-bits-of-javascript-depending-on-which-rails-controller-and-action-are-active
   Depending on Which Rails Controller and Action are Active
 date: '2012-02-08'
 categories:

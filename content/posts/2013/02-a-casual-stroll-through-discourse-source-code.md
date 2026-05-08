@@ -1,5 +1,6 @@
 ---
 title: A Casual Stroll Through Discourse's Source Code
+slug: a-casual-stroll-through-discourse-source-code
 date: '2013-02-11'
 categories:
 - ecosystem

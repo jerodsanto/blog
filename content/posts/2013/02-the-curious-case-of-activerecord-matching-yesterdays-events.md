@@ -1,5 +1,6 @@
 ---
 title: The Curious Case of ActiveRecord Matching Yesterday's Events Even Though I
+slug: the-curious-case-of-activerecord-matching-yesterdays-events
   Told it Not To
 date: '2013-02-19'
 categories:

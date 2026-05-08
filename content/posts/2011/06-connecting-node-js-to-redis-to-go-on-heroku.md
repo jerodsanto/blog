@@ -1,5 +1,6 @@
 ---
 title: Connecting Node.js to Redis To Go on Heroku
+slug: connecting-node-js-to-redis-to-go-on-heroku
 date: '2011-06-17'
 categories:
 - development

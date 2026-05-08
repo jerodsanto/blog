@@ -1,5 +1,6 @@
 ---
 title: fix your Debian VMware image's network after offline copy
+slug: fix-your-debian-vmware-image-s-network-after-offline-copy
 date: '2008-09-17'
 categories:
 - sysadmin

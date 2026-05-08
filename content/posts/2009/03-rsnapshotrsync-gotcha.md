@@ -1,5 +1,6 @@
 ---
 title: Rsnapshot (Rsync) Gotcha
+slug: rsnapshotrsync-gotcha
 date: '2009-03-09'
 categories:
 - sysadmin

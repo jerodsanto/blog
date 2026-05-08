@@ -1,5 +1,6 @@
 ---
 title: A Handy Method to Share Data From Rails Controllers to Views Without Requiring
+slug: a-handy-method-to-share-data-from-rails-controllers-to-views-without-requiring-direct-instance-variable-access
   Direct Instance Variable Access
 date: '2012-12-18'
 categories:

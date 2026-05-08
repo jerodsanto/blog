@@ -1,5 +1,6 @@
 ---
 title: Two Guys B.S.in'
+slug: two-guys-bs-in
 date: '2015-01-05'
 categories:
 - announcement

@@ -1,5 +1,6 @@
 ---
 title: A simple Ruby method to send email
+slug: a-simple-ruby-method-to-send-emai
 date: '2009-02-17'
 categories:
 - development

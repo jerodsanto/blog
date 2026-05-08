@@ -1,12 +1,13 @@
 ---
 title: List all Git commits that are on one branch, but aren't on the other
+slug: git-a-list-of-commits-on-one-branch-but-not-the-other
 date: '2014-09-06'
 categories:
 - development
 draft: false
 ---
 
-Common need: show me all the comits that branch `X` has, but branch `Y` doesn't.
+Common need: show me all the commits that branch `X` has, but branch `Y` doesn't.
 
 Why is this need common? Because Heroku-style deployment environments are increasingly common and it's super handy to quickly see which commits you haven't pushed to production.
 

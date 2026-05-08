@@ -1,5 +1,6 @@
 ---
 title: Enumerable's *ect Methods Reimplemented Using `each_with_object`
+slug: enumerables-star-ect-methods-reimplemented-using-each_with_object
 date: '2012-05-20'
 categories:
 - development

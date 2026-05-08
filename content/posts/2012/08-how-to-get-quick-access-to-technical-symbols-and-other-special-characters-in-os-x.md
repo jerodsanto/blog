@@ -1,5 +1,6 @@
 ---
 title: How to get quick access to technical symbols and other special characters in
+slug: how-to-get-quick-access-to-technical-symbols-and-other-special-characters-in-os-x
   OS X
 date: '2012-08-08'
 categories:

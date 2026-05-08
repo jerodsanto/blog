@@ -1,5 +1,6 @@
 ---
 title: Trailing Conditionals Considered Harmful Unless Used Sparingly
+slug: trailing-conditionals-considered-harmful
 date: '2015-03-08'
 categories:
 - development

@@ -1,5 +1,6 @@
 ---
 title: A Kindle Cloud Reader Bookmarklet to Enable Text Selection, Copy/Paste, Et
+slug: a-kindle-cloud-reader-bookmarklet-to-enable-text-selection-copy-paste-etc
   Cetera
 date: '2011-08-10'
 categories:

@@ -1,5 +1,6 @@
 ---
 title: cap db:pull
+slug: cap-db-pull
 date: '2011-06-29'
 categories:
 - development

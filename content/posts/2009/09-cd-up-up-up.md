@@ -1,5 +1,6 @@
 ---
 title: cd up, up, and a-up
+slug: cd-up-up-up
 date: '2009-09-07'
 categories:
 - hack

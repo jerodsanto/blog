@@ -1,5 +1,6 @@
 ---
 title: How Atebits' Letterpress Could Really Shine (and Make a Lot of Money)
+slug: how-atebits-letterpress-could-really-shine
 date: '2012-10-28'
 categories:
 - editorial

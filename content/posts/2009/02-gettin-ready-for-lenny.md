@@ -1,5 +1,6 @@
 ---
 title: Getting ready for Lenny
+slug: gettin-ready-for-lenny
 date: '2009-02-16'
 categories:
 - sysadmin

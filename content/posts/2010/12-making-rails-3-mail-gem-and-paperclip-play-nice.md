@@ -1,5 +1,6 @@
 ---
 title: Making Rails 3's Mail Gem and Paperclip Play Nice
+slug: making-rails-3-mail-gem-and-paperclip-play-nice
 date: '2010-12-09'
 categories:
 - development
