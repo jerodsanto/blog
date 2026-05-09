@@ -21,6 +21,7 @@
   --background-color: #fff;
   --background-color-alt: #eee;
   --neon-green: #72e344;
+  --graph-blue: #96ade9;
 
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -454,11 +455,8 @@ img[style*="--w"] {
 }
 
 .graph-paper {
-  --color: color-mix(
-    in srgb,
-    var(--text-color) 10%,
-    var(--background-color) 90%
-  );
+  --color: var(--graph-blue);
+  opacity: 40%;
   position: absolute;
   top: 0;
   left: 0;
@@ -789,11 +787,8 @@ img[style*="--w"] {
   }
 
   .graph-paper {
-    --color: color-mix(
-      in srgb,
-      var(--neon-green) 20%,
-      var(--background-color) 80%
-    );
+    --color: var(--neon-green);
+    opacity: 15%;
   }
 
   /* Syntax highlighting - Dark mode (github-dark theme) */
