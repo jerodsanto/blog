@@ -473,6 +473,7 @@ img[style*="--w"] {
 #dragme {
   display: none;
 }
+
 @media screen and (min-width: 900px) {
   #dragme {
     display: block;
@@ -505,13 +506,18 @@ img[style*="--w"] {
     --baseline-offset: 1.2em;
   }
 
+  a {
+    text-decoration-thickness: 1px;
+  }
+
   body {
     padding: calc(var(--line-height) + var(--baseline-offset)) 1ch
       var(--line-height);
   }
 
   header,
-  hr {
+  hr,
+  .post-list {
     width: 98%;
   }
 
