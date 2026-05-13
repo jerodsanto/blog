@@ -402,6 +402,19 @@ header h1 {
 header .title {
   font-family: var(--header-font);
   text-align: right;
+  position: relative;
+  height: calc(var(--line-height) * 4);
+}
+
+#me {
+  position: absolute;
+  left: calc(var(--line-height) * 0.5);
+  top: -1px;
+  width: 8ch;
+  height: calc(var(--line-height) * 4);
+  object-fit: cover;
+  filter: grayscale(1);
+  transform: scaleX(-1);
 }
 
 header a {
@@ -487,6 +500,9 @@ img[style*="--w"] {
   }
   #dragme:active {
     cursor: grabbing;
+  }
+  #dragme:active ~ table #me {
+    filter: none;
   }
 }
 
