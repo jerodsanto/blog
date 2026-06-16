@@ -4,7 +4,7 @@ set -e
 cd ~/src/jerodsanto/net
 
 echo "Building site with Hugo..."
-hugo --quiet
+hugo --quiet --cleanDestinationDir
 
 echo "Pruning old styles.min.*.css (keeping last 3)..."
 ls -t public/styles.min.*.css 2>/dev/null | tail -n +4 | xargs -r rm -v
