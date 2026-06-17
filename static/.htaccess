@@ -1,0 +1,8 @@
+# jerodsanto.net — Apache config
+# This file lives in static/ so Hugo copies it to public/.htaccess on build
+
+Redirect 301 /ip /
+Redirect 301 /about-us /about
+Redirect 301 /contact-us /contact
+
+Redirect 301 /2014/09/list-all-git-commits-that-are-on-one-branch-but-arent-on-the-other /2014/09/git-a-list-of-commits-on-one-branch-but-not-the-other
