@@ -6,3 +6,4 @@ Redirect 301 /about-us /about
 Redirect 301 /contact-us /contact
 
 Redirect 301 /2014/09/list-all-git-commits-that-are-on-one-branch-but-arent-on-the-other /2014/09/git-a-list-of-commits-on-one-branch-but-not-the-other
+Redirect 301 /2015/03/trailing-conditionals-considered-harmful-unless-used-sparingly /2015/03/trailing-conditionals-considered-harmful
