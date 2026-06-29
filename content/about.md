@@ -28,7 +28,7 @@ I'm a [born-again](https://armorer.io/john/3/#7) Christian who prioritizes Bible
 
 > I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.
 
-I wasn't always this way. I grew up with Christian influences (mostly my mom), but I rejected the gospel until I was 22 years old. I'd love to tell you the whole story sometime, if you're interested. ([Just ask](/contact))
+It wasn't always this way. I grew up with Christian influences (mostly my mom), but I rejected the gospel until I was 22 years old. I'd love to tell you the whole story sometime, if you're interested. ([Just ask](/contact))
 
 ## Family
 
@@ -36,8 +36,8 @@ I met the love of my life at church: Rachel. I call her my [Everything Woman](ht
 
 In the ~19 years we've been married, Rach has birthed, trained, and schooled our six children: three boys and three girls. I could write a book about each one of them, but for now I want to stay focused on Rachel: 
 
-Not only did she make me a dad. She makes me want to be a better dad.
+Not only did she make me a dad. She makes me want to be a *better* dad.
 
- Here's the whole fam after my two youngests' spring dance recital 👇 (May, 2026)
+ Here's the whole fam after my two youngests' dance recital 👇 (May, 2026)
 
 ![Left to right: Jerod, Ezra, Lyla, Nora, Wes, Hazel, Levi, Rachel](/family-2026-05-09.jpg)
