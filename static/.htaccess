@@ -7,3 +7,5 @@ Redirect 301 /contact-us /contact
 
 Redirect 301 /2014/09/list-all-git-commits-that-are-on-one-branch-but-arent-on-the-other /2014/09/git-a-list-of-commits-on-one-branch-but-not-the-other
 Redirect 301 /2015/03/trailing-conditionals-considered-harmful-unless-used-sparingly /2015/03/trailing-conditionals-considered-harmful
+Redirect 301 /2012/10/how-atebits-letterpress-could-really-shine-and-make-a-lot-of-money /2012/10/how-atebits-letterpress-could-really-shine
+Redirect 301 /2010/12/making-rails-3s-mail-gem-and-paperclip-play-nice /2010/12/making-rails-3-mail-gem-and-paperclip-play-nice

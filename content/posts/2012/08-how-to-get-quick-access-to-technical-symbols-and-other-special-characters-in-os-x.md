@@ -1,13 +1,11 @@
 ---
 title: How to get quick access to technical symbols and other special characters in
 slug: how-to-get-quick-access-to-technical-symbols-and-other-special-characters-in-os-x
-  OS X
-date: '2012-08-08'
+date: 2012-08-08
 categories:
-- hack
+  - hack
 draft: false
 ---
-
 Technical folks like ourselves often have to describe keyboard combinations to other (sometimes not so) technical folks. If you find yourself typing out "command", "option", or "control" often and want to take a principled stand against verbosity, I have good news for you!
 
 OS X has a new feature in Mountain Lion (it may have been in Lion too, but I never used it and can no longer confirm) that provides customizable symbol substitution.
