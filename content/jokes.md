@@ -13,7 +13,7 @@ Man: "My late wife would love this restaurant."
 Hostess: "I'm sorry, how long has she been dead?"
 
 {{< reveal "Man:" >}}
-"She's not dead. Just late, like usual."
+"Not dead. Just late, like usual."
 {{< /reveal >}}
 
 Life's miserable when you're married to a melon monger...
@@ -53,7 +53,7 @@ The toilet paper shortage in California left residents wondering...
 Where in the world is Charmin, San Diego?
 {{< /reveal >}}
 
-I was ticketed for speeding reading yesterday...
+I was ticketed for speed reading yesterday...
 
 {{< reveal "About that" >}}
 I’d tell you the whole story, but it all happened so fast
@@ -68,7 +68,7 @@ After I whispered the secret password to the man blocking the bathroom...
 Every time I (an English teacher) correct my wife's misuse of a word, she laughs it off...
 
 {{< reveal "and says" >}}
-"That's why I get for marrying a linguinist!"
+"That's what I get for marrying a linguinist!"
 {{< /reveal >}}
 
 Took the kids mushroom hunting over the weekend, but we only found one shroom...
