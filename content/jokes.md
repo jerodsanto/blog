@@ -4,7 +4,7 @@ title: Jokes for which I am to be blamed
 
 I've always loved a good joke. I've even loved a bad joke or two. I might love dad jokes[^1] the most. Over the years, I've heard a lot of jokes. I enjoy holding on to a joke and passing it on to the right person at the right time. I've even written a few originals, most of which fall into the *dad joke* category.
 
-Here's a collection of jokes I've written. Please enjoy. Maybe crack a smile. (An eye roll will suffice.)
+Here's a collection of jokes I've written. Please enjoy. Crack a smile, maybe. Roll your eyes, even. I love a good eye roll.
 
 ---
 
@@ -13,7 +13,7 @@ Man: "My late wife would love this restaurant."
 Hostess: "I'm sorry, how long has she been dead?"
 
 {{< reveal "Man:" >}}
-"She's not dead. Just late, like always."
+"She's not dead. Just late, like usual."
 {{< /reveal >}}
 
 Life's miserable when you're married to a melon monger...
