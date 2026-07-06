@@ -8,6 +8,12 @@ Here's a collection of jokes I've written. Please enjoy. Crack a smile, maybe. R
 
 ---
 
+My Spanish teacher (former military) dropped out of a dance competition after suffering a bad lower leg injury
+
+{{< reveal "It was a" >}}
+major mal funk shin
+{{< /reveal >}}
+
 Man: "My late wife would love this restaurant."
 
 Hostess: "I'm sorry, how long has she been dead?"
