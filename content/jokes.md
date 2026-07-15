@@ -8,6 +8,18 @@ Here's a collection of jokes I've written. Please enjoy. Crack a smile, maybe. R
 
 ---
 
+Something about this IKEA cabinet rubs me the wrong way
+
+{{< reveal "I guess" >}}
+I'm still piecing it together
+{{< /reveal >}}
+
+Turns out churches have to report their membership numbers to order new furniture
+
+{{< reveal "Unfortunately" >}}
+Sum assembly required
+{{< /reveal >}}
+
 My Spanish teacher (former military) dropped out of a dance competition after suffering a bad lower leg injury
 
 {{< reveal "It was a" >}}
