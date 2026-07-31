@@ -6,7 +6,7 @@ date: 2026-07-27T19:11:55.598Z
 draft: false
 image: late-july-chips.jpg
 ---
-It's officially late July and I feel officially compelled to notify you that [Late July's](https://www.latejuly.com) [Jalapeño Lime](https://www.latejuly.com/snacks/#jalapeno-lime-about) chips are officially the greatest snack chips in the known universe. Think of them like *Elevated Doritos*.
+It's officially late July and I feel officially compelled to notify you that [Late July](https://www.latejuly.com)'s [Jalapeño Lime](https://www.latejuly.com/snacks/#jalapeno-lime-about) chips are officially the greatest snack chips in the known universe. Think of them like *Elevated Doritos*.
 
 ![A display full of Late July chips at my local Costco](late-july-chips.jpg)
 
