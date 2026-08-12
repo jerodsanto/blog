@@ -48,6 +48,6 @@ I'm beyond grateful for this family the Lord has given me. We don't often karaok
 
 [^5]: Believe it or not I have the first two verses of this song memorized. The problem is I always forget the third verse exists.
 
-[6]: Good times never seemed so good (So good! So good! So good!)
+[^6]: Good times never seemed so good (So good! So good! So good!)
 
 [^7]: Rach has a shirt that says, "These Are The Days." I think about that a lot.
