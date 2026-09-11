@@ -33,6 +33,26 @@ draft: true
 
 Edit the post, add categories, and remove `draft: true` when ready to publish.
 
+### Post states
+
+A post is in one of three states, set in front matter:
+
+| State | Front matter | Rendered at its URL? | In home list, feeds, sitemap? |
+|---|---|---|---|
+| draft | `draft: true` | no (unless `hugo server -D`) | no |
+| preview | `draft: false` + `build.list: never` | yes | no |
+| published | `draft: false` | yes | yes |
+
+Use **preview** to share a post with reviewers before you publish it:
+
+```yaml
+draft: false
+build:
+  list: never
+```
+
+To publish, delete the `build` block. A preview post is a public URL. Search engines can index it if someone links to it.
+
 ## Image Best Practices
 
 The site uses a graph-paper background with `--line-height` of 18px (1.2rem at 15px font-size). Body text aligns to those grid lines. Images can knock subsequent paragraphs off the grid, so the image render hook (`layouts/_default/_markup/render-image.html`) snaps each image's box height *up* to the next grid line and uses `object-fit: cover` with `object-position: top` to fill the box. Cropping happens at the bottom edge — at most ~18px on desktop, ~16px on mobile.
