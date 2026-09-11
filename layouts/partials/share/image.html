@@ -1,0 +1,15 @@
+{{- /*
+  Returns a dict describing the share image for a page:
+    url, width, height, type
+  Uses the page's `image` param as a page resource or an absolute URL,
+  else falls back to the site-wide share.png. width is 0 when unknown.
+*/ -}}
+{{- $image := dict "url" ("/share.png" | absURL) "width" 1200 "height" 630 "type" "image/png" }}
+{{- with .Params.image }}
+  {{- with $.Resources.GetMatch . }}
+    {{- $image = dict "url" .Permalink "width" .Width "height" .Height "type" .MediaType.Type }}
+  {{- else }}
+    {{- $image = dict "url" (. | absURL) "width" 0 "height" 0 "type" "" }}
+  {{- end }}
+{{- end }}
+{{- return $image }}

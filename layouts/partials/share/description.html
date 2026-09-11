@@ -1,0 +1,18 @@
+{{- /*
+  Returns the share description for a page.
+  Home page: a fixed line. Other pages: the stab if set, else a short
+  plain-text summary with footnote markers removed.
+*/ -}}
+{{- $description := "I like writing, but not about myself." }}
+{{- if not .IsHome }}
+  {{- with .Params.stab }}
+    {{- $description = . }}
+  {{- else }}
+    {{- $description = .Summary
+      | replaceRE `<sup[^>]*>\s*<a[^>]*footnote-ref[^>]*>[^<]*</a>\s*</sup>` ""
+      | plainify | htmlUnescape
+      | replaceRE `\s+` " " | strings.TrimSpace
+      | truncate 200 }}
+  {{- end }}
+{{- end }}
+{{- return $description }}
