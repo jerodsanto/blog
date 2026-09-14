@@ -14,7 +14,8 @@ After six months of [tree farming](https://jerodsanto.net/2026/05/planting-trees
 
 I'm joining [Feross](https://feross.org) and the gang as *Head of Media* at [Socket](https://socket.dev) [(🥳)](https://www.youtube.com/watch?v=ChpmKkWBb4w)
 
-![](jerod-joins-socket.jpg)
+![Feross shakes Michael Scott's... err... Jerod's hand on hist first day in The Office](jerod-joins-socket.jpg)
+
 ## Why Socket
 
 I've been a Feross fan for over a decade. His work on [Standard JS](https://standardjs.com) and [WebTorrent](https://webtorrent.io) was more than enough to get him invited on [The Changelog](https://changelog.com/podcast/227) back in 2016. In the opening of that show, I said this:
