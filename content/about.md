@@ -20,7 +20,7 @@ I enjoyed working alone, but often felt like I was on a technological island. No
 
 That collaboration blossomed into an amazing partnership with [Adam Stacoviak](https://adamstacoviak.com/) that [lasted 13 years](https://jerodsanto.net/2026/03/so-long-changelog/). During that time, I interviewed many of my coding heroes, met people from all around the world, made some great friends, and learned a ton about life, business, and the importance of clear communication.
 
-These days I'm tending to our orchard, [planting trees](https://jerodsanto.net/2026/05/planting-trees-software-dreams/), and helping people build [simple systems](https://reallysimple.systems) that work for their business.
+These days I'm Head of Media at [Socket](https://socket.dev). I'm also tending to [our orchard](https://www.instagram.com/santoacres), [growing trees](https://jerodsanto.net/2026/05/planting-trees-software-dreams/), and, on rare occasions, helping people with [simple systems](https://reallysimple.systems) that work for their business.
 
 ## Faith
 
