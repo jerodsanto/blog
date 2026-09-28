@@ -1,15 +1,17 @@
 {{- /*
   Returns a dict describing the share image for a page:
-    url, width, height, type
+    url, width, height, type, card
   Uses the page's `image` param as a page resource or an absolute URL,
-  else falls back to the site-wide share.png. width is 0 when unknown.
+  else falls back to the small me.png avatar. width is 0 when unknown.
+  card is the Twitter card type: summary_large_image for page images,
+  summary for the avatar fallback.
 */ -}}
-{{- $image := dict "url" ("/share.png" | absURL) "width" 1200 "height" 630 "type" "image/png" }}
+{{- $image := dict "url" ("/me.png" | absURL) "width" 246 "height" 239 "type" "image/png" "card" "summary" }}
 {{- with .Params.image }}
   {{- with $.Resources.GetMatch . }}
-    {{- $image = dict "url" .Permalink "width" .Width "height" .Height "type" .MediaType.Type }}
+    {{- $image = dict "url" .Permalink "width" .Width "height" .Height "type" .MediaType.Type "card" "summary_large_image" }}
   {{- else }}
-    {{- $image = dict "url" (. | absURL) "width" 0 "height" 0 "type" "" }}
+    {{- $image = dict "url" (. | absURL) "width" 0 "height" 0 "type" "" "card" "summary_large_image" }}
   {{- end }}
 {{- end }}
 {{- return $image }}

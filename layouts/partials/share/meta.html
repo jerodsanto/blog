@@ -13,7 +13,7 @@
 <meta property="og:image:height" content="{{ $image.height }}" />
 <meta property="og:image:type" content="{{ $image.type }}" />
 {{- end }}
-<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:card" content="{{ $image.card }}" />
 <meta name="twitter:title" content="{{ .Title }}" />
 <meta name="twitter:description" content="{{ $description }}" />
 <meta name="twitter:image" content="{{ $image.url }}" />
