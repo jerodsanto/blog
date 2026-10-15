@@ -157,7 +157,7 @@ Reply All is just getting started, but they already have me hooked.
 
 I listen to music pretty much all day, every day. That being said, I don't pay close to attention to what's going in my ears. Every once in awhile, though, an artist will grab me by the ear lobes and won't let go. Here are a few that did just that this year.
 
-### [Com Truise](http://rd.io/x/QVNNbzFU3BM/)
+### [Com Truise](https://music.apple.com/us/artist/com-truise/407016659)
 
 They say Com Truise is “slow-motion funk”. I’m not sure if that quite describes it, but whatever genre it is, I’m a huge fan.
 
@@ -175,7 +175,7 @@ Excellent remixes which often feature music from my former days. This is absolut
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/142420750&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 
-**Honorable Mentions:** [Little Machines &mdash; LIGHTS](http://rd.io/x/QVNNbyIVHVs/), [After the Disco &mdash; Broken Bells](http://rd.io/x/QVNNbyJjr2A/)
+**Honorable Mentions:** [Little Machines &mdash; LIGHTS](https://music.apple.com/us/album/little-machines/898501916), [After the Disco &mdash; Broken Bells](https://music.apple.com/us/album/after-the-disco/1309065592)
 
 ---
 That’s my list. I hope you find one or more of these things as enjoyable and/or useful as I have.
