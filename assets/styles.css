@@ -188,8 +188,13 @@ iframe {
 }
 iframe[src*="youtube.com/embed"],
 iframe[src*="player.vimeo.com"] {
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: round(up, calc(100cqw * 9 / 16), var(--line-height));
+}
+iframe[src*="soundcloud.com"] {
+  height: round(up, 166px, var(--line-height));
+}
+iframe[src*="soundcloud.com"][src*="visual=true"] {
+  height: round(up, 300px, var(--line-height));
 }
 img {
   font-style: italic;
