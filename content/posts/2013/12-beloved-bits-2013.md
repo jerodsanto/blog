@@ -95,19 +95,13 @@ Still rockin' dat Rdio subscription. Here are a few of my favorite new jams:
 
 Slow Magic's [debut album][triangle] is right in my wheelhouse. Chilled out electronic beats with super interesting elements mixing in and out.
 
-<iframe width="500" height="250" src="https://rd.io/i/QVNNbyJIPEM/" frameborder="0"></iframe>
-
 ### Let's Be Still &mdash; The Head and the Heart
 
 The Head and the Heart have been wildly successful these last few years, and deservedly so. They represent Americana at its best and their [sophomore effort][lets-be-still] did not disappoint.
 
-<iframe width="500" height="250" src="https://rd.io/i/QVNNbyJqt7w/" frameborder="0"></iframe>
-
 ### Ghost on Ghost &mdash; Iron and Wine
 
 I haven't always been a huge Iron and Wine fan, but [Ghost on Ghost][ghost-on-ghost] is a bit of a departure for him, and a welcomed one to my ears. I love this ablum.
-
-<iframe width="500" height="250" src="https://rd.io/i/QVNNbyJ0eQY/" frameborder="0"></iframe>
 
 **Honorable Mentions:** [Pure Heroine][pure-heroine], [Keith Kenniff][helios], [Random Access Memories][ram]
 

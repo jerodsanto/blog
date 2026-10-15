@@ -146,15 +146,9 @@ Rdio to the rescue. Getting to sample from all of the newest music each week is 
 
 If I had to pick an album of the year, it'd be [Blunderbuss][blunderbuss] by Jack White. Everything Jack White puts out is good, and his first solo album is no exception. Every song on this album is interesting and unique, yet it feels like a cohesive work.
 
-<iframe width="500" height="250" src="https://rd.io/i/QVNNbyJI2hc" frameborder="0"></iframe>
-
 ### The Sounds
 
 [The Sounds][the-sounds] are not a new band, but they sure are new to me! It's not too often that I come across a band and immediately enjoy their entire collection, but I was happy to have that experience this year with The Sounds.
-
-Here's a taste of the goods:
-
-<iframe width="500" height="250" src="https://rd.io/i/QVNNbyJWmus" frameborder="0"></iframe>
 
 ### Propaganda
 

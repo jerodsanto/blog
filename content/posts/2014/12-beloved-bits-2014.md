@@ -161,8 +161,6 @@ I listen to music pretty much all day, every day. That being said, I don't pay c
 
 They say Com Truise is “slow-motion funk”. I’m not sure if that quite describes it, but whatever genre it is, I’m a huge fan.
 
-<iframe width="500" height="80" src="http://rd.io/i/QVNNbyJGUY4/" frameborder="0"></iframe>
-
 Whether I’m driving, coding, or working out: Com Truise has become a staple in my playlists. Also, that name tho.
 
 ### [Cold Fresh Pillows](https://soundcloud.com/cold-fresh-pillows)
