@@ -285,12 +285,12 @@ ol {
 
 ul {
   list-style-type: square;
-  padding: 0 0 0 2ch;
+  padding: 0 0 0 4ch;
 }
 ol {
   list-style-type: none;
   counter-reset: item;
-  padding: 0;
+  padding: 0 0 0 2ch;
 }
 ol ul,
 ol ol,
@@ -402,8 +402,8 @@ label input {
 }
 
 blockquote {
-  margin-left: 0.75em;
-  padding-left: 10px;
+  margin-left: 2ch;
+  padding-left: calc(2ch - var(--border-thickness));
   border-left: var(--border-thickness) solid var(--text-color);
 }
 
