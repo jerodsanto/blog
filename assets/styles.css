@@ -811,7 +811,7 @@ img[style*="--w"] {
   text-decoration: underline;
 }
 
-@media (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   :root {
     --text-color: #d3d3d4;
     --text-color-alt: #aaa;
@@ -1070,5 +1070,92 @@ img[style*="--w"] {
   }
   .chroma .bp {
     color: #79c0ff;
+  }
+}
+
+@media print {
+  @page {
+    margin: 2cm 1.5cm;
+  }
+
+  html,
+  body {
+    display: block;
+    min-height: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .content {
+    max-width: none;
+    margin: 0 !important;
+  }
+
+  .graph-paper,
+  #dragme,
+  header tr:last-child,
+  iframe,
+  video,
+  audio {
+    display: none !important;
+  }
+
+  header {
+    margin-bottom: var(--line-height);
+  }
+
+  /* Show link targets, since paper has no hover */
+  article a[href^="http"]:not(:has(img))::after {
+    content: " <" attr(href) ">";
+    font-size: 0.75rem;
+    color: var(--text-color-alt);
+    overflow-wrap: anywhere;
+  }
+
+  /* Paper can't scroll, so wrap code instead */
+  pre,
+  figure {
+    overflow: visible;
+  }
+  pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  /* Paper can't click, so open every <details> */
+  details::details-content {
+    content-visibility: visible;
+    display: contents;
+  }
+  details ::marker {
+    content: "▼";
+  }
+  details summary {
+    margin-bottom: var(--line-height);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid;
+  }
+
+  img,
+  pre,
+  figure,
+  blockquote,
+  table,
+  details,
+  footer,
+  .post-list li {
+    break-inside: avoid;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
   }
 }
