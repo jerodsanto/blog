@@ -8,7 +8,7 @@ draft: false
 ---
 Here's a smattering of things I found interesting lately. Tools, articles, silos, and insults to all programmers.
 
----
+![Moebius-themed share image featuring a man gazing down upon a Silo](things-of-interest-august-2026.jpg)
 
 [Silo](https://www.themoviedb.org/tv/125988-silo)
 

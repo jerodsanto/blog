@@ -8,7 +8,7 @@ image: things-of-interest-july-2026.jpg
 ---
 Here's a smattering of things I found interesting lately. Tools, articles, bears, beets, [Battlestar Galactica](https://www.youtube.com/watch?v=WaaANll8h18).
 
----
+![Moebius-themed share image featuring a bear, some beets, and a nod to Battlestar Galactica](things-of-interest-july-2026.jpg)
 
 [SVG Backgrounds](https://www.svgbackgrounds.com/)
 
@@ -76,5 +76,3 @@ The *Stay SaaSy* folks on why prioritization (for startups) is a trap.
 ---
 
 There it is. A smattering of things I found interesting lately. [What'd you find](/contact)?
-
-![Moebius-themed share image featuring a bear, some beets, and a nod to Battlestar Galactica](things-of-interest-july-2026.jpg)
